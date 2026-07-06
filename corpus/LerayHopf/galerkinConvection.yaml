@@ -1,18 +1,18 @@
 name: LerayHopf.galerkinConvection
 tier: full
 statement_ja: |
-  有限（箱 $n$）Galerkin 移流形式。$e^{2\pi i k\cdot x}$ モードに対する移流の構造定数
-  $$b(u,v,w) = \sum_i\sum_a \sum_{k,l \in \mathrm{fourierBox}\,n} \hat u_a(k)\,(2\pi i\, l_a)\,\hat v_i(l)\,\hat w_i(-(k+l)),$$
-  ここで $\hat u_a(k) = \mathrm{mFourierCoeff3}\,(L^2\mathrm{VF\_projComponentC}\,a\,u)\,k$。
+  有限（箱 $n$）**Galerkin 移流形式**。指数関数モードに対する移流の構造定数として
+
+  $$b(u,v,w)=\sum_i\sum_a\sum_{k,l}\hat u_a(k)\,(2\pi i\, l_a)\,\hat v_i(l)\,\hat w_i(-(k+l))$$
+
+  と定める。ここで和は箱 $\lVert k\rVert_\infty\le n$, $\lVert l\rVert_\infty\le n$ を走る。
 proof_ja: |
-  $\mathbb{T}^3$ 上の移流三線形形式 $(u\cdot\nabla)v\cdot w$ の正しい有限和近似で、有限和ゆえ well-defined、
-  一般に非零（$b=0$ が $\mathrm{b\_galerkin}$ で排除される）、かつ Galerkin 部分空間 $V_n$ 上で真の移流形式に一致する。
-  $(2\pi i\, l_a)$ 因子は $\partial_a e^{2\pi i l\cdot x}$ の係数から生じる。移流形式を対角だけ拘束し多線形性を課さないと、
-  病的な設定で $\forall F$ 量化の Galerkin ODE が $w=0$ で偽になりうるため、具体ピン留めで非退化を保証する。
+  $\mathbb{T}^3$ 上の移流三線形形式 $(u\cdot\nabla)v\cdot w$ の正しい有限和近似で、有限和ゆえ well-defined、一般に非零、かつ Galerkin 部分空間の上で真の移流形式に一致する。因子 $2\pi i\, l_a$ はモードの偏微分の係数から生じる。
+
+  移流形式を対角だけに拘束して多線形性を課さないと、病的な設定で「すべての形式束に対する」Galerkin 常微分方程式が $w=0$ で偽になりうる。そこで具体的なピン留めで非退化性を保証する。
 gap:
   level: mild
   note: |
-    自然言語の「移流形式は当然 $\int(u\cdot\nabla)v\cdot w$」を、Fourier 構造定数の有限和として具体化する。
-    抽象公理では反対称・三線形だけだと $b=0$ で充足され過大主張になるため、この具体化で非退化を担保する。
+    自然言語の「移流形式は当然 $\int(u\cdot\nabla)v\cdot w$」を、Fourier 構造定数の有限和として具体化する。抽象公理では反対称性と三線形性だけだと $b=0$ で満たされて過大主張になるため、この具体化で非退化性を担保する。
 chapter: limit-passage
 tags: [convection-form, galerkin, fourier-coefficient, non-degeneracy]

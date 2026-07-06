@@ -1,18 +1,16 @@
 name: LerayHopf.fourierProjection_n_mFourierCoeff
 tier: full
 statement_ja: |
-  Fourier 射影は係数を箱の内で保存し外で消す：任意の $n, f, k$ に対して
-  $$\mathrm{mFourierCoeff3}\,\bigl((\mathrm{fourierProjection}_n\,n)\,f\bigr)\,k =
-  \begin{cases} \mathrm{mFourierCoeff3}\,f\,k & (k \in \mathrm{fourierBox}\,n) \\ 0 & (k \notin \mathrm{fourierBox}\,n). \end{cases}$$
+  [[Fourier 射影|LerayHopf.fourierProjection_n]]は、箱の内側では係数を保ち、外側では消す。任意の $n,f,k$ に対して次が成り立つ。
+
+  $$\widehat{P_n f}(k)=\begin{cases}\hat f(k)&(\lVert k\rVert_\infty\le n)\\[2pt] 0&(\lVert k\rVert_\infty>n).\end{cases}$$
 proof_ja: |
-  閉部分空間 $S = \mathrm{fourierSpan}\,n$ への直交射影 $\mathrm{starProjection}\,f$ は、$S$ の元のうち $f$ に最も近いもので、
-  内積による特徴づけ $\langle g, Pf\rangle = \langle g, f\rangle\ (g\in S)$ かつ $\langle g, Pf\rangle = 0\ (g\in S^\perp)$ を満たす。
-  これを Hilbert 基底ベクトル $g = \mathrm{torus3\_mFourierBasis}\,k$ に適用する。$k \in \mathrm{fourierBox}\,n$ なら
-  $g \in S$ なので係数は保存され、$k \notin \mathrm{fourierBox}\,n$ なら $g \in S^\perp$ なので係数は $0$ になる。
-  これが $\mathrm{fourierProjection}_n$ を真の Fourier 截断射影たらしめ、発散ゼロ部分空間の保存の道具にもなる。
+  閉部分空間 $S$ への直交射影は、$S$ の元のうち $f$ に最も近いものであり、内積による特徴づけ「$S$ 上では $f$ と一致し、$S$ の直交補空間上では $0$」を満たす。
+
+  これを Hilbert 基底ベクトルに適用する。$\lVert k\rVert_\infty\le n$ ならその基底ベクトルは $S$ に属するので係数は保たれ、$\lVert k\rVert_\infty>n$ なら直交補空間に属するので係数は $0$ になる。これにより $P_n$ が真の Fourier 截断射影となり、発散ゼロ部分空間の保存の道具にもなる。
 gap:
   level: mild
   note: |
-    自然言語の「箱の内だけ残す」を、直交射影の内積特徴づけを Hilbert 基底ベクトルに適用する形で明示的に導く。
+    自然言語の「箱の内側だけ残す」を、直交射影の内積特徴づけを Hilbert 基底ベクトルに適用する形で明示的に導く。
 chapter: projections-galerkin
 tags: [galerkin, fourier-truncation, projection-property]

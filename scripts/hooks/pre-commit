@@ -5,8 +5,9 @@
 # Activate with: git config core.hooksPath scripts/hooks
 #
 # Checks:
-#   1. validate.py  — YAML schema + corpus ⊆ universe
+#   1. validate.py     — YAML schema + corpus ⊆ universe
 #   2. glossary_lint.py — forbidden translation detection
+#   3. prose_lint.py    — D1/D2/D5 prose typography (notes#12); hard errors gate
 
 set -euo pipefail
 
@@ -21,6 +22,10 @@ echo ""
 
 echo "==> lean-pde-notes pre-commit: glossary lint..."
 "$PYTHON" scripts/glossary_lint.py
+echo ""
+
+echo "==> lean-pde-notes pre-commit: prose lint (D1/D2/D5)..."
+"$PYTHON" scripts/prose_lint.py
 echo ""
 
 echo "==> pre-commit checks passed."

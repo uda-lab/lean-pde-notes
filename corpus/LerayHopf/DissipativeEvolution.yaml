@@ -1,24 +1,16 @@
 name: LerayHopf.DissipativeEvolution
 tier: full
 statement_ja: |
-  抽象的な**散逸発展**を表す構造体。実 Hilbert 空間上の Navier–Stokes 型発展方程式が
-  弱形式とエネルギー法則を述べるために必要な道具立てだけを束ねる。すなわち、
-  - 完備な実内積空間 $H$（ピボット Hilbert 空間）、
-  - 非負の正則性汎関数 $\mathrm{reg} : H \to \mathbb{R}$（$\|\cdot\|_{H^1}^2$ の役割を担う）、
-  - 双線形な粘性形式 $\mathrm{viscousForm} : H \to H \to \mathbb{R}$、
-  - 反対称性 $b(u,v,w) = -b(u,w,v)$ を満たす三線形な移流形式 $\mathrm{convForm} : H \to H \to H \to \mathbb{R}$、
-  - 弱形式のパートナーとなるテスト関数クラス $\mathrm{isTest} : H \to \mathrm{Prop}$、
-  を持つ。
+  抽象的な**散逸発展**の枠組み。実 Hilbert 空間上の Navier–Stokes 型発展方程式が、弱形式とエネルギー法則を述べるために必要な道具立てだけを束ねたものである。
+
+  具体的には、ピボットとなる完備実内積空間 $H$、$H^1$ ノルム二乗の役割を担う非負の正則性汎関数、双線形な粘性形式、反対称性 $b(u,v,w)=-b(u,w,v)$ を満たす三線形な移流形式 $b$、そして弱形式のパートナーとなるテスト関数クラスからなる。
 proof_ja: |
-  Gelfand 三つ組 $V \hookrightarrow H \hookrightarrow V'$ を明示的に構築する代わりに、
-  ピボット Hilbert 空間 $H$ と正則性汎関数 $\mathrm{reg}$ を抽象化する設計を採る。
-  $\mathrm{reg}$ のレベル集合のコンパクト性（Rellich 埋め込みに相当）は、この構造体の外から
-  各領域ごとに与える。Galerkin 射影・空間コンパクト性・T³/ℝ³ の具体構成はこの束には含めず、
-  組立ファイル `AxiomaticClosure.lean` で供給する。
+  Gelfand 三つ組 $V\hookrightarrow H\hookrightarrow V'$ を陽に構成する代わりに、ピボット空間 $H$ と正則性汎関数を抽象化する設計を採る。正則性汎関数のレベル集合のコンパクト性（Rellich 埋め込みに相当）は、この枠組みの外から各領域ごとに与える。
+
+  Galerkin 射影・空間コンパクト性・$\mathbb{T}^3$ や $\mathbb{R}^3$ に固有の具体的構成はこの枠組みには含めない。$H$ を抽象に保つことで、この層は $\mathbb{T}^3$ でも $\mathbb{R}^3$ でも無修正で再利用できる。
 gap:
   level: mild
   note: |
-    自然言語では「発展方程式の抽象的枠組み」の一言だが、Lean では H¹ 空間そのものを作らず
-    正則性汎関数で代替する設計判断が入る。この抽象層は T³ でも ℝ³ でも無修正で再利用される。
+    自然言語では「発展方程式の抽象的枠組み」の一言だが、形式化では $H^1$ 空間そのものを構成せず正則性汎関数で代替する設計判断が入る。テスト関数クラスは述語 `isTest` として与え、具体構成の組み立ては `AxiomaticClosure.lean` が担う。
 chapter: spaces
 tags: [abstract, evolution-triple]

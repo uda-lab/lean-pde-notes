@@ -1,14 +1,15 @@
 name: LerayHopf.mFourierCoeff3
 tier: full
 statement_ja: |
-  $\mathbb{C}$ 値 $L^2(\mathbb{T}^3)$ 関数 $f$ の第 $k$ **Fourier 係数**
-  $$\mathrm{mFourierCoeff3}\,f\,k = \mathrm{torus3\_mFourierBasis.repr}\,f\,k,$$
-  ここで $\mathrm{repr}$ は Hilbert 基底が与える $L^2C$ から $\ell^2(\mathbb{Z}^3, \mathbb{C})$ への等長同型。
+  $\mathbb{T}^3$ 上の複素数値 $L^2$ 関数 $f$ の第 $k$ **Fourier 係数** $\hat f(k)$。
+
+  指数関数系 $e^{2\pi i k\cdot x}$ からなる Hilbert 基底の表現写像、すなわち $L^2(\mathbb{T}^3;\mathbb{C})$ から $\ell^2(\mathbb{Z}^3;\mathbb{C})$ への等長同型の第 $k$ 座標として定める。
 proof_ja: |
-  $\mathbb{T}^3$ の指数関数 $e^{2\pi i k\cdot x}$ からなる Hilbert 基底 $\mathrm{torus3\_mFourierBasis}$ の
-  表現写像 $\mathrm{repr}$ の第 $k$ 座標として定義する。$\mathrm{repr}$ は等長同型なので Parseval 等式
-  $\|f\|^2 = \sum'_k \|\hat f(k)\|^2$ が直ちに従う。本形式化では $\mathbb{T}^3$ の離散 Fourier 係数を
-  この形で直接扱い、発散記号・$H^1$ エネルギー・Galerkin 射影の基盤とする。
+  表現写像は等長同型なので、Parseval 等式が直ちに従う。
+
+  $$\lVert f\rVert^2=\sum_k\bigl\lvert\hat f(k)\bigr\rvert^2$$
+
+  本形式化では $\mathbb{T}^3$ の離散 Fourier 係数をこの形で直接扱い、[[発散記号|LerayHopf.divSymbol]]・$H^1$ エネルギー・Galerkin 射影の基盤とする。
 gap:
   level: none
 chapter: spaces

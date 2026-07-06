@@ -1,19 +1,14 @@
 name: LerayHopf.AubinLionsPackage
 tier: full
 statement_ja: |
-  Aubin–Lions 補題が生み出すパッケージ（T³）。抽出された部分列 $\varphi$、その狭義単調性、極限曲線
-  $u : \mathrm{Time} \to L^2_\sigma$、そして**強 $L^2(0,T;L^2_\sigma)$ 収束**（部分列と極限の $L^2_\sigma$ 距離二乗の
-  時間積分が $0$ に収束）を持つ。
+  Aubin–Lions 補題が生み出すパッケージ（$\mathbb{T}^3$）。抽出された部分列、その狭義単調性、極限曲線 $u$、そして時間区間上の**強 $L^2$ 収束**（部分列と極限の $L^2_\sigma$ 距離二乗の時間積分が $0$ に収束する）をもつ。
 proof_ja: |
-  $\mathrm{galSeq}$（Galerkin 列）は構造体のフィールドではなくパラメータであり、収束の主張が
-  $\mathrm{torusAubinLionsPackage\_of\_galSeq}$ に渡されるのと同じ列に型で束縛される。これにより A1（Galerkin 列）
-  $\to$ A2（Aubin–Lions）$\to$ A3（極限移行）の鎖が一本の列の上でつながる。空間コンパクト性の半分はこの
-  パッケージに含めず、$\mathrm{torusAubinLionsPackage\_of\_galSeq}$ への明示的仮説として与える。
+  Galerkin 列は構造の一部ではなくパラメータであり、収束の主張が渡されるのと同じ列に型のうえで束縛される。これにより「Galerkin 列 → Aubin–Lions → 極限移行」の鎖が一本の列の上でつながる。
+
+  空間コンパクト性の半分はこのパッケージには含めず、外から明示的な仮説として与える。
 gap:
   level: mild
   note: |
-    形式化レビュー当時は Aubin–Lions は公理 `aubin_lions` だったが、その後 `torusAubinLionsPackage_of_galSeq`
-    として証明済み定理に置き換えられ、プロジェクトは公理ゼロ（kernel-only）に到達している。パッケージは
-    A1→A2→A3 を同一列で束ねる型設計をとり、空間半は外から仮説として供給する。
+    形式化レビュー当時は Aubin–Lions は公理 `aubin_lions` だったが、その後 `torusAubinLionsPackage_of_galSeq` として証明済み定理に置き換えられ、プロジェクトは追加公理ゼロ（kernel-only）に到達している。パッケージは A1→A2→A3 を同一列で束ねる型設計をとり、空間側の半分は外から仮説として供給する。
 chapter: compactness
 tags: [aubin-lions, time-compactness, frontier-resolved]

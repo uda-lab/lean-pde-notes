@@ -1,21 +1,22 @@
 name: LerayHopf.abstract_galerkin_energy_identity
 tier: full
 statement_ja: |
-  実内積空間 $H$ 上の曲線 $u : \mathbb{R} \to H$ が、反対称性 $B(w,w,w)=0$ をもつ抽象 Galerkin エネルギー法則
-  （射影 ODE の内積形）$\langle u'(t), u(t)\rangle + D(u(t)) + B(u(t),u(t),u(t)) = 0$ を満たすとする。
-  このとき運動エネルギー $\tfrac12\|u(t)\|^2$ は各 $t$ で導関数 $-D(u(t))$ をもつ。
+  曲線 $u$ が、反対称性 $B(w,w,w)=0$ をもつ[[抽象 Galerkin エネルギー法則|LerayHopf.AbstractEnergyLaw]] $\langle u',u\rangle+D(u)+B(u,u,u)=0$ を満たすとする。
+
+  このとき運動エネルギー $\tfrac12\lVert u(t)\rVert^2$ は、各 $t$ で導関数 $-D(u(t))$ をもつ。
 proof_ja: |
-  $\frac{d}{dt}\|u\|^2 = 2\langle u, u'\rangle$（`HasDerivAt.norm_sq`）から始める。ODE 法則より
-  $\langle u', u\rangle = -D(u) - B(u,u,u)$、反対称性 $B(u,u,u)=0$ で非線形項が落ち、内積の対称性
-  $\langle u, u'\rangle = \langle u', u\rangle$ を用いて $\frac{d}{dt}(\tfrac12\|u\|^2) = -D(u)$ を得る。
-  Lean 上の詰まりは $1/2$ 倍で、`HasDerivAt.const_mul` が当該ファイルの import 閉包外だったため
-  $(\mathrm{hasDerivAt\_const}\,t\,(1/2)).\mathrm{inner}\,h$（定数 $1/2$ との内積として微分）で代用した。
-  これは数学的ギャップではなく Lean 人間工学のギャップである。この恒等式を FTC-2 で積分して
-  エネルギー不等式へ橋渡しする。
+  運動エネルギーの微分則から始める。
+
+  $$\frac{d}{dt}\lVert u\rVert^2=2\langle u,u'\rangle$$
+
+  ODE 法則より $\langle u',u\rangle=-D(u)-B(u,u,u)$ であり、反対称性から非線形項 $B(u,u,u)$ が消え、内積の対称性を用いて
+
+  $$\frac{d}{dt}\Bigl(\tfrac12\lVert u\rVert^2\Bigr)=-D(u)$$
+
+  を得る。この恒等式を微分積分学の基本定理で積分すると、エネルギー不等式へ橋渡しできる。
 gap:
   level: mild
   note: |
-    数学的には内積の微分則だが、$\tfrac12$ 倍の扱いで `const_mul` 不在を回避する定数内積の技法など、
-    ライブラリ事情由来の細部が入る。
+    数学的には内積の微分則だが、$\tfrac12$ 倍の扱いに関して、当該ファイルの import 閉包の外にあった `HasDerivAt.const_mul` を避けるため、定数 $1/2$ との内積として微分する技法など、ライブラリ事情に由来する細部が入る。これは数学のギャップではなく形式化の人間工学のギャップである。
 chapter: energy
 tags: [energy-identity, abstract, has-deriv-at]

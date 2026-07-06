@@ -1,14 +1,20 @@
 name: LerayHopf.viscousFormSq
 tier: full
 statement_ja: |
-  粘性散逸形式
-  $$\mathrm{viscousFormSq}\,\nu\,u = \nu \sum_{j}\sum_{k}{}' (2\pi)^2\Bigl(\sum_i k_i^2\Bigr)\|\hat u_j(k)\|^2,$$
-  これは $\nu\,\|\nabla u\|_{L^2}^2$（$\mathbb{T}^3$ 上の真の勾配エネルギー）に等しい。
+  **粘性散逸形式**。$\mathbb{T}^3$ 上の真の勾配エネルギー $\nu\lVert\nabla u\rVert_{L^2}^2$ に等しく、Fourier 級数で
+
+  $$\nu\lVert\nabla u\rVert_{L^2}^2=\nu\sum_{j}\ \sum_{k}(2\pi)^2\Bigl(\sum_i k_i^2\Bigr)\bigl\lvert\hat u_j(k)\bigr\rvert^2$$
+
+  と表される。
 gap:
   level: mild
   note: |
-    $(2\pi)^2$ 因子は $e^{2\pi i k\cdot x}$ 規約で $|\partial_{x_i} e^{2\pi i k\cdot x}|^2 = (2\pi k_i)^2$ から生じる荷重で、
-    落とすと粘性形式が誤りになる（自然言語では規約に吸収され見えない）。また mathlib の tsum 規約により
-    $H^1$ の外では実質 $0$ を返すので、散逸としての意味はエネルギー類フィールドと併せて保証する。
+    $(2\pi)^2$ の因子は指数関数系 $e^{2\pi i k\cdot x}$ の規約から生じる荷重で、次の偏微分の二乗に由来する。
+
+    $$\bigl\lvert\partial_{x_i}e^{2\pi i k\cdot x}\bigr\rvert^2=(2\pi k_i)^2$$
+
+    この因子を落とすと粘性形式が誤りになる（自然言語では規約に吸収されて見えない）。
+
+    総和 (`tsum`) の規約により、$H^1$ の外ではこの量は実質 $0$ を返す。したがって散逸としての意味は、$H^1$ 正則性とエネルギー類の条件と併せて保証する。
 chapter: energy
 tags: [viscous-form, dissipation, fourier-coefficient]

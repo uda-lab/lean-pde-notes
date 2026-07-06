@@ -1,20 +1,22 @@
 name: LerayHopf.divTestFunctional
 tier: full
 statement_ja: |
-  Schwartz 関数 $\varphi \in \mathcal{S}(\mathbb{R}^3, \mathbb{R})$ に対する**弱発散テスト汎関数**
-  $$\mathrm{divTestFunctional}\,\varphi\,u = \sum_{j : \mathrm{Fin}\,3} \langle (\partial_j\varphi).\mathrm{toLp}\,2, \, u_j\rangle,$$
-  ここで $u_j = L^2\mathrm{VF\_projComponent\_R3}\,j\,u$ は $u$ の第 $j$ 成分、$\langle g, \cdot\rangle = \mathrm{innerSL}\,\mathbb{R}\,g$ は
-  連続実内積汎関数。$L^2\mathrm{VF\_R3}$ 上の連続 $\mathbb{R}$-線形汎関数である。
+  Schwartz 関数 $\varphi$ に対する**弱発散テスト汎関数**を、各成分ごとの内積の和として定める。
+
+  $$\varphi \longmapsto \sum_{j=1}^{3}\bigl\langle\, \partial_j\varphi,\ u_j\,\bigr\rangle$$
+
+  ここで $u_j$ は速度場 $u$ の第 $j$ 成分、$\langle\,\cdot\,,\,\cdot\,\rangle$ は $L^2$ 内積である。これは $L^2$ 上の連続な実線形汎関数であり、部分積分により超関数の意味での発散をテスト関数と対にした量を表す。
+
+  $$\langle\operatorname{div}u,\varphi\rangle=-\sum_{j}\int u_j\,\partial_j\varphi$$
 proof_ja: |
-  各成分 $j$ ごとに、偏微分 $\partial_j\varphi$ を Schwartz 関数として取り（`lineDerivOpCLM`；
-  `pderivCLM` は 2025-11 に非推奨）、その $L^2$ 類 $(\partial_j\varphi).\mathrm{toLp}\,2$ との内積汎関数
-  $\mathrm{innerSL}\,\mathbb{R}$ を成分射影 $L^2\mathrm{VF\_projComponent\_R3}\,j$ に合成する。
-  これらの有限和として連続線形汎関数が構成され、超関数的発散 $\langle \mathrm{div}\,u, \varphi\rangle = -\sum_j\int u_j\,\partial_j\varphi$
-  を表す。`SchwartzMap.toLp` は `volume` が Haar 測度ゆえ緩増加性が自動発火して定義できる。
+  各成分 $j$ について、テスト関数の偏微分 $\partial_j\varphi$ もまた Schwartz 関数であり、その $L^2$ 類との内積 $\langle\partial_j\varphi,\,u_j\rangle$ は $u$ に関する連続な実線形汎関数を定める。これらを $j=1,2,3$ について足し合わせることで、連続実線形汎関数が得られる。
+
+  この汎関数が表すのは、部分積分で境界項を落とした後の超関数的発散のテストペアリングであり、その零点全体（すべての $\varphi$ で値が $0$）が発散ゼロ条件を与える。
 gap:
   level: mild
   note: |
-    自然言語の「発散をテスト関数と対にする」に対し、Lean では偏微分作用素・Schwartz の Lp 化・
-    内積汎関数を明示的に組み合わせて連続性を保証する必要がある。
+    自然言語の「発散をテスト関数と対にする」に対し、形式化では偏微分作用素・Schwartz 関数の $L^2$ 埋め込み・内積汎関数を明示的に組み合わせて連続性を保証する必要がある。
+
+    偏微分には `lineDerivOpCLM` を用いる（`pderivCLM` は 2025-11 に非推奨化）。`SchwartzMap.toLp` は Lebesgue 測度が Haar 測度であることから緩増加性が自動的に発火して定義できる。
 chapter: spaces
 tags: [divergence-free, schwartz, weak-divergence]

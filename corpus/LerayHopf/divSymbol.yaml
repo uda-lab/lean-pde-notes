@@ -1,15 +1,13 @@
 name: LerayHopf.divSymbol
 tier: full
 statement_ja: |
-  波数 $k$ における**発散記号**：$L^2\mathrm{VF}$ 上の連続 $\mathbb{R}$-線形汎関数
-  $$\mathrm{divSymbol}\,k\, u = \sum_{j : \mathrm{Fin}\,3} (k_j : \mathbb{C})\cdot \mathrm{mFourierCoeff3}\,(L^2\mathrm{VF\_projComponentC}\,j\, u)\, k.$$
-  $u \in L^2_\sigma$ であることは、すべての $k$ について $\mathrm{divSymbol}\,k\,u = 0$ が成り立つことと同値。
+  波数 $k$ における**発散記号**。Fourier 空間での発散を与える連続な線形汎関数で、
+
+  $$\widehat{\operatorname{div}u}(k)=\sum_{j=1}^{3} k_j\,\hat u_j(k)$$
+
+  と定める。ここで $\hat u_j(k)$ は第 $j$ 成分の第 $k$ [[Fourier 係数|LerayHopf.mFourierCoeff3]]である。$u$ が発散ゼロであることは、すべての波数 $k$ でこの記号が消えることと同値。
 proof_ja: |
-  各 $j$ ごとに三つの $\mathbb{R}$-線形連続写像を合成して構成する：成分埋め込み
-  $L^2\mathrm{VF\_projComponentC}\,j : L^2\mathrm{VF} \to_L L^2C$、
-  $\mathbb{R}$-スカラーに制限した Fourier 係数写像 $\mathrm{fourierCoeffCLM}\,k : L^2C \to_L \mathbb{C}$、
-  そして係数 $(k_j : \mathbb{C})$ による定数倍。これらの有限和として連続線形汎関数が得られ、
-  Fourier 空間での発散 $\widehat{\nabla\cdot u}(k) = \sum_j k_j\,\hat u_j(k)$ を表す。
+  各成分 $j$ について、成分の抽出・Fourier 係数の取り出し・係数 $k_j$ 倍という 3 つの連続線形写像を合成する。これらの有限和として連続線形汎関数が得られ、Fourier 空間での発散 $\sum_j k_j\,\hat u_j(k)$ を表す。
 gap:
   level: none
 chapter: spaces

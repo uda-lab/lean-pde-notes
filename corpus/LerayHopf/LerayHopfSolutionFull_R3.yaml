@@ -1,19 +1,16 @@
 name: LerayHopf.LerayHopfSolutionFull_R3
 tier: full
 statement_ja: |
-  ℝ³ 上の**完全 Leray–Hopf 解**構造体。すべてのフィールドが（Prop のプレースホルダではなく）実際の証明を
-  保持する：$\mathrm{weak\_eq}$（すべてのテスト関数で弱 NS 恒等式）、$\mathrm{energy\_ineq}$（$[0,T]$ 上の Leray–Hopf
-  エネルギー不等式）、$\mathrm{initial\_trace}$（初期値を強 $L^2$ で達成）、$\mathrm{energy\_class}$（$u \in L^2(0,T;H^1_\sigma(\mathbb{R}^3))$
-  ＋ 粘性散逸の可積分性）。
+  $\mathbb{R}^3$ 上の**完全 Leray–Hopf 解**。すべての性質を、命題のプレースホルダではなく実際の証明として保持する。
+
+  すなわち、任意のテスト関数に対する弱 Navier–Stokes 恒等式、$[0,T]$ 上の Leray–Hopf エネルギー不等式、初期値を強 $L^2$ で達成すること、そして解が $u\in L^2(0,T;H^1_\sigma(\mathbb{R}^3))$ に属し粘性散逸が可積分であること（エネルギー類）である。
 proof_ja: |
-  この構造体は数学的性質を型のフィールドとして証明保持する（証明保持型）。$\mathrm{energy\_class}$ フィールドは、
-  $\mathrm{viscousFormSq\_R3}\,\nu$ が $H^1$ の外で（tsum/Bochner 規約により）潰れて $\mathrm{energy\_ineq}$ が空虚に成り立つのを
-  防ぐために置かれる。組立側 $\mathrm{exists\_lerayHopf\_r3\_axiomatic}$ が Galerkin 極限からこれらの証明を供給し、
-  各フィールドを埋める。
+  各性質を実際の証明として保持し、[[主定理|LerayHopf.exists_lerayHopf_r3_axiomatic]]が Galerkin 極限からそれらを供給して各条件を埋める。
+
+  エネルギー類の条件は、[[粘性散逸形式|LerayHopf.viscousFormSq_R3]]が $H^1$ の外で総和・Bochner の規約により潰れてエネルギー不等式が空虚に成り立つのを防ぐために置かれる。
 gap:
   level: mild
   note: |
-    自然言語の「弱解 $u$」は a.e. 同値類だが、Lean では具体的代表元 $u : \mathbb{R}\to L^2_\sigma$ に点ごとの性質を課すため、
-    エネルギー類フィールドで tsum 崩壊による空虚成立を排除し、良い代表元の存在として健全に定式化する。
+    自然言語の「弱解 $u$」は概至る所の同値類だが、形式化では具体的な代表元に点ごとの性質を課すため、エネルギー類の条件で総和規約の崩壊による空虚成立を排除し、良い代表元の存在として健全に定式化する。
 chapter: capstone-r3
 tags: [leray-hopf, proof-carrying, energy-class]

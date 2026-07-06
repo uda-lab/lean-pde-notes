@@ -139,8 +139,30 @@ h1.decl-title .short { font-family: var(--font-mono); }
 .pane { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 0.8rem 0.95rem; min-width: 0; }
 .pane h4 { margin: 0 0 0.5rem; font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
 
-.prose { max-width: var(--prose-width); line-height: 1.8; white-space: pre-wrap; word-break: break-word; }
+/* Prose typography (notes#12 D1): paragraphs come from blank lines in the corpus, NOT
+ * from physical line breaks — no pre-wrap, no width/height truncation. */
+.prose { max-width: var(--prose-width); line-height: 1.8; word-break: normal; overflow-wrap: anywhere; }
 .prose.empty { color: var(--muted); font-style: italic; }
+.prose-p { margin: 0 0 0.75rem; }
+.prose-p:last-child { margin-bottom: 0; }
+
+/* Inline prose tokens (D5). */
+.prose code, .prose-p code, .hc-stmt code, .one-line code {
+  font-family: var(--font-mono); font-size: 0.86em;
+  background: var(--code-bg); padding: 0.05em 0.32em; border-radius: 4px;
+}
+.prose strong, .prose-p strong { font-weight: 700; }
+/* [[…]] reference span in prose (and unresolved variant). */
+.ref-missing { border-bottom: 1px dashed var(--muted); color: var(--muted); cursor: help; }
+
+/* Display math (D2): allow horizontal scroll instead of overflowing the pane. */
+.prose .katex-display, .prose-p .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.15rem 0; margin: 0.5rem 0; }
+.katex-display > .katex { white-space: nowrap; }
+
+/* Preview safety nets (CSS max-height only — never the primary cut; D1). */
+.card-preview { margin-top: 0.5rem; max-height: 12rem; overflow: hidden; }
+.hc-stmt { max-height: 9rem; overflow: hidden; }
+.decl-row .one-line { max-height: 3.4rem; overflow: hidden; }
 
 .codewrap { overflow-x: auto; }
 pre.lean {
@@ -172,8 +194,14 @@ details.use > summary .filemeta { margin: 0; }
   border-radius: 8px;
   padding: 0.7rem 0.9rem;
   margin: 1rem 0;
+  scroll-margin-top: 4rem;   /* clear the sticky header when scroll-linked from the gap badge (D4) */
 }
 .note-panel h4 { margin: 0 0 0.4rem; font-size: 0.85rem; color: #7a5c00; }
+
+/* Header gap badge acts as a scroll-link to the Note below the proof band (D4). */
+.badge.gap-link { cursor: pointer; }
+.badge.gap-link:hover { text-decoration: underline; }
+.badge.gap-link::after { content: " ↓"; opacity: 0.7; }
 
 .section { margin-top: 1.6rem; }
 .section > h3 { font-size: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }

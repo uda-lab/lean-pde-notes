@@ -64,25 +64,213 @@ function tierBadge(tier) { return badge('tier-' + tier, tier === 'full' ? 'フ�
 function declHref(slug) { return '#/decl/' + encodeURIComponent(slug); }
 function chapterHref(id) { return '#/chapter/' + encodeURIComponent(id); }
 
-function renderProse(container, text) {
-  container.textContent = text || '';
-  if (typeof renderMathInElement === 'function') {
-    try {
-      renderMathInElement(container, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false },
-        ],
-        throwOnError: false,
-      });
-    } catch (e) { /* leave raw text on failure */ }
-  }
+/* ---------------- prose rendering (D1 paragraphs + D5 inline tokenizer) ----------------
+ *
+ * Prose fields (statement_ja / proof_ja / gap.note) are authored one physical line per
+ * paragraph, blank line = paragraph boundary (notes#12 D1). The renderer:
+ *   1. splits on blank lines into <p> paragraphs (NO width/height/char truncation);
+ *   2. within a paragraph, extracts $…$ / $$…$$ math segments FIRST so the inline
+ *      tokenizer never touches TeX;
+ *   3. tokenizes the non-math text for `code`, **strong**, [[ref]] / [[ref|target]]
+ *      (D5) building DOM nodes only — never innerHTML of raw corpus text (escape-safe);
+ *   4. re-runs KaTeX over the assembled container so the math text nodes render.
+ * Legacy single \n inside a paragraph are joined without a break (CJK↔CJK: no space;
+ * ASCII-word↔ASCII-word: one space) — the欧文 join rule is NOT applied across CJK. */
+
+const HOVER_PREVIEW_BUDGET = 90;   // hovercard sentence-preview budget (code points)
+const ROW_PREVIEW_BUDGET = 78;     // chapter/search one-line preview budget
+
+function typesetMath(container) {
+  if (typeof renderMathInElement !== 'function') return;
+  try {
+    renderMathInElement(container, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+      ],
+      throwOnError: false,
+    });
+  } catch (e) { /* leave raw text on failure */ }
 }
 
-function firstLine(text, n) {
-  if (!text) return '';
-  const lines = String(text).trim().split('\n').filter(l => l.trim());
-  return lines.slice(0, n || 1).join(' ');
+// Split prose into paragraph strings on blank lines. Each may still carry legacy
+// single newlines (joined later). No length-based cutting anywhere.
+function splitParagraphs(text) {
+  if (!text) return [];
+  return String(text).replace(/\r\n?/g, '\n').split(/\n[ \t]*\n/)
+    .map(p => p.replace(/^\n+|\n+$/g, '')).filter(p => p.trim().length);
+}
+
+// Glue two sides of a collapsed newline: one space only when both are ASCII word
+// chars; CJK (or mixed) joins with no space.
+function joinGlue(before, after) {
+  const w = /[0-9A-Za-z]/;
+  return before && after && w.test(before) && w.test(after) ? ' ' : '';
+}
+
+// Collapse legacy hard-wrap newlines inside one text run (math already excised).
+function joinSoftLines(s) {
+  return s.replace(/[ \t]*\n[ \t]*/g, (m, offset, str) =>
+    joinGlue(str[offset - 1] || '', str[offset + m.length] || ''));
+}
+
+// Segment a single paragraph into math / non-math runs. Math delimiters mirror KaTeX
+// auto-render ($$ display, $ inline); an unterminated $ is treated as literal text.
+function segmentMath(par) {
+  const segs = [];
+  let i = 0, buf = '';
+  const n = par.length;
+  const flush = () => { if (buf) { segs.push({ math: false, text: buf }); buf = ''; } };
+  while (i < n) {
+    if (par[i] === '$') {
+      const display = par[i + 1] === '$';
+      const delim = display ? '$$' : '$';
+      let j = i + delim.length, found = -1;
+      while (j < n) {
+        if (display ? (par[j] === '$' && par[j + 1] === '$') : par[j] === '$') { found = j; break; }
+        j++;
+      }
+      if (found >= 0) {
+        flush();
+        segs.push({ math: true, raw: par.slice(i, found + delim.length) });
+        i = found + delim.length;
+        continue;
+      }
+    }
+    buf += par[i]; i++;
+  }
+  flush();
+  return segs;
+}
+
+// Resolve a [[…|target]] reference target (display name / fq name / slug / short name)
+// to a node slug, else null.
+function refSlugForRefToken(t) {
+  if (!t) return null;
+  if (state.bySlug.has(t)) return t;
+  if (state.nameDict.has(t)) return state.nameDict.get(t);
+  if (state.shortDict.has(t)) return state.shortDict.get(t);
+  if (state.nameDict.has('LerayHopf.' + t)) return state.nameDict.get('LerayHopf.' + t);
+  return null;
+}
+
+// Math is masked to NUL-delimited placeholders before inline tokenizing so that
+// **strong** / `code` / [[ref]] may enclose a $…$ span without the delimiter splitting
+// the markers apart. \x00 never occurs in prose, so the placeholders are unambiguous.
+const PLACEHOLDER_RE = /\x00(\d+)\x00/g;
+
+function restorePlaceholders(str, maths) {
+  return str.replace(PLACEHOLDER_RE, (_, i) => maths[+i]);
+}
+
+// Append `str` to `parent`, splitting placeholders back into math text nodes (KaTeX
+// consumes them later, wherever they land — including inside <strong>).
+function appendTextWithMath(parent, str, maths) {
+  let last = 0, m;
+  PLACEHOLDER_RE.lastIndex = 0;
+  while ((m = PLACEHOLDER_RE.exec(str)) !== null) {
+    if (m.index > last) parent.appendChild(document.createTextNode(str.slice(last, m.index)));
+    parent.appendChild(document.createTextNode(maths[+m[1]]));   // raw $…$ for KaTeX
+    last = m.index + m[0].length;
+  }
+  if (last < str.length) parent.appendChild(document.createTextNode(str.slice(last)));
+}
+
+function makeRef(inner, maths) {
+  const pipe = inner.indexOf('|');
+  const display = restorePlaceholders((pipe >= 0 ? inner.slice(0, pipe) : inner).trim(), maths);
+  const target = (pipe >= 0 ? inner.slice(pipe + 1) : inner).trim();
+  const slug = refSlugForRefToken(target);
+  const span = document.createElement('span');
+  span.textContent = display;
+  if (slug) { span.className = 'ref'; span.setAttribute('data-slug', slug); }
+  else { span.className = 'ref ref-missing'; span.title = '未解決の参照: ' + target; }
+  return span;
+}
+
+// Inline tokenizer over placeholder-masked text: appends escape-safe DOM nodes
+// (text / code / strong / ref) to `parent`; math placeholders are re-expanded on flush.
+function tokenizeInline(text, parent, maths) {
+  let i = 0, buf = '';
+  const n = text.length;
+  const flush = () => { if (buf) { appendTextWithMath(parent, buf, maths); buf = ''; } };
+  while (i < n) {
+    if (text[i] === '[' && text[i + 1] === '[') {
+      const close = text.indexOf(']]', i + 2);
+      if (close >= 0) { flush(); parent.appendChild(makeRef(text.slice(i + 2, close), maths)); i = close + 2; continue; }
+    }
+    if (text[i] === '*' && text[i + 1] === '*') {
+      const close = text.indexOf('**', i + 2);
+      if (close > i + 1) {
+        flush();
+        const strong = document.createElement('strong');
+        tokenizeInline(text.slice(i + 2, close), strong, maths);   // allow math/code/ref inside strong
+        parent.appendChild(strong);
+        i = close + 2; continue;
+      }
+    }
+    if (text[i] === '`') {
+      const close = text.indexOf('`', i + 1);
+      if (close >= 0) {
+        flush();
+        const code = document.createElement('code');
+        code.textContent = restorePlaceholders(text.slice(i + 1, close), maths);  // KaTeX ignores <code>
+        parent.appendChild(code);
+        i = close + 1; continue;
+      }
+    }
+    buf += text[i]; i++;
+  }
+  flush();
+}
+
+// Render one paragraph (math-aware) into `parent` as inline nodes. Math spans are masked
+// to placeholders, the residue is inline-tokenized, then placeholders re-expand to math.
+function renderParagraph(parent, par) {
+  const maths = [];
+  let masked = '';
+  for (const seg of segmentMath(par)) {
+    if (seg.math) { masked += '\x00' + maths.length + '\x00'; maths.push(seg.raw); }
+    else masked += joinSoftLines(seg.text);
+  }
+  tokenizeInline(masked, parent, maths);
+}
+
+// Full multi-paragraph prose render (statement_ja / proof_ja / gap.note).
+function renderProse(container, text) {
+  container.textContent = '';
+  for (const par of splitParagraphs(text)) {
+    const p = el('p', { class: 'prose-p' });
+    renderParagraph(p, par);
+    container.appendChild(p);
+  }
+  typesetMath(container);
+}
+
+// Single-line inline render for previews (home cards, hovercards, rows): no <p> wrapper.
+function renderProseInline(container, line) {
+  container.textContent = '';
+  renderParagraph(container, line || '');
+  typesetMath(container);
+}
+
+// First paragraph, joined to one line (math intact). Used for home-card previews (D1:
+// full first paragraph, no truncation).
+function firstParagraph(text) {
+  const paras = splitParagraphs(text);
+  if (!paras.length) return '';
+  return segmentMath(paras[0]).map(s => s.math ? s.raw : joinSoftLines(s.text)).join('');
+}
+
+// Sentence-boundary preview: within `budget` code points cut at the last 。; if none in
+// budget, return the whole first paragraph (D1: semantic boundaries only, never mid-sentence).
+function sentencePreview(text, budget) {
+  const par = firstParagraph(text);
+  const arr = Array.from(par);
+  if (arr.length <= budget) return par;
+  let cut = -1;
+  for (let k = 0; k <= budget && k < arr.length; k++) if (arr[k] === '。') cut = k;
+  return cut >= 0 ? arr.slice(0, cut + 1).join('') : par;
 }
 
 /* Lightweight Lean highlighter + hover-ref linker (keywords / comments / strings /
@@ -212,9 +400,8 @@ function renderHome(app) {
       el('a', { class: 'mono', href: declHref(slug), text: node.name }),
     ]);
     if (node.corpus) {
-      const p = el('div', { class: 'prose' });
-      p.style.marginTop = '0.5rem';
-      renderProse(p, firstLine(node.corpus.statement_ja, 2));
+      const p = el('div', { class: 'prose card-preview' });
+      renderProseInline(p, firstParagraph(node.corpus.statement_ja));
       card.appendChild(p);
     }
     grid.appendChild(card);
@@ -297,9 +484,20 @@ function renderDecl(app, slug) {
   const title = el('h1', { class: 'decl-title' }, [el('span', { class: 'short', text: node.shortName })]);
   app.appendChild(title);
 
+  const hasNote = !!(node.corpus && node.corpus.gap && node.corpus.gap.note);
+  const gapEl = node.corpus ? gapBadge(node.corpus.gap.level) : null;
+  if (gapEl && hasNote) {
+    // Header gap badge scroll-links to the Note (relocated below the proof band, D4).
+    gapEl.classList.add('gap-link');
+    gapEl.setAttribute('role', 'link');
+    gapEl.setAttribute('tabindex', '0');
+    const jump = () => { const t = document.getElementById('gap-note'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+    gapEl.addEventListener('click', jump);
+    gapEl.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); jump(); } });
+  }
   const meta = el('div', { class: 'meta-row' }, [
     kindBadge(node.kind),
-    node.corpus ? gapBadge(node.corpus.gap.level) : null,
+    gapEl,
     node.corpus ? tierBadge(node.corpus.tier) : badge('tier-gloss', '未注釈'),
     node.private ? badge('priv', 'private') : null,
     node.corpus && node.corpus.sample ? badge('sample', 'sample') : null,
@@ -308,15 +506,6 @@ function renderDecl(app, slug) {
   meta.appendChild(el('a', { class: 'badge', href: chapterHref(node.chapter), text: (chMeta && chMeta.label_ja) || node.chapter }));
   app.appendChild(meta);
   app.appendChild(el('p', { class: 'mono filemeta', text: `${node.name}  ·  ${node.file}:${node.startLine}` }));
-
-  // Note panel (large gap) above the proof band
-  if (node.corpus && node.corpus.gap.level === 'large' && node.corpus.gap.note) {
-    const np = el('div', { class: 'note-panel' }, [el('h4', { text: '形式化ギャップ (Note)' })]);
-    const body = el('div', { class: 'prose' });
-    renderProse(body, node.corpus.gap.note);
-    np.appendChild(body);
-    app.appendChild(np);
-  }
 
   // Statement band: signature (Lean) ⇄ statement_ja
   app.appendChild(el('div', { class: 'section' }, [el('h3', { text: '主張' })]));
@@ -369,13 +558,22 @@ function renderDecl(app, slug) {
     app.appendChild(proofBand);
   }
 
+  // Formalization-gap Note — relocated below the proof band (D4). Shown whenever a note
+  // exists (mild or large); the header gap badge scroll-links here.
+  if (hasNote) {
+    const np = el('div', { class: 'note-panel', id: 'gap-note' }, [
+      el('h4', { text: '形式化ギャップ (Note)' }),
+    ]);
+    const body = el('div', { class: 'prose' });
+    renderProse(body, node.corpus.gap.note);
+    np.appendChild(body);
+    app.appendChild(np);
+  }
+
   // uses (direct deps) — depth-1 accordion
   renderUses(app, node);
   // used-by (links only)
   renderUsedBy(app, node);
-
-  // KaTeX + hover binding
-  bindHoverCards(app);
 }
 
 function leanPane(label, code, node) {
@@ -503,7 +701,7 @@ function declRow(n) {
   ]);
   if (n.corpus) {
     const one = el('span', { class: 'one-line' });
-    renderProse(one, firstLine(n.corpus.statement_ja, 1));
+    renderProseInline(one, sentencePreview(n.corpus.statement_ja, ROW_PREVIEW_BUDGET));
     row.appendChild(one);
     row.appendChild(gapBadge(n.corpus.gap.level));
     row.appendChild(tierBadge(n.corpus.tier));
@@ -530,7 +728,6 @@ function renderDag(app) {
   }
   container.appendChild(rootUl);
   app.appendChild(container);
-  bindHoverCards(app);
 }
 
 function dagItem(node, ancestors) {
@@ -633,20 +830,25 @@ function renderSearch(app, q) {
 /* ---------------- hover cards ---------------- */
 
 let hoverTimer = null;
+let hoverBound = false;
 
-function bindHoverCards(root) {
-  root.addEventListener('mouseover', ev => {
-    const t = ev.target.closest && ev.target.closest('.ref');
-    if (!t) return;
-    showHoverCard(t);
+/* Bind hover/tap on `.ref` spans once, on the document, via event delegation. Refs now
+ * appear both in Lean code (highlightLean) and in Japanese prose ([[…]] tokens, D5), on
+ * every page — a single delegated binding covers them all and avoids the duplicate
+ * listeners the old per-render binding accumulated on the persistent #app element. */
+function bindHoverCards() {
+  if (hoverBound) return;
+  hoverBound = true;
+  document.addEventListener('mouseover', ev => {
+    const t = ev.target.closest && ev.target.closest('.ref[data-slug]');
+    if (t) showHoverCard(t);
   });
-  root.addEventListener('mouseout', ev => {
-    const t = ev.target.closest && ev.target.closest('.ref');
-    if (!t) return;
-    hoverTimer = setTimeout(hideHoverCard, 180);
+  document.addEventListener('mouseout', ev => {
+    const t = ev.target.closest && ev.target.closest('.ref[data-slug]');
+    if (t) hoverTimer = setTimeout(hideHoverCard, 180);
   });
-  root.addEventListener('click', ev => {
-    const t = ev.target.closest && ev.target.closest('.ref');
+  document.addEventListener('click', ev => {
+    const t = ev.target.closest && ev.target.closest('.ref[data-slug]');
     if (!t) return;
     ev.preventDefault();          // touch / tap: show the card instead of jumping
     showHoverCard(t, true);
@@ -664,10 +866,11 @@ function showHoverCard(refEl, pin) {
     kindBadge(node.kind),
     node.corpus ? gapBadge(node.corpus.gap.level) : null,
   ]));
-  card.appendChild(el('div', { class: 'hc-sig', text: firstLine(node.signature, 1) || node.name }));
+  const sigLine = (node.signature || '').split('\n').find(l => l.trim()) || node.name;
+  card.appendChild(el('div', { class: 'hc-sig', text: sigLine }));
   if (node.corpus && node.corpus.statement_ja) {
     const s = el('div', { class: 'hc-stmt' });
-    renderProse(s, firstLine(node.corpus.statement_ja, 2));
+    renderProseInline(s, sentencePreview(node.corpus.statement_ja, HOVER_PREVIEW_BUDGET));
     card.appendChild(s);
   }
   card.appendChild(el('div', {}, [el('a', { href: declHref(slug), text: node.shortName + ' を開く →' })]));
@@ -701,6 +904,7 @@ function setupSearch() {
 
 async function boot() {
   setupSearch();
+  bindHoverCards();
   try {
     await loadData();
   } catch (e) {
@@ -714,5 +918,18 @@ async function boot() {
   route();
 }
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
-else boot();
+const IS_NODE_MODULE = typeof module !== 'undefined' && module.exports;
+if (typeof document !== 'undefined' && !IS_NODE_MODULE) {
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+}
+
+/* Test shim (notes#12 jsdom harness): expose pure renderers under Node without affecting
+ * the browser path. No-op in the browser (module is undefined). */
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    state, splitParagraphs, joinSoftLines, joinGlue, segmentMath, tokenizeInline,
+    makeRef, refSlugForRefToken, renderParagraph, renderProse, renderProseInline,
+    firstParagraph, sentencePreview, renderDecl,
+  };
+}

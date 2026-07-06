@@ -36,6 +36,9 @@ jobs:
       - name: Glossary lint
         run: python3 scripts/glossary_lint.py
 
+      - name: Prose lint (D1/D2/D5)
+        run: python3 scripts/prose_lint.py
+
       - name: Coverage report
         run: python3 scripts/coverage.py
 
@@ -44,3 +47,20 @@ jobs:
         # so it cannot embed source. Writing to site/data/nodes.json here would clobber the
         # committed source-embedded artifact (built with --lean-root). Pure Python, seconds.
         run: python3 scripts/build_site_data.py --no-coverage --out /tmp/nodes.check.json
+
+  render-tests:
+    name: Site render harness (jsdom)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install jsdom
+        run: npm ci
+
+      - name: Render harness (D1/D4/D5 acceptance criteria)
+        run: npm test

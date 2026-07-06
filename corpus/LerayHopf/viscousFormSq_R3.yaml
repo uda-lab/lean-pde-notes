@@ -1,13 +1,14 @@
 name: LerayHopf.viscousFormSq_R3
 tier: full
 statement_ja: |
-  ℝ³ の粘性散逸形式 $\nu\,\|\nabla u\|_{L^2}^2$ をスペクトル積分で
-  $$\mathrm{viscousFormSq\_R3}\,\nu\,u = \nu \sum_j \int_\xi (2\pi)^2\|\xi\|^2\,\|(\mathcal{F}u_j)(\xi)\|^2\,d\xi$$
-  と定義する。T³ の Fourier 級数を連続 Fourier 変換の積分に置き換えた版。
+  $\mathbb{R}^3$ の**粘性散逸形式** $\nu\lVert\nabla u\rVert_{L^2}^2$。連続 Fourier 変換によるスペクトル積分で
+
+  $$\nu\lVert\nabla u\rVert_{L^2}^2=\nu\sum_j\int (2\pi)^2\lvert\xi\rvert^2\,\bigl\lvert\widehat{u_j}(\xi)\bigr\rvert^2\,d\xi$$
+
+  と表される。$\mathbb{T}^3$ の Fourier 級数を連続 Fourier 変換の積分に置き換えた版である。
 gap:
   level: mild
   note: |
-    $(2\pi)^2$ 因子は $e^{2\pi i \xi\cdot x}$ 規約から生じる。定義は Bochner 積分ゆえ非可積分な被積分関数に対して
-    $0$ を返す無条件定義であり、$H^1$ エネルギー類は別途 `memH1VF_R3` ＋ エネルギー類フィールドで強制する。
+    $(2\pi)^2$ の因子は指数関数系 $e^{2\pi i\xi\cdot x}$ の規約から生じる。定義は Bochner 積分ゆえ、可積分でない被積分関数に対しては $0$ を返す無条件の定義であり、$H^1$ エネルギー類は別途 [[$H^1$ 正則性|LerayHopf.memH1VF_R3]] とエネルギー類の条件で強制する。
 chapter: energy
 tags: [viscous-form, dissipation, fourier-transform, spectral]

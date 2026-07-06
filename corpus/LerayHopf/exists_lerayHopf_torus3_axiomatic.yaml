@@ -1,23 +1,24 @@
 name: LerayHopf.exists_lerayHopf_torus3_axiomatic
 tier: full
 statement_ja: |
-  発散ゼロな初期値 $u_0 \in L^2_\sigma(\mathbb{T}^3)$、粘性 $\nu>0$、時間 $T>0$ に対し、$\mathbb{T}^3$ 上の
-  Navier–Stokes 方程式の Leray–Hopf 弱解が存在する。すなわち $\mathrm{Torus3NSForms}$ 束 $F$ と、$[0,T]$ 上で
-  エネルギー不等式・弱形式・初期トレース・エネルギー類を満たす曲線 $u$ を持つ構造体
-  $\mathrm{LerayHopfSolutionFull}\,F\,\nu\,T\,u_0$ が非空。
+  発散ゼロな初期値 $u_0\in L^2_\sigma(\mathbb{T}^3)$、粘性係数 $\nu>0$、時刻 $T>0$ に対して、3 次元トーラス $\mathbb{T}^3$ 上の Navier–Stokes 方程式は Leray–Hopf 弱解をもつ。
+
+  すなわち、$[0,T]$ 上でエネルギー不等式と弱形式を満たし、初期値を強 $L^2$ で達成し、Leray–Hopf エネルギー類に属する曲線 $u$ が存在する。この解は、それらの性質をすべて備えた[[完全 Leray–Hopf 解|LerayHopf.LerayHopfSolutionFull]]として得られる。
 proof_ja: |
-  L1. 有限次元 $\mathrm{velocitySpan}\,n$ 上で Galerkin ODE を Picard–Lindelöf により解き、公理を用いない
-  $\mathrm{galerkinSolutionData\_torus}$ で近似列 $u_n$ を得る。L2. 抽象エネルギー恒等式から一様評価
-  （$L^\infty_t L^2_x \cap L^2_t H^1_x$）を導く。L3. 空間コンパクト性は証明済みの $\mathrm{rellich\_L2Sigma}$ が担い、
-  時間方向の Aubin–Lions 型議論と合わせて $u_n$ の部分列の $L^2_{t,x}$ 強収束を取り出す。L4. 非線形項の極限移行を
-  強収束から正当化する。L5. 弱下半連続性でエネルギー不等式を極限に受け継がせ、全条件を証明保持型構造体
-  $\mathrm{LerayHopfSolutionFull}$ に詰める。
+  **L1（Galerkin 近似）** 有限次元の[[速度モード空間|LerayHopf.velocitySpan]]の上で Galerkin 常微分方程式を Picard–Lindelöf により解き、近似列 $u_n$ を構成する。追加の仮定を要しない[[トーラス Galerkin 解|LerayHopf.Torus.galerkinSolutionData_torus]]がこれを供給する。
+
+  **L2（一様評価）** 抽象的なエネルギー恒等式から、近似列が $L^\infty_t L^2_x\cap L^2_t H^1_x$ で一様有界であることを導く。
+
+  **L3（コンパクト性）** 空間方向のコンパクト性は証明済みの[[Rellich コンパクト性|LerayHopf.rellich_L2Sigma]]が担い、時間方向の Aubin–Lions 型の議論と合わせて $u_n$ の部分列の $L^2_{t,x}$ 強収束を取り出す。
+
+  **L4（非線形項の極限移行）** 強収束から移流項の極限移行を正当化する。
+
+  **L5（エネルギー不等式）** ノルムの弱下半連続性からエネルギー不等式を極限に受け継がせ、すべての条件を満たす解を得る。
 gap:
   level: large
   note: |
-    名称の `axiomatic` は歴史的接尾辞。近似列は証明済みの torus Galerkin 解 $\mathrm{galerkinSolutionData\_torus}$ から
-    供給され、かつては公理だった $\mathrm{galerkin\_ode\_solution}$ を割り当てる。T³ 主定理は現在カーネルのみで閉じている
-    （公理ゼロ）。空間コンパクト性が証明済み $\mathrm{rellich\_L2Sigma}$ で賄える点が有界領域 T³ の強みで、非有界 ℝ³ との
-    差（局所化の必要）はここに現れる。
+    定理名の `axiomatic` は歴史的な接尾辞である。近似列は証明済みの `Torus.galerkinSolutionData_torus` から供給され、かつて公理だった `galerkin_ode_solution` の役割を果たす。この $\mathbb{T}^3$ 主定理は現在カーネルのみで閉じている（追加公理ゼロ）。
+
+    空間コンパクト性を証明済みの `rellich_L2Sigma` でまかなえる点が有界領域 $\mathbb{T}^3$ の強みであり、コンパクト性の局所化を要する非有界な $\mathbb{R}^3$ との違いがここに現れる。
 chapter: capstone-torus
 tags: [leray-hopf, capstone, torus]

@@ -1,18 +1,14 @@
 name: LerayHopf.velocityProjection_n
 tier: full
 statement_ja: |
-  $L^2\mathrm{VF} = L^2(\mathbb{T}^3;\mathbb{R}^3)$ 上の第 $n$ **Galerkin 射影**
-  $\mathrm{velocityProjection}_n\,n : L^2\mathrm{VF} \to_L L^2\mathrm{VF}$。各成分 $j : \mathrm{Fin}\,3$ を独立に処理する。
+  $L^2(\mathbb{T}^3;\mathbb{R}^3)$ 上の第 $n$ **速度 Galerkin 射影** $\Pi_n$。各成分 $j$ を独立に処理する、$\lVert k\rVert_\infty\le n$ のモードのみを保持する有限次元射影である。
 proof_ja: |
-  各成分 $j$ について次を合成する：(1) 第 $j$ 複素成分の抽出 $L^2\mathrm{VF\_projComponentC}\,j$、
-  (2) スカラー Fourier 射影 $\mathrm{fourierProjection}_n\,n$、(3) 実部を取る作用素 $\mathrm{RCLike.reCLM}$ の Lp 持ち上げ、
-  (4) 第 $j$ 成分スロットへの再注入 $L^2\mathrm{VF\_injectComponent}\,j$。各項は $\mathbb{R}$-線形連続写像の合成で、
-  $j$ についての有限和として全体が $\mathbb{R}$-線形連続作用素になる。箱 $\|k\|_\infty \le n$ のモードのみを保持する
-  有限次元射影で、Galerkin 近似の射影族を与える。
+  各成分 $j$ について、複素成分の抽出・スカラー [[Fourier 射影|LerayHopf.fourierProjection_n]]・実部を取る操作・成分スロットへの再注入という 4 段を合成する。
+
+  各段は実線形連続写像であり、$j=1,2,3$ の有限和として全体が実線形連続作用素になる。これが Galerkin 近似で用いる射影族を与える。
 gap:
   level: mild
   note: |
-    自然言語では「有限モードへの射影」の一言だが、実ベクトル場の各成分を複素埋め込みして Fourier 射影し
-    実部を取って戻す、成分ごとの複素化往復を明示的に組む必要がある。
+    自然言語では「有限モードへの射影」の一言だが、実ベクトル場の各成分を複素埋め込みして Fourier 射影し、実部を取って戻すという成分ごとの複素化の往復を明示的に組む必要がある。
 chapter: projections-galerkin
 tags: [galerkin, fourier-truncation]

@@ -1,25 +1,30 @@
 name: LerayHopf.exists_lerayHopf_r3_axiomatic
 tier: full
 statement_ja: |
-  発散ゼロな初期値 $u_0 \in L^2_\sigma(\mathbb{R}^3)$、粘性 $\nu>0$、時間 $T>0$ に対し、$\mathbb{R}^3$ 上の
-  Navier–Stokes 方程式の Leray–Hopf 弱解が存在する。すなわち、Galerkin スキーム $\mathfrak{G}$、NS 形式束 $F$、
-  および $[0,T]$ 上でエネルギー不等式
-  $$\tfrac12\|u(t)\|_{L^2}^2 + \nu\int_0^t\|\nabla u\|_{L^2}^2\,ds \le \tfrac12\|u_0\|_{L^2}^2$$
-  を満たし任意の発散ゼロテスト関数で弱形式を満たす曲線 $u$ を持つ構造体
-  $\mathrm{LerayHopfSolutionFull\_R3}\,\mathfrak{G}\,F\,\nu\,T\,u_0$ が非空。
+  発散ゼロな初期値 $u_0\in L^2_\sigma(\mathbb{R}^3)$、粘性係数 $\nu>0$、時刻 $T>0$ に対して、$\mathbb{R}^3$ 上の Navier–Stokes 方程式は Leray–Hopf 弱解をもつ。
+
+  すなわち、$[0,T]$ 上でエネルギー不等式
+
+  $$\tfrac12\lVert u(t)\rVert_{L^2}^2+\nu\int_0^t\lVert\nabla u\rVert_{L^2}^2\,ds\ \le\ \tfrac12\lVert u_0\rVert_{L^2}^2$$
+
+  を満たし、かつ任意の発散ゼロテスト関数に対して弱形式を満たす曲線 $u$ が存在する。この解は初期値 $u_0$ を強 $L^2$ で達成し、$u\in L^2(0,T;H^1_\sigma)$ に属する[[完全 Leray–Hopf 解|LerayHopf.LerayHopfSolutionFull_R3]]として得られる。
 proof_ja: |
-  L1. 具体スキーム $\mathrm{schemeOfBasis}\,B$（$B$ は $\mathrm{nonempty\_schwartzGalerkinBasis}$ 由来）上で
-  有限次元 Galerkin ODE を解き、公理を用いない $\mathrm{galerkinSolutionData\_unconditional}$ で近似列 $u_n$ を得る。
-  L2. エネルギー恒等式から $u_n$ の一様評価（$L^\infty_t L^2_x \cap L^2_t H^1_x$）を導く。
-  L3. 局所 Rellich（$\mathrm{spatial\_compactness\_R3}$）と時間方向の Aubin–Lions 型議論で、$u_n$ の部分列が
-  局所 $L^2$ で強収束することを取り出す。L4. 非線形項の極限移行を強収束から正当化し、極限 $u$ が弱形式を満たすことを確認する。
-  L5. 弱下半連続性からエネルギー不等式を極限に受け継がせ、全条件を証明保持型構造体 $\mathrm{LerayHopfSolutionFull\_R3}$ に詰める。
+  **L1（Galerkin 近似）** 発散ゼロな Schwartz 関数が張る有限次元部分空間の上で Galerkin 常微分方程式を解き、近似列 $u_n$ を構成する。ここでは有限次元の存在定理のみを用い、追加の仮定を要しない[[Galerkin 解の構成|LerayHopf.galerkinSolutionData_unconditional]]がこれを供給する。
+
+  **L2（一様評価）** エネルギー恒等式から、近似列 $u_n$ が $L^\infty_t L^2_x\cap L^2_t H^1_x$ で一様に有界であることを導く。
+
+  **L3（コンパクト性）** 局所的な Rellich コンパクト性（[[局所空間コンパクト性|LerayHopf.spatial_compactness_R3]]）と時間方向の Aubin–Lions 型の議論を合わせ、$u_n$ の部分列が局所 $L^2$ で強収束するものを取り出す。
+
+  **L4（非線形項の極限移行）** 強収束を用いて移流項の極限移行を正当化し、極限 $u$ が弱形式を満たすことを確かめる。
+
+  **L5（エネルギー不等式）** ノルムの弱下半連続性からエネルギー不等式を極限に受け継がせ、すべての条件を満たす解を得る。
 gap:
   level: large
   note: |
-    自然言語の「Galerkin 近似してコンパクト性で極限を取る」一行が、Lean では有限次元 ODE の存在・前進評価・
-    射影の実数値性・局所コンパクト性・非線形項の三線形評価・極限移行に展開される。名称の `axiomatic` は歴史的
-    接尾辞で、証拠スキームは具体的 $\mathrm{schemeOfBasis}\,B$（$\mathrm{r3GalerkinScheme\_exists}$ から取ると基底を捨てて
-    per-scheme ODE 公理を再導入するため使わない）。現在このℝ³ 主定理はカーネルのみで閉じている（公理ゼロ）。
+    自然言語では「Galerkin 近似してコンパクト性で極限を取る」の一行だが、形式化では有限次元 ODE の存在・前進評価・射影の実数値性・局所コンパクト性・非線形項の三線形評価・極限移行へと展開される。
+
+    非有界領域 $\mathbb{R}^3$ では大域 Rellich が破綻するため、コンパクト性を局所化し、Schwartz テスト関数の急減少で裾を一様に抑えて極限移行を成立させる点が有界領域との違いである。
+
+    定理名の `axiomatic` は歴史的な接尾辞であり、証拠となるスキームは具体的な `schemeOfBasis B`（`r3GalerkinScheme_exists` から取ると基底を捨てて per-scheme の ODE 公理を再導入するため用いない）。この $\mathbb{R}^3$ 主定理は現在カーネルのみで閉じている（追加公理ゼロ）。
 chapter: capstone-r3
 tags: [leray-hopf, capstone]

@@ -1,18 +1,18 @@
 name: LerayHopf.velocityProjection_n_component_comm
 tier: full
 statement_ja: |
-  速度 Galerkin 射影の第 $j$ 複素成分は、スカラー Fourier 射影と可換する：任意の $n, u, j$ に対して
-  $$L^2\mathrm{VF\_projComponentC}\,j\,\bigl((\mathrm{velocityProjection}_n\,n)\,u\bigr)
-  = (\mathrm{fourierProjection}_n\,n)|_\mathbb{R}\,\bigl(L^2\mathrm{VF\_projComponentC}\,j\,u\bigr).$$
+  [[速度 Galerkin 射影|LerayHopf.velocityProjection_n]] $\Pi_n$ の第 $j$ 複素成分は、スカラー [[Fourier 射影|LerayHopf.fourierProjection_n]] $P_n$ と可換する。任意の $n,u,j$ に対して次が成り立つ。
+
+  $$\bigl(\Pi_n u\bigr)_j = P_n\,u_j$$
+
+  ここで両辺の $(\,\cdot\,)_j$ は第 $j$ 複素成分、右辺の $P_n$ は実部に制限した Fourier 射影である。
 proof_ja: |
-  $\mathrm{velocityProjection}_n\,n\,u = \sum_{j'} L^2\mathrm{VF\_injectComponent}\,j'\,(\mathrm{Re}\,P_n(u^\mathbb{C}_{j'}))$ と
-  展開し、成分射影 $L^2\mathrm{VF\_projComponentC}\,j$（$= \mathrm{ofRealCLM}\circ \mathrm{proj}\,j$ の Lp 持ち上げ）を作用させる。
-  線形性で和を通し、$j'\neq j$ の項は注入と射影の直交性で消え、$j'=j$ の項では実部往復 $\mathrm{ofRealLp\_reLp\_eq\_self}$ で
-  恒等となって $(\mathrm{fourierProjection}_n\,n)|_\mathbb{R}$ が残る。Lp の a.e. 等式を点ごとに落とす
-  `filter_upwards` が随所で効く。この橋渡し補題が速度射影と Fourier 截断の同一視を与える。
+  速度射影を成分ごとの注入の和に展開し、第 $j$ 複素成分を作用させる。線形性で和を通し、$j'\neq j$ の項は注入と射影の直交性で消え、$j'=j$ の項では実部を取って戻す往復が恒等になって $P_n$ が残る。
+
+  この橋渡しの補題が、速度射影と Fourier 截断の同一視を与える。
 gap:
   level: mild
   note: |
-    成分ごとの複素化という選択のため、射影の成分交換が注入・射影の直交性と実部往復の明示計算に展開される。
+    成分ごとの複素化という設計のため、射影の成分交換が注入と射影の直交性・実部往復の明示計算に展開される。$L^p$ 上の概至る所の等式を点ごとに落とす `filter_upwards` が随所で効く。
 chapter: projections-galerkin
 tags: [galerkin, fourier-truncation, real-valuedness]

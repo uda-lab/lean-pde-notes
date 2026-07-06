@@ -1,21 +1,14 @@
 name: LerayHopf.rellich_L2Sigma
 tier: full
 statement_ja: |
-  発散ゼロ列への Rellich コンパクト性。列 $u : \mathbb{N} \to L^2\mathrm{VF}$ が各 $n$ で $u_n \in L^2_\sigma$、
-  $\mathrm{memH1VF}\,(u_n)$、$\mathrm{h1EnergySq}\,(u_n) \le M^2$ を満たすならば、狭義単調な抽出 $\varphi$ と極限
-  $g \in L^2_\sigma$ が存在して $u_{\varphi(n)} \to g$（$L^2\mathrm{VF}$ 収束）。
+  発散ゼロ列への **Rellich コンパクト性**。列 $u_n$ が各 $n$ で発散ゼロ・$H^1$ 正則・$H^1$ エネルギーが $M^2$ 以下を満たすならば、狭義単調な抽出と極限 $g\in L^2_\sigma$ が存在して $u_{\varphi(n)}\to g$（$L^2$ 収束）となる。
 proof_ja: |
-  Step A：$\mathrm{h1EnergySq}$ は成分ごとの非負和なので `Finset.single_le_sum` で各成分の H¹ 和 $\le M^2$。
-  Step B：$\mathrm{rellich\_seq\_compact}$ を $j=0,1,2$ の三段入れ子で適用（$\varphi_0$ の上で $\varphi_1$、その上で $\varphi_2$）し、
-  対角列 $\varphi = \varphi_0\circ\varphi_1\circ\varphi_2$（`StrictMono.comp`）上で三成分が同時に $L^2$ 収束、極限は
-  $[g_0,g_1,g_2]$。Step C–D：複素埋め込みの実部で実成分へ移し（`re_compLpL_projComponentC`）、成分注入の連続性と
-  成分分解恒等式で再合成する。Step E：極限の発散ゼロ性は $L^2_\sigma$ が閉集合であること
-  `isClosed_L2Sigma.mem_of_tendsto` だけから結論し、極限を明示再構成しない。
+  まず $H^1$ エネルギーは成分ごとの非負和なので、各成分の $H^1$ 和も $M^2$ 以下である。次に[[スカラー版の Rellich コンパクト性|LerayHopf.rellich_seq_compact]]を三成分に三段入れ子で適用し、対角部分列の上で三成分が同時に $L^2$ 収束するようにする。
+
+  複素埋め込みの実部を通して実成分へ移し、成分の注入の連続性と成分分解の恒等式で再合成する。極限の発散ゼロ性は、$L^2_\sigma$ が閉集合であることだけから結論し、極限を明示的に再構成しない。
 gap:
   level: large
   note: |
-    成分分解＋三段対角化＋複素実部往復＋閉集合による極限の発散ゼロ性、と多段に展開される。Step A の
-    成分 summable 性 `memH1VF` は本質的に必要で、$\mathrm{h1EnergySq}\le M^2$ だけからは tsum 規約のため summable が
-    出ないため、別途仮定として渡す。
+    成分分解・三段の対角化・複素と実部の往復・閉集合による極限の発散ゼロ性、と多段に展開される。各成分の可算和可能性（[[H¹ 正則性|LerayHopf.memH1VF]]）は本質的に必要で、$H^1$ エネルギーが $M^2$ 以下という条件だけからは総和規約のため和可能性が出ないため、別途仮定として渡す。
 chapter: compactness
 tags: [rellich, diagonal-subsequence, divergence-free]
