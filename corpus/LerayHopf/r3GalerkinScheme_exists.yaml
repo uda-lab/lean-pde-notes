@@ -1,0 +1,12 @@
+name: LerayHopf.r3GalerkinScheme_exists
+tier: full
+statement_ja: |
+  $L^2_\sigma(\mathbb{R}^3)$ 上の Galerkin 近似射影の族が存在する。すなわち [[Galerkin スキーム|LerayHopf.R3GalerkinScheme]] は空でない。
+proof_ja: |
+  まず [[Schwartz 基底の存在|LerayHopf.nonempty_schwartzGalerkinBasis]] から一つの Schwartz 発散ゼロ基底 $B$ を取り出す。その先頭部分空間への直交射影が実際の Galerkin スキームを成すこと（[[基底からのスキーム構成|LerayHopf.nonempty_r3GalerkinScheme_of_basis]]）を適用して、スキームの存在を得る。
+gap:
+  level: none
+  note: |
+    この主張はかつて六つのフィールドをもつ構造存在の公理 `r3GalerkinScheme_exists` として仮定されていたが、現在は証明済み定理である。密度性の証明を経由するため、証明はスキーム構造が定義された地点より下流に置かれている。主定理 [[R3 主定理|LerayHopf.exists_lerayHopf_r3_axiomatic]] は基底を捨てないためにこの定理を意図的に迂回し、具体的な [[基底からのスキーム|LerayHopf.schemeOfBasis]] を直接用いる。
+chapter: projections-galerkin
+tags: [galerkin-scheme]

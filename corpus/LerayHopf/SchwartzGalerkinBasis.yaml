@@ -1,0 +1,16 @@
+name: LerayHopf.SchwartzGalerkinBasis
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 上の発散ゼロ Galerkin 近似の出発点となる、可算な Schwartz 発散ゼロ基底の束を定める。すなわち $L^2$ ベクトル場の列 $e_0,e_1,e_2,\dots$ であって、次の三つの性質をもつものである。
+
+  第一に、各 $e_k$ は成分ごとに Schwartz 関数の代表元をもつ。第二に、各 $e_k$ は弱い意味で発散ゼロ、すなわち [[発散ゼロ部分空間|LerayHopf.L2Sigma_R3]] に属する。第三に、有限個の先頭 $e_0,\dots,e_{n-1}$ が張る部分空間を $n$ について合併し、その閉包をとると発散ゼロ部分空間 $L^2_\sigma(\mathbb{R}^3)$ 全体を覆う。
+
+  この第三の全体性こそが、この束が担う唯一の古典的入力である。それは滑らかな発散ゼロ場が $L^2_\sigma(\mathbb{R}^3)$ で稠密であるという Helmholtz–Weyl 型の事実であり、ここでは証明せず、基底の与え手が供給する仮説として保持する。
+gap:
+  level: mild
+  note: |
+    この束は「公理」ではなく、密度性を一本の部分空間の包含不等式として仮説フィールドに閉じ込めた honest なインターフェースである。滑らかな発散ゼロ場の稠密性自体は別途 [[渦度場の稠密性|LerayHopf.curlSchwartzDense_holds]] として証明されており、その証明済み密度から基底を組み立てる橋が [[渦度基底の構成|LerayHopf.schwartzGalerkinBasis_of_curlDense]] である。したがってこの構造体はプロジェクト全体では追加公理を生まない。
+
+    成分 Schwartz 代表元の条件は、後段で射影の像が Schwartz にとどまること、ひいてはテスト関数としての適格性と $H^1$ 正則性を保証するために必要になる。
+chapter: projections-galerkin
+tags: [galerkin-scheme, schwartz, divergence-free]

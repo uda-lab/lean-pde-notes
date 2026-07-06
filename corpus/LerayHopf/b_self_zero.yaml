@@ -1,0 +1,12 @@
+name: LerayHopf.R3NSForms.b_self_zero
+tier: full
+statement_ja: |
+  [[NS 移流形式|LerayHopf.R3NSForms]] の対角値は消える。すなわち任意の $u\in L^2_\sigma(\mathbb{R}^3)$ に対して $b(u,u,u)=0$ である。
+proof_ja: |
+  後ろ二つのスロットに関する反対称性 $b(u,u,u)=-b(u,u,u)$ を、三つのスロットすべてを $u$ とした場合に適用する。したがって $b(u,u,u)$ は自身の負値に等しく、ゆえにゼロである。
+gap:
+  level: none
+  note: |
+    移流形式のこの対角消滅は、エネルギー恒等式で非線形項が消える理由そのものであり、Galerkin 近似のエネルギー・散逸評価の要になる。反対称性だけから純代数的に従い、積分計算を要しない。
+chapter: energy
+tags: [convection-form, energy-identity, navier-stokes]

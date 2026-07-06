@@ -1,0 +1,14 @@
+name: LerayHopf.r3_NSForms_exists
+tier: full
+statement_ja: |
+  任意の [[Galerkin スキーム|LerayHopf.R3GalerkinScheme]] $\mathfrak{G}$ に対して、$\mathbb{R}^3$ の [[NS 移流形式|LerayHopf.R3NSForms]] が存在する。
+proof_ja: |
+  まず弱 $(u\cdot\nabla)v$ 作用素核 [[移流ギャップ操作核|LerayHopf.ConvectionGapOp]] を、証明済みの決定形式構成から取り出す。これは総体的な移流形式 $b$、その Schwartz クラスへの拡張、三線形性、後ろ二スロットの反対称性、固定 Schwartz テストでの連続性という五つの操作核フィールドを供給する。
+
+  これに証明済みの密度性（Schwartz 発散ゼロクラスの $L^2_\sigma$ での稠密性、渦度稠密性から組み立てる）を密度フィールドとして加えて、完全な [[移流ギャップ|LerayHopf.ConvectionGap]] を組み立てる。最後に [[ギャップからの NS 形式|LerayHopf.R3NSForms_of_gap]] を適用して NS 形式の存在を得る。
+gap:
+  level: none
+  note: |
+    結論はかつての公理 `r3_NSForms_exist` が主張していたものと同一で、主張の弱化はない。操作核の存在はかつて公理 `r3ConvectionGapOp_exists` として仮定されていたが、現在は決定形式構成により sorry なしで証明済みの定理であり、移流作用素についてプロジェクト公理は残っていない。密度は独立に証明され（渦度稠密性経由）、束ねられていない。トーラス版の対応する定理と同じパターンをとる。
+chapter: limit-passage
+tags: [convection-form, navier-stokes, kernel-only]

@@ -1,0 +1,20 @@
+name: LerayHopf.galerkinScheme_properties_of_basis
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] $B$ が与えられたとき、その有限個の先頭が張る部分空間への直交射影 $P_n$ は $L^2_\sigma(\mathbb{R}^3)$ 上の Galerkin 近似スキームを成す。
+
+  具体的には次の六つの性質が同時に成り立つ。すなわち各 $P_n$ は発散ゼロ部分空間を保存し、非拡大 $\lVert P_n u\rVert\le\lVert u\rVert$、冪等 $P_n\circ P_n=P_n$、成分ごとに Schwartz な像をもち、そして発散ゼロな $u$ に対しては $P_n u\to u$ と強収束する。
+proof_ja: |
+  六つの性質はいずれも、$P_n$ が先頭部分空間 $\operatorname{span}\{e_0,\dots,e_{n-1}\}$ への直交射影であることから従う。非拡大性と冪等性は直交射影の一般的性質であり、射影の像が張る部分空間に入ること、その部分空間が発散ゼロ部分空間に含まれること（生成元 $e_k$ がすべて発散ゼロだから）から保存性が出る。
+
+  像の Schwartz 性は、射影の像が有限次元の先頭部分空間に属することを用い、生成元・和・スカラー倍・零に関する帰納法で成分 Schwartz 性を伝播させて得る。基底の各生成元は成分 Schwartz であり、この性質は和とスカラー倍で閉じるため、部分空間の任意の元へ伝わる。
+
+  強収束は、増大する部分空間の合併の閉包への直交射影が各点で収束するという事実に、密度性の仮説を組み合わせる。発散ゼロな $u$ はその閉包に属するので閉包への射影で固定され、極限は $u$ 自身になる。
+gap:
+  level: mild
+  note: |
+    これは公理 `r3GalerkinScheme_exists` の構成的内容を（束の密度性仮説を法として）フィールドごとに束ねた補題であり、見出しの成果物 [[Galerkin スキームの構成|LerayHopf.nonempty_r3GalerkinScheme_of_basis]] がこれらを実際の Galerkin スキームへ組み上げる。
+
+    強収束の連言は $\Sigma$ 制限形であり、発散ゼロ基底が $L^2_\sigma(\mathbb{R}^3)$ でのみ全体的であるという事実に対応して、収束が真に成り立つ範囲でのみ主張されている。Lean では射影は `Submodule.starProjection`（直交射影）として実現され、強収束は `starProjection_tendsto_closure_iSup` から得ている。
+chapter: projections-galerkin
+tags: [galerkin-scheme, orthogonal-projection]

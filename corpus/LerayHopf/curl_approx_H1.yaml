@@ -1,0 +1,30 @@
+name: LerayHopf.curl_approx_H1
+tier: full
+statement_ja: |
+  任意の Schwartz 発散ゼロ場 $w\in L^2_\sigma(\mathbb{R}^3)$ と任意の $\varepsilon>0$ に対して、ある Schwartz ポテンシャル $\psi$ の渦度 $\operatorname{curl}\psi$ が、二つの独立な誤差評価を同時に満たす。すなわち $L^2$ 誤差と粘性（勾配）半ノルム誤差の双方が
+
+  $$\lVert\operatorname{curl}\psi-w\rVert_{L^2}<\varepsilon \qquad\text{かつ}\qquad \int\lvert\nabla(\operatorname{curl}\psi-w)\rvert^2<\varepsilon$$
+
+  を満たす。同じ近似子が両方の評価を達成するので、これは $H^1$ グラフ近似そのものである。
+proof_ja: |
+  湯川型正則化による Fourier 構成を用いる。まず $w$ の発散ゼロ性は Fourier 側で、その変換 $\widehat w(\xi)$ が波数 $\xi$ に横断的、すなわち $\xi\cdot\widehat w(\xi)=0$ がほとんど至るところ成り立つことと同値である。
+
+  正確に $\operatorname{curl}\psi=w$ を解くポテンシャルの記号は $\xi=0$ で特異になるため、分母の $\lVert\xi\rVert^2$ を正則化スケール $a>0$ を用いて $a^2+\lVert\xi\rVert^2$ に置き換える。この分母は $a^2>0$ で下に有界かつ滑らかなので、切断バンプを要さず記号は緩増加となり、逆 Fourier 変換の実部として実 Schwartz ポテンシャル $\psi_a$ が得られる。
+
+  横断性と三重積の公式から、$\psi_a$ の渦度の Fourier 記号と誤差記号は次のようになる。
+
+  $$\widehat{\operatorname{curl}\psi_a} = \frac{\lVert\xi\rVert^2}{a^2+\lVert\xi\rVert^2}\,\widehat w, \qquad \widehat{\operatorname{curl}\psi_a}-\widehat w = -\frac{a^2}{a^2+\lVert\xi\rVert^2}\,\widehat w$$
+
+  $L^2$ 誤差と粘性誤差はいずれも
+
+  $$\int\Bigl(\frac{a^2}{a^2+\lVert\xi\rVert^2}\Bigr)^{2}\,(\text{重み})\,\lvert\widehat w\rvert^2$$
+
+  の形の積分になり、$a\to0$ のとき優収束定理によりゼロへ収束する。そこでスケール列 $a_n=\tfrac1{n+1}\to0$ をとり、両誤差が同時に $\varepsilon$ 未満となる項を選べばよい。
+gap:
+  level: large
+  note: |
+    自然言語では「渦度を正則化して極限を取る」の一文だが、形式化では記号の緩増加性、Hermite 対称性からの実ポテンシャルの復元、三重積展開と横断性による渦度記号の同定、二つの誤差の優収束が別々に必要になる。分母を $a^2+\lVert\xi\rVert^2$ とする湯川正則化により、低周波切断バンプが不要になっている点が構成の簡素化の要である。
+
+    結論が二つの独立な $\varepsilon$ 評価の連言である（あらかじめ合成したグラフノルム評価ではない）のは、下流の [[$H^1$ テスト近似|LerayHopf.R3TestApproxH1]] がこの二評価の形を直接消費するためである。両者は $\forall\varepsilon\exists\psi$ の量化のもとで同値であり、同一の近似子が両方を満たすので合成評価はただちに従う。この定理は最後のプロジェクト公理 `galerkin_limit_passage_R3` を除去する解析核であった。
+chapter: projections-galerkin
+tags: [curl, sobolev, fourier-transform, yukawa-regularization]

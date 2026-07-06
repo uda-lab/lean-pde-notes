@@ -1,0 +1,12 @@
+name: LerayHopf.galerkinSolutionData_unconditional
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] $B$ に付随する具体スキーム上で、無条件の [[Galerkin 解データ|LerayHopf.GalerkinSolutionData_R3]] を与える。残余の仮説を一切要しない。
+proof_ja: |
+  有限次元大域存在 [[有限次元大域 ODE の存在|LerayHopf.finDimGlobalODE_exists]] が供給する大域曲線を、[[基底からの解データ|LerayHopf.galerkinSolutionData_of_basis]] に渡す。前者は前進時刻の大域解を無条件に構成し、後者はそこからエネルギー・散逸・正則性を備えた完全な解データを組み立てる。
+gap:
+  level: none
+  note: |
+    有限次元大域存在が前進時刻構造として無条件に証明されたため、残余の仮説が消えて解データが無条件になった。これが「具体スキーム上で無条件」という成果を実現し、$\mathbb{R}^3$ 主定理 [[R3 主定理|LerayHopf.exists_lerayHopf_r3_axiomatic]] の Galerkin 近似段を追加公理なしで供給する。データを運ぶ構造体を返すため `noncomputable def` である。
+chapter: ode
+tags: [galerkin-approximation, kernel-only]

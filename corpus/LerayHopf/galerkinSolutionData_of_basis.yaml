@@ -1,0 +1,12 @@
+name: LerayHopf.galerkinSolutionData_of_basis
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] $B$ に付随する具体スキーム上で、有限次元大域存在の入力から完全な [[Galerkin 解データ|LerayHopf.GalerkinSolutionData_R3]] を組み立てる。
+proof_ja: |
+  二段の合成である。まず有限次元大域曲線から、弱 Galerkin ODE を含む [[Galerkin ODE 入力|LerayHopf.GalerkinODEInput]] を組み立てる。ここで自励的なベクトル場方程式 $c'=G_n(c)$ から弱形式を導く際に、有限次元 Riesz 表現による弱形式とベクトル場の対応が使われる。次にこの入力へ、既に証明されたエネルギー・散逸・正則性の成果 [[入力からの解データ|LerayHopf.galerkinSolutionData_R3_of_input]] を適用して、完全な解データを得る。
+gap:
+  level: mild
+  note: |
+    具体スキーム上で作業することが本質的で、近似部分空間 $V_n$ の有限次元性が Riesz 構成と自動連続性を可能にする。抽象スキームのインターフェースは有限次元性を露わにしないため、この橋は具体スキームでしか成立しない。データを運ぶ構造体を返すため `noncomputable def` である。
+chapter: ode
+tags: [galerkin-approximation, riesz-representation]

@@ -1,0 +1,18 @@
+name: LerayHopf.schemeOfBasis
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] $B$ に付随する具体的な [[Galerkin スキーム|LerayHopf.R3GalerkinScheme]] を定める。その第 $n$ 射影は、$B$ の先頭部分空間への直交射影に他ならない。
+
+  抽象的な Galerkin スキームと異なり、この具体版では各近似部分空間
+
+  $$V_n=\operatorname{span}\{e_0,\dots,e_{n-1}\}$$
+
+  が明示的な有限基底をもち、有限次元であることが定義から見える。
+proof_ja: |
+  スキームの六つのフィールド（発散ゼロ部分空間の保存、発散ゼロ上での強収束、非拡大性、冪等性、成分 Schwartz な像、部分空間の入れ子性）を、基底の先頭部分空間への直交射影について既に証明された性質から一つずつ供給して構造体を組む。射影の定義そのものは先頭部分空間への直交射影であり、スキームの射影がこの射影に等しいことは定義上ただちに成り立つ。
+gap:
+  level: mild
+  note: |
+    この具体スキームが本質的なのは、近似部分空間 $V_n$ の有限次元性を露わにする点にある。抽象 `R3GalerkinScheme` インターフェースは $V_n$ の有限次元性を隠すため、Riesz 表現による有限次元ベクトル場の構成も自動連続性も始動できない。定義上 `(schemeOfBasis B).P n = galerkinP B n` が成り立つ（`rfl`）ことが、この有限次元性を後続の ODE 構成へ引き渡す蝶番になっている。
+chapter: projections-galerkin
+tags: [galerkin-scheme, finite-dimensional]

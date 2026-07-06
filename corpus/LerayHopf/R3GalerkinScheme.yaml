@@ -1,0 +1,22 @@
+name: LerayHopf.R3GalerkinScheme
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 上の Galerkin 近似射影の族を束ねる構造を定める。中心となるのは各 $n$ に対する近似射影の列である。
+
+  $$P_n\colon L^2(\mathbb{R}^3;\mathbb{R}^3)\to L^2(\mathbb{R}^3;\mathbb{R}^3)$$
+
+  これに次の性質を課す。
+
+  各 $P_n$ は発散ゼロ部分空間 $L^2_\sigma(\mathbb{R}^3)$ を保存し、非拡大 $\lVert P_n u\rVert\le\lVert u\rVert$ かつ冪等 $P_n\circ P_n=P_n$ である。像は成分ごとに Schwartz 関数で表され、これにより恒等写像は除外される。さらに、発散ゼロな $u$ に対して強収束
+
+  $$P_n u \xrightarrow[n\to\infty]{} u \qquad (u\in L^2_\sigma(\mathbb{R}^3))$$
+
+  が成り立ち、先に固定された像は後の射影でも固定され続ける入れ子性をもつ。
+gap:
+  level: mild
+  note: |
+    強収束の条件は発散ゼロ部分空間 $L^2_\sigma(\mathbb{R}^3)$ に制限されている。発散ゼロ Galerkin 基底は $L^2_\sigma$ でのみ全体的で、$L^2(\mathbb{R}^3;\mathbb{R}^3)$ 全体では全体的でないため、制限のない形は数学的に強すぎる主張になる（射影の像は閉じた発散ゼロ部分空間に入るので、無制限形はすべての $u$ を発散ゼロに強制してしまう）。この $\Sigma$ 制限は下流の全消費点が発散ゼロデータにしか射影を適用しないという事実と正確に一致する。
+
+    この存在（`Nonempty`）はかつて公理 `r3GalerkinScheme_exists` として仮定されていたが、現在は Schwartz 発散ゼロ基底から具体的に構成された証明済み定理 [[Galerkin スキームの存在|LerayHopf.r3GalerkinScheme_exists]] である。像の Schwartz 性フィールドは、後段の三線形移流評価と $H^1$ 正則性が空虚にならないための鍵になる。
+chapter: projections-galerkin
+tags: [galerkin-scheme, orthogonal-projection, divergence-free]

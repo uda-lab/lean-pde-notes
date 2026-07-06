@@ -1,0 +1,18 @@
+name: LerayHopf.schwartzGalerkinBasis_of_curlDense
+tier: full
+statement_ja: |
+  孤立した密度性の前提 [[渦度場の $L^2$ 稠密性|LerayHopf.CurlSchwartzDense]] が成り立つならば、[[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] は空でない。
+
+  これは基底構成の本質的な条件付き成果物であり、密度性の仮説を法として公理を用いない。
+proof_ja: |
+  密度性の前提から、Schwartz ポテンシャルの渦度場の列 $e_0,e_1,\dots$ であって、その先頭部分空間が発散ゼロ部分空間 $L^2_\sigma(\mathbb{R}^3)$ で稠密なものを一本取り出す。ここで可算列に絞れるのは $L^2(\mathbb{R}^3;\mathbb{R}^3)$ が可分だからであり、渦度場の族から可算な稠密部分集合を選んで列挙する、いわば分析ではなく帳簿づけの操作である。
+
+  この列を基底の各フィールドに割り当てる。すなわち各 $e_k$ が渦度場であること（成分は Schwartz）から成分 Schwartz 性を、渦度の発散がゼロであること（Clairaut と Schwartz の部分積分）から発散ゼロ性を、先ほど取り出した列の稠密性から先頭部分空間の全体性を供給し、四つのフィールドを組み立てる。
+gap:
+  level: mild
+  note: |
+    渦度場が Schwartz 部分空間にとどまること自体は本形式化で証明済みであり、Leray 射影のような Fourier 乗数（原点で特異）を経由しないため Schwartz 性を壊さない。可分性からの列絞り込みは可算稠密部分集合の存在という一般事実に帰着する。
+
+    この条件付き成果物に密度性の証明済み定理 [[渦度場の稠密性|LerayHopf.curlSchwartzDense_holds]] を適用したものが無条件版 [[Schwartz 基底の存在|LerayHopf.nonempty_schwartzGalerkinBasis]] である。
+chapter: projections-galerkin
+tags: [galerkin-scheme, curl, separability]
