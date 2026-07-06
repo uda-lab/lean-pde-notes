@@ -38,3 +38,8 @@ jobs:
 
       - name: Coverage report
         run: python3 scripts/coverage.py
+
+      - name: Build site data
+        # Joins extracted/decls.json (or names-fallback.json) with corpus/**/*.yaml
+        # into site/data/nodes.json. Pure Python, seconds, no Lean build.
+        run: python3 scripts/build_site_data.py --no-coverage

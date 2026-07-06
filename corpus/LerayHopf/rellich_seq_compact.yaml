@@ -1,0 +1,19 @@
+name: LerayHopf.rellich_seq_compact
+tier: full
+statement_ja: |
+  $H^1$ ノルムが一様有界な $L^2(\mathbb{R}^3)$ の点列は、$L^2$ で強収束する部分列をもつ
+  （Rellich–Kondrachov のコンパクト埋め込み $H^1 \hookrightarrow L^2$ の点列版）。
+proof_ja: |
+  L1. Fréchet–Kolmogorov の全有界性判定を用いる。一様 $H^1$ 有界性から、平行移動の
+  連続性評価
+  $$\|f(\cdot+h)-f(\cdot)\|_{L^2} \le |h|\,\|\nabla f\|_{L^2}$$
+  が点列に一様に成り立つ。
+  L2. 遠方の裾（大きな球の外側の $L^2$ 質量）が一様に小さいことを、重み付き評価から示す。
+  L3. L1・L2 より点列は $L^2$ で全有界。前コンパクト性から $L^2$ 収束部分列を取り出す。
+gap:
+  level: mild
+  note: |
+    自然言語の「Rellich でコンパクト」に対し、Lean では Fréchet–Kolmogorov の
+    平行移動連続性と裾評価を明示的に組む必要がある。
+chapter: compactness
+tags: [sample, rellich, frechet-kolmogorov]
