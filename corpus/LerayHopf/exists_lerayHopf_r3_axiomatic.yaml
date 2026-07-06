@@ -1,0 +1,25 @@
+name: LerayHopf.exists_lerayHopf_r3_axiomatic
+tier: full
+statement_ja: |
+  発散ゼロな初期値 $u_0 \in L^2_\sigma(\mathbb{R}^3)$ に対し、$\mathbb{R}^3$ 上の
+  Navier–Stokes 方程式の Leray–Hopf 弱解が存在する。すなわち、エネルギー不等式
+  $$\tfrac12\|u(t)\|_{L^2}^2 + \nu\int_0^t\!\|\nabla u\|_{L^2}^2\,ds \le \tfrac12\|u_0\|_{L^2}^2$$
+  を満たし、任意の発散ゼロテスト関数に対して弱形式を満たす曲線 $u$ が構成できる。
+proof_ja: |
+  L1. Galerkin 近似列を構成する。射影空間 $P_n L^2_\sigma$ 上で有限次元 ODE を
+  Picard–Lindelöf により解き、近似解 $u_n$ を得る。
+  L2. エネルギー恒等式から $u_n$ の一様評価（$L^\infty_t L^2_x \cap L^2_t H^1_x$）を導く。
+  L3. Rellich–Kondrachov のコンパクト埋め込みと時間方向の Aubin–Lions 型議論により、
+  $u_n$ の部分列が $L^2_{t,x}$ で強収束することを取り出す。
+  L4. 非線形項の極限移行を強収束から正当化し、極限 $u$ が弱形式を満たすことを確認する。
+  L5. 弱下半連続性からエネルギー不等式を極限に受け継がせ、Leray–Hopf 弱解の全条件を
+  証明保持型構造体 `LerayHopfSolutionFull_R3` に詰める。
+gap:
+  level: large
+  note: |
+    自然言語では「Galerkin 近似してコンパクト性で極限を取る」の一行だが、Lean では
+    有限次元 ODE の存在・前進評価・射影の実数値性・コンパクト性（Rellich＋時間コンパクト）・
+    非線形項の三重線形評価・極限移行が各々独立の補題群に展開される。名称の `axiomatic`
+    は歴史的接尾辞であり、本体はカーネルのみで閉じている（追加公理なし）。
+chapter: capstone-r3
+tags: [sample, leray-hopf, capstone]

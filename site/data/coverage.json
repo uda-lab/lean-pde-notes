@@ -1,15 +1,15 @@
 {
   "total_decls": 1412,
-  "annotated": 0,
-  "full": 0,
+  "annotated": 3,
+  "full": 3,
   "gloss": 0,
-  "unannotated": 1412,
-  "pct_annotated": 0.0,
+  "unannotated": 1409,
+  "pct_annotated": 0.2,
   "chapters": {
     "spaces": {
       "label_ja": "関数空間と基本設定",
-      "annotated": 0,
-      "full": 0,
+      "annotated": 1,
+      "full": 1,
       "gloss": 0
     },
     "projections-galerkin": {
@@ -32,8 +32,8 @@
     },
     "compactness": {
       "label_ja": "コンパクト性（空間・時間）",
-      "annotated": 0,
-      "full": 0,
+      "annotated": 1,
+      "full": 1,
       "gloss": 0
     },
     "limit-passage": {
@@ -44,8 +44,8 @@
     },
     "capstone-r3": {
       "label_ja": "R3 主定理",
-      "annotated": 0,
-      "full": 0,
+      "annotated": 1,
+      "full": 1,
       "gloss": 0
     },
     "capstone-torus": {

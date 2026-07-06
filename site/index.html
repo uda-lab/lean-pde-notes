@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>lean-pde-notes — 証明掘り下げノート</title>
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- KaTeX is vendored (site/vendor/katex); no CDN, no bundler, no framework. -->
+  <script defer src="vendor/katex/katex.min.js"></script>
+  <script defer src="vendor/katex/auto-render.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#/">lean-pde-notes</a>
+    <nav class="top-nav">
+      <a href="#/">ホーム</a>
+      <a href="#/dag">証明ツリー</a>
+      <a href="#/coverage">カバレッジ</a>
+    </nav>
+    <form class="search" id="search-form" role="search" autocomplete="off">
+      <input id="search-input" type="search" placeholder="宣言名・日本語で検索…"
+             aria-label="検索">
+    </form>
+  </header>
+
+  <main id="app" aria-live="polite">
+    <p class="loading">読み込み中…</p>
+  </main>
+
+  <div id="hovercard" class="hovercard" hidden></div>
+
+  <footer class="site-footer">
+    <span id="footer-meta"></span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+name: LerayHopf.L2Sigma_R3
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 上の発散ゼロな二乗可積分ベクトル場のなす空間 $L^2_\sigma(\mathbb{R}^3)$。
+  $L^2(\mathbb{R}^3;\mathbb{R}^3)$ の閉部分空間として、発散ゼロ条件を満たす元の全体で定義する。
+gap:
+  level: none
+chapter: spaces
+tags: [sample, function-space]

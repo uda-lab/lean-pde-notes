@@ -38,3 +38,9 @@ jobs:
 
       - name: Coverage report
         run: python3 scripts/coverage.py
+
+      - name: Build site data (structure check only)
+        # Verifies the join runs, but writes to a temp path: CI has no lean-pde checkout,
+        # so it cannot embed source. Writing to site/data/nodes.json here would clobber the
+        # committed source-embedded artifact (built with --lean-root). Pure Python, seconds.
+        run: python3 scripts/build_site_data.py --no-coverage --out /tmp/nodes.check.json
