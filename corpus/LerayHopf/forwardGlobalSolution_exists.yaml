@@ -1,0 +1,22 @@
+name: LerayHopf.forwardGlobalSolution_exists
+tier: full
+statement_ja: |
+  基底に付随する具体スキームの第 $n$ 近似部分空間 $V_n$ 上で、自励的な有限次元 Galerkin ODE $c'=G_n(c)$ の前進大域解が存在する。
+
+  すなわち曲線 $c\colon\mathbb{R}\to V_n$ であって、$c(0)=P_n u_0\in V_n$ を満たし、すべての $t\ge0$ で $c$ の $L^2$ への座標が導関数 $G_n(c(t))$ をもつものが取れる。
+proof_ja: |
+  有限次元空間 $V_n$ 上でベクトル場 $G_n$ は二次プラス線形なので滑らかであり、局所解に沿ってエネルギー $\tfrac12\lVert c(t)\rVert^2$ は非増加である。これは散逸恒等式による。
+
+  $$\tfrac{d}{dt}\tfrac12\lVert c\rVert^2=-\nu\cdot(\text{散逸})\le0$$
+
+  したがって前進の事前評価 $\lVert c(t)\rVert\le\lVert c(0)\rVert$ が成り立ち、解は固定した事前球 $\overline{B}(0,R)$（$R=\lVert P_n u_0\rVert$）にとどまる。
+
+  この球の上では mathlib の一様局所存在定理が適用でき、一様な局所存在時間が取れる。そこで区間 $[0,\infty)$ をその一様時間で敷き詰め、格子上の曲線を一意性（重なり区間での解の一致）で貼り合わせて、前進大域解を構成する。具体的には各ステップ幅 $\delta/2$ で解を進め、十分大きなステップ添字 $N(t)=\lfloor t/(\delta/2)\rfloor+1$ を用いて $c(t)$ を定義し、任意の時刻でその時刻を過ぎる添字の解が一致することを示す。
+gap:
+  level: large
+  note: |
+    自然言語では「事前評価があるので大域解が存在する」だが、形式化では一様局所存在時間の抽出、ステップごとの解の構成、格子曲線の一意性による貼り合わせ、各点での導関数の局所的一致がすべて必要になる。mathlib には有限次元ベクトル空間に対する「事前評価からの継続」定理がないため、一様局所時間の敷き詰めで代替している。
+
+    証明は前進時刻のみを扱う。後退時刻の閉じ込めはエネルギー上界が供給せず、また `FinDimGlobalODE` の前進時刻化以降は不要なので、後退時刻の密輸は生じない。この定理が有限次元大域存在の残余フロンティアを無条件に除去し、[[有限次元大域 ODE の存在|LerayHopf.finDimGlobalODE_exists]] を経て Galerkin 解を具体スキーム上で無条件にする。
+chapter: ode
+tags: [galerkin-approximation, picard-lindelof, ode-existence]

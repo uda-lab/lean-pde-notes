@@ -1,0 +1,12 @@
+name: LerayHopf.nonempty_schwartzGalerkinBasis
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] は空でない。無条件の主張であり、密度性の仮説すら要しない。
+proof_ja: |
+  条件付き成果物 [[渦度基底の構成|LerayHopf.schwartzGalerkinBasis_of_curlDense]] に、証明済みの密度性 [[渦度場の稠密性|LerayHopf.curlSchwartzDense_holds]] を適用する。後者は Helmholtz–Weyl 型の渦度密度、すなわち Schwartz ポテンシャルの渦度が張る部分空間の $L^2$ 閉包が発散ゼロ部分空間全体を覆うという事実であり、Fourier・Plancherel を用いた完全な証明が別に与えられている。
+gap:
+  level: mild
+  note: |
+    かつてこの定理は密度性の公理 `curlSchwartzDense_holds` を消費していたが、現在その密度性自体が Fourier 経路で証明済みの定理となったため、この存在主張も追加公理を含まない。名前は下流の消費点が変わらないよう、旧公理消費時代から保たれている。
+chapter: projections-galerkin
+tags: [galerkin-scheme, curl]

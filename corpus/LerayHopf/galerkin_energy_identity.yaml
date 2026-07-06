@@ -1,0 +1,20 @@
+name: LerayHopf.galerkin_energy_identity
+tier: full
+statement_ja: |
+  Galerkin ODE の解に沿って、前進時刻 $t\ge0$ でエネルギー恒等式
+
+  $$\frac{d}{dt}\Bigl(\tfrac12\lVert u(t)\rVert^2\Bigr) = -\,\nu\,\bigl(\text{粘性散逸}\bigr)(u(t))$$
+
+  が成り立つ。すなわちエネルギーの時間微分は粘性散逸の $\nu$ 倍の負値に等しい。
+proof_ja: |
+  弱 Galerkin ODE を、テストとして解自身 $w=u(t)$ に対して適用する。これは解が近似部分空間にとどまるので適格なテストである。移流形式の反対称性から対角項 $b(u,u,u)=0$ が消え、粘性形式の対角値が粘性散逸に一致することを用いると、ODE は次に帰着する。
+
+  $$\langle u'(t),u(t)\rangle + \nu\,\bigl(\text{粘性散逸}\bigr)(u(t)) = 0$$
+
+  一方、実内積の対称性から曲線の内積 $s\mapsto\langle u(s),u(s)\rangle$ の微分は $2\langle u'(t),u(t)\rangle$ に等しい。したがって $\tfrac12\lVert u\rVert^2$ の微分値は $\langle u'(t),u(t)\rangle$ となり、上の式からこれは $-\nu\cdot(\text{粘性散逸})$ に等しい。
+gap:
+  level: mild
+  note: |
+    これはエネルギー・散逸評価の解析核である。非線形項の消滅は反対称性のみから従う（[[移流形式の対角消滅|LerayHopf.R3NSForms.b_self_zero]]）。前進時刻限定なのは、消費する微分可能性と弱 ODE がともに $0\le t$ に制限されているためで、後退時刻での二次 ODE の発散を避ける整合的な措置である。Lean では曲線の内積の微分は `HasDerivAt.inner` で扱う。
+chapter: energy
+tags: [energy-identity, galerkin-approximation, viscous-form]

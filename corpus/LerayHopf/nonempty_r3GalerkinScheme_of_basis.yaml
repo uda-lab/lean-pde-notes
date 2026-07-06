@@ -1,0 +1,16 @@
+name: LerayHopf.nonempty_r3GalerkinScheme_of_basis
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] $B$ から、その有限個の先頭が張る部分空間への直交射影が実際の [[Galerkin スキーム|LerayHopf.R3GalerkinScheme]] を成す。
+
+  これはかつて公理として仮定されていた Galerkin 近似射影族の存在の、構成的な証拠である。唯一の入力は基底に束ねられた密度性の仮説であり、これは Helmholtz–Weyl 型の事実を公理化せず仮説として運ぶものである。
+proof_ja: |
+  各 $n$ に対する近似射影を、先頭部分空間 $\operatorname{span}\{e_0,\dots,e_{n-1}\}$ への直交射影 $P_n$ として定める。スキームが要求する六つのフィールド、すなわち発散ゼロ部分空間の保存、発散ゼロ上での恒等写像への強収束、非拡大性、冪等性、成分 Schwartz な像、そして部分空間の入れ子性を、それぞれ [[スキームの諸性質|LerayHopf.galerkinScheme_properties_of_basis]] の対応する成分から供給して構造体を組み立てる。
+
+  強収束フィールドは発散ゼロ部分空間に制限された正直な形をとっており、スキーム側のフィールドの形と正確に一致するため、組み立ては直接的である。
+gap:
+  level: mild
+  note: |
+    直交射影は Lean では `Submodule.starProjection` として実現される。この定理が供給するスキームは具体的な `schemeOfBasis B`（[[基底からのスキーム|LerayHopf.schemeOfBasis]]）へと抽出され、その射影が定義上 `galerkinP B` に一致することが後続の有限次元 Riesz 構成の鍵となる。抽象的な Galerkin スキームの存在から取ると基底を捨ててしまい、スキームごとの ODE 公理を再導入することになるため、主定理はこの具体版を経由する。
+chapter: projections-galerkin
+tags: [galerkin-scheme, orthogonal-projection]

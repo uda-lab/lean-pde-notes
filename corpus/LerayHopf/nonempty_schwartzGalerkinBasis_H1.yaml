@@ -1,0 +1,24 @@
+name: LerayHopf.nonempty_schwartzGalerkinBasis_H1
+tier: full
+statement_ja: |
+  誘導される [[Galerkin スキーム|LerayHopf.schemeOfBasis]] が $H^1$（グラフノルム）テスト近似性 [[$H^1$ テスト近似|LerayHopf.R3TestApproxH1]] を満たすような [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] が存在する。
+
+  これは無条件版 [[Schwartz 基底の存在|LerayHopf.nonempty_schwartzGalerkinBasis]] の強化版であり、得られる基底は Galerkin 先頭部分空間の $L^2$ 稠密性だけでなく、あらゆる Schwartz 発散ゼロテストを Galerkin テストで $H^1$ グラフ近似できることまで保証する。
+proof_ja: |
+  中心となる補題は、$H^1$ グラフ空間
+
+  $$L^2(\mathbb{R}^3;\mathbb{R}^3)\times(L^2(\mathbb{R}^3;\mathbb{C}))^{3}$$
+
+  が可分であることに基づく、Schwartz ポテンシャルの列 $\psi$ の取り出しである。渦度場を、それ自身と重み付き Fourier 成分（$\sqrt{W}$ を掛けた変換で、その $\ell^2$ 質量が粘性半ノルムを与える）の対として積空間に埋め込む。積空間は可分なので可算稠密部分集合が取れ、その各点から Schwartz ポテンシャルを選んで列挙する。この列は先頭部分空間が $L^2_\sigma$ で稠密であり、かつ各渦度場が $L^2$ と重み付き Fourier 成分の両方で近似される $H^1$ グラフ稠密性をもつ。
+
+  この列を各フィールドに割り当てて基底 $B$ を作る。$H^1$ テスト近似性を示すには、まず [[$H^1$ 渦度近似|LerayHopf.curl_approx_H1]] で目標 $w$ を $\varepsilon/4$ 以内の渦度 $\operatorname{curl}\theta$ で両半ノルムについて近似し、次にグラフ稠密性で基底の渦度場 $\operatorname{curl}(\psi_k)$ を $\operatorname{curl}\theta$ の $\rho=\min(1,\varepsilon/24)$ 以内に取る。$\operatorname{curl}(\psi_k)$ は先頭部分空間の元なので第 $(k+1)$ 射影で固定される Galerkin テストであり、かつ Schwartz 発散ゼロである。
+
+  $L^2$ 誤差は三角不等式で $\rho+\varepsilon/4<\varepsilon$ に収まる。粘性誤差は各成分ごとに重み付き Fourier 成分の差を二項に分解し、$(a+b)^2\le2a^2+2b^2$ と成分ごとの評価 $\lVert A\rVert<\rho$ を用い、三成分を合計して $6\rho^2+2\cdot(\text{目標の粘性誤差})$ を得る。$\rho^2\le\rho\le\varepsilon/24$ から $6\rho^2\le\varepsilon/4$、目標側は $\varepsilon/2$ 未満なので、全体として $\varepsilon$ 未満に収まる。
+gap:
+  level: large
+  note: |
+    自然言語では「稠密な可算基底を取り、テストを近似する」だが、形式化では複素 $L^2$ 因子の可分性・積空間の可分性、Schwartz 成分からの $H^1$ 所属、$H^1$ が減法で閉じることの確認、重み付き Fourier 成分の減法分解、二半ノルムの三角不等式の別々の詰めが要る。粘性項の $(a+b)^2\le2a^2+2b^2$ 展開と定数の割り当ては、$\rho$ を $\varepsilon/24$ の水準まで小さく取ることで吸収している。
+
+    出力は基底とその $H^1$ テスト近似性の証明を対にした部分型 `{B // R3TestApproxH1 (schemeOfBasis B)}` の要素であり、主定理の組み立てでこの証拠を閉包連鎖へスレッドする。
+chapter: projections-galerkin
+tags: [galerkin-scheme, sobolev, curl, separability]

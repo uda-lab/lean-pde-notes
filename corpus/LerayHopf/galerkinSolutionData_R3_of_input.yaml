@@ -1,0 +1,28 @@
+name: LerayHopf.galerkinSolutionData_R3_of_input
+tier: full
+statement_ja: |
+  孤立した大域存在・表現の入力 [[Galerkin ODE 入力|LerayHopf.GalerkinODEInput]] から、完全な [[Galerkin 解データ|LerayHopf.GalerkinSolutionData_R3]] を組み立てる。
+
+  すなわち解曲線、その初期値、部分空間への閉じ込め、微分可能性、弱 ODE、$H^1$ 正則性、そして一様なエネルギー上界と散逸上界を与える。後ろ三つは移流形式の反対称性から公理を用いずに導かれる成果である。
+proof_ja: |
+  最初の五つのフィールド（曲線・初期値・部分空間閉じ込め・微分可能性・弱 ODE）は入力からそのまま渡す。これらは存在定理が供給するものである。残る三つは証明された成果として供給する。
+
+  $H^1$ 正則性は、曲線が Schwartz Galerkin 部分空間にとどまることから各時刻で $H^1$ 所属を得る。
+
+  一様エネルギー上界は、エネルギー恒等式
+
+  $$\tfrac12\frac{d}{dt}\lVert u\rVert^2 = -\,\nu\,\bigl(\text{粘性散逸}\bigr)(u)$$
+
+  からエネルギー $\tfrac12\lVert u(s)\rVert^2$ が前進時刻で単調非増加であることを導き、$t\ge0$ で次を得る。
+
+  $$\tfrac12\lVert u(t)\rVert^2 \le \tfrac12\lVert P_n u_0\rVert^2$$
+
+  一様散逸上界は同じエネルギー恒等式を微分積分学の基本定理で積分し、時間積分した散逸が $\tfrac12\lVert u_0\rVert^2$ で上から抑えられることを得る。散逸が可積分でない場合は積分を $0$ とみなして評価が成り立つ。
+gap:
+  level: mild
+  note: |
+    エネルギー恒等式の核は、弱 ODE を $w=u(t)$ でテストすると反対称性から非線形項 $b(u,u,u)=0$ が消え、内積の項と粘性散逸の和がゼロになる点にある（[[エネルギー恒等式|LerayHopf.galerkin_energy_identity]]）。エネルギー・散逸・正則性は前進時刻でのみ保証され、二次 ODE の後退時刻発散を避けるための $0\le t$ 制限と整合する。
+
+    これはデータを運ぶ構造体（`Prop` ではなく `Type`）を返すため定理ではなく `noncomputable def` として与えられる。真の残余フロンティア（有限次元 ODE の大域存在と弱形式表現）は入力構造の側に隔離されている。
+chapter: ode
+tags: [galerkin-approximation, energy-inequality, energy-identity]

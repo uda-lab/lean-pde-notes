@@ -1,0 +1,24 @@
+name: LerayHopf.R3NSForms
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 上の Navier–Stokes 移流形式を束ねる構造を定める。中心は三線形の移流形式
+
+  $$b\colon L^2_\sigma(\mathbb{R}^3)\times L^2_\sigma(\mathbb{R}^3)\times L^2_\sigma(\mathbb{R}^3)\to\mathbb{R}$$
+
+  であり、これに後ろ二つのスロットに関する反対称性 $b(u,v,w)=-b(u,w,v)$、各スロットでの加法性とスカラー斉次性を課す。粘性形式は具体的な Stokes 双線形形式であって公理化しないため、この束は移流形式のみを担う。
+
+  さらに二つの非自明な条件を置く。第一に、標準的な Schwartz 発散ゼロテスト $w$ に対する $L^2$ 有界性である。
+
+  $$\lvert b(u,v,w)\rvert\le C(w)\,\lVert u\rVert\,\lVert v\rVert$$
+
+  第二に、成分が Schwartz で表される場では $b$ が真の移流積分に一致するという非空性のピン留めである。
+
+  $$b(u,v,w) = \sum_{i,a}\int u_a\,(\partial_a v_i)\,w_i$$
+gap:
+  level: mild
+  note: |
+    非空性のピンは $b$ を真の移流積分に一致させることで $b=0$ を除外する（真の移流形式は Schwartz 三つ組の上で消えない）。有界性は $b(u,v,w)=-\int(u\cdot\nabla)w\cdot v$ から、$w$ が Schwartz なら $\lVert\nabla w\rVert_\infty<\infty$ で従い、非線形極限移行の強 $L^2$ 収束に適した形をとる。反対称性の規約は後ろ二つのスロットで歪対称である。
+
+    存在（`Nonempty`）はかつて公理として仮定されていたが、現在は証明済み定理 [[NS 形式の存在|LerayHopf.r3_NSForms_exists]] である。構造体は移流ギャップ操作核と証明済み密度から [[ギャップからの NS 形式|LerayHopf.R3NSForms_of_gap]] を経て組み立てられる。
+chapter: spaces
+tags: [convection-form, navier-stokes, weak-formulation]

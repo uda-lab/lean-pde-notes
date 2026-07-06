@@ -1,0 +1,18 @@
+name: LerayHopf.R3TestApproxH1
+tier: full
+statement_ja: |
+  [[Galerkin スキーム|LerayHopf.R3GalerkinScheme]] $\mathfrak{G}$ に対する $H^1$（グラフノルム）テスト近似性を定める。
+
+  任意の標準的な Schwartz 発散ゼロテスト $w$ と任意の $\varepsilon>0$ に対して、$\mathfrak{G}$ の Galerkin テスト場 $v$ であって、$L^2$ ノルムと粘性（勾配）半ノルムの双方について $w$ に $\varepsilon$ 以内で近いものが存在する。すなわち
+
+  $$\lVert v-w\rVert_{L^2}<\varepsilon \qquad\text{かつ}\qquad \nu\!\int\!\lvert\nabla(v-w)\rvert^2<\varepsilon$$
+
+  であり、しかも $v$ 自身も Galerkin テストかつ Schwartz 発散ゼロである。
+gap:
+  level: mild
+  note: |
+    この性質は、スキームの強収束が $L^2$ のみを制御し粘性半ノルム $\int\lvert\nabla(P_n w-w)\rvert^2$ を制御しないという不足を埋めるために導入される。弱形式のテスト拡張ステップで必要となり、非線形項の極限移行へ橋渡しされる。
+
+    設計上これはスキームの構造フィールドではなく独立した述語として置かれ、極限移行の層とその上流の両方から循環なしに参照できるようにしてある。具体スキームに対するこの性質の充足は [[$H^1$ 渦度近似|LerayHopf.curl_approx_H1]] を通じて [[$H^1$ テスト近似基底の存在|LerayHopf.nonempty_schwartzGalerkinBasis_H1]] が供給する。
+chapter: projections-galerkin
+tags: [galerkin-scheme, sobolev, test-function]

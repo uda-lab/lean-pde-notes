@@ -1,0 +1,28 @@
+name: LerayHopf.curlSchwartzL2_mem_sigma
+tier: full
+statement_ja: |
+  Schwartz ベクトルポテンシャル $\psi$ の渦度場は弱い意味で発散ゼロである。すなわち [[渦度場|LerayHopf.curlSchwartzL2]] は [[発散ゼロ部分空間|LerayHopf.L2Sigma_R3]] に属する。
+
+  これは古典的な恒等式
+
+  $$\operatorname{div}(\operatorname{curl}\psi)=0$$
+
+  の弱形式であり、仮定ではなく証明されている。
+proof_ja: |
+  任意の Schwartz テスト関数 $\varphi$ に対して、渦度場を弱発散テスト汎関数へ入れた値がゼロであることを示せばよい。成分ごとに部分積分すると、各項は
+
+  $$\bigl\langle\partial_j\varphi,\ (\operatorname{curl}\psi)_j\bigr\rangle = -\int \partial_j(\operatorname{curl}\psi)_j\,\varphi$$
+
+  となる。ここで用いる Schwartz 関数どうしの部分積分は境界項を落とす。これらを $j$ について合計すると、被積分関数は渦度の発散にテスト関数 $\varphi$ を掛けたものになる。
+
+  $$\sum_j\partial_j(\operatorname{curl}\psi)_j\cdot\varphi$$
+
+  渦度の巡回構造から、この発散は各点でゼロになる。実際、各項は Schwartz 関数の混合二階偏微分であり、Clairaut の定理（滑らかな関数の混合偏微分は交換する）により対になって相殺する。したがって被積分関数は恒等的にゼロで、積分もゼロとなる。
+gap:
+  level: mild
+  note: |
+    Clairaut の可換性は Lean では二階 Fréchet 微分の対称性 `ContDiffAt.isSymmSndFDerivAt` を経由して得ており、Schwartz の線微分を `fderiv` に還元してから適用する。偏微分作用素は `lineDerivOpCLM` を用い（`pderivCLM` は非推奨）、Schwartz 関数どうしの積の可積分性は緩増加性から従う。
+
+    この発散ゼロ性は、渦度場を [[Schwartz 発散ゼロ基底|LerayHopf.SchwartzGalerkinBasis]] の生成元として用いるための必須条件であり、Leray 射影を経由しない（Schwartz 性を壊さない）構成の正当性を担保する。
+chapter: spaces
+tags: [divergence-free, curl, schwartz, clairaut]

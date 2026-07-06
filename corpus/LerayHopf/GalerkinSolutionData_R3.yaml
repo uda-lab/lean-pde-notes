@@ -1,0 +1,22 @@
+name: LerayHopf.GalerkinSolutionData_R3
+tier: full
+statement_ja: |
+  $L^2_\sigma(\mathbb{R}^3)$ の第 $n$ 近似部分空間の上で、Galerkin ODE の解が生み出すデータを束ねる構造を定める。
+
+  中心となるのは前進時刻で定義された解曲線であり、発散ゼロ部分空間に値をとる。
+
+  $$u\colon [0,\infty)\to L^2_\sigma(\mathbb{R}^3)$$
+
+  これに初期条件 $u(0)=P_n u_0$、曲線が第 $n$ 近似部分空間にとどまること、前進時刻 $t\ge0$ での微分可能性、そして射影された弱 Galerkin ODE
+
+  $$\langle u'(t),w\rangle + \nu\,\bigl(\text{粘性形式}\bigr)(u(t),w) + b(u(t),u(t),w) = 0$$
+
+  を、部分空間内の任意のテスト $w$ について課す。さらに解が $H^1$ にとどまる正則性、重み付き Fourier 成分の連続性、そして一様なエネルギー上界と散逸上界を保持する。
+gap:
+  level: mild
+  note: |
+    微分可能性と弱 ODE は前進時刻 $t\ge0$ に制限されている。物理的な Galerkin 解は前進エネルギー上界によってのみ閉じ込められ、この $u$ について二次のベクトル場は有限の後退時刻で発散しうるため、全時刻での主張は潜在的に強すぎる（大域解が honor できない非物理的保証になる）。したがって $0\le t$ に制限してある。
+
+    各フィールドは Aubin–Lions の組み立てか極限移行で消費される。エネルギー・散逸・$H^1$ 正則性の三つは仮定ではなく、ODE と移流形式の反対称性から導かれる成果であり、それを供給するのが [[入力からの解データ|LerayHopf.galerkinSolutionData_R3_of_input]] である。
+chapter: ode
+tags: [galerkin-approximation, proof-carrying-type, energy-inequality]
