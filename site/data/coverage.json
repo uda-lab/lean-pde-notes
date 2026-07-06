@@ -1,10 +1,10 @@
 {
   "total_decls": 1412,
-  "annotated": 58,
-  "full": 58,
+  "annotated": 73,
+  "full": 73,
   "gloss": 0,
-  "unannotated": 1354,
-  "pct_annotated": 4.1,
+  "unannotated": 1339,
+  "pct_annotated": 5.2,
   "chapters": {
     "spaces": {
       "label_ja": "関数空間と基本設定",
@@ -26,20 +26,20 @@
     },
     "energy": {
       "label_ja": "エネルギー恒等式と不等式",
-      "annotated": 12,
-      "full": 12,
+      "annotated": 14,
+      "full": 14,
       "gloss": 0
     },
     "compactness": {
       "label_ja": "コンパクト性（空間・時間）",
-      "annotated": 9,
-      "full": 9,
+      "annotated": 14,
+      "full": 14,
       "gloss": 0
     },
     "limit-passage": {
       "label_ja": "極限移行（非線形項）",
-      "annotated": 10,
-      "full": 10,
+      "annotated": 18,
+      "full": 18,
       "gloss": 0
     },
     "capstone-r3": {
