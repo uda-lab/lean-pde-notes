@@ -4,13 +4,23 @@ Machine-generated declaration metadata from the lean-pde formalization.
 
 ## Files
 
-### `decls.json` (S0 spike — not yet present)
+### `decls.json`
 
-Full declaration metadata produced by `lake exe extract_notes` against a warm
-lean-pde build. Fields: `name`, `kind`, `private`, `signature`, `doc`, `file`,
-`lines` (start/end), `deps` (list of project-internal declaration names used).
+Full declaration metadata produced by `lake exe extract_notes` (lean-pde) against a
+warm build, one record per LerayHopf-module declaration. Fields:
 
-When this file is present, scripts prefer it over `names-fallback.json`.
+- `id` — real internal name, **unique**, and the key `deps` edges point at. For a public
+  declaration `id == name`.
+- `name` — display user-name. It can collide across modules for `private` helpers (8
+  groups / 16 decls in the current extraction), so `name` is **not** a key; use `id`
+  (plus `file`, per notes#7) to disambiguate.
+- `private`, `kind` (theorem|def|structure|instance|abbrev|inductive|other), `signature`,
+  `doc`, `file`, `startLine`, `endLine`.
+- `deps` — project-internal edges (constants used in type+value), each normalized to an
+  emitted record `id`.
+
+When this file is present, scripts prefer it over `names-fallback.json`, and
+`scripts/validate.py` additionally requires `PIN`.
 
 ### `names-fallback.json`
 
@@ -23,13 +33,24 @@ No signatures, docs, or deps — those require `decls.json`.
 40-character git SHA of the lean-pde commit that was used for extraction.
 Required by `scripts/validate.py` when `decls.json` is present.
 
-## Regenerating names-fallback.json
+## Regenerating decls.json (authoritative universe)
+
+```bash
+# in a warm lean-pde checkout at the PIN commit:
+flock /tmp/lean-build.lock lake exe extract_notes -- --out extracted/decls.json
+```
+
+The extractor filters to LerayHopf-module declarations only. Then update `PIN` to the
+lean-pde commit SHA and re-run `scripts/validate.py` / `scripts/coverage.py`.
+
+## Regenerating names-fallback.json (dormant while decls.json is present)
 
 ```bash
 python3 scripts/count_decls.py /workspaces/lean-pde
 ```
 
-## Upgrading to decls.json
-
-When S0 lands, drop `decls.json` and `PIN` here, then re-run `scripts/validate.py`
-to confirm the corpus name-set is still a subset of the full universe.
+Note: `count_decls.py` scans every `.lean` file in the checkout, including the
+root-level `ExtractNotes.lean` (the extractor's own source, ~23 tooling defs that are
+NOT LerayHopf math). It therefore over-counts relative to `decls.json`, which is
+module-filtered. The committed fallback is the pre-extractor LerayHopf universe and is
+intentionally left un-refreshed; `decls.json` is authoritative.
