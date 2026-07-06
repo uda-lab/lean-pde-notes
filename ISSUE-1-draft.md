@@ -65,7 +65,10 @@ capstone: `exists_lerayHopf_r3_axiomatic`（`R3/GalerkinODECapstone.lean`）、
 
 - **SubVerso** で全対象ファイルのハイライト済みコード＋証明状態 JSON を抽出（Wave 0 スパイクで
   適用可否を判定。基準: warm ツリーで RAM 3.42 GiB 内・toolchain v4.31.0-rc2 で動作）
-- **薄い自作 `lake exe extract_notes`** が environment（olean ロードのみ）から補完抽出:
+- **依存辺抽出**: まず **LeanArchitect**（hanwenzhu/LeanArchitect、2026-06 活発）を評価 —
+  コンパイル済み environment から宣言・依存辺・証明状態の構造化 JSON を `.lake/build/blueprint/`
+  に出力する既製ツールで、自作を丸ごと省ける可能性がある。不足分（private フラグ・
+  ソース位置精度など）のみ薄い自作 `lake exe extract_notes`（olean ロードのみ）で補完:
   完全修飾名・種別・シグネチャ pretty-print・doc-comment・ソース位置・**使用定数の依存辺**
   （proof term が参照する project 内定数 = 真の証明 DAG）・private フラグ
 - 出力は本 repo の `extracted/` にコミット、対象コミット SHA を `extracted/PIN` に記録
@@ -132,7 +135,8 @@ tags: [rellich, frechet-kolmogorov]
 1. 抽出 JSON の宣言数がコメント除去済み grep 集計（1,413、上表）と一致
 2. 依存辺が capstone→スパインで目視妥当（`exists_lerayHopf_r3_axiomatic` の uses に
    LimitPassage 系が現れる等）
-3. SubVerso＋依存辺抽出が lean-pde の warm ツリー上・RAM 3.42 GiB 内で完走（コールドビルドなし）
+3. SubVerso＋依存辺抽出（LeanArchitect 第一候補、不適なら自作）が lean-pde の warm ツリー上・
+   RAM 3.42 GiB 内で完走（コールドビルドなし）
 4. UI 骨格がローカル static サーブで動作（ホバー・1 段アコーディオン・ノード遷移・DAG 表示）
 5. シード移植で stale 名の再アンカー手順が確立（旧名→現行名の対応表を残す）
 
