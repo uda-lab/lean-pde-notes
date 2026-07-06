@@ -1,0 +1,12 @@
+name: LerayHopf.DissipativeEvolution.convForm_self_zero
+tier: full
+statement_ja: |
+  任意の散逸発展 $E$ と $u \in E.H$ に対して、移流形式は対角で消える：$b(u,u,u) = 0$。
+proof_ja: |
+  反対称性 $b(u,v,w) = -b(u,w,v)$ を $v = w = u$ に適用すると $b(u,u,u) = -b(u,u,u)$。
+  よって $2\,b(u,u,u) = 0$、ゆえに $b(u,u,u) = 0$。これは散逸構造の要（非線形項がエネルギー
+  収支から落ちること）であり、公理ではなく反対称性から導かれる補題である。
+gap:
+  level: none
+chapter: spaces
+tags: [convection-form, antisymmetry]

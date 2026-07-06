@@ -1,0 +1,20 @@
+name: LerayHopf.divTestFunctional
+tier: full
+statement_ja: |
+  Schwartz 関数 $\varphi \in \mathcal{S}(\mathbb{R}^3, \mathbb{R})$ に対する**弱発散テスト汎関数**
+  $$\mathrm{divTestFunctional}\,\varphi\,u = \sum_{j : \mathrm{Fin}\,3} \langle (\partial_j\varphi).\mathrm{toLp}\,2, \, u_j\rangle,$$
+  ここで $u_j = L^2\mathrm{VF\_projComponent\_R3}\,j\,u$ は $u$ の第 $j$ 成分、$\langle g, \cdot\rangle = \mathrm{innerSL}\,\mathbb{R}\,g$ は
+  連続実内積汎関数。$L^2\mathrm{VF\_R3}$ 上の連続 $\mathbb{R}$-線形汎関数である。
+proof_ja: |
+  各成分 $j$ ごとに、偏微分 $\partial_j\varphi$ を Schwartz 関数として取り（`lineDerivOpCLM`；
+  `pderivCLM` は 2025-11 に非推奨）、その $L^2$ 類 $(\partial_j\varphi).\mathrm{toLp}\,2$ との内積汎関数
+  $\mathrm{innerSL}\,\mathbb{R}$ を成分射影 $L^2\mathrm{VF\_projComponent\_R3}\,j$ に合成する。
+  これらの有限和として連続線形汎関数が構成され、超関数的発散 $\langle \mathrm{div}\,u, \varphi\rangle = -\sum_j\int u_j\,\partial_j\varphi$
+  を表す。`SchwartzMap.toLp` は `volume` が Haar 測度ゆえ緩増加性が自動発火して定義できる。
+gap:
+  level: mild
+  note: |
+    自然言語の「発散をテスト関数と対にする」に対し、Lean では偏微分作用素・Schwartz の Lp 化・
+    内積汎関数を明示的に組み合わせて連続性を保証する必要がある。
+chapter: spaces
+tags: [divergence-free, schwartz, weak-divergence]

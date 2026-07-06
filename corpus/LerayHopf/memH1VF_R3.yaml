@@ -1,0 +1,19 @@
+name: LerayHopf.memH1VF_R3
+tier: full
+statement_ja: |
+  速度場 $u \in L^2(\mathbb{R}^3;\mathbb{R}^3)$ が**$H^1$ 正則性**をもつとは、その各複素値成分
+  $L^2\mathrm{VF\_projComponentC\_R3}\,j\,u : L^2C\_R3 = L^p(\mathbb{C}, 2)$ が Sobolev 空間
+  $H^{1,2}(\mathbb{R}^3;\mathbb{C})$ に属すること（`TemperedDistribution.MemSobolev 1 2`、Bessel ポテンシャル）。
+proof_ja: |
+  実値成分 $L^2\mathrm{VF\_projComponent\_R3}\,j$ ではなく複素値成分 $L^2\mathrm{VF\_projComponentC\_R3}\,j$ を
+  用いる。理由は、$L^2C\_R3 = L^p(\mathbb{C},2)$ が緩増加超関数 $\mathcal{S}'(\mathbb{R}^3,\mathbb{C})$ への
+  `CoeDep` インスタンスを持ち、`MemSobolev` が要求する $[\mathrm{NormedSpace}\,\mathbb{C}\,F]$ が $F=\mathbb{C}$ で
+  そのまま満たされる一方、$F=\mathbb{R}$ ではスカラー制限の追加インスタンスが要るため。$\mathbb{R}^3$ の
+  $H^1$ 正則性は mathlib の Bessel ポテンシャル Sobolev 空間で厳密に構築する。
+gap:
+  level: mild
+  note: |
+    T³ の Fourier 荷重和 $\mathrm{h1EnergySq}$ に対し、ℝ³ では mathlib の Bessel ポテンシャル型
+    Sobolev（MemSobolev）を採用。実値/複素値成分のどちらを使うかがインスタンス解決に効く実装上の分岐。
+chapter: spaces
+tags: [sobolev, regularity, bessel-potential]

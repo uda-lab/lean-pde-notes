@@ -1,0 +1,17 @@
+name: LerayHopf.conjL2C_fourierProjection
+tier: full
+statement_ja: |
+  Fourier 射影は共役作用素 $\mathrm{conjL2C}$ の不動点（a.e. 実数値関数）を保つ：任意の $n, f$ に対して
+  $\mathrm{conjL2C}\,f = f \Rightarrow \mathrm{conjL2C}\,\bigl((\mathrm{fourierProjection}_n\,n)\,f\bigr) = (\mathrm{fourierProjection}_n\,n)\,f$。
+proof_ja: |
+  実関数の Fourier 係数は共役対称 $\hat f(-k) = \overline{\hat f(k)}$ を満たし、箱 $\mathrm{fourierBox}\,n$ は
+  $k\mapsto -k$ について対称なので、Fourier 射影は共役対称性を保つ。共役作用素 $\mathrm{conjL2C}$
+  （`Complex.conjCLE` の Lp 持ち上げ）の不動点として実数値性を表現し、係数反射 $\mathrm{mFourierCoeff3\_conjL2C}$ と
+  箱対称 $\mathrm{neg\_mem\_fourierBox}$ から結論する。自然言語では「実だから実」の一行が、componentwise 複素化の
+  選択ゆえに共役-不動点議論に化ける。
+gap:
+  level: mild
+  note: |
+    成分ごとの複素化のため、自然言語の「実値性の保存」が共役作用素の不動点と対称箱の明示議論として展開される。
+chapter: projections-galerkin
+tags: [galerkin, real-valuedness, conjugation]

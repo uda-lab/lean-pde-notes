@@ -1,0 +1,16 @@
+name: LerayHopf.h1EnergySq
+tier: full
+statement_ja: |
+  速度場 $u \in L^2\mathrm{VF}$ の**$H^1$ エネルギー二乗**を、成分ごとに Fourier 係数で
+  $$\mathrm{h1EnergySq}\,u = \sum_{j : \mathrm{Fin}\,3} \sum_{k}{}' \Bigl(1 + \sum_i (k_i)^2\Bigr)\,\|\hat u_j(k)\|^2$$
+  と定義する。ここで $\hat u_j(k) = \mathrm{mFourierCoeff3}\,(L^2\mathrm{VF\_projComponentC}\,j\,u)\,k$、
+  $(1 + \sum_i k_i^2)$ は 1 階の標準 Sobolev 荷重。
+gap:
+  level: large
+  note: |
+    mathlib の $\sum'$（tsum）規約では非可算和が $+\infty$ ではなく $0$ を返すため、$\mathrm{h1EnergySq}$ は
+    $H^1$ の外でも有限値（実質 $0$）を返しうる。自然言語では「$H^1$ の外では $H^1$ ノルム $=+\infty$」なので
+    「エネルギー有界 $\Rightarrow$ 解は $H^1$」が自動だが、Lean ではこの含意が tsum 崩壊で空虚に成り立ちうる。
+    そのため解の $H^1$ 正則性は別途 `memH1VF` ＋ エネルギー類フィールドで強制する。
+chapter: spaces
+tags: [sobolev, fourier-coefficient, tsum-convention]

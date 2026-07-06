@@ -1,0 +1,15 @@
+name: LerayHopf.L2C_norm_sq_eq_tsum_coeff_sq
+tier: full
+statement_ja: |
+  （L1）Parseval 等式。$f \in L^2(\mathbb{T}^3;\mathbb{C})$ の $L^2$ ノルム二乗は Fourier 係数の二乗和に等しい：
+  $$\|f\|^2 = \sum_k{}' \|\mathrm{mFourierCoeff3}\,f\,k\|^2.$$
+proof_ja: |
+  Hilbert 基底の表現写像 $\mathrm{torus3\_mFourierBasis.repr}$ は等長同型なので、`LinearIsometryEquiv.norm_map` で
+  $\|\mathrm{repr}\,f\| = \|f\|$。$\mathrm{repr}\,f \in \ell^2(\mathbb{Z}^3,\mathbb{C})$ に対し $p=2$ での
+  `lp.norm_rpow_eq_tsum` から $\|\mathrm{repr}\,f\|^2 = \sum'_k \|(\mathrm{repr}\,f)\,k\|^2$。
+  $\mathrm{mFourierCoeff3}\,f\,k = (\mathrm{repr}\,f)\,k$ は定義により一致する。この等式が Rellich コンパクト性の
+  出発点（截断残差＝高周波テイルの評価）を与える。
+gap:
+  level: none
+chapter: compactness
+tags: [parseval, fourier-coefficient]

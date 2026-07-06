@@ -1,0 +1,20 @@
+name: LerayHopf.convIntegralSchwartz
+tier: full
+statement_ja: |
+  真の Schwartz 移流積分 $\int (u\cdot\nabla)v\cdot w$。Schwartz ベクトル場に対して
+  $$\mathrm{convIntegralSchwartz}\,\psi^u\,\psi^v\,\psi^w = \sum_{i}\sum_{a} \int_x (\psi^u_a\, x)\,(\partial_a\psi^v_i)(x)\,(\psi^w_i\, x)\,dx$$
+  と定義する。$(\psi^u_a)\,x$ は Schwartz 関数の点値、$\partial_a\psi^v_i$ は `lineDerivOpCLM` による偏微分、
+  積分は Bochner 積分。
+proof_ja: |
+  各成分 $i$ と方向 $a$ について、点積 $(\psi^u_a)(\partial_a\psi^v_i)(\psi^w_i)$ の積分をとり和をとる。
+  Schwartz 関数の積は可積分なので Bochner 積分が有限値を返す（一般には非可積分な被積分関数に対しては $0$）。
+  移流形式を反対称・三線形だけで抽象化すると $b:=0$ が全条件を充足し、定理が密かに Stokes/熱方程式を証明する
+  過大主張になる（さらに ℝ³ では素朴な Fourier 二重積分が tsum 規約で $0$ に潰れる恐れがある）。そこで移流形式を
+  この具体的積分にピン留めして $b=0$ を排除し、真の移流形式を証拠にする。
+gap:
+  level: mild
+  note: |
+    自然言語の $\int(u\cdot\nabla)v\cdot w$ を、Schwartz 場上の点値・偏微分作用素・Bochner 積分の明示的な組で表す。
+    非退化（$b\neq0$）の担保が過大主張回避に本質的で、抽象化では明示が必須という健全性監査の教訓を反映する。
+chapter: limit-passage
+tags: [convection-form, schwartz, non-degeneracy]

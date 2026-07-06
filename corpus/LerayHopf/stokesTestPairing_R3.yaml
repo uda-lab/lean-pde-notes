@@ -1,0 +1,15 @@
+name: LerayHopf.stokesTestPairing_R3
+tier: full
+statement_ja: |
+  $L^2(\mathbb{R}^3;\mathbb{R}^3)$ 上の**粘性（Stokes）テストスロット対**を Fourier 積分公式で
+  $$\mathrm{stokesTestPairing\_R3}\,u\,w = \sum_j \int_\xi (2\pi)^2\|\xi\|^2\,\mathrm{Re}\bigl[(\mathcal{F}u_j)(\xi)\,\overline{(\mathcal{F}w_j)(\xi)}\bigr]\,d\xi$$
+  と定義する。T³ の $\mathrm{stokesTestPairing}$ の ℝ³ 版で、粘性双線形形式 $\nu\int\nabla u:\nabla w$ を表す。
+gap:
+  level: mild
+  note: |
+    $\int\nabla u:\nabla u$ は $H^1$ の外で $+\infty$ なので $L^2_\sigma$ 全体上の実数値双線形形式としては存在せず、
+    「対角＝総粘性形式」を公理化すると偽になる（健全性監査 T³ v4）。そこで粘性形式を脱公理化して Fourier 乗数
+    $\mathrm{stokesTestPairing}$ として具体的に定義し、散逸は別途 $\mathrm{viscousFormSq}$ ＋ エネルギー類で扱う。
+    点値 $(\mathcal{F}f)(\xi)$ は Lp の a.e. 代表元係数を用いる。
+chapter: energy
+tags: [viscous-form, stokes, fourier-transform]

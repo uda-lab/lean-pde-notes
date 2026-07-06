@@ -1,0 +1,19 @@
+name: LerayHopf.H1_tail_bound
+tier: full
+statement_ja: |
+  （L3）テイル評価。$H^1$ エネルギーが $M^2$ で有界な $f$ に対し、箱 $\mathrm{fourierBox}\,N$ の外側の
+  Fourier エネルギーは $M^2/(1+N^2)$ 以下：
+  $$\sum_{k \notin \mathrm{fourierBox}\,N}{}' \|\hat f(k)\|^2 \le \frac{M^2}{1+N^2}.$$
+proof_ja: |
+  $k \notin \mathrm{fourierBox}\,N$ ならある $i$ で $|k_i| > N$、ゆえに $(k_i)^2 > N^2$ から
+  $1 + \sum_i k_i^2 \ge 1 + N^2$。両辺に $\|\hat f(k)\|^2$ を掛けて箱の外で和をとると
+  $(1+N^2)\sum_{k\notin\mathrm{box}}\|\hat f_k\|^2 \le \sum_{k\notin\mathrm{box}}(1+\|k\|^2)\|\hat f_k\|^2
+  \le \sum_k(1+\|k\|^2)\|\hat f_k\|^2 \le M^2$。単調性は `Summable.tsum_le_tsum`、最後に正量 $(1+N^2)$ で
+  割る（`le_div_iff₀`）。テイル和の subtype 化（`Summable.subtype`, `tsum_subtype_le`）が効く。
+gap:
+  level: mild
+  note: |
+    自然言語の一行不等式だが、Lean では subtype への和の制限、summable 性の伝播、単調性補題を
+    明示的に接続する必要がある。
+chapter: compactness
+tags: [rellich, fourier-tail]

@@ -1,0 +1,23 @@
+name: LerayHopf.exists_lerayHopf_torus3_axiomatic
+tier: full
+statement_ja: |
+  発散ゼロな初期値 $u_0 \in L^2_\sigma(\mathbb{T}^3)$、粘性 $\nu>0$、時間 $T>0$ に対し、$\mathbb{T}^3$ 上の
+  Navier–Stokes 方程式の Leray–Hopf 弱解が存在する。すなわち $\mathrm{Torus3NSForms}$ 束 $F$ と、$[0,T]$ 上で
+  エネルギー不等式・弱形式・初期トレース・エネルギー類を満たす曲線 $u$ を持つ構造体
+  $\mathrm{LerayHopfSolutionFull}\,F\,\nu\,T\,u_0$ が非空。
+proof_ja: |
+  L1. 有限次元 $\mathrm{velocitySpan}\,n$ 上で Galerkin ODE を Picard–Lindelöf により解き、公理を用いない
+  $\mathrm{galerkinSolutionData\_torus}$ で近似列 $u_n$ を得る。L2. 抽象エネルギー恒等式から一様評価
+  （$L^\infty_t L^2_x \cap L^2_t H^1_x$）を導く。L3. 空間コンパクト性は証明済みの $\mathrm{rellich\_L2Sigma}$ が担い、
+  時間方向の Aubin–Lions 型議論と合わせて $u_n$ の部分列の $L^2_{t,x}$ 強収束を取り出す。L4. 非線形項の極限移行を
+  強収束から正当化する。L5. 弱下半連続性でエネルギー不等式を極限に受け継がせ、全条件を証明保持型構造体
+  $\mathrm{LerayHopfSolutionFull}$ に詰める。
+gap:
+  level: large
+  note: |
+    名称の `axiomatic` は歴史的接尾辞。近似列は証明済みの torus Galerkin 解 $\mathrm{galerkinSolutionData\_torus}$ から
+    供給され、かつては公理だった $\mathrm{galerkin\_ode\_solution}$ を割り当てる。T³ 主定理は現在カーネルのみで閉じている
+    （公理ゼロ）。空間コンパクト性が証明済み $\mathrm{rellich\_L2Sigma}$ で賄える点が有界領域 T³ の強みで、非有界 ℝ³ との
+    差（局所化の必要）はここに現れる。
+chapter: capstone-torus
+tags: [leray-hopf, capstone, torus]

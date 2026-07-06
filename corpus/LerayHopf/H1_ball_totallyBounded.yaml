@@ -1,0 +1,20 @@
+name: LerayHopf.H1_ball_totallyBounded
+tier: full
+statement_ja: |
+  （L5）$f \in L^2(\mathbb{T}^3;\mathbb{C})$ のうち $H^1$ 述語とエネルギー有界
+  $\sum'_k(1+\sum_i k_i^2)\|\hat f(k)\|^2 \le M^2$ を満たすものの集合は、$L^2$ 位相で全有界。
+  これが Rellich コンパクト埋め込み $H^1(\mathbb{T}^3)\hookrightarrow L^2(\mathbb{T}^3)$ の（有界集合の前コンパクト性としての）核心。
+proof_ja: |
+  `Metric.totallyBounded_iff` を用い、各 $\varepsilon>0$ に対して有限 $\varepsilon$-網を構成する。
+  L4（一様近似）で $N$ を取り H¹ 球上一様に $\|f - P_N f\| \le \varepsilon/2$ とする。像 $P_N$（H¹ 球の像）は
+  有限次元部分空間 $\mathrm{fourierSpan}\,N$ 内の有界集合で、L1（Parseval）＋ H¹ 有界から $\|f\|_{L^2}\le M$。
+  有限次元 $\Rightarrow$ 固有空間 $\Rightarrow$ 局所コンパクト（`RCLike.properSpace_submodule`,
+  `isCompactOperator_of_locallyCompactSpace_dom`, `isCompact_closedBall` の像）ゆえ有界閉球はコンパクトで
+  有限 $\varepsilon/2$-網をもち、三角不等式で $\|f - y\|\le\varepsilon$。
+gap:
+  level: large
+  note: |
+    全有界性の証明が本補題の実体で、一様近似（L4）と有限次元射影像のコンパクト性を組み合わせる。
+    有限次元 $\Rightarrow$ 固有 $\Rightarrow$ 局所コンパクトの連鎖が非自明に効く。
+chapter: compactness
+tags: [rellich, totally-bounded, compact-operator]

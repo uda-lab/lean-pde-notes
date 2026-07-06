@@ -1,0 +1,19 @@
+name: LerayHopf.IsSchwartzDivFree_R3
+tier: full
+statement_ja: |
+  ベクトル場 $w \in L^2_\sigma(\mathbb{R}^3)$ が**Schwartz 発散ゼロテスト関数**であるとは、その各実値成分
+  $L^2\mathrm{VF\_projComponent\_R3}\,j\,w$ がスカラー Schwartz 関数の $L^2$ 類であること。すなわち
+  $\exists\, \psi : \mathrm{Fin}\,3 \to \mathcal{S}(\mathbb{R}^3, \mathbb{R}),\ \forall j,\ L^2\mathrm{VF\_projComponent\_R3}\,j\,w = (\psi_j).\mathrm{toLp}\,2$。
+proof_ja: |
+  成分ごとに Schwartz 代表元をもつという条件で、ℝ³ の弱形式で用いる標準的なテスト関数クラスを定める。
+  ベクトル値の $\mathrm{toLp}$ 係数の煩雑さを避けるため成分版で表現するが、$\psi$ の発散ゼロ性を課せば
+  単一のベクトル値 Schwartz 代表元をもつことと同値。健全性監査では、テスト関数クラスを Galerkin 不動点
+  クラスに狭めると定理名の主張する標準的弱形式より狭くなり過大主張になるため、散逸発展の $\mathrm{isTest}$ を
+  この標準 Schwartz 発散ゼロクラスに設定した。
+gap:
+  level: mild
+  note: |
+    自然言語では「滑らかな発散ゼロ関数でテストする」で済むが、Lean では成分ごとの Schwartz 代表元の
+    存在として定式化し、ベクトル値 toLp を回避する。テストクラスを狭めない設計が過大主張の回避に効く。
+chapter: spaces
+tags: [test-function, schwartz, divergence-free]

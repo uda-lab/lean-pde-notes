@@ -1,0 +1,17 @@
+name: LerayHopf.H1_ball_uniform_L2_approx
+tier: full
+statement_ja: |
+  （L4）一様近似。$H^1$ 有界集合上で Galerkin 射影は $L^2$ で一様収束する：$M\ge 0$ と $\varepsilon>0$ に対し、
+  ある $N$ が存在して、$H^1$ エネルギー $\le M^2$ を満たすすべての $f$ で
+  $\|f - (\mathrm{fourierProjection}_n\,N)\,f\| \le \varepsilon$。
+proof_ja: |
+  L2（截断残差公式）と L3（テイル評価）から $\|f - P_N f\|^2 \le M^2/(1+N^2)$。
+  $M/\sqrt{1+N^2}\le\varepsilon$、すなわち $1+N^2 \ge (M/\varepsilon)^2$ となる $N$ を `exists_nat_gt` で選ぶ。
+  `Real.sqrt_le_sqrt` と `Real.sqrt_sq` で二乗から絶対値へ移り $\|f - P_N f\| \le \varepsilon$ を得る。
+  $N$ の選び方が $f$ に依存しない（$M,\varepsilon$ のみに依存する）ことが一様性の要。
+gap:
+  level: mild
+  note: |
+    自然言語の「$N$ を大きく取れば一様に近い」を、テイル評価から明示的な $N$ の選択と平方根評価で構成する。
+chapter: compactness
+tags: [rellich, fourier-tail, uniform-approximation]

@@ -1,21 +1,21 @@
 {
   "total_decls": 1412,
-  "annotated": 3,
-  "full": 3,
+  "annotated": 37,
+  "full": 37,
   "gloss": 0,
-  "unannotated": 1409,
-  "pct_annotated": 0.2,
+  "unannotated": 1375,
+  "pct_annotated": 2.6,
   "chapters": {
     "spaces": {
       "label_ja": "関数空間と基本設定",
-      "annotated": 1,
-      "full": 1,
+      "annotated": 13,
+      "full": 13,
       "gloss": 0
     },
     "projections-galerkin": {
       "label_ja": "Galerkin 射影と基底",
-      "annotated": 0,
-      "full": 0,
+      "annotated": 5,
+      "full": 5,
       "gloss": 0
     },
     "ode": {
@@ -26,32 +26,32 @@
     },
     "energy": {
       "label_ja": "エネルギー恒等式と不等式",
-      "annotated": 0,
-      "full": 0,
+      "annotated": 5,
+      "full": 5,
       "gloss": 0
     },
     "compactness": {
       "label_ja": "コンパクト性（空間・時間）",
-      "annotated": 1,
-      "full": 1,
+      "annotated": 8,
+      "full": 8,
       "gloss": 0
     },
     "limit-passage": {
       "label_ja": "極限移行（非線形項）",
-      "annotated": 0,
-      "full": 0,
+      "annotated": 2,
+      "full": 2,
       "gloss": 0
     },
     "capstone-r3": {
       "label_ja": "R3 主定理",
-      "annotated": 1,
-      "full": 1,
+      "annotated": 2,
+      "full": 2,
       "gloss": 0
     },
     "capstone-torus": {
       "label_ja": "T³ 主定理",
-      "annotated": 0,
-      "full": 0,
+      "annotated": 2,
+      "full": 2,
       "gloss": 0
     },
     "bochner": {

@@ -1,0 +1,15 @@
+name: LerayHopf.fourierProjection_n
+tier: full
+statement_ja: |
+  第 $n$ **Galerkin 射影**（スカラー版）$\mathrm{fourierProjection}_n\,n : L^2C \to_L L^2C$。
+  $L^2C = L^2(\mathbb{T}^3;\mathbb{C})$ を、$\|k\|_\infty \le n$ を満たす Fourier モードが張る有限次元部分空間
+  $\mathrm{fourierSpan}\,n$ への直交射影として定める。
+proof_ja: |
+  $(\mathrm{fourierSpan}\,n).\mathrm{starProjection} : L^2C \to_L L^2C$ として定義する。これは閉部分空間への
+  直交射影 $(\mathrm{fourierSpan}\,n).\mathrm{orthogonalProjectionOnto}$ と包含 $\mathrm{subtypeL}$ の合成である。
+  有限個の Fourier モードのみを保持する Fourier 截断であり、Rellich コンパクト性の近似列と Galerkin 近似の
+  基盤を与える。
+gap:
+  level: none
+chapter: projections-galerkin
+tags: [galerkin, fourier-truncation, orthogonal-projection]

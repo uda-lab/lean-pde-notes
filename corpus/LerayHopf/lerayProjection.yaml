@@ -1,0 +1,15 @@
+name: LerayHopf.lerayProjection
+tier: full
+statement_ja: |
+  Leray 射影 $\Pi_{\mathrm{div}} : L^2\mathrm{VF} \to_L L^2_\sigma$。
+  $L^2(\mathbb{T}^3;\mathbb{R}^3)$ から閉発散ゼロ部分空間 $L^2_\sigma(\mathbb{T}^3)$ への直交射影で、
+  値域はちょうど $L^2_\sigma$、核は $L^2_\sigma$ の直交補空間。
+proof_ja: |
+  $L^2_\sigma$ が閉部分空間であることから完備部分空間として `HasOrthogonalProjection` インスタンスが
+  自動発火し、$L^2_\sigma.\mathrm{orthogonalProjectionOnto}$ として定義される。Helmholtz 分解による
+  「$L^2_\sigma$ の直交補空間＝$L^2$ 勾配の空間 $\{\nabla\phi : \phi\in H^1(\mathbb{T}^3)\}$」の同定は本形式化
+  では扱わず、将来課題とする。
+gap:
+  level: none
+chapter: spaces
+tags: [leray-projection, orthogonal-projection]

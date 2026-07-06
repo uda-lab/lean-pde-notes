@@ -1,9 +1,22 @@
 name: LerayHopf.L2Sigma_R3
 tier: full
 statement_ja: |
-  $\mathbb{R}^3$ 上の発散ゼロな二乗可積分ベクトル場のなす空間 $L^2_\sigma(\mathbb{R}^3)$。
-  $L^2(\mathbb{R}^3;\mathbb{R}^3)$ の閉部分空間として、発散ゼロ条件を満たす元の全体で定義する。
+  $\mathbb{R}^3$ 上の発散ゼロな二乗可積分ベクトル場のなす閉部分空間 $L^2_\sigma(\mathbb{R}^3)$。
+  各 Schwartz 関数 $\varphi \in \mathcal{S}(\mathbb{R}^3, \mathbb{R})$ に対する弱発散テスト汎関数
+  $\mathrm{divTestFunctional}\,\varphi : L^2\mathrm{VF\_R3} \to_L \mathbb{R}$ の共通核
+  $\bigcap_\varphi \ker(\mathrm{divTestFunctional}\,\varphi)$ として定義する。
+proof_ja: |
+  $\mathbb{R}^3$ では Fourier 級数の離散添字がなく、$L^2$-Fourier 変換 $\mathcal{F}u$ の点ごとの値
+  $\xi\cdot\hat u(\xi)=0$ は同値類の代表元問題に触れるため採らない。代わりに超関数的**弱発散**を用いる：
+  $\mathrm{div}\,u = 0$（弱）$\iff \forall\varphi,\ \int (\mathrm{div}\,u)\varphi = -\sum_j \int u_j\,\partial_j\varphi = 0
+  \iff \forall\varphi,\ \mathrm{divTestFunctional}\,\varphi\,u = 0$。符号は $=0$ 条件に効かない。
+  各 $\mathrm{divTestFunctional}\,\varphi$ は連続線形汎関数だからその核は閉であり、閉集合の交叉として
+  $L^2_\sigma(\mathbb{R}^3)$ は閉部分空間になる（`isClosed_iInter` ＋ `ContinuousLinearMap.isClosed_ker`）。
+  T³ の「核の交叉」パターンをそのまま流用でき、Leray 射影も無償で出る。
 gap:
-  level: none
+  level: mild
+  note: |
+    T³ の離散 Fourier 発散に対し、ℝ³ では点ごとの Fourier 値が代表元問題を生むため採れない。
+    Schwartz テストによる弱発散へ切り替えることで閉性と Leray 射影を確保する、非有界領域固有の設計。
 chapter: spaces
-tags: [sample, function-space]
+tags: [function-space, divergence-free, schwartz]

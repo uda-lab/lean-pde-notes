@@ -1,0 +1,13 @@
+name: LerayHopf.viscousFormSq_R3
+tier: full
+statement_ja: |
+  ℝ³ の粘性散逸形式 $\nu\,\|\nabla u\|_{L^2}^2$ をスペクトル積分で
+  $$\mathrm{viscousFormSq\_R3}\,\nu\,u = \nu \sum_j \int_\xi (2\pi)^2\|\xi\|^2\,\|(\mathcal{F}u_j)(\xi)\|^2\,d\xi$$
+  と定義する。T³ の Fourier 級数を連続 Fourier 変換の積分に置き換えた版。
+gap:
+  level: mild
+  note: |
+    $(2\pi)^2$ 因子は $e^{2\pi i \xi\cdot x}$ 規約から生じる。定義は Bochner 積分ゆえ非可積分な被積分関数に対して
+    $0$ を返す無条件定義であり、$H^1$ エネルギー類は別途 `memH1VF_R3` ＋ エネルギー類フィールドで強制する。
+chapter: energy
+tags: [viscous-form, dissipation, fourier-transform, spectral]

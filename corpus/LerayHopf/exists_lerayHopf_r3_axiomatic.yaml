@@ -1,25 +1,25 @@
 name: LerayHopf.exists_lerayHopf_r3_axiomatic
 tier: full
 statement_ja: |
-  発散ゼロな初期値 $u_0 \in L^2_\sigma(\mathbb{R}^3)$ に対し、$\mathbb{R}^3$ 上の
-  Navier–Stokes 方程式の Leray–Hopf 弱解が存在する。すなわち、エネルギー不等式
-  $$\tfrac12\|u(t)\|_{L^2}^2 + \nu\int_0^t\!\|\nabla u\|_{L^2}^2\,ds \le \tfrac12\|u_0\|_{L^2}^2$$
-  を満たし、任意の発散ゼロテスト関数に対して弱形式を満たす曲線 $u$ が構成できる。
+  発散ゼロな初期値 $u_0 \in L^2_\sigma(\mathbb{R}^3)$、粘性 $\nu>0$、時間 $T>0$ に対し、$\mathbb{R}^3$ 上の
+  Navier–Stokes 方程式の Leray–Hopf 弱解が存在する。すなわち、Galerkin スキーム $\mathfrak{G}$、NS 形式束 $F$、
+  および $[0,T]$ 上でエネルギー不等式
+  $$\tfrac12\|u(t)\|_{L^2}^2 + \nu\int_0^t\|\nabla u\|_{L^2}^2\,ds \le \tfrac12\|u_0\|_{L^2}^2$$
+  を満たし任意の発散ゼロテスト関数で弱形式を満たす曲線 $u$ を持つ構造体
+  $\mathrm{LerayHopfSolutionFull\_R3}\,\mathfrak{G}\,F\,\nu\,T\,u_0$ が非空。
 proof_ja: |
-  L1. Galerkin 近似列を構成する。射影空間 $P_n L^2_\sigma$ 上で有限次元 ODE を
-  Picard–Lindelöf により解き、近似解 $u_n$ を得る。
+  L1. 具体スキーム $\mathrm{schemeOfBasis}\,B$（$B$ は $\mathrm{nonempty\_schwartzGalerkinBasis}$ 由来）上で
+  有限次元 Galerkin ODE を解き、公理を用いない $\mathrm{galerkinSolutionData\_unconditional}$ で近似列 $u_n$ を得る。
   L2. エネルギー恒等式から $u_n$ の一様評価（$L^\infty_t L^2_x \cap L^2_t H^1_x$）を導く。
-  L3. Rellich–Kondrachov のコンパクト埋め込みと時間方向の Aubin–Lions 型議論により、
-  $u_n$ の部分列が $L^2_{t,x}$ で強収束することを取り出す。
-  L4. 非線形項の極限移行を強収束から正当化し、極限 $u$ が弱形式を満たすことを確認する。
-  L5. 弱下半連続性からエネルギー不等式を極限に受け継がせ、Leray–Hopf 弱解の全条件を
-  証明保持型構造体 `LerayHopfSolutionFull_R3` に詰める。
+  L3. 局所 Rellich（$\mathrm{spatial\_compactness\_R3}$）と時間方向の Aubin–Lions 型議論で、$u_n$ の部分列が
+  局所 $L^2$ で強収束することを取り出す。L4. 非線形項の極限移行を強収束から正当化し、極限 $u$ が弱形式を満たすことを確認する。
+  L5. 弱下半連続性からエネルギー不等式を極限に受け継がせ、全条件を証明保持型構造体 $\mathrm{LerayHopfSolutionFull\_R3}$ に詰める。
 gap:
   level: large
   note: |
-    自然言語では「Galerkin 近似してコンパクト性で極限を取る」の一行だが、Lean では
-    有限次元 ODE の存在・前進評価・射影の実数値性・コンパクト性（Rellich＋時間コンパクト）・
-    非線形項の三重線形評価・極限移行が各々独立の補題群に展開される。名称の `axiomatic`
-    は歴史的接尾辞であり、本体はカーネルのみで閉じている（追加公理なし）。
+    自然言語の「Galerkin 近似してコンパクト性で極限を取る」一行が、Lean では有限次元 ODE の存在・前進評価・
+    射影の実数値性・局所コンパクト性・非線形項の三線形評価・極限移行に展開される。名称の `axiomatic` は歴史的
+    接尾辞で、証拠スキームは具体的 $\mathrm{schemeOfBasis}\,B$（$\mathrm{r3GalerkinScheme\_exists}$ から取ると基底を捨てて
+    per-scheme ODE 公理を再導入するため使わない）。現在このℝ³ 主定理はカーネルのみで閉じている（公理ゼロ）。
 chapter: capstone-r3
-tags: [sample, leray-hopf, capstone]
+tags: [leray-hopf, capstone]

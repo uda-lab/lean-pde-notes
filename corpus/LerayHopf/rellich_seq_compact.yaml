@@ -1,19 +1,23 @@
 name: LerayHopf.rellich_seq_compact
 tier: full
 statement_ja: |
-  $H^1$ ノルムが一様有界な $L^2(\mathbb{R}^3)$ の点列は、$L^2$ で強収束する部分列をもつ
-  （Rellich–Kondrachov のコンパクト埋め込み $H^1 \hookrightarrow L^2$ の点列版）。
+  $H^1$ ノルムが一様有界な $L^2(\mathbb{T}^3;\mathbb{C})$ の点列は $L^2$ 収束部分列をもつ
+  （Rellich–Kondrachov のコンパクト埋め込み $H^1(\mathbb{T}^3)\hookrightarrow L^2(\mathbb{T}^3)$ の点列版）。
+  具体的には、各 $u_n$ が $\mathrm{memH1Torus}$ を満たし $\sum'_k(1+\sum_i k_i^2)\|\hat u_n(k)\|^2 \le M^2$ ならば、
+  ある狭義単調 $\varphi$ と極限 $g$ について $u_{\varphi(n)} \to g$。**プロジェクトで最も難度の高い解析であり、公理ゼロで
+  証明できたのが最大の成果。**
 proof_ja: |
-  L1. Fréchet–Kolmogorov の全有界性判定を用いる。一様 $H^1$ 有界性から、平行移動の
-  連続性評価
-  $$\|f(\cdot+h)-f(\cdot)\|_{L^2} \le |h|\,\|\nabla f\|_{L^2}$$
-  が点列に一様に成り立つ。
-  L2. 遠方の裾（大きな球の外側の $L^2$ 質量）が一様に小さいことを、重み付き評価から示す。
-  L3. L1・L2 より点列は $L^2$ で全有界。前コンパクト性から $L^2$ 収束部分列を取り出す。
+  H¹ 球 $S = \{f : \mathrm{memH1Torus}\,f \wedge \sum'_k(1+\|k\|^2)\|\hat f(k)\|^2 \le M^2\}$ の全有界性
+  $\mathrm{H1\_ball\_totallyBounded}\,M$ から出発する。全有界集合の閉包は全有界（`TotallyBounded.closure`）で、
+  完備空間 $L^2C$ の閉集合として完備、ゆえにコンパクト（`TotallyBounded.isCompact_of_isComplete`）。
+  各 $u_n \in S \subseteq \overline S$ なので、コンパクト集合の点列から収束部分列
+  `IsCompact.tendsto_subseq` を取り出せる。全有界性の証明（L1–L5）が本体で、Parseval・截断残差・テイル評価・
+  一様近似・有限次元コンパクト作用素の連鎖からなる。
 gap:
-  level: mild
+  level: large
   note: |
-    自然言語の「Rellich でコンパクト」に対し、Lean では Fréchet–Kolmogorov の
-    平行移動連続性と裾評価を明示的に組む必要がある。
+    自然言語の「Rellich でコンパクト」に対し、Lean では Parseval 等式、Fourier 截断残差＝高周波テイル、
+    テイル評価 $\le M^2/(1+N^2)$、H¹ 球上の一様 $L^2$ 近似、有限次元 $\Rightarrow$ 固有 $\Rightarrow$ 局所コンパクト作用素の
+    連鎖を各々独立の補題として組む必要がある。これがプロジェクトで最も重い解析であった。
 chapter: compactness
-tags: [sample, rellich, frechet-kolmogorov]
+tags: [rellich, fourier-tail, compact-embedding]

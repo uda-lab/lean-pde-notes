@@ -1,0 +1,20 @@
+name: LerayHopf.L2Sigma
+tier: full
+statement_ja: |
+  $\mathbb{T}^3$ 上の発散ゼロな二乗可積分ベクトル場のなす閉部分空間 $L^2_\sigma(\mathbb{T}^3)$。
+  各波数 $k : \mathrm{Fin}\,3 \to \mathbb{Z}$ に対する連続な発散記号汎関数
+  $\mathrm{divSymbol}\,k : L^2\mathrm{VF} \to_L \mathbb{C}$ の共通核として、$L^2(\mathbb{T}^3;\mathbb{R}^3)$ の
+  部分加群 $\bigcap_k \ker(\mathrm{divSymbol}\,k)$ で定義する。
+proof_ja: |
+  各 $\mathrm{divSymbol}\,k$ は連続線形汎関数だから、その核は閉集合（`ContinuousLinearMap.isClosed_ker`）。
+  閉集合の任意交叉は閉であり、部分加群の交叉は部分加群なので、$L^2_\sigma$ は $L^2\mathrm{VF}$ の
+  閉部分空間になる。M2 計画では「発散ゼロモードの張る空間の閉包＝Fourier 対角」を公理に予定していたが、
+  核の交叉として直接定義することで、構成からメンバーシップが定まり公理を消去できた。閉部分空間で
+  あることから Hilbert 構造と Leray 射影が無償で得られる。
+gap:
+  level: mild
+  note: |
+    自然言語では「発散ゼロ場の空間」の一言だが、Lean では発散を各波数の連続汎関数として
+    与え、その核の可算交叉で閉性を保証する構成をとる。
+chapter: spaces
+tags: [function-space, divergence-free]

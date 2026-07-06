@@ -1,0 +1,19 @@
+name: LerayHopf.LerayHopfSolutionFull
+tier: full
+statement_ja: |
+  $\mathbb{T}^3$ 上の**完全 Leray–Hopf 解**構造体。すべてのフィールドが実際の証明を保持する（証明保持型）：
+  $\mathrm{weak\_eq}$（すべてのテスト関数で弱 NS 恒等式）、$\mathrm{energy\_ineq}$（$t\ge0$ でエネルギー不等式）、
+  $\mathrm{initial\_trace}$（初期値を強 $L^2$ で達成）、$\mathrm{energy\_class}$（$u$ が Leray–Hopf エネルギー類、
+  すなわち $[0,T]$ 上 a.e. で $\mathrm{memH1VF}$、ゆえに $u \in L^2(0,T;H^1_\sigma)$）。
+proof_ja: |
+  `Basic.lean` の足場 $\mathrm{LerayHopfSolution}$（Prop フィールド）と対照的に、この構造体は実際の証明義務を
+  型のフィールドとして保持し、組立側 $\mathrm{exists\_lerayHopf\_torus3\_axiomatic}$ が Galerkin 極限からそれらを供給する。
+  $\mathrm{energy\_class}$ フィールドは、$\mathrm{viscousFormSq}$ が $H^1$ の外で tsum 崩壊して $\mathrm{energy\_ineq}$ が空虚に
+  成り立つのを防ぎ、解が真に Leray–Hopf エネルギー類に属することを保証する。
+gap:
+  level: mild
+  note: |
+    弱解を a.e. 同値類ではなく具体的曲線として扱うため、点ごとの性質が代表元問題に触れる。エネルギー類フィールドで
+    tsum 崩壊による空虚成立を排除し、健全な証明保持型として組む。
+chapter: capstone-torus
+tags: [leray-hopf, proof-carrying, energy-class]

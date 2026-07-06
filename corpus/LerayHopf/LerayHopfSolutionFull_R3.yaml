@@ -1,0 +1,19 @@
+name: LerayHopf.LerayHopfSolutionFull_R3
+tier: full
+statement_ja: |
+  ℝ³ 上の**完全 Leray–Hopf 解**構造体。すべてのフィールドが（Prop のプレースホルダではなく）実際の証明を
+  保持する：$\mathrm{weak\_eq}$（すべてのテスト関数で弱 NS 恒等式）、$\mathrm{energy\_ineq}$（$[0,T]$ 上の Leray–Hopf
+  エネルギー不等式）、$\mathrm{initial\_trace}$（初期値を強 $L^2$ で達成）、$\mathrm{energy\_class}$（$u \in L^2(0,T;H^1_\sigma(\mathbb{R}^3))$
+  ＋ 粘性散逸の可積分性）。
+proof_ja: |
+  この構造体は数学的性質を型のフィールドとして証明保持する（証明保持型）。$\mathrm{energy\_class}$ フィールドは、
+  $\mathrm{viscousFormSq\_R3}\,\nu$ が $H^1$ の外で（tsum/Bochner 規約により）潰れて $\mathrm{energy\_ineq}$ が空虚に成り立つのを
+  防ぐために置かれる。組立側 $\mathrm{exists\_lerayHopf\_r3\_axiomatic}$ が Galerkin 極限からこれらの証明を供給し、
+  各フィールドを埋める。
+gap:
+  level: mild
+  note: |
+    自然言語の「弱解 $u$」は a.e. 同値類だが、Lean では具体的代表元 $u : \mathbb{R}\to L^2_\sigma$ に点ごとの性質を課すため、
+    エネルギー類フィールドで tsum 崩壊による空虚成立を排除し、良い代表元の存在として健全に定式化する。
+chapter: capstone-r3
+tags: [leray-hopf, proof-carrying, energy-class]
