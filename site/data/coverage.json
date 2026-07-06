@@ -1,33 +1,33 @@
 {
   "total_decls": 1412,
-  "annotated": 73,
-  "full": 73,
+  "annotated": 95,
+  "full": 95,
   "gloss": 0,
-  "unannotated": 1339,
-  "pct_annotated": 5.2,
+  "unannotated": 1317,
+  "pct_annotated": 6.7,
   "chapters": {
     "spaces": {
       "label_ja": "関数空間と基本設定",
-      "annotated": 13,
-      "full": 13,
+      "annotated": 15,
+      "full": 15,
       "gloss": 0
     },
     "projections-galerkin": {
       "label_ja": "Galerkin 射影と基底",
-      "annotated": 5,
-      "full": 5,
+      "annotated": 16,
+      "full": 16,
       "gloss": 0
     },
     "ode": {
       "label_ja": "Galerkin ODE 系",
-      "annotated": 4,
-      "full": 4,
+      "annotated": 9,
+      "full": 9,
       "gloss": 0
     },
     "energy": {
       "label_ja": "エネルギー恒等式と不等式",
-      "annotated": 14,
-      "full": 14,
+      "annotated": 16,
+      "full": 16,
       "gloss": 0
     },
     "compactness": {
@@ -38,8 +38,8 @@
     },
     "limit-passage": {
       "label_ja": "極限移行（非線形項）",
-      "annotated": 18,
-      "full": 18,
+      "annotated": 20,
+      "full": 20,
       "gloss": 0
     },
     "capstone-r3": {
