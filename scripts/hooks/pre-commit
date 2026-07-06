@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# pre-commit hook for lean-pde-notes
+#
+# Runs lightweight corpus checks (no Lean build required).
+# Activate with: git config core.hooksPath scripts/hooks
+#
+# Checks:
+#   1. validate.py  — YAML schema + corpus ⊆ universe
+#   2. glossary_lint.py — forbidden translation detection
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+PYTHON="${PYTHON:-python3}"
+
+echo "==> lean-pde-notes pre-commit: validate corpus..."
+"$PYTHON" scripts/validate.py
+echo ""
+
+echo "==> lean-pde-notes pre-commit: glossary lint..."
+"$PYTHON" scripts/glossary_lint.py
+echo ""
+
+echo "==> pre-commit checks passed."

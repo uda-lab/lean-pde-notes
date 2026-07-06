@@ -1,0 +1,64 @@
+# Chapter taxonomy for the corpus.
+# Used by corpus.schema.json (enum) and coverage.py (display labels).
+# Add new entries at the end; do not rename existing ones (corpus files use these values).
+
+chapters:
+  - id: spaces
+    label_ja: 関数空間と基本設定
+    description: >
+      Function spaces (L2Sigma, L2Sigma_R3, H1Sigma, DivergenceFree),
+      Leray projection, abstract evolution triple (DissipativeEvolution, WeakFormNS).
+
+  - id: projections-galerkin
+    label_ja: Galerkin 射影と基底
+    description: >
+      Fourier truncation operators (velocityProjection_n), Galerkin basis,
+      projection properties, real-valuedness lemmas.
+
+  - id: ode
+    label_ja: Galerkin ODE 系
+    description: >
+      Finite-dimensional ODE existence (Picard–Lindelöf), Galerkin solution data
+      structures, forward-in-time uniform estimates.
+
+  - id: energy
+    label_ja: エネルギー恒等式と不等式
+    description: >
+      AbstractEnergyLaw, energy identity, energy inequality, viscous dissipation,
+      energy class membership.
+
+  - id: compactness
+    label_ja: コンパクト性（空間・時間）
+    description: >
+      Rellich–Kondrachov embedding (rellich_seq_compact, rellich_L2Sigma),
+      Frechet–Kolmogorov, Aubin–Lions time compactness, ArzelaAscoli.
+
+  - id: limit-passage
+    label_ja: 極限移行（非線形項）
+    description: >
+      Weak and strong limits, nonlinear term passage, galerkin_limit_passage,
+      weak solution extraction, AubinLionsLimitPassage.
+
+  - id: capstone-r3
+    label_ja: R3 主定理
+    description: >
+      exists_lerayHopf_r3_axiomatic and its direct assembly lemmas
+      (LearyHopf/R3/AxiomaticClosure.lean, GalerkinODECapstone.lean).
+
+  - id: capstone-torus
+    label_ja: T³ 主定理
+    description: >
+      exists_lerayHopf_torus3_axiomatic and its direct assembly lemmas
+      (LearyHopf/TorusGalerkinODECapstone.lean, AxiomaticClosure.lean).
+
+  - id: bochner
+    label_ja: Bochner 時間層
+    description: >
+      TimeSobolev, AEStronglyMeasurable threading, Bochner integrability,
+      w1pTime, good representative / measurable representative.
+
+  - id: misc
+    label_ja: その他・共通基盤
+    description: >
+      Declarations that span multiple chapters, shared utilities, or do not
+      fit the above categories cleanly.

@@ -1,0 +1,70 @@
+{
+  "total_decls": 1413,
+  "annotated": 0,
+  "full": 0,
+  "gloss": 0,
+  "unannotated": 1413,
+  "pct_annotated": 0.0,
+  "chapters": {
+    "spaces": {
+      "label_ja": "関数空間と基本設定",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "projections-galerkin": {
+      "label_ja": "Galerkin 射影と基底",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "ode": {
+      "label_ja": "Galerkin ODE 系",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "energy": {
+      "label_ja": "エネルギー恒等式と不等式",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "compactness": {
+      "label_ja": "コンパクト性（空間・時間）",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "limit-passage": {
+      "label_ja": "極限移行（非線形項）",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "capstone-r3": {
+      "label_ja": "R3 主定理",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "capstone-torus": {
+      "label_ja": "T³ 主定理",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "bochner": {
+      "label_ja": "Bochner 時間層",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    },
+    "misc": {
+      "label_ja": "その他・共通基盤",
+      "annotated": 0,
+      "full": 0,
+      "gloss": 0
+    }
+  }
+}

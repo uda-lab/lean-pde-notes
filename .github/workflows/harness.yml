@@ -1,0 +1,40 @@
+name: Harness
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate corpus + coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Generate fallback name universe (if lean-pde not available)
+        # In CI, lean-pde is not available, so names-fallback.json is committed.
+        # This step is a no-op if the file is already present and lean-pde is absent.
+        run: |
+          if [ ! -f extracted/names-fallback.json ]; then
+            echo "WARNING: extracted/names-fallback.json missing — skipping name universe checks"
+          else
+            echo "Using committed extracted/names-fallback.json"
+          fi
+
+      - name: Validate corpus
+        run: python3 scripts/validate.py
+
+      - name: Glossary lint
+        run: python3 scripts/glossary_lint.py
+
+      - name: Coverage report
+        run: python3 scripts/coverage.py

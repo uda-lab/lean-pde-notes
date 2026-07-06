@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/uda-lab/lean-pde-notes/docs/schemas/corpus.schema.json",
+  "title": "Corpus annotation entry",
+  "description": "Per-declaration annotation YAML for lean-pde-notes. One file per declaration at corpus/<module-path>/<decl-name>.yaml.",
+  "type": "object",
+  "required": ["name", "tier", "statement_ja", "gap", "chapter"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Fully-qualified Lean declaration name (matches extracted/names-fallback.json or decls.json).",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]*(\\.[A-Za-z_][A-Za-z0-9_]*)*$"
+    },
+    "tier": {
+      "type": "string",
+      "description": "Annotation depth. 'full' = statement_ja + proof_ja + gap; 'gloss' = 1-3 line role summary only.",
+      "enum": ["full", "gloss"]
+    },
+    "statement_ja": {
+      "type": "string",
+      "description": "Japanese translation of the mathematical statement. Required for both tiers.",
+      "minLength": 1
+    },
+    "proof_ja": {
+      "type": "string",
+      "description": "Japanese proof narrative (textbook style). Required when tier=full AND the declaration is theorem-like (theorem/lemma). Optional for def/structure/instance/abbrev. Omit (or leave null) for gloss tier.",
+      "minLength": 1
+    },
+    "gap": {
+      "type": "object",
+      "description": "Formalization gap assessment: how much more verbose is the Lean proof vs. the natural-language proof.",
+      "required": ["level"],
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["none", "mild", "large"],
+          "description": "none = Lean proof closely follows natural language; mild = minor extra technicalities; large = significant formalization overhead."
+        },
+        "note": {
+          "type": "string",
+          "description": "Explanation of what inflates the Lean proof. Required when level=large.",
+          "minLength": 1
+        }
+      },
+      "if": {
+        "properties": { "level": { "const": "large" } }
+      },
+      "then": {
+        "required": ["note"]
+      }
+    },
+    "chapter": {
+      "type": "string",
+      "description": "Chapter assignment. Must be one of the chapter ids defined in docs/schemas/chapters.yaml.",
+      "enum": [
+        "spaces",
+        "projections-galerkin",
+        "ode",
+        "energy",
+        "compactness",
+        "limit-passage",
+        "capstone-r3",
+        "capstone-torus",
+        "bochner",
+        "misc"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Optional free-form tags for cross-cutting concerns (e.g. ['rellich', 'frechet-kolmogorov']).",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  }
+}
