@@ -1,0 +1,20 @@
+name: LerayHopf.viscousEnn_lsc
+tier: full
+statement_ja: |
+  非負値（$[0,\infty]$ 値）で表した誠実な粘性和は、強 $L^2$ 収束のもとで空間方向に下半連続である。すなわち速度場の列 $v_k\to v$ が強収束するなら
+
+  $$\mathcal{D}(v) \;\le\; \liminf_{k\to\infty}\mathcal{D}(v_k)$$
+
+  が成り立つ。ここで $\mathcal{D}$ は各 Fourier モードに Sobolev 荷重をかけた粘性散逸をすべてのモードにわたって足し上げた総和である。
+proof_ja: |
+  粘性和は Fourier モード $(j,k)$ ごとの非負項の総和で書ける。非負値の総和は有限部分和の上限として表せるので、任意の有限モード集合上の部分和が極限で下から抑えることを示せばよい。
+
+  各モード項は Fourier 係数を通じて場に連続に依存するから、有限部分和は強収束のもとで連続に振る舞い、その極限は右辺の下極限に一致する。有限部分和は全体の総和以下なので、下極限をとり有限集合について上限を取れば所望の下半連続性が従う。
+gap:
+  level: mild
+  note: |
+    非負値総和を有限部分和の上限で表す等式（`ENNReal.tsum_eq_iSup_sum`）が要になる。各モード項の連続性は Fourier 係数作用素（`fourierCoeffCLM`）と成分射影の連続性の合成から得る。下極限の単調性は `liminf_le_liminf` で処理する。
+
+    この空間下半連続性が、時間方向の Fatou 論法（[[エネルギー類の帰属|LerayHopf.torus_energyClass_of_aubinLions]]）で極限場の粘性エネルギーを近似列の下極限で抑えるために使われる。
+chapter: energy
+tags: [lower-semicontinuity, dissipation, fourier, torus]

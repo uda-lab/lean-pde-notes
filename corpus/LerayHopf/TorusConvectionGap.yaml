@@ -1,0 +1,14 @@
+name: LerayHopf.TorusConvectionGap
+tier: full
+statement_ja: |
+  トーラス対流形式の背後にある、Mathlib に欠けている本質的な柱を単離したデータである。有限の証明済み箱截断形式を、$(u\cdot\nabla)v$ の解析的構造をもつ $L^2_\sigma(\mathbb{T}^3)$ 上の総体的作用素へ拡張することがその中身にあたる。
+
+  この構造が抱えるのは、$L^2_\sigma$ 全体上の総体的な対流形式 $b$、Galerkin 部分空間上で有限の箱截断形式に一致する固定条件、$b$ が真の三重線形写像で実現されること、任意の $L^2_\sigma$ 上での反対称性、Galerkin テスト対角上での $L^2$ 有界性、固定テストでの双一次連続性、そして Galerkin テスト類の $L^2_\sigma$ における稠密性である。これは公理ではなく仮定（データと命題のフィールド）であり、定理名には決して現れない。
+gap:
+  level: large
+  note: |
+    真に欠けているのは、弱い $(u\cdot\nabla)v$ 作用素、すなわち部分積分・発散定理を通じた総体的拡張である。箱截断形式（`galerkinConvection`）は Galerkin 部分空間上でのみ反対称・有界で、非制限の主張が frontier に相当する。$\mathbb{R}^3$ 側の `ConvectionGap` を鏡映する。
+
+    密輸防止監査: この構造は形式束フィールドも非空性フィールドも抱えず、三重線形の加法・斉次・非制限有界性を出来合いでは持たない。それらは[[ギャップからの構成|LerayHopf.Torus3NSForms_of_gap]]で導出される。稠密性は `velocityProjection_n_tendsto` により真に成り立ち、フィールドとして持ち回される。
+chapter: limit-passage
+tags: [convection-form, gap, torus, frontier]

@@ -1,0 +1,20 @@
+name: LerayHopf.torus_energyClass_of_aubinLions
+tier: full
+statement_ja: |
+  完全な Galerkin 解の列と $\mathbb{T}^3$ 上の Aubin–Lions コンパクト性パッケージが与えられたとき、その生の極限 $u$ はエネルギー類に属する。すなわち $[0,T]$ 上のほとんどすべての時刻で $u(t)$ が $H^1$ に属し、粘性散逸 $\nu\lVert\nabla u(s)\rVert^2$ が $[0,T]$ 上で可積分である。
+proof_ja: |
+  まず強 $L^2$ 収束から、部分列に沿ってほとんどすべての時刻で強収束する部分列を抽出する。この部分列に沿って、極限の粘性エネルギーが近似列の粘性エネルギーの下極限で抑えられる（空間方向の[[下半連続性|LerayHopf.viscousEnn_lsc]]の各時刻での適用）。
+
+  次に時間方向の Fatou 型の不等式を使う。積分と下極限の順序交換により、極限の粘性エネルギーの時間積分は近似列のそれの下極限以下になる。各近似解にはエネルギー恒等式から一様な散逸評価
+
+  $$\int_0^T \nu\,\lVert\nabla u_n(s)\rVert^2\,ds \le \tfrac12\lVert u_0\rVert^2$$
+
+  が成り立つので、極限の粘性エネルギーの時間積分も有限である。有限性から、ほとんどすべての時刻で粘性エネルギーが有限、すなわち $u(t)\in H^1$ が従い、さらに散逸の区間可積分性も得られる。
+gap:
+  level: large
+  note: |
+    非負値（$[0,\infty]$ 値）の粘性和で議論することで可測空間 $L^2$ 上の可測構造を避ける。各時刻の粘性和の可測性は Fourier 係数作用素の合成と非負値総和の可測性（`AEMeasurable.ennreal_tsum`）から、Fatou は `lintegral_liminf_le'` から得る。有限性から各点有限へは `ae_lt_top'` で移り、$H^1$ 帰属へは `memH1VF_of_viscousEnn_lt_top` で変換する。
+
+    この結論は[[極限移行|LerayHopf.torus_galerkin_limit_passage_of_energyClass]]の仮定（エネルギー類の合接）にちょうど当てはまり、これを差し込むことでかつての公理 `galerkin_limit_passage` の除去が完了する。
+chapter: limit-passage
+tags: [energy-class, aubin-lions, fatou, torus, dissipation]

@@ -1,0 +1,18 @@
+name: LerayHopf.torusAubinLionsPackage_of_galSeq
+tier: full
+statement_ja: |
+  $\mathbb{T}^3$ 上の完全な Galerkin 解の列が与えられ、加えて空間コンパクト性（有界な $H^1$ 列からの強収束部分列の抽出）が供給されれば、Aubin–Lions 型のコンパクト性パッケージが構成できる。
+
+  このパッケージは、抽出された狭義単調な部分列の添字、極限曲線 $u$、部分列の極限への強 $L^2(0,T;L^2_\sigma)$ 収束、および極限曲線の可測性を束ねたものである。
+proof_ja: |
+  まず極限曲線の存在定理から、抽出添字 $\varphi$、極限曲線 $u$、および弱収束・一様有界性・可測性・散逸有界性という解析的帰結を取り出す。パッケージの五つのフィールドのうち四つはこれらから直接得られる。
+
+  残る中心的なフィールドは強収束である。これは、再添字づけした Galerkin 曲線が $[0,T]$ 上で連続で一様に有界であることを使い、まず二乗ノルム差の時間積分が $0$ に収束することを示し（分割収束の核）、それを $L^2$ ノルムの収束へ変換して得る。空間コンパクト性の半分はパッケージには含めず、明示的な仮定として渡し、後で $\mathbb{T}^3$ 上の Rellich コンパクト性で埋める。
+gap:
+  level: large
+  note: |
+    強収束は `eLpNorm` 形で述べる。$\mathbb{R}^3$ 側の修正を鏡映しており、以前の Bochner 型 $\int\lVert\cdot\rVert^2\to 0$ は非可積分被積分関数を $0$ に潰す「空虚形」で、真の $L^2$ 時間収束を保証できなかった。`eLpNorm` 形はゴミ $0$ 潰れがなく意図した内容を正確に担う（公理は増やさない）。
+
+    バインダ列はかつての公理 `aubin_lions` と一致し、利用側の書き換えは純粋な名前の差し替えである（課題 #23）。空間コンパクト性の引数は使われず、利用側が `rellich_L2Sigma` を位置引数として与え続ける。`Type` 値なので存在からの取り出しは `Classical.choose` を経る。
+chapter: compactness
+tags: [aubin-lions, compactness, strong-convergence, torus, de-axiomatized]

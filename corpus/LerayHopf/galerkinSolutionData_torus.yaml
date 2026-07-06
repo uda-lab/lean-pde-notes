@@ -1,0 +1,14 @@
+name: LerayHopf.Torus.galerkinSolutionData_torus
+tier: full
+statement_ja: |
+  各粘性係数 $\nu>0$、初期値 $u_0\in L^2_\sigma$、モード数 $n$ に対して、追加の仮定を一切要さずに第 $n$ [[Galerkin 解データ|LerayHopf.GalerkinSolutionData]]を構成する。これが毎 $n$ の Galerkin ソルバーの成果物である。
+proof_ja: |
+  前向き大域解の[[存在定理|LerayHopf.Torus.forwardGlobalSolution_exists]]から得られる曲線 $c$ を取り、これを速度モード空間から $L^2_\sigma$ へ埋め込んで解曲線とする。初期条件・値域が部分空間に留まる性質・前向き微分可能性は、この曲線の性質から直接読み取れる。
+
+  弱形式の方程式は、自励的な場の方程式 $c'=G_n(c)$ から Riesz 表現（ベクトル場の特徴づけ）を介して導く。$P_n$ で固定される任意のテスト場 $w$ を速度モード空間の元とみなし、ベクトル場の仕様が曲線の微分を粘性項と対流項の弱形式へ変換する。$H^1$ 正則性は有限 Fourier 台から、一様エネルギー評価と正則性評価はエネルギー恒等式の積分から従う。
+gap:
+  level: large
+  note: |
+    `GalerkinSolutionData` は `Type` に属するため、前向き大域解の存在から曲線を `Exists.choose` で取り出す（`Exists` を `Type` へ `obtain` できないため）。弱方程式のフィールド `u_ode` はベクトル場の仕様（`galerkinODE_vectorField_spec`）を介して導出され、対応構造に合わせて前向き時刻 $t\ge 0$ で述べられる。全体は sorry も追加公理も含まない。
+chapter: ode
+tags: [galerkin, ode, solver, torus, de-axiomatized]

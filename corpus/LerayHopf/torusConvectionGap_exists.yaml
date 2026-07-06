@@ -1,0 +1,12 @@
+name: LerayHopf.torusConvectionGap_exists
+tier: full
+statement_ja: |
+  トーラスの弱対流作用素ギャップが存在する。すなわち総体的な対流形式・三重線形性・反対称性・テスト対角上の有界性・固定テスト連続性・Galerkin テストの稠密性をすべて備えた[[ギャップデータ|LerayHopf.TorusConvectionGap]]を実際に構成できる。
+proof_ja: |
+  決定された対流形式の理論から、拡張の全条件を満たすギャップデータを構成する。かつて公理として据えられていた命題が、証明済みの定理へと格上げされている。
+gap:
+  level: large
+  note: |
+    決定された形式の理論（`TorusConvectionExtension.torusConvectionGap_holds`）を元の公理名の下で再輸出したもの。定理であって公理ではないため `#print axioms` には現れない（課題 #53）。
+chapter: limit-passage
+tags: [convection-form, gap, existence, de-axiomatized, torus]

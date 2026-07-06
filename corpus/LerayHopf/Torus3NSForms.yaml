@@ -1,0 +1,22 @@
+name: LerayHopf.Torus3NSForms
+tier: full
+statement_ja: |
+  $\mathbb{T}^3$ 上の Navier–Stokes 方程式の形式を束ねたデータである。中心となるのは $L^2_\sigma$ 上の三重線形な対流形式 $b$ で、これは $(u\cdot\nabla)v$ を $w$ と対にした量
+
+  $$b(u,v,w) = \int_{\mathbb{T}^3} (u\cdot\nabla v)\cdot w$$
+
+  を表す。粘性形式は公理化せず、具体的な Stokes 対形式を直接用いる。
+
+  対流形式には、後ろ二つの引数についての反対称性 $b(u,v,w) = -b(u,w,v)$、各引数についての三重線形性、滑らかなテスト場に対する $L^2$ 有界性
+
+  $$\lvert b(u,v,w)\rvert \le C(w)\,\lVert u\rVert\,\lVert v\rVert ,$$
+
+  そして Galerkin 部分空間上では有限の[[箱截断対流形式|LerayHopf.galerkinConvection]]に一致するという固定条件が課される。この最後の条件が形式を実質的な Navier–Stokes の対流に釘付けし、自明な $b=0$ を排除する。
+gap:
+  level: large
+  note: |
+    粘性形式はこの構造のフィールドではなく、具体的な `stokesTestPairing` で与えられる（総和規約により非可算台では $0$ を返すため、任意の場に対して健全）。対角では粘性散逸に一致する。
+
+    Galerkin 固定条件（`b_galerkin`）が非空性を保証する要である。かつての太い公理 `torus3_NSForms_exist` は撤去され、その内容は決定された対流形式から証明される定理[[存在定理|LerayHopf.torus3_NSForms_exists]]へ置き換えられた（課題 #22 / #53）。有界性は滑らかなテスト場の対角上の評価であり、強 $L^2$ 極限移行に適した形をしている。
+chapter: limit-passage
+tags: [convection-form, navier-stokes, torus, trilinear]

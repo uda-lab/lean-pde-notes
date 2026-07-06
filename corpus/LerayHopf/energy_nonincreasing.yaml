@@ -1,0 +1,16 @@
+name: LerayHopf.AbstractEnergyLaw.energy_nonincreasing
+tier: full
+statement_ja: |
+  抽象散逸エネルギー則に対して、運動エネルギーは時間について非増加である。すなわち $0\le s\le t$ のとき
+
+  $$\tfrac12\lVert u(t)\rVert^2 \;\le\; \tfrac12\lVert u(s)\rVert^2 .$$
+proof_ja: |
+  エネルギー則から得られる[[エネルギー不等式|LerayHopf.AbstractEnergyLaw.energyInequality]]は、運動エネルギーの差が蓄積散逸の符号反転で上から抑えられることを述べる。散逸は非負なので[[蓄積散逸の非負性|LerayHopf.AbstractEnergyLaw.accumulatedDissipation_nonneg]]により、その項は運動エネルギーを減らす向きにしか働かない。
+
+  したがって粘性係数が非負であることと合わせて、非負な蓄積散逸を落とせばエネルギーの非増加が従う。これがコンパクト性論法に用いる一様エネルギー評価の核心である。
+gap:
+  level: none
+  note: |
+    形式化では前段のエネルギー不等式から作った `EnergyData` に対し、汎用補題 `energy_nonincreasing_from_nonnegative_dissipation` を、$\nu=1\ge 0$ と蓄積散逸の非負性を与えて適用する。
+chapter: energy
+tags: [energy-inequality, abstract-energy-law, uniform-bound]

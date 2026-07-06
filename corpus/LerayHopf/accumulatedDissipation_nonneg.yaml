@@ -1,0 +1,16 @@
+name: LerayHopf.AbstractEnergyLaw.accumulatedDissipation_nonneg
+tier: full
+statement_ja: |
+  抽象散逸エネルギー則に対して、蓄積散逸
+
+  $$\int_s^t D\bigl(u(\tau)\bigr)\,d\tau$$
+
+  は $0\le s\le t$ のとき非負である。
+proof_ja: |
+  散逸が各点で非負であること（エネルギー則が持つ性質）から、その積分も非負区間 $[s,t]$ 上で非負になる。積分の単調性そのものであり、被積分関数の点ごとの非負性を積分に持ち上げるだけである。
+gap:
+  level: none
+  note: |
+    形式化では `intervalIntegral.integral_nonneg_of_forall` を、上端下端の順序 $s\le t$ と点ごとの非負性を与えて適用する。始点の非負性 $0\le s$ はインターフェースの前提として持たされるが、非負性の証明自体には使わない。
+chapter: energy
+tags: [dissipation, abstract-energy-law]

@@ -1,0 +1,14 @@
+name: LerayHopf.Torus3NSForms.b_self_zero
+tier: full
+statement_ja: |
+  トーラス Navier–Stokes 形式束の対流形式は対角上で消える。すなわち任意の $u$ に対して
+
+  $$b(u,u,u) = 0 .$$
+proof_ja: |
+  後ろ二つの引数についての反対称性を対角 $b(u,u,u)$ に適用すると $b(u,u,u) = -b(u,u,u)$ となり、ゆえに $b(u,u,u)=0$ を得る。これはエネルギー恒等式で非線形項が脱落する根拠であり、物理的には対流が運動エネルギーを生成も消散もしないことに対応する。
+gap:
+  level: none
+  note: |
+    反対称性フィールドから一行で従う（`b_antisymm u u u` の後 `linarith`）。
+chapter: limit-passage
+tags: [convection-form, antisymmetry, torus]

@@ -1,0 +1,18 @@
+name: LerayHopf.GalerkinSolutionData
+tier: full
+statement_ja: |
+  第 $n$ Galerkin 常微分方程式が有限次元部分空間 $V_n\subseteq L^2_\sigma$ 上で生み出す解のデータをまとめた証明保持型である。
+
+  これは解曲線、初期条件 $u_n(0)=P_n u_0$、解が部分空間 $V_n$ に留まるという値域性質、前向きの時刻での微分可能性、射影された弱形式の方程式、$H^1$ 正則性、そして時刻 $n$ に依らない一様なエネルギー評価と正則性評価を束ねる。射影された方程式は、$V_n$ に属する任意のテスト場 $w$ に対して
+
+  $$\bigl\langle u_n'(t),w\bigr\rangle + \nu\,\langle u_n(t),w\rangle_{\mathrm{St}} + b\bigl(u_n(t),u_n(t),w\bigr) = 0$$
+
+  の形をとる（$\langle\cdot,\cdot\rangle_{\mathrm{St}}$ は Stokes 対形式）。
+gap:
+  level: large
+  note: |
+    微分可能性と方程式は前向きの時刻 $t\ge 0$ でのみ主張される（課題 #24）。物理的な Galerkin 解は前向きエネルギー評価でしか制御されず、二次の場は有限の後ろ向き時刻で爆発しうる。全時刻 $t\in\mathbb{R}$ で主張すると、一般には空な型の帰属を主張する潜在的な過剰主張になる。$\mathbb{R}^3$ 側の対応フィールドと揃えてある。
+
+    全フィールドが Aubin–Lions 組み立て（[[パッケージ構成|LerayHopf.torusAubinLionsPackage_of_galSeq]]）または極限移行で使われる。かつての公理 `aubin_lions` は課題 #23 で除去された。
+chapter: ode
+tags: [galerkin, ode, proof-carrying, torus]

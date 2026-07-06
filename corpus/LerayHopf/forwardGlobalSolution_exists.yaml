@@ -1,0 +1,20 @@
+name: LerayHopf.Torus.forwardGlobalSolution_exists
+tier: full
+statement_ja: |
+  第 $n$ Galerkin の有限次元発展方程式について、前向きに大域的な解が存在する。すなわち[[速度モード空間|LerayHopf.velocitySpan]]内の曲線 $c\colon\mathbb{R}\to V_n$ で、初期値が $c(0)=P_n u_0$ に一致し、すべての前向きの時刻 $t\ge 0$ で自励的な場の方程式
+
+  $$c'(t) = G_n\bigl(c(t)\bigr)$$
+
+  を満たすものが取れる。ここで $G_n$ は Galerkin ベクトル場である。
+proof_ja: |
+  出発点は局所解の存在である。半径 $R$ の球内から出発する解に対し、出発点に依らない一様な局所存在時間 $\delta$ が取れる（ベクトル場が局所リプシッツで、$V_n$ 内の球上で有界だから）。この一様局所時間を使い、幅 $\delta/2$ の各ステップ上で Picard–Lindelöf 型の局所解 $c_k$ を構成する。
+
+  次に、これらの局所片を貼り合わせる。時刻 $t$ に対して $t$ を覆うステップ番号を選ぶ添字関数を用意し、区間の重なり上で二つの局所解が一致すること（解の一意性から従う一致補題）を使って、選択が整合的であることを確かめる。前向きの各時刻の近傍で貼り合わせ曲線が対応する局所解に一致することを示せば、微分可能性が局所解のそれに帰着し、前向き大域解が得られる。エネルギー評価が前向き時刻で解を球内に閉じ込めるため、この継続は $t\ge 0$ 全体で破綻しない。
+gap:
+  level: large
+  note: |
+    局所解を段階的に貼り合わせるため、ステップ番号 $N(t)=\lfloor t/(\delta/2)\rfloor+1$ を介した場合分けと近傍上の関数一致（`HasDerivAt` の局所性）を丁寧に扱う必要がある。前向き大域性が本質で、後ろ向きの爆発を避けるためにこそ一様局所時間による段階継続を用いる。
+
+    これが $\mathbb{T}^3$ Galerkin ソルバーの中核であり、この上に[[毎 $n$ の解データ|LerayHopf.Torus.galerkinSolutionData_torus]]の全フィールドが組み立てられる。
+chapter: ode
+tags: [galerkin, ode, picard-lindelof, forward-global, torus]

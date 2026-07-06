@@ -1,0 +1,18 @@
+name: LerayHopf.AbstractEnergyLaw.energyInequality
+tier: full
+statement_ja: |
+  抽象散逸エネルギー則を体現する曲線 $u$（散逸 $D\ge 0$、対流の役割の三重線形形式 $B$ が対角上で消え、内積形式のバランス則を満たす）に対して、運動エネルギーと蓄積散逸
+
+  $$E(t) = \tfrac12\lVert u(t)\rVert^2,\qquad A(s,t) = \int_s^t D\bigl(u(\tau)\bigr)\,d\tau$$
+
+  は粘性係数 $1$ のもとでエネルギー不等式を満たす。
+proof_ja: |
+  抽象エネルギー則がまとめて持つ微分可能性・バランス則・対角消滅・可積分性を取り出し、それらを[[抽象 Galerkin 近似のエネルギー不等式|LerayHopf.abstract_galerkin_satisfies_EnergyInequality]]に代入するだけでよい。
+
+  これは抽象散逸エネルギー則インターフェースの標語的帰結であり、散逸の非負性と併せてエネルギーの単調減少、ひいてはコンパクト性論法に必要な一様エネルギー評価へとつながる。
+gap:
+  level: none
+  note: |
+    抽象エネルギー則の各フィールド（微分可能性・ODE 則・対角消滅・区間可積分性）を束ねて前定理へ渡す一行の適用である。
+chapter: energy
+tags: [energy-inequality, abstract-energy-law]

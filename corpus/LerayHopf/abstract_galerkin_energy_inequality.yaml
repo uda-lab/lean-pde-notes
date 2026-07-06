@@ -1,0 +1,28 @@
+name: LerayHopf.abstract_galerkin_energy_inequality
+tier: full
+statement_ja: |
+  実内積空間 $H$ 上の曲線 $u\colon\mathbb{R}\to H$ が、散逸項 $D$ と対流の役割を担う三重線形形式 $B$ を伴う抽象的な Galerkin エネルギー則を満たすとする。すなわち各時刻で微分可能で、内積形式のバランス則
+
+  $$\bigl\langle u'(t),\,u(t)\bigr\rangle + D\bigl(u(t)\bigr) + B\bigl(u(t),u(t),u(t)\bigr) = 0$$
+
+  が成り立ち、さらに三重線形形式が対角上で消える（$B(w,w,w)=0$）とする。このとき $0\le s\le t$ に対してエネルギー不等式
+
+  $$\tfrac12\lVert u(t)\rVert^2 + \int_s^t D\bigl(u(\tau)\bigr)\,d\tau \;\le\; \tfrac12\lVert u(s)\rVert^2$$
+
+  が従う。
+proof_ja: |
+  各時刻において運動エネルギー $\tfrac12\lVert u\rVert^2$ の時間微分が散逸の符号反転 $-D(u)$ に等しいことは[[エネルギー恒等式|LerayHopf.abstract_galerkin_energy_identity]]が与える。対角上で三重線形形式が消えるため、バランス則の非線形項が脱落し、残るのは内積項と散逸項だけになるからである。
+
+  この点ごとの微分等式を区間 $[s,t]$ 上で微分積分学の基本定理により積分すると、$-D(u)$ の積分がちょうど
+
+  $$\tfrac12\lVert u(t)\rVert^2 - \tfrac12\lVert u(s)\rVert^2$$
+
+  に等しい。移項すれば求める形が得られる。導出自体は等号を与えるが、後段のエネルギー不等式インターフェースに合わせて不等号の形で述べている。
+gap:
+  level: mild
+  note: |
+    形式化では区間積分の被積分関数の可積分性を各区間ごとに仮定として持ち回り、基本定理は `intervalIntegral.integral_eq_sub_of_hasDerivAt` で適用する。散逸の符号反転は `IntervalIntegrable.neg` で処理する。
+
+    仮定 $0\le s$ は結論のためには実際には不要（基本定理は向き付き区間 `uIcc s t` を扱うため）だが、エネルギー則インターフェースの前提として明示的に持たされている。
+chapter: energy
+tags: [energy-inequality, galerkin, ftc]

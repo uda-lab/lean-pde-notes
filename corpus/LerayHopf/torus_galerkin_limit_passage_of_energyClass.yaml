@@ -1,0 +1,22 @@
+name: LerayHopf.torus_galerkin_limit_passage_of_energyClass
+tier: full
+statement_ja: |
+  $\mathbb{T}^3$ 上の Galerkin 極限移行を、良い代表元の存在という形で述べる。完全な Galerkin 解の列と Aubin–Lions パッケージ、さらに生の極限に対するエネルギー類の条件（ほとんどすべての時刻での $H^1$ 帰属と散逸の可積分性）が与えられたとき、次を満たす代表曲線 $u$ が存在する。
+
+  それは Aubin–Lions の生の極限とほとんどいたるところ一致し、弱形式の Navier–Stokes 方程式を満たし、$0\le t\le T$ で
+
+  $$\tfrac12\lVert u(t)\rVert^2 + \int_0^t \nu\,\lVert\nabla u(s)\rVert^2\,ds \le \tfrac12\lVert u_0\rVert^2$$
+
+  というエネルギー不等式を満たし、初期値を強 $L^2$ で達成し、エネルギー類に属する。
+proof_ja: |
+  まず時間について弱連続な良い代表元 $v$ を構成する。これは生の極限とほとんどいたるところ一致するので、以下の性質はすべて代表元へ移せる。
+
+  弱形式の方程式は、強収束から得た極限に対する弱形式を、ほとんどいたるところ一致を通じて代表元へ移す（弱形式の積分はほとんどいたるところの値しか見ないため）。各時刻のエネルギー不等式は弱連続代表元の構成から従い、初期トレースの強達成も代表元の性質から得る。エネルギー類の合接（$H^1$ 帰属と散逸可積分性）は仮定からほとんどいたるところ一致を通じて移す。こうして良い代表元の存在主張が、かつての公理 `galerkin_limit_passage` の結論と一字一句一致する形で得られる。
+gap:
+  level: large
+  note: |
+    弱連続代表元は `exists_weak_representative` が供給する。散逸の可積分性は仮定側からほとんどいたるところ不変性で代表元へ転写し（`IntervalIntegrable.congr_ae`）、弱形式は `intervalIntegral.integral_congr_ae` を経て転写する。エネルギー類の仮定は別の粘性極限の理論（[[エネルギー類の帰属|LerayHopf.torus_energyClass_of_aubinLions]]）から供給される。
+
+    結論はトレース・エネルギー柱から証明され、これがトーラス主定理の極限移行段を担う。
+chapter: limit-passage
+tags: [limit-passage, good-representative, weak-form, energy-inequality, torus]

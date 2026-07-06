@@ -1,0 +1,18 @@
+name: LerayHopf.abstract_galerkin_satisfies_EnergyInequality
+tier: full
+statement_ja: |
+  抽象的な Galerkin エネルギー則を満たす曲線 $u$ から、具体的なエネルギー資料
+
+  $$E(t) = \tfrac12\lVert u(t)\rVert^2,\qquad A(s,t) = \int_s^t D\bigl(u(\tau)\bigr)\,d\tau,\qquad \nu = 1$$
+
+  を組み立てると、これが抽象的なエネルギー不等式の枠組み（エネルギー骨格）を満たす。
+proof_ja: |
+  エネルギー不等式の定義を展開して時刻 $s\le t$（$0\le s$）を固定すれば、示すべきは運動エネルギーと蓄積散逸の間の[[抽象エネルギー不等式|LerayHopf.abstract_galerkin_energy_inequality]]そのものである。粘性係数を $1$ に取っているため係数 $\nu=1$ の乗算は自明に吸収される。
+
+  これにより抽象的な Galerkin 近似が骨格レベルのエネルギー不等式インターフェースに接続され、以降のエネルギー単調減少や一様評価の議論がこの資料の上で展開できるようになる。
+gap:
+  level: mild
+  note: |
+    形式化上は係数 $\nu=1$ の乗算を `one_mul` で消し、残りを `linarith` で閉じる小さな橋渡しである。ここでの `EnergyInequality` はプロジェクト共通のエネルギー骨格インターフェースを指す。
+chapter: energy
+tags: [energy-inequality, galerkin, energy-skeleton]

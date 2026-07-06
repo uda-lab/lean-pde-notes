@@ -1,0 +1,20 @@
+name: LerayHopf.torus_galerkin_energy_identity
+tier: full
+statement_ja: |
+  $\mathbb{T}^3$ 上の第 $n$ Galerkin 近似解 $u_n$ に対して、前向きの時刻 $t\ge 0$ でエネルギー恒等式
+
+  $$\tfrac12\lVert u_n(t)\rVert^2 + \int_0^t \nu\,\lVert\nabla u_n(s)\rVert^2\,ds = \tfrac12\lVert P_n u_0\rVert^2$$
+
+  が成り立つ。ここで左辺第 2 項は粘性散逸の時間積分、右辺は初期値を第 $n$ モードへ射影したもののエネルギーである。
+proof_ja: |
+  Galerkin 解が満たす射影された方程式を、テスト場として解自身 $u_n(t)$ を選んで評価する（解は第 $n$ [[速度モード空間|LerayHopf.velocitySpan]]に留まるのでこれは許される）。対流形式は対角上で消えるため（[[反対称性による消滅|LerayHopf.Torus3NSForms.b_self_zero]]）非線形項が脱落し、粘性形式は対角で粘性散逸に一致する（Stokes 対角）。
+
+  こうして運動エネルギー $\tfrac12\lVert u_n\rVert^2$ の時間微分が粘性散逸の符号反転に等しいことが分かる。これを $[0,t]$ 上で微分積分学の基本定理により積分し、初期条件 $u_n(0)=P_n u_0$ を代入すれば恒等式を得る。
+gap:
+  level: mild
+  note: |
+    時間微分の値の同定には内積の対称化（`real_inner_comm`）と粘性形式の対角公式（`stokesTestPairing_diag`, `viscousFormSq_eq_mul`）を用いる。散逸の区間可積分性は被積分関数の $[0,t]$ 上の連続性から従う。
+
+    前向きの時刻 $t\ge 0$ に限る点が本質的である。Galerkin の速度場は前向きエネルギー評価でのみ制御され、二次の場は有限の後ろ向き時刻で爆発しうるため、微分可能性・方程式ともに $0\le t$ でのみ主張される。
+chapter: energy
+tags: [energy-identity, galerkin, torus, dissipation]
