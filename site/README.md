@@ -14,27 +14,74 @@ site/
     VENDORED.md          how KaTeX was vendored (version + re-vendor commands)
     katex/               katex.min.js + katex.min.css + auto-render.min.js + fonts/
   data/
+    .gitkeep             preserves directory (generated JSON is not committed)
     nodes.json           built by scripts/build_site_data.py (decls ⋈ corpus, no source bodies)
     sources.json         built by scripts/build_site_data.py (verbatim Lean source, lazy-loaded)
     coverage.json        built by scripts/coverage.py
+    
+**Note:** `site/data/*.json` files are generated artifacts, not source-reviewed files.
+They are produced locally via `build_site_data.py` and in CI via `.github/workflows/build-site-artifact.yml`.
+During Phase A (pre-publication), generated JSON is uploaded as workflow artifacts for inspection
+but not deployed to Pages. Phase B will enable public Pages deployment after the public-readiness gate.
 ```
 
 ## Build & preview
 
+### Local build
+
+**Important:** After a fresh clone, `site/data/*.json` files do not exist (they are gitignored).
+You must run `build_site_data.py` before serving the site.
+
 ```bash
-# from repo root — embed verbatim Lean source (needs a lean-pde checkout at the PIN commit)
-python3 scripts/build_site_data.py --lean-root /workspaces/lean-pde
-# -> site/data/nodes.json + site/data/sources.json
+# from repo root — build site data first
+# Option 1: with verbatim Lean source (requires lean-pde checkout at extracted/PIN)
+python3 scripts/build_site_data.py --lean-root /path/to/lean-pde
+# -> site/data/nodes.json (with has_source:true) + site/data/sources.json (populated)
 
-# without a lean-pde checkout, source is omitted (has_source:false) and the proof band
-# falls back to the doc-comment + file:line reference:
+# Option 2: without lean-pde checkout (source-less build)
 python3 scripts/build_site_data.py
-# -> site/data/nodes.json + empty site/data/sources.json
+# -> site/data/nodes.json (with has_source:false) + site/data/sources.json (empty stub)
 
-# serve (any static server; no build step, no server-side code)
+# Then serve (any static server; no build step, no server-side code)
 cd site && python3 -m http.server 8000
 # open http://localhost:8000/
 ```
+
+### CI build workflow (Phase A)
+
+`.github/workflows/build-site-artifact.yml` runs on every push and PR:
+
+1. Installs Python and Node dependencies
+2. Runs `npm test` (jsdom render harness)
+3. Validates corpus with `scripts/validate.py`
+4. Builds site data **without `--lean-root`** (lean-pde is private during Phase A)
+5. Generates a size report with `scripts/site_data_size_report.py`
+6. Uploads the entire `site/` directory as a workflow artifact
+
+The workflow does **not** deploy to Pages during Phase A. Generated JSON remains
+uncommitted and is available only as workflow artifacts for pre-publication inspection.
+
+**Current limitation:** Phase A CI produces only source-less artifacts (`has_source:false`,
+empty `sources.json`). Before enabling Phase B public deployment, a source-enabled build
+(`--lean-root` with lean-pde at `extracted/PIN`) must be inspected locally to verify:
+- No private paths, agent notes, or internal-only content in generated JSON
+- Source extraction correctness for all 1,412 declarations
+- Size report within budget when source bodies are included
+
+**Phase B** (after public-readiness gate and source-enabled inspection):
+- Add lean-pde checkout at `extracted/PIN` in the workflow
+- Pass `--lean-root` to `build_site_data.py` for source-enabled builds
+- Enable Pages deployment step
+
+### Source-enabled builds
+
+To include verbatim Lean source in the site, `build_site_data.py` requires
+`--lean-root <path>` pointing to a checkout of `uda-lab/lean-pde` at the commit
+specified in `extracted/PIN`. The script extracts source text from the Lean files
+and populates `sources.json` for lazy loading.
+
+Without `--lean-root`, the site still works but shows file:line references instead
+of embedded source code.
 
 `build_site_data.py` shells out to `coverage.py` by default, so a single invocation
 refreshes both data files. Flags: `--no-coverage` (skip coverage refresh),
