@@ -1,0 +1,12 @@
+name: LerayHopf.R3.ConvectionExtension.convBLTspan
+tier: full
+statement_ja: |
+  [[Schwartz スパン|LerayHopf.R3.ConvectionExtension.schwartzSpan]]の元 $s$ に対する、決定された同時連続な双線形拡張。$H^1$ の $u,v$ に対する $(u,v)\mapsto b(u,v,s)$ を、スパンの一様評価を用いて $L^2_\sigma(\mathbb{R}^3)$ 全体へ連続に延長したものである。
+
+  $s$ を単一の Schwartz 場に取れば[[固定テスト双線形形式|LerayHopf.R3.ConvectionExtension.convBLT_fixedTest]]に一致する。これが決定域構成の第三スロット縁の値である。
+gap:
+  level: mild
+  note: |
+    形式化では、スパンの一様評価を束にした証明を渡して有界双線形拡張器 `convBLTbdd` を走らせる。$s\mapsto{}$（この双線形）は $H^1$ 切片での一致から $\mathbb{R}$-線形であり、以後は補題インターフェイス経由で不透明に扱う（大きな拡張塔の展開を避けるため既約に指定）。
+chapter: limit-passage
+tags: [convection-form, continuous-bilinear, determined-form]

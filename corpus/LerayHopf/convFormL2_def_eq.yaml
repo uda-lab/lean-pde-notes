@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.convFormL2_def_eq
+tier: full
+statement_ja: |
+  [[決定された移流形式|LerayHopf.R3.ConvectionExtension.convFormL2_def]]の値は、[[決定された形式|LerayHopf.R3.ConvectionExtension.detExtend]]を単純テンソル $v\otimes w$ に適用した値に等しい。
+proof_ja: |
+  移流形式はこの適用そのものとして定義されているので、両者は定義上一致する。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, determined-form]

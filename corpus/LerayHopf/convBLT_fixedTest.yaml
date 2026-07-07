@@ -1,0 +1,12 @@
+name: LerayHopf.R3.ConvectionExtension.convBLT_fixedTest
+tier: full
+statement_ja: |
+  Schwartz なテスト場 $w$ を固定したときの、同時連続な双線形形式。$H^1$ の $u,v$ に対する $(u,v)\mapsto b(u,v,w)$ を、$L^2_\sigma(\mathbb{R}^3)$ 全体へ連続に延長したものである。
+
+  内側のスロットをまずノルム有界拡張で延長し、次に外側のスロットを $H^1_\sigma$ から $L^2_\sigma$ への稠密包含に沿って延長して得る。これが決定域構成で読み取る真の値である。
+gap:
+  level: mild
+  note: |
+    形式化では、内側スロットのノルム有界拡張 `extendOfNorm` を包んだうえで、外側スロットを稠密な $H^1_\sigma$ 包含に沿った `ContinuousLinearMap.extend` で延ばす二段構え。連続双線形として得られるので、後で同時連続性を直接与える。
+chapter: limit-passage
+tags: [convection-form, continuous-bilinear, determined-form]

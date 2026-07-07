@@ -1,0 +1,12 @@
+name: LerayHopf.r3ConvectionGapOp_exists
+tier: full
+statement_ja: |
+  任意の Galerkin スキームに対して $\mathbb{R}^3$ 上の弱移流作用素中核[[移流欠落作用素|LerayHopf.ConvectionGapOp]]が存在する。これを公開名として再輸出したものである。
+proof_ja: |
+  内容は[[決定域構成による組み立て|LerayHopf.R3.ConvectionExtension.r3ConvectionGapOp_holds]]そのものであり、それを元の公開名のもとで返すだけである。
+gap:
+  level: large
+  note: |
+    この宣言はかつて公理 `r3ConvectionGapOp_exists`（$\mathbb{R}^3$ の弱 $(u\cdot\nabla)v$ 作用素中核）だったが、issue #56 でテンソル積上の決定域構成により証明済み定理へ反転された。定理なので `#print axioms` には現れず、これによりプロジェクトはカーネルのみ（追加公理ゼロ）に到達している。名称は履歴継承のため変えていない（宣言名の改称禁止規則）。
+chapter: limit-passage
+tags: [convection-form, convection-gap, frontier-resolved, kernel-only]

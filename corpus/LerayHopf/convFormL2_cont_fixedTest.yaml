@@ -1,0 +1,14 @@
+name: LerayHopf.R3.ConvectionExtension.convFormL2_cont_fixedTest
+tier: full
+statement_ja: |
+  Schwartz な $w$ を固定すると、$(u,v)\mapsto b(u,v,w)$ は $L^2$ で同時連続である。ここで $b$ は[[決定された移流形式|LerayHopf.R3.ConvectionExtension.convFormL2_def]]である。これが決定域構成の要となる性質である。
+proof_ja: |
+  Schwartz な $w$ を固定すると、すべての $v$ について $v\otimes w$ は第三スロットが滑らかな縁、したがって決定域に属する。よって値は Hamel 値ではなく決定された値であり、[[決定値恒等式|LerayHopf.R3.ConvectionExtension.detExtend_on_edgeSlot3]]により[[固定テスト双線形形式|LerayHopf.R3.ConvectionExtension.convBLT_fixedTest]]の評価に等しい。
+
+  その双線形形式は有界双線形として同時連続なので、$(u,v)\mapsto b(u,v,w)$ も同時連続である。まさにここが、生の Hamel 対象が失敗した箇所であり、入れ替えたスロットに変化する引数が不連続な指標として入らない点である。
+gap:
+  level: mild
+  note: |
+    形式化では、固定 $w$ に対し $(u,v)\mapsto b(u,v,w)$ が固定テスト双線形形式の評価に等しいことを決定値恒等式で示し、その有界双線形性から `isBoundedBilinearMap.continuous` で同時連続性を得る。以前の生 Hamel 拡張は、入れ替えスロットに変化する引数が不連続な Hamel 指標として入るため、この連続性が偽になっていた。
+chapter: limit-passage
+tags: [convection-form, continuity, determined-form]

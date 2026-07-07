@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.memH1VF_R3_of_mem_schwartzSpan
+tier: full
+statement_ja: |
+  [[Schwartz スパン|LerayHopf.R3.ConvectionExtension.schwartzSpan]]に属する元は[[$H^1$ 正則性|LerayHopf.memH1VF_R3]]をもつ。
+proof_ja: |
+  Schwartz スパンは、$H^1$ 正則な Schwartz 発散ゼロ場が張る部分空間なので、$H^1_\sigma$ に含まれる。したがってその元は $H^1$ 正則性をもつ。
+gap:
+  level: none
+chapter: spaces
+tags: [schwartz, span, sobolev]

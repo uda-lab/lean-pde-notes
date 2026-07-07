@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.schwartzSpan
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ類|LerayHopf.IsSchwartzDivFree_R3]]の張る、発散ゼロ場の空間の部分空間。決定域構成で用いる滑らかな「縁」であり、記号では $\mathcal{S}$ と書く。
+
+  $$\mathcal{S}=\operatorname{span}_{\mathbb{R}}\{\,x\in L^2_\sigma(\mathbb{R}^3)\mid x\ \text{は Schwartz 発散ゼロ}\,\}.$$
+gap:
+  level: none
+chapter: limit-passage
+tags: [schwartz, span, determined-form]

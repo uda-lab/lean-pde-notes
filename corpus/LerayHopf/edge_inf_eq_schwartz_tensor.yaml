@@ -1,0 +1,16 @@
+name: LerayHopf.R3.ConvectionExtension.edge_inf_eq_schwartz_tensor
+tier: full
+statement_ja: |
+  二つの縁部分空間の共通部分は、両因子が滑らかなテンソルの空間に一致する。
+
+  $$(\mathcal{S}\otimes L^2_\sigma)\cap(L^2_\sigma\otimes\mathcal{S})=\mathcal{S}\otimes\mathcal{S}.$$
+
+  この重なりの上で、二つの縁の値の指定が一致し、貼り合わせが可能になる。
+proof_ja: |
+  これは、テンソル積の二つの部分空間写像の像の交わりに関する一般的な恒等式を、左右因子ともに[[Schwartz スパン|LerayHopf.R3.ConvectionExtension.schwartzSpan]]に特殊化したものである。その一般恒等式は本形式化で別途証明されている。
+gap:
+  level: mild
+  note: |
+    形式化では、テンソル交差補題 `range_map_subtype_inf_range_map_subtype`（本リポジトリで証明済み、sorry なし）を Schwartz スパンに特殊化する。この重なり同値が、二つの縁の値の一致（貼り合わせ）を保証する要である。
+chapter: limit-passage
+tags: [tensor-product, determined-form, gluing]

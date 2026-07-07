@@ -1,0 +1,14 @@
+name: LerayHopf.R3.ConvectionExtension.convFormL2_antisymm
+tier: full
+statement_ja: |
+  [[決定された移流形式|LerayHopf.R3.ConvectionExtension.convFormL2_def]]は、$L^2_\sigma(\mathbb{R}^3)$ 全体で後ろ二引数について反対称である。すなわち任意の $u,v,w$ に対して
+
+  $$b(u,v,w)=-\,b(u,w,v).$$
+proof_ja: |
+  決定された形式は反対称化作用素を前段にもつ。単純テンソルに対して反対称化が $A(w\otimes v)=-A(v\otimes w)$ を満たすので、$v\otimes w$ と $w\otimes v$ の評価は符号だけ反転する。
+
+  したがって $b(u,v,w)$ と $b(u,w,v)$ も符号を除いて等しく、反対称性が全ての $v,w$ について成り立つ。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, antisymmetry, determined-form]

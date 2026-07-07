@@ -1,0 +1,14 @@
+name: LerayHopf.R3.ConvectionExtension.antisymmetrizer
+tier: full
+statement_ja: |
+  テンソル積 $L^2_\sigma\otimes L^2_\sigma$ 上の反対称化作用素 $A=(\mathrm{id}-\mathrm{swap})/2$。二つの因子を入れ替える作用と恒等作用の差を半分にしたものである。
+
+  単純テンソルに対しては
+
+  $$A(w\otimes v)=-\,A(v\otimes w)$$
+
+  を満たし、決定された形式を後ろ二引数について反対称にする役割をもつ。
+gap:
+  level: none
+chapter: limit-passage
+tags: [tensor-product, antisymmetry, determined-form]

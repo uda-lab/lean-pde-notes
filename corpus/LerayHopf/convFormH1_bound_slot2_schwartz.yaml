@@ -1,0 +1,20 @@
+name: LerayHopf.R3.ConvectionExtension.convFormH1_bound_slot2_schwartz
+tier: full
+statement_ja: |
+  Schwartz なテスト場 $w$ を固定すると、$(u,v)\mapsto b(u,w,v)$ は $\lVert u\rVert\,\lVert v\rVert$ で有界である。すなわち $w$ のみに依存する定数 $C_w\ge 0$ があって
+
+  $$\bigl|b(u,w,v)\bigr|\le C_w\,\lVert u\rVert\,\lVert v\rVert.$$
+
+  ここで $b$ は[[エネルギー類の移流形式|LerayHopf.convFormH1]]である。
+proof_ja: |
+  反対称性により $b(u,w,v)=-b(u,v,w)$ であり、絶対値は符号反転で変わらない。
+
+  変化するスロットは $(u,v)$ であって $L^2$ で制御されており、Schwartz な $w$ は反転後の固定テストスロットに来る。したがって[[Schwartz 固定テスト評価|LerayHopf.convFormH1_bound_Schwartz]]がそのまま
+
+  $$\bigl|b(u,v,w)\bigr|\le C_w\,\lVert u\rVert\,\lVert v\rVert$$
+
+  を与える。粗いスロットに $\lVert\nabla w\rVert_\infty$ が漏れ込むことはない。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, bound, determined-form]

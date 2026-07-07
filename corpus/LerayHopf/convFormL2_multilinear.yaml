@@ -1,0 +1,12 @@
+name: LerayHopf.R3.ConvectionExtension.convFormL2_multilinear
+tier: full
+statement_ja: |
+  [[決定された移流形式|LerayHopf.R3.ConvectionExtension.convFormL2_def]]は $L^2_\sigma(\mathbb{R}^3)$ 全体で真に三線形である。すなわち三線形写像 $B$ が存在して、すべての $u,v,w$ について $b(u,v,w)=B(u,v,w)$ となる。
+proof_ja: |
+  三線形写像 $B$ を、決定された形式にテンソルの組み立て写像を合成してカリー化することで作る。第一引数は決定された形式が線形であること、第二・第三引数はテンソル $v\otimes w$ を作る操作が各因子について線形であることから、$B$ は三線形になる。
+
+  このとき $b(u,v,w)=$（決定された形式）$(v\otimes w)=B(u,v,w)$ は定義から直ちに従う。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, multilinear, determined-form]

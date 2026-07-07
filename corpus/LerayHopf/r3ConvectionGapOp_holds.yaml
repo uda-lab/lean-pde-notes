@@ -1,0 +1,12 @@
+name: LerayHopf.R3.ConvectionExtension.r3ConvectionGapOp_holds
+tier: full
+statement_ja: |
+  任意の Galerkin スキームに対して、弱移流作用素の中核[[移流欠落作用素|LerayHopf.ConvectionGapOp]]が存在する。すなわち五つの作用素中核の要素をすべて満たす総体的な移流形式が、決定域構成によって組み上げられる。
+proof_ja: |
+  決定域構成の五つの部品を束ねる。総体的な移流形式は[[決定された移流形式|LerayHopf.R3.ConvectionExtension.convFormL2_def]]、Schwartz 上の拡張性は[[Schwartz 一致|LerayHopf.R3.ConvectionExtension.convFormL2_extends]]、三線形性は[[三線形性|LerayHopf.R3.ConvectionExtension.convFormL2_multilinear]]、反対称性は[[反対称性|LerayHopf.R3.ConvectionExtension.convFormL2_antisymm]]、固定テスト連続性は[[固定テスト連続性|LerayHopf.R3.ConvectionExtension.convFormL2_cont_fixedTest]]がそれぞれ与える。
+gap:
+  level: large
+  note: |
+    これは以前の公理 `r3ConvectionGapOp_exists` を置き換える定理で、決定域構成により五つの中核要素すべてが証明済みである。かつて連続拡張が偽であった生の三スロット Hamel 対象を退け、少なくとも一方の因子が滑らかなテンソルの上でのみ値を決定することで、要となる固定テスト連続性を真にした。稠密性は束ねず別に証明される。
+chapter: limit-passage
+tags: [convection-form, convection-gap, determined-form, frontier-resolved]

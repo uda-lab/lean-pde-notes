@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.convBLT_fixedTest_eH1
+tier: full
+statement_ja: |
+  [[固定テスト双線形形式|LerayHopf.R3.ConvectionExtension.convBLT_fixedTest]]は、$H^1$ の切片の上では真の[[エネルギー類の移流形式|LerayHopf.convFormH1]]に一致する。すなわち $H^1$ の $u,v$ に対して、その値は $b(u,v,w)$ である。
+proof_ja: |
+  拡張を定義まで展開すると、外側スロットの延長は $H^1$ の点で元の値に戻り、内側スロットのノルム有界拡張も $H^1$ の点で元の値に戻る。両者を合わせると、$H^1$ の切片での値がちょうど元の移流形式の値になる。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, determined-form]

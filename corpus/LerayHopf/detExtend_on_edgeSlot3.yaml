@@ -1,0 +1,14 @@
+name: LerayHopf.R3.ConvectionExtension.detExtend_on_edgeSlot3
+tier: full
+statement_ja: |
+  第三スロットが滑らかな縁 $L^2_\sigma\otimes\mathcal{S}$ の上では、[[決定された形式|LerayHopf.R3.ConvectionExtension.detExtend]]は真に決定された値をとる。すなわち任意の $u,v$ と任意の Schwartz な $w$ に対して、その値は[[固定テスト双線形形式|LerayHopf.R3.ConvectionExtension.convBLT_fixedTest]]の評価 $b(u,v,w)$ に等しく、Hamel 拡張の値ではない。
+proof_ja: |
+  $v\otimes w$ は第三スロット縁に、$w\otimes v$ は第二スロット縁にあり、ともに決定域に属する。決定域を固定する左逆はこれらを動かさず、反対称化はこの二つの決定された縁の値を組み合わせる。
+
+  第二・第三の縁の値はそれぞれ $-b(u,v,w)$ と $b(u,v,w)$ に評価され、反対称化の半分の係数で足し合わせると、ちょうど $b(u,v,w)$ すなわち固定テスト双線形形式の評価に一致する。
+gap:
+  level: large
+  note: |
+    これは同時連続性の要となる恒等式。形式化では反対称化と決定域左逆を二つの縁上で分配し、各縁の決定値（第三スロット縁は真の値、第二スロット縁は符号反転）を代入して、$2^{-1}(x-(-x))=x$ を整理する。最後に[[スパン双線形拡張|LerayHopf.R3.ConvectionExtension.convBLTspan]]と固定テスト双線形形式の一致を用いる。
+chapter: limit-passage
+tags: [convection-form, determined-form, continuity]

@@ -1,0 +1,12 @@
+name: LerayHopf.R3.ConvectionExtension.detDomain
+tier: full
+statement_ja: |
+  決定域 $D$。二つの縁部分空間の和として定める。
+
+  $$D=(\mathcal{S}\otimes L^2_\sigma)+(L^2_\sigma\otimes\mathcal{S}).$$
+
+  少なくとも一方の因子が滑らかなテンソルの張る空間であり、この上では移流形式の値が真に決定される。
+gap:
+  level: none
+chapter: limit-passage
+tags: [tensor-product, determined-form]

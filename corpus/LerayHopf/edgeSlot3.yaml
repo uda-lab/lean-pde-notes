@@ -1,0 +1,8 @@
+name: LerayHopf.R3.ConvectionExtension.edgeSlot3
+tier: full
+statement_ja: |
+  「第三スロットが滑らか」な縁の部分空間 $L^2_\sigma\otimes\mathcal{S}$。テンソル積 $L^2_\sigma\otimes L^2_\sigma$ の中で、右因子を[[Schwartz スパン|LerayHopf.R3.ConvectionExtension.schwartzSpan]]に制限したテンソル写像の像として定める。
+gap:
+  level: none
+chapter: limit-passage
+tags: [tensor-product, determined-form]

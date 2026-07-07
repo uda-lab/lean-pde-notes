@@ -1,0 +1,12 @@
+name: LerayHopf.R3.ConvectionExtension.detExtend
+tier: full
+statement_ja: |
+  決定された形式。テンソル積 $L^2_\sigma\otimes L^2_\sigma$ 上の線形汎関数として、決定域 $D$ 上で貼り合わせた値を読み取り、[[反対称化作用素|LerayHopf.R3.ConvectionExtension.antisymmetrizer]]で前処理したものである。
+
+  すなわち、まず反対称化を施し、決定域を固定する左逆で決定域へ引き戻し、貼り合わせた線形汎関数を評価する。この前処理により、決定域の内外を問わず、あらゆる $(v,w)$ について反対称になる。この汎関数を単純テンソル $v\otimes w$ に適用したものを移流形式 $b(u,v,w)$ とする。
+gap:
+  level: large
+  note: |
+    貼り合わせた汎関数は、二つの縁の指定を[[重なり同値|LerayHopf.R3.ConvectionExtension.edge_inf_eq_schwartz_tensor]]の上で一致させて `LinearPMap.sup` で結合し、`LinearMap.exists_extend` で決定域の外へ Hamel 拡張したもの。左因子 $u$ について線形になるよう塔全体を組み、反対称化 $(\mathrm{id}-\mathrm{swap})/2$ を前段に置く。実数体の可除環インスタンスの取り違え（`Classical.choose` が別の半環を出す）を避ける手当てが要る。
+chapter: limit-passage
+tags: [convection-form, hamel-extension, determined-form]

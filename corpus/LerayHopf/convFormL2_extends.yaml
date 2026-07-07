@@ -1,0 +1,14 @@
+name: LerayHopf.R3.ConvectionExtension.convFormL2_extends
+tier: full
+statement_ja: |
+  Schwartz 発散ゼロな三つ組 $u,v,w$ に対して、[[決定された移流形式|LerayHopf.R3.ConvectionExtension.convFormL2_def]]は[[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]に一致する。これが総体的な形式が真の移流と繋がる唯一の橋である。
+proof_ja: |
+  三者とも Schwartz なので $v\otimes w$ は両因子が滑らかなテンソルの空間に属し、決定域に含まれる。したがって決定された形式は Hamel 拡張の値ではなく、決定された値、すなわち $H^1$ 切片上の[[エネルギー類の移流形式|LerayHopf.convFormH1]]を読み取る。
+
+  最後に、Schwartz 三つ組の上でエネルギー類の移流形式が[[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]に一致するという同定を用いて結論する。
+gap:
+  level: mild
+  note: |
+    形式化では、第三スロット縁での決定値恒等式を用いて値を固定テスト双線形形式に落とし、それを $H^1$（Schwartz）点で評価してエネルギー類の移流形式に戻し、最後に[[Schwartz 一致|LerayHopf.convFormH1_eq_convFormSchwartz]]を適用する。型の同一視（発散ゼロ包みと元の場）を `Subtype.coe_eta` で整える。
+chapter: limit-passage
+tags: [convection-form, schwartz, determined-form]

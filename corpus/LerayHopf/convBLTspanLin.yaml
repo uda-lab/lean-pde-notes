@@ -1,0 +1,8 @@
+name: LerayHopf.R3.ConvectionExtension.convBLTspanLin
+tier: full
+statement_ja: |
+  [[スパン双線形拡張|LerayHopf.R3.ConvectionExtension.convBLTspan]]を、[[Schwartz スパン|LerayHopf.R3.ConvectionExtension.schwartzSpan]]から双線形形式の空間への $\mathbb{R}$-線形写像として束ねたもの。テスト場 $s$ についての加法性と斉次性を線形写像の性質として保持する。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, linear-map, determined-form]

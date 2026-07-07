@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.convBLTspanLin_apply
+tier: full
+statement_ja: |
+  [[スパン双線形拡張の線形写像版|LerayHopf.R3.ConvectionExtension.convBLTspanLin]]を元 $s$ に適用した値は、[[スパン双線形拡張|LerayHopf.R3.ConvectionExtension.convBLTspan]]そのものである。
+proof_ja: |
+  線形写像は台となる対応をそのまま値とするよう定義されているので、両者は定義上一致する。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, determined-form]

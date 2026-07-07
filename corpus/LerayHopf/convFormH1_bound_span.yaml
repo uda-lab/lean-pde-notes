@@ -1,0 +1,18 @@
+name: LerayHopf.R3.ConvectionExtension.convFormH1_bound_span
+tier: full
+statement_ja: |
+  [[Schwartz スパン|LerayHopf.R3.ConvectionExtension.schwartzSpan]]の元 $s$ を固定すると、定数 $C\ge 0$ があって、任意の $H^1_\sigma$ の $u,v$ に対し
+
+  $$\bigl|b(u,v,s)\bigr|\le C\,\lVert u\rVert\,\lVert v\rVert$$
+
+  が成り立つ。ここで $b$ は[[エネルギー類の移流形式|LerayHopf.convFormH1]]である。
+proof_ja: |
+  スパンの元についての帰納法による。生成元（単一の Schwartz 発散ゼロ場）では[[Schwartz 固定テスト評価|LerayHopf.convFormH1_bound_Schwartz]]が定数を与える。ゼロ元では移流形式が消えるので定数はゼロでよい。
+
+  和では二つの定数の和を、スカラー倍では $|a|$ 倍の定数を取れば、三角不等式と斉次性から評価が保たれる。
+gap:
+  level: mild
+  note: |
+    形式化では `Submodule.span_induction` で四つの場合（生成元・ゼロ・和・スカラー倍）を処理する。各場合で移流形式の第三引数についての線形性を使って被積分を分け、定数を組み合わせる。
+chapter: limit-passage
+tags: [convection-form, bound, span]

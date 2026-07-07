@@ -1,0 +1,12 @@
+name: LerayHopf.R3.ConvectionExtension.convFormL2_def
+tier: full
+statement_ja: |
+  決定された三線形移流形式 $b$。[[決定された形式|LerayHopf.R3.ConvectionExtension.detExtend]]を用いて
+
+  $$b(u,v,w)=\text{（決定された形式）}(v\otimes w)$$
+
+  と定める。第一引数について線形、第二・第三引数についてもテンソルを通して線形であり、後ろ二引数について反対称、Schwartz 三つ組の上では[[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]に一致する。これが $L^2_\sigma(\mathbb{R}^3)$ 全体の総体的な移流形式である。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, determined-form]

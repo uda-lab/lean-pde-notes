@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.subset_schwartzSpan
+tier: full
+statement_ja: |
+  [[Schwartz 発散ゼロ類|LerayHopf.IsSchwartzDivFree_R3]]に属する場は、その張る部分空間[[Schwartz スパン|LerayHopf.R3.ConvectionExtension.schwartzSpan]]に属する。
+proof_ja: |
+  張る部分空間は生成集合を含むので、生成集合の元は自明にその中にある。
+gap:
+  level: none
+chapter: limit-passage
+tags: [schwartz, span]
