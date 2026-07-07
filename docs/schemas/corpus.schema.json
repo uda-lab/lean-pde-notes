@@ -14,7 +14,7 @@
     },
     "file": {
       "type": "string",
-      "description": "Lean source file path from extracted/decls.json. Optional for unique names, required by validate.py when the declaration name is ambiguous.",
+      "description": "Lean source file path from extracted/decls.json. Optional for unique names; required when decls.json contains multiple declarations with this display name.",
       "minLength": 1
     },
     "tier": {

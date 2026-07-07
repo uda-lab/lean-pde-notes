@@ -21,6 +21,8 @@ See `docs/schemas/corpus.schema.json` for the full JSON Schema (draft-07).
 
 Key fields:
 - `name` — fully-qualified Lean declaration name
+- `file` — source path from `extracted/decls.json`; optional for unique names, required when the
+  same display `name` appears in more than one declaration
 - `tier` — `full` (statement + proof + gap) or `gloss` (1–3 line role summary)
 - `statement_ja` — Japanese translation of the mathematical statement
 - `proof_ja` — Japanese proof narrative (required for `tier: full` theorems)
