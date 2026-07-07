@@ -1,15 +1,15 @@
 {
   "total_decls": 1412,
-  "annotated": 171,
-  "full": 171,
+  "annotated": 250,
+  "full": 250,
   "gloss": 0,
-  "unannotated": 1241,
-  "pct_annotated": 12.1,
+  "unannotated": 1162,
+  "pct_annotated": 17.7,
   "chapters": {
     "spaces": {
       "label_ja": "関数空間と基本設定",
-      "annotated": 20,
-      "full": 20,
+      "annotated": 37,
+      "full": 37,
       "gloss": 0
     },
     "projections-galerkin": {
@@ -38,8 +38,8 @@
     },
     "limit-passage": {
       "label_ja": "極限移行（非線形項）",
-      "annotated": 20,
-      "full": 20,
+      "annotated": 82,
+      "full": 82,
       "gloss": 0
     },
     "capstone-r3": {
