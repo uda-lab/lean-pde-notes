@@ -1,0 +1,12 @@
+name: LerayHopf.convIntegralSchwartz_smul_1
+tier: full
+statement_ja: |
+  移流形式 $b(u,v,w)=\int(u\cdot\nabla)v\cdot w$ は、第一引数 $u$ について実スカラー倍と可換である。
+
+  $$b(c\,u,v,w)=c\,b(u,v,w)$$
+proof_ja: |
+  被積分関数の第一引数に掛かるスカラー $c$ は積分の外へ括り出せる。有限和についても同様なので、$c$ が全体に掛かる形になる。
+gap:
+  level: none
+chapter: spaces
+tags: [convection-form, multilinearity]

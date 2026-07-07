@@ -1,0 +1,22 @@
+name: LerayHopf.convIntegralSchwartz_bound_H1
+tier: full
+statement_ja: |
+  移流形式は、二つの $L^2$ ノルムと一つの上限ノルムの積で評価される。
+
+  $$\lvert b(u,v,w)\rvert\le\lVert u\rVert_{L^2}\,\lVert\nabla v\rVert_{L^2}\,\lVert w\rVert_{L^\infty}$$
+
+  ここで各ノルムは成分ごとの和として測る。微分のかからない第三引数 $w$ は $L^2$ ではなく上限ノルムで測る点が本質的である。
+proof_ja: |
+  各成分の積分に Cauchy–Schwarz 不等式を適用する。Cauchy–Schwarz は二つの因子をちょうど $L^2$ で対にするので、第一引数 $u$ と微分された第二引数 $\partial v$ を $L^2$ の対とし、残る第三引数 $w$ は各点の上限で外へ出す。三因子すべてを $L^2$ で評価することは一般には不可能である。
+
+  成分ごとに得た評価を、非負の族に対する次の型の不等式で束ね、三つの成分和の積へまとめる。
+
+  $$\sum_i x_i y_i\le\Bigl(\sum_i x_i\Bigr)\Bigl(\sum_i y_i\Bigr)$$
+
+  最後に $w$ の上限を次数 $(0,0)$ の Schwartz セミノルムで抑える。
+gap:
+  level: mild
+  note: |
+    有限和の入れ替えと、非負族の積和評価 `sum_mul_le_mul_sum` を繰り返し使って三重和を成分和の積へ組み替える帳尻合わせが証明の大半を占める。上限ノルムの評価は `SchwartzMap.norm_le_seminorm` による。
+chapter: spaces
+tags: [convection-form, cauchy-schwarz, bound]

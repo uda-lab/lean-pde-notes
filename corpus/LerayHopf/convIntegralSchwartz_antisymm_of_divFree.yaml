@@ -1,0 +1,22 @@
+name: LerayHopf.convIntegralSchwartz_antisymm_of_divFree
+tier: full
+statement_ja: |
+  第一引数 $u$ が弱い意味で発散ゼロのとき、移流形式は後ろ二つの引数の入れ替えについて反対称である。
+
+  $$b(u,v,w)=-b(u,w,v)$$
+
+  これは移流形式の反対称性 $b(u,v,w)=-b(u,w,v)$ であり、エネルギー恒等式で移流項が消えることの根拠となる。
+proof_ja: |
+  発散ゼロのもとで移流形式は微分を第三引数へ移した一項に等しい。この表示を $b(u,v,w)$ と $b(u,w,v)$ の双方に適用する。
+
+  一方で、発散ゼロの仮定をテスト関数 $v_i w_i$ の積に適用して Leibniz 則で展開すると、$v$ を微分した項と $w$ を微分した項の和がゼロになる。これは二つの一項表示が符号だけ違うことを意味し、反対称性が従う。
+gap:
+  level: mild
+  note: |
+    要となるのは次の対の関係である。
+
+    $$\sum_a\int u_a(\partial_a v_i)w_i+\sum_a\int u_a v_i(\partial_a w_i)=0$$
+
+    これは発散ゼロ仮定を積 `schwartzMul (ψv i) (ψw i)` に適用し Leibniz 則で展開して得る。Schwartz 関数が積で閉じていることをここで使う。
+chapter: spaces
+tags: [convection-form, divergence-free, antisymmetry]

@@ -1,0 +1,18 @@
+name: LerayHopf.convIntegralSchwartz_ibp
+tier: full
+statement_ja: |
+  部分積分により、第二引数にかかっていた方向微分を第一引数と第三引数へ移すと、符号を変えた二つの項に分かれる。
+
+  $$b(u,v,w)=-\sum_{i,a}\int(\partial_a u_a)\,v_i\,w_i-\sum_{i,a}\int u_a\,v_i\,(\partial_a w_i)$$
+proof_ja: |
+  各成分で被積分関数を $u_a w_i$ と $\partial_a v_i$ の積とみなし、Schwartz 関数に対する部分積分を適用する。急減少ゆえ境界項は消え、微分が積 $u_a w_i$ 側へ移って符号が変わる。
+
+  さらに次の Leibniz 則で積の微分を展開し、可積分性から積分を二つに分ければ主張の二項が得られる。
+
+  $$\partial_a(u_a w_i)=(\partial_a u_a)w_i+u_a(\partial_a w_i)$$
+gap:
+  level: mild
+  note: |
+    部分積分は `SchwartzMap.integral_mul_lineDerivOp_right_eq_neg_left` を積 `schwartzMul (ψu a) (ψw i)` に対して使う。Leibniz 則は `lineDerivOp_schwartzMul` で展開し、`integral_add` で分割する。境界項が消えるのは Schwartz 台の急減少性の帰結である。
+chapter: spaces
+tags: [convection-form, integration-by-parts]

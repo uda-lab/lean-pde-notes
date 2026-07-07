@@ -1,0 +1,20 @@
+name: LerayHopf.convIntegralSchwartz_bound_sup
+tier: full
+statement_ja: |
+  第一引数 $u$ が弱い意味で発散ゼロのとき、移流形式は第三引数の勾配の上限ノルムと、二つの $L^2$ ノルムの積で評価される。
+
+  $$\lvert b(u,v,w)\rvert\le\lVert\nabla w\rVert_{L^\infty}\,\lVert u\rVert_{L^2}\,\lVert v\rVert_{L^2}$$
+
+  これはエネルギー評価が要求する次の形そのものである。
+
+  $$\lvert b(u,v,w)\rvert\le C(w)\,\lVert u\rVert_{L^2}\,\lVert v\rVert_{L^2}$$
+proof_ja: |
+  発散ゼロのもとで移流形式は微分を第三引数へ移した一項に等しい。この一項に Cauchy–Schwarz 不等式を適用し、$u$ と $v$ を $L^2$ の対とし、微分された第三引数 $\partial w$ を各点の上限で外へ出す。
+
+  成分ごとの評価を非負族の積和不等式で束ね、三つの成分和の積へまとめる。$\partial w$ の上限はすでに一度微分された関数の次数 $(0,0)$ の Schwartz セミノルムで抑えられる。
+gap:
+  level: mild
+  note: |
+    第一引数の発散を含む項を落としてから評価するので、微分は第三引数だけにかかる。上限ノルムを $\partial w$ の次数 $(0,0)$ セミノルムで測るのは、微分を二重に数えないための選択である。成分和への組み替えは `sum_mul_le_mul_sum` による。
+chapter: spaces
+tags: [convection-form, divergence-free, bound]

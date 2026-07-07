@@ -1,0 +1,12 @@
+name: LerayHopf.convIntegralSchwartz_integrand_integrable
+tier: full
+statement_ja: |
+  移流形式の各成分の被積分関数は可積分である。
+
+  $$x\mapsto u_a(x)\,(\partial_a v_i)(x)\,w_i(x)$$
+proof_ja: |
+  Schwartz 関数の方向微分はふたたび Schwartz 関数であり、Schwartz 関数どうしの積も Schwartz 関数である。急減少する滑らかな関数は可積分だから、被積分関数は可積分である。
+gap:
+  level: none
+chapter: spaces
+tags: [convection-form, integrability, schwartz]

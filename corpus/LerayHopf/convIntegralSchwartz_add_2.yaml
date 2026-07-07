@@ -1,0 +1,12 @@
+name: LerayHopf.convIntegralSchwartz_add_2
+tier: full
+statement_ja: |
+  移流形式 $b(u,v,w)=\int(u\cdot\nabla)v\cdot w$ は、微分がかかる第二引数 $v$ について加法的である。
+
+  $$b(u,v_1+v_2,w)=b(u,v_1,w)+b(u,v_2,w)$$
+proof_ja: |
+  方向微分は線形なので $v_1+v_2$ の微分は各々の微分の和に等しい。被積分関数は第二引数について点ごとに加法的となり、積分の線形性で和に分かれる。
+gap:
+  level: none
+chapter: spaces
+tags: [convection-form, multilinearity]

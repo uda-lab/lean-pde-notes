@@ -1,0 +1,12 @@
+name: LerayHopf.convIntegralSchwartz_divFree_eq
+tier: full
+statement_ja: |
+  第一引数 $u$ が弱い意味で発散ゼロのとき、部分積分の二項のうち $u$ の発散を含む項が消え、移流形式は微分を第三引数へ移した一項だけになる。
+
+  $$b(u,v,w)=-\sum_{i,a}\int u_a\,v_i\,(\partial_a w_i)$$
+proof_ja: |
+  部分積分の恒等式から出発する。第一項は $u$ の発散 $\sum_a\partial_a u_a$ をテスト関数 $v_i w_i$ と対にしたものであり、$u$ が弱い意味で発散ゼロという仮定によりゼロになる。残る項が主張の右辺である。
+gap:
+  level: none
+chapter: spaces
+tags: [convection-form, divergence-free, integration-by-parts]
