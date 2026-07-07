@@ -77,29 +77,31 @@ def estimate_bucket_sizes(nodes_path: Path, sources_path: Path) -> Dict[str, Dic
                           "collision", "has_source"]
         for key in structural_keys:
             if key in node:
-                buckets["structural"]["raw"] += len(json.dumps(node[key]))
+                buckets["structural"]["raw"] += len(json.dumps(node[key], ensure_ascii=False))
         
         # Signature and doc
         sig_doc_keys = ["signature", "doc"]
         for key in sig_doc_keys:
             if key in node:
-                buckets["signature_doc"]["raw"] += len(json.dumps(node[key]))
+                buckets["signature_doc"]["raw"] += len(json.dumps(node[key], ensure_ascii=False))
         
         # Graph edges
         graph_keys = ["uses", "usedBy"]
         for key in graph_keys:
             if key in node:
-                buckets["graph"]["raw"] += len(json.dumps(node[key]))
+                buckets["graph"]["raw"] += len(json.dumps(node[key], ensure_ascii=False))
         
         # Corpus annotations (stored as a nested object)
         if "corpus" in node and node["corpus"]:
-            buckets["corpus"]["raw"] += len(json.dumps(node["corpus"]))
+            buckets["corpus"]["raw"] += len(json.dumps(node["corpus"], ensure_ascii=False))
     
     # Source bodies
     if sources_path.exists():
         with open(sources_path, "r", encoding="utf-8") as f:
-            sources = json.load(f)
-        buckets["source"]["raw"] = sum(len(json.dumps(src)) for src in sources.values())
+            sources_data = json.load(f)
+        # sources.json structure: {"pin": "...", "source_count": N, "sources": {slug: text, ...}}
+        source_map = sources_data.get("sources", {})
+        buckets["source"]["raw"] = sum(len(json.dumps(src, ensure_ascii=False)) for src in source_map.values())
     
     return buckets
 
