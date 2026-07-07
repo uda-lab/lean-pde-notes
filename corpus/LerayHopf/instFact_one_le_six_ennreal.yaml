@@ -1,7 +1,9 @@
 name: LerayHopf.instFact_one_le_six_ennreal
-tier: gloss
+tier: full
 statement_ja: |
   指数 $6$ が $1$ 以上であるという事実を登録する。$L^6$ 空間を扱うための下ごしらえである。
+proof_ja: |
+  実数としての不等式 $1\le 6$ をそのまま非負拡大実数の指数に移し、指数条件として登録する。
 gap:
   level: none
 chapter: spaces

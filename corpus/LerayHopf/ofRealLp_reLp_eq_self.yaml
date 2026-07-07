@@ -1,0 +1,10 @@
+name: LerayHopf.ofRealLp_reLp_eq_self
+tier: gloss
+statement_ja: |
+  この補助項目は、Galerkin 射影と近似空間を整えるための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+gap:
+  level: mild
+  note: |
+    Wave 4 の private gloss として追加。抽出元は `LerayHopf/VelocityGalerkin.lean` の `LerayHopf.ofRealLp_reLp_eq_self`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
+chapter: projections-galerkin
+tags: [private-helper, generated]

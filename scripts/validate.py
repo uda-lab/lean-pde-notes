@@ -56,21 +56,27 @@ def load_schema() -> dict | None:
         return json.load(f)
 
 
-def load_name_universe() -> tuple[set[str], str]:
-    """Return (name_set, source_label)."""
+def load_name_universe() -> tuple[set[str], set[tuple[str, str]], set[str], str]:
+    """Return (name_set, keyed_set, collision_names, source_label)."""
     decls_path = EXTRACTED_DIR / 'decls.json'
     fallback_path = EXTRACTED_DIR / 'names-fallback.json'
     if decls_path.exists():
         with open(decls_path, encoding='utf-8') as f:
             data = json.load(f)
         names = {d['name'] for d in data}
-        return names, 'extracted/decls.json'
+        keyed = {(d['name'], d.get('file', '')) for d in data}
+        counts: dict[str, int] = {}
+        for d in data:
+            counts[d['name']] = counts.get(d['name'], 0) + 1
+        collisions = {name for name, count in counts.items() if count > 1}
+        return names, keyed, collisions, 'extracted/decls.json'
     if fallback_path.exists():
         with open(fallback_path, encoding='utf-8') as f:
             data = json.load(f)
         names = {d['name'] for d in data}
-        return names, 'extracted/names-fallback.json'
-    return set(), '(no universe — skipping name check)'
+        keyed = {(d['name'], d.get('file', '')) for d in data}
+        return names, keyed, set(), 'extracted/names-fallback.json'
+    return set(), set(), set(), '(no universe — skipping name check)'
 
 
 def validate_schema_manual(doc: dict, fpath: Path) -> list[str]:
@@ -125,7 +131,7 @@ def main() -> None:
     if schema is None:
         warnings.append(f'WARNING: Schema file not found at {SCHEMA_PATH} — structural checks skipped')
 
-    universe, universe_source = load_name_universe()
+    universe, keyed_universe, collision_names, universe_source = load_name_universe()
     print(f'Name universe: {len(universe)} names from {universe_source}')
 
     # Check PIN when decls.json is present
@@ -140,6 +146,7 @@ def main() -> None:
                 errors.append(f'ERROR: extracted/PIN is not a 40-char hex SHA: "{pin}"')
 
     corpus_names: set[str] = set()
+    corpus_keys: set[tuple[str, str]] = set()
     yaml_files = sorted(CORPUS_DIR.rglob('*.yaml'))
     print(f'Corpus files: {len(yaml_files)}')
 
@@ -173,6 +180,25 @@ def main() -> None:
         name = doc.get('name')
         if name:
             corpus_names.add(name)
+            file = doc.get('file')
+            if name in collision_names:
+                if not isinstance(file, str) or not file.strip():
+                    errors.append(
+                        f'ERROR: {fpath}: file is required because "{name}" is ambiguous in {universe_source}'
+                    )
+                elif (name, file) not in keyed_universe:
+                    errors.append(
+                        f'ERROR: {fpath}: (name, file)=("{name}", "{file}") not found in {universe_source}'
+                    )
+            key = (name, file) if name in collision_names else (name, '')
+            if key in corpus_keys:
+                if name in collision_names:
+                    errors.append(
+                        f'ERROR: duplicate corpus annotation for (name, file)=("{name}", "{file}")'
+                    )
+                else:
+                    errors.append(f'ERROR: duplicate corpus annotation for name "{name}"')
+            corpus_keys.add(key)
 
     # Check corpus ⊆ universe
     if universe:

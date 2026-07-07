@@ -1,7 +1,9 @@
 name: LerayHopf.instHolderTriple_6_3_2
-tier: gloss
+tier: full
 statement_ja: |
   指数 $6,3,2$ が Hölder の関係 $\tfrac16+\tfrac13=\tfrac12$ を満たすことを登録する。これにより $L^6$ の関数と $L^3$ の関数の積が $L^2$ に入り、三重積 $u\cdot\partial v\cdot w$（$u\in L^6,\ \partial v\in L^2,\ w\in L^3$）の可積分性の連鎖が回る。
+proof_ja: |
+  指数がいずれも $1$ 以上であることを確認し、逆数の和が Hölder の必要な関係を満たすことを計算する。これにより対応する Hölder 三つ組として登録できる。
 gap:
   level: none
 chapter: spaces

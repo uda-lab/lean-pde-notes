@@ -180,6 +180,31 @@ def load_corpus():
     return by_name
 
 
+def find_corpus_for_record(rec: dict, entries: list[tuple[Path, dict]], is_collision: bool,
+                           warnings: list[str]) -> dict | None:
+    if not entries:
+        return None
+    if is_collision:
+        matched = [(p, d) for p, d in entries if d.get('file') == rec.get('file')]
+        if not matched:
+            return None
+        if len(matched) > 1:
+            files = ', '.join(str(p.relative_to(REPO_ROOT)) for p, _ in matched)
+            warnings.append(
+                f'collision record "{rec["name"]}" in {rec.get("file", "")} annotated '
+                f'by multiple corpus files ({files}) — using the first'
+            )
+        return matched[0][1]
+
+    if len(entries) > 1:
+        files = ', '.join(str(p.relative_to(REPO_ROOT)) for p, _ in entries)
+        warnings.append(
+            f'name "{rec["name"]}" annotated by multiple corpus files ({files}) '
+            f'— using the first'
+        )
+    return entries[0][1]
+
+
 def corpus_payload(doc: dict) -> dict:
     """Project a corpus YAML into the site-facing shape (sample flag derived from tags)."""
     tags = doc.get('tags') or []
@@ -271,14 +296,15 @@ def main() -> None:
 
     warnings: list[str] = []
 
-    # Warn on any corpus entry that targets a collision name (join deferred to notes#7).
+    # Collision names are joinable when the corpus entry carries the source `file`.
     for name, entries in sorted(corpus_by_name.items()):
         if name in collisions:
-            for fpath, _ in entries:
-                warnings.append(
-                    f'corpus {fpath.relative_to(REPO_ROOT)} targets collision name '
-                    f'"{name}" ({len(collisions[name])} decls) — join DEFERRED to notes#7'
-                )
+            for fpath, doc in entries:
+                if not doc.get('file'):
+                    warnings.append(
+                        f'corpus {fpath.relative_to(REPO_ROOT)} targets collision name '
+                        f'"{name}" ({len(collisions[name])} decls) without file — not joinable'
+                    )
 
     # Build nodes.
     nodes_by_slug: dict[str, dict] = {}
@@ -286,17 +312,10 @@ def main() -> None:
         slug = slug_of(r)
         is_collision = r['name'] in collisions
 
-        corpus = None
-        if not is_collision:
-            entries = corpus_by_name.get(r['name'])
-            if entries:
-                if len(entries) > 1:
-                    files = ', '.join(str(p.relative_to(REPO_ROOT)) for p, _ in entries)
-                    warnings.append(
-                        f'name "{r["name"]}" annotated by multiple corpus files ({files}) '
-                        f'— using the first'
-                    )
-                corpus = corpus_payload(entries[0][1])
+        corpus_doc = find_corpus_for_record(
+            r, corpus_by_name.get(r['name'], []), is_collision, warnings
+        )
+        corpus = corpus_payload(corpus_doc) if corpus_doc else None
 
         chapter = (corpus.get('chapter') if corpus and corpus.get('chapter')
                    else chapter_for_file(r['file']))
@@ -371,7 +390,7 @@ def main() -> None:
         print(f'  ({reader.misses} records had no readable source range)')
 
     if collisions:
-        print(f'Collision groups (corpus join deferred to notes#7): {len(collisions)} '
+        print(f'Collision groups: {len(collisions)} '
               f'({sum(len(v) for v in collisions.values())} decls)')
         for name in sorted(collisions):
             print(f'  - {name}')

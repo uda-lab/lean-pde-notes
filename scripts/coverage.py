@@ -80,6 +80,12 @@ def load_corpus() -> list[dict]:
     return docs
 
 
+def record_key(doc: dict, name_counts: dict[str, int]) -> tuple[str, str | None]:
+    file = doc.get('file')
+    use_file = name_counts.get(doc['name'], 0) > 1
+    return (doc['name'], file if use_file and isinstance(file, str) and file else None)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--json-only', action='store_true')
@@ -89,9 +95,26 @@ def main() -> None:
     corpus = load_corpus()
 
     total = len(universe)
-    annotated_names = {d['name'] for d in corpus}
-    full_names = {d['name'] for d in corpus if d.get('tier') == 'full'}
-    gloss_names = {d['name'] for d in corpus if d.get('tier') == 'gloss'}
+    name_counts: dict[str, int] = {}
+    for r in universe:
+        name_counts[r['name']] = name_counts.get(r['name'], 0) + 1
+
+    universe_keys = {
+        (r['name'], r.get('file') if name_counts[r['name']] > 1 else None)
+        for r in universe
+    }
+    annotated_keys = {
+        record_key(d, name_counts) for d in corpus
+        if record_key(d, name_counts) in universe_keys
+    }
+    full_keys = {
+        record_key(d, name_counts) for d in corpus
+        if d.get('tier') == 'full' and record_key(d, name_counts) in universe_keys
+    }
+    gloss_keys = {
+        record_key(d, name_counts) for d in corpus
+        if d.get('tier') == 'gloss' and record_key(d, name_counts) in universe_keys
+    }
 
     # Per-chapter breakdown from corpus
     chapter_annotated: dict[str, int] = {ch: 0 for ch in CHAPTERS_ORDER}
@@ -111,11 +134,11 @@ def main() -> None:
     # Build coverage JSON
     coverage = {
         'total_decls': total,
-        'annotated': len(annotated_names),
-        'full': len(full_names),
-        'gloss': len(gloss_names),
-        'unannotated': total - len(annotated_names),
-        'pct_annotated': round(100 * len(annotated_names) / total, 1) if total else 0,
+        'annotated': len(annotated_keys),
+        'full': len(full_keys),
+        'gloss': len(gloss_keys),
+        'unannotated': total - len(annotated_keys),
+        'pct_annotated': round(100 * len(annotated_keys) / total, 1) if total else 0,
         'chapters': {
             ch: {
                 'label_ja': CHAPTER_LABELS.get(ch, ch),
@@ -138,7 +161,7 @@ def main() -> None:
 
     # Print markdown table
     print()
-    print(f'## Coverage: {len(annotated_names)}/{total} ({coverage["pct_annotated"]}%) annotated')
+    print(f'## Coverage: {len(annotated_keys)}/{total} ({coverage["pct_annotated"]}%) annotated')
     print()
     print(f'| Chapter | Label | Annotated | full | gloss |')
     print(f'|---------|-------|----------:|-----:|------:|')
@@ -149,7 +172,7 @@ def main() -> None:
         gloss = chapter_gloss[ch]
         print(f'| `{ch}` | {label} | {ann} | {full} | {gloss} |')
     print()
-    print(f'| **Total** | | **{len(annotated_names)}** | **{len(full_names)}** | **{len(gloss_names)}** |')
+    print(f'| **Total** | | **{len(annotated_keys)}** | **{len(full_keys)}** | **{len(gloss_keys)}** |')
     print()
     print(f'Universe: {total} declarations (from {"decls.json" if (EXTRACTED_DIR / "decls.json").exists() else "names-fallback.json"})')
 

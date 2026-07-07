@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.valH1
+tier: gloss
+statement_ja: |
+  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な定義である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+gap:
+  level: mild
+  note: |
+    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/ConvectionExtension.lean` の `LerayHopf.R3.ConvectionExtension.valH1`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
+chapter: limit-passage
+tags: [private-helper, generated]

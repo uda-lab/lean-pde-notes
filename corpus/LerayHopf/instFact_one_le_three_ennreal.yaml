@@ -1,7 +1,9 @@
 name: LerayHopf.instFact_one_le_three_ennreal
-tier: gloss
+tier: full
 statement_ja: |
   指数 $3$ が $1$ 以上であるという事実を登録する。$L^3$ 空間を扱うための下ごしらえである。
+proof_ja: |
+  実数としての不等式 $1\le 3$ をそのまま非負拡大実数の指数に移し、指数条件として登録する。
 gap:
   level: none
 chapter: spaces

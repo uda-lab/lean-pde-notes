@@ -1,7 +1,9 @@
 name: LerayHopf.instCompleteSpaceSubtypeAEEqFunDomain3EuclideanSpaceRealFinOfNatNatVolumeMemAddSubgroupL2VF_R3SubmoduleL2Sigma_R3
-tier: gloss
+tier: full
 statement_ja: |
   発散ゼロ部分空間 [[$L^2_\sigma(\mathbb{R}^3)$|LerayHopf.L2Sigma_R3]] が完備であることを登録する。完備空間 $L^2(\mathbb{R}^3;\mathbb{R}^3)$ の閉部分空間だからである。
+proof_ja: |
+  まず発散ゼロ部分空間が閉じていることを用いる。完備な距離線型空間の閉部分空間は完備なので、この一般事実を適用して結論を得る。
 gap:
   level: none
 chapter: spaces
