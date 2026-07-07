@@ -1,0 +1,14 @@
+name: LerayHopf.convFormH1_eq_convFormSchwartz
+tier: full
+statement_ja: |
+  Schwartz 発散ゼロな $u,v,w$ に対して、[[エネルギー類の移流形式|LerayHopf.convFormH1]]は[[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]に一致する。
+proof_ja: |
+  $u,v,w$ の Schwartz 成分表示 $\psi_u,\psi_v,\psi_w$ を取り出す。右辺を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]でこれらの表示に対する移流積分に書き換える。
+
+  各方向 $(i,a)$ について、被積分関数を突き合わせる。成分の実部は表示 $\psi$ にほとんど至るところ一致し、弱勾配成分の実部は $\psi_v$ の古典的な線微分にほとんど至るところ一致する（Schwartz 函数では超関数微分と古典微分が一致するため）。よって各成分積分が一致し、総和も一致する。
+gap:
+  level: mild
+  note: |
+    形式化では、成分と表示の a.e. 一致（`coeFn_toLp` と複素化の実部）、および弱勾配成分と Schwartz 古典微分の a.e. 一致（`gradComp_schwartz_eq`）を各項に適用してから、両者の正の総和の定義を展開して突き合わせる。
+chapter: limit-passage
+tags: [convection-form, schwartz, agreement]

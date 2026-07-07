@@ -1,0 +1,12 @@
+name: LerayHopf.gradComp_of_memH1_add
+tier: full
+statement_ja: |
+  [[弱勾配成分|LerayHopf.gradComp_of_memH1]]は場について加法的である。すなわち $u+u'$ の弱勾配成分は、$u$ と $u'$ の弱勾配成分の和に等しい。
+proof_ja: |
+  両辺を超関数へ送って比較する。和の第 $i$ 成分は各成分の和であり、線微分は加法的なので、$\partial_{e_a}$ を作用させた超関数も和になる。
+
+  弱勾配成分の定義的性質で各項を対応する線微分に戻せば、和の弱勾配成分が各弱勾配成分の和に一致する。
+gap:
+  level: none
+chapter: spaces
+tags: [sobolev, weak-gradient, linearity]

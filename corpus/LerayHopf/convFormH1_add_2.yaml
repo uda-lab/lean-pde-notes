@@ -1,0 +1,14 @@
+name: LerayHopf.convFormH1_add_2
+tier: full
+statement_ja: |
+  [[エネルギー類の移流形式|LerayHopf.convFormH1]]は第二引数について加法的である。すなわち
+
+  $$b(u,v+v',w)=b(u,v,w)+b(u,v',w).$$
+proof_ja: |
+  第二引数は弱勾配成分を通して入る。$v+v'$ の弱勾配成分が $v$ と $v'$ の弱勾配成分の和であること（弱勾配の加法性）から、被積分関数をほとんど至るところ二つに分ける。
+
+  各項の可積分性から積分の加法性が使え、総和をとると主張が従う。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, multilinear, h1-sigma]

@@ -1,0 +1,26 @@
+name: LerayHopf.L2L6_inter_mem_L3
+tier: full
+statement_ja: |
+  函数 $f$ が $L^2$ と $L^6$ の両方に属するならば、$L^3$ にも属する。これは指数 $3$ における $L^2$ と $L^6$ の間の補間である。
+
+  対応する不等式は
+
+  $$\lVert f\rVert_{L^3}\le\lVert f\rVert_{L^2}^{1/2}\,\lVert f\rVert_{L^6}^{1/2}$$
+
+  であり、指数の関係は次による。
+
+  $$\tfrac13=\tfrac12\cdot\tfrac12+\tfrac16\cdot\tfrac12.$$
+proof_ja: |
+  ノルム函数 $g=\lVert f(\cdot)\rVert$ を考えると、$g$ は $L^2$ と $L^6$ に属する。積 $g\cdot g$ は Hölder（$\tfrac16+\tfrac12=\tfrac23$）で $L^{3/2}$ に属する。
+
+  一方 $g\cdot g=|f|^2$ であり、冪の関係
+
+  $$\bigl\lVert|f|^2\bigr\rVert_{L^{3/2}}=\lVert f\rVert_{L^3}^2$$
+
+  から、$L^3$ ノルムの二乗が有限になる。ゆえに $f$ は $L^3$ に属する。
+gap:
+  level: mild
+  note: |
+    形式化では Hölder 三つ組 `HolderTriple 6 2 (3/2)` を実数の関係から構成し、$g\cdot g$ の $L^{3/2}$ 所属を得る。冪の恒等式は `eLpNorm_norm_rpow` で $\lVert f\rVert_{L^3}^2$ に直し、$(3/2)\cdot 2=3$ の拡張実数計算を経て有限性を背理法で結論する。プランが挙げた `eLpNorm_le_eLpNorm_pow_mul_eLpNorm` は mathlib に存在せず、この Hölder 経路を採る。
+chapter: spaces
+tags: [interpolation, holder, lp]

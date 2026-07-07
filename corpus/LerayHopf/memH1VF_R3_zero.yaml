@@ -1,0 +1,10 @@
+name: LerayHopf.memH1VF_R3_zero
+tier: full
+statement_ja: |
+  ゼロベクトル場は[[$H^1$ 正則性|LerayHopf.memH1VF_R3]]をもつ。
+proof_ja: |
+  ゼロ場の各成分はゼロであり、ゼロ超関数は任意の階数・任意の指数の Sobolev 空間に属する。よって $H^1$ 正則性が従う。
+gap:
+  level: none
+chapter: spaces
+tags: [sobolev, h1-sigma, closure]

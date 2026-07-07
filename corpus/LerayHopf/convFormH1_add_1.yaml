@@ -1,0 +1,14 @@
+name: LerayHopf.convFormH1_add_1
+tier: full
+statement_ja: |
+  [[エネルギー類の移流形式|LerayHopf.convFormH1]]は第一引数について加法的である。すなわち
+
+  $$b(u+u',v,w)=b(u,v,w)+b(u',v,w).$$
+proof_ja: |
+  各方向 $(i,a)$ の被積分関数について、$u+u'$ の第 $a$ 成分の実部が $u$ と $u'$ の第 $a$ 成分の実部の和にほとんど至るところ等しいことを使い、被積分関数を二つに分ける。
+
+  各項の可積分性から積分の加法性が使え、総和をとると主張が従う。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, multilinear, h1-sigma]

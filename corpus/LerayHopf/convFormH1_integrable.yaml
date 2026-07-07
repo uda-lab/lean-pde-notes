@@ -1,0 +1,18 @@
+name: LerayHopf.convFormH1_integrable
+tier: full
+statement_ja: |
+  $H^1_\sigma$ の場 $u,v,w$ に対して、移流形式に現れる被積分関数
+
+  $$x\mapsto (\operatorname{Re} u_a)(x)\,(\operatorname{Re}\,\partial_a v_i)(x)\,(\operatorname{Re} w_i)(x)$$
+
+  は各方向 $i,a$ について可積分である。ここで $\partial_a v_i$ は $v$ の弱勾配成分である。
+proof_ja: |
+  Sobolev 埋め込み $H^1\hookrightarrow L^6$ により $u_a$ は $L^6$ に属する。同じ埋め込みと $L^2\cap L^6\hookrightarrow L^3$ の補間により $w_i$ は $L^3$ に属する。弱勾配成分 $\partial_a v_i$ は定義から $L^2$ に属する。
+
+  指数の関係 $\tfrac16+\tfrac12+\tfrac13=1$ により、Hölder で三つの積が $L^1$ に属し、被積分関数が可積分になる。
+gap:
+  level: mild
+  note: |
+    形式化では、まず $u_a\cdot w_i$ を Hölder 三つ組 `HolderTriple 6 3 2` で $L^2$ に、次に弱勾配成分を掛けて `HolderTriple 2 2 1` で $L^1$ に落とす。Sobolev 埋め込みは `gns_L6_of_memH1_R3`、$L^3$ 補間は[[補間補題|LerayHopf.L2L6_inter_mem_L3]]による。積の順序を a.e. で入れ替えて可積分性に直す。
+chapter: limit-passage
+tags: [convection-form, integrability, sobolev-embedding]

@@ -1,0 +1,12 @@
+name: LerayHopf.memH1VF_R3_add
+tier: full
+statement_ja: |
+  [[$H^1$ 正則性|LerayHopf.memH1VF_R3]]をもつ二つの $L^2$ ベクトル場の和は、再び $H^1$ 正則性をもつ。
+proof_ja: |
+  成分射影は実線形なので、和の第 $j$ 成分は各場の第 $j$ 成分の和である。$L^2$ 類を超関数へ送る写像も加法的なので、超関数としての和に翻訳できる。
+
+  各成分が $1$ 階 Sobolev 空間に属することの加法性から、和の各成分も属し、$H^1$ 正則性が従う。
+gap:
+  level: none
+chapter: spaces
+tags: [sobolev, h1-sigma, closure]

@@ -1,0 +1,14 @@
+name: LerayHopf.memH1VF_R3_smul
+tier: full
+statement_ja: |
+  [[$H^1$ 正則性|LerayHopf.memH1VF_R3]]をもつ $L^2$ ベクトル場の実数倍は、再び $H^1$ 正則性をもつ。
+proof_ja: |
+  成分射影の実線形性から、$c\,u$ の第 $j$ 成分は $u$ の第 $j$ 成分の $c$ 倍である。複素値 $L^2$ 上での実スカラー倍は複素数 $c$ 倍と一致するので、超関数としても $c$ 倍に翻訳できる。
+
+  各成分が $1$ 階 Sobolev 空間に属することのスカラー倍に関する閉性から、$c\,u$ の各成分も属し、$H^1$ 正則性が従う。
+gap:
+  level: mild
+  note: |
+    Sobolev 側のスカラー倍補題 `MemSobolev.smul` は複素スカラーを取るため、実スカラー $c$ を $(c:\mathbb{C})$ へ持ち上げ、複素値 $L^2$ 上で実作用と複素乗算が一致することを `algebraMap_smul` で確認する。
+chapter: spaces
+tags: [sobolev, h1-sigma, closure]

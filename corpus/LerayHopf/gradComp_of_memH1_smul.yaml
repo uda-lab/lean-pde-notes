@@ -1,0 +1,10 @@
+name: LerayHopf.gradComp_of_memH1_smul
+tier: full
+statement_ja: |
+  [[弱勾配成分|LerayHopf.gradComp_of_memH1]]は場について実数倍と可換である。すなわち $c\,v$ の弱勾配成分は、$v$ の弱勾配成分の $c$ 倍に等しい。
+proof_ja: |
+  両辺を超関数へ送って比較する。成分のスカラー倍と線微分の斉次性から、$\partial_{e_a}$ を作用させた超関数も $c$ 倍になる。弱勾配成分の定義的性質で各辺を線微分に戻せば一致が従う。
+gap:
+  level: none
+chapter: spaces
+tags: [sobolev, weak-gradient, linearity]

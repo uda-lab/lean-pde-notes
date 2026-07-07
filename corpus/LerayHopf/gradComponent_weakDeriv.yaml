@@ -1,0 +1,18 @@
+name: LerayHopf.gradComponent_weakDeriv
+tier: full
+statement_ja: |
+  [[弱勾配成分|LerayHopf.gradComp_of_memH1]]は弱微分の分部積分恒等式を満たす。任意の Schwartz テスト函数 $\varphi$ に対して
+
+  $$\int (\operatorname{Re} u_j)\,(\partial_a\varphi)\,dx=-\int (\operatorname{Re}\,\partial_a u_j)\,\varphi\,dx$$
+
+  が成り立つ。ここで $u_j$ は第 $j$ 複素成分、$\partial_a u_j$ はその弱勾配成分である。これは弱微分の超関数的定義そのものである。
+proof_ja: |
+  弱勾配成分の定義的性質、すなわち超関数として $\partial_{e_a}(u_j)$ に一致することを、複素テスト函数 $\varphi$ を複素化したものと対にする。
+
+  左辺は線微分作用素の超関数としての作用 $\partial_{e_a}(u_j)$ を $\varphi$ に当てたもので、これは $u_j$ を $-\partial_{e_a}\varphi$ に当てた値に等しい。右辺は弱勾配成分を $\varphi$ に当てたもの。両者を $L^2$ 対から点ごとの積分に直し、複素成分の実部が実成分に一致することを用いて突き合わせる。
+gap:
+  level: large
+  note: |
+    形式化では、超関数のペアリング `lineDerivOp_apply_apply` で微分をテスト側へ移し、$L^2$ 類を超関数へ送る写像のペアリング公式（`Lp.toTemperedDistribution_apply`）を両辺に適用する。複素テストへの複素化 `cxify`、複素成分の実部と実成分の a.e. 一致、$-\partial_{e_a}\varphi$ の符号処理など、$L^2$ とペアリングの往復が証明を膨らませる。
+chapter: spaces
+tags: [sobolev, weak-gradient, integration-by-parts]

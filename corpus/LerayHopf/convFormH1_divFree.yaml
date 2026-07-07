@@ -1,0 +1,26 @@
+name: LerayHopf.convFormH1_divFree
+tier: full
+statement_ja: |
+  $H^1_\sigma$ の元 $u$ に対する弱発散ゼロ恒等式。任意の Schwartz テスト函数 $\varphi$ について
+
+  $$\sum_{a}\int (\operatorname{Re}\,\partial_a u_a)\,\varphi\,dx=0$$
+
+  が成り立つ。すなわち弱い意味で $\sum_a\partial_a u_a=0$ である。
+proof_ja: |
+  $u\in L^2_\sigma(\mathbb{R}^3)$ は、任意の Schwartz テスト函数 $\varphi$ に対し発散テストが消えること、すなわち各成分と勾配との $L^2$ 内積の総和がゼロであることを意味する。
+
+  各内積を点ごとの積分に直すと次が得られる。
+
+  $$\sum_{a}\int (\operatorname{Re} u_a)\,(\partial_a\varphi)\,dx=0.$$
+
+  一方[[弱微分の分部積分|LerayHopf.gradComponent_weakDeriv]]により、各 $a$ について
+
+  $$\int(\operatorname{Re}\,\partial_a u_a)\,\varphi\,dx=-\int(\operatorname{Re} u_a)\,(\partial_a\varphi)\,dx$$
+
+  である。総和をとると符号を除いて前者に一致し、ゼロが従う。
+gap:
+  level: mild
+  note: |
+    形式化では発散テスト汎関数 `divTestFunctional` の核所属を展開し、各 $L^2$ 内積を積分に直したうえで、弱勾配成分の分部積分恒等式で微分をテスト側へ戻す。複素成分の実部と実成分の a.e. 一致を経る。
+chapter: limit-passage
+tags: [convection-form, weak-divergence, h1-sigma]

@@ -1,0 +1,18 @@
+name: LerayHopf.convFormH1_antisymm
+tier: full
+statement_ja: |
+  発散ゼロな $u,v,w\in H^1_\sigma$ に対して、[[エネルギー類の移流形式|LerayHopf.convFormH1]]は後ろ二つの引数について反対称である。すなわち
+
+  $$b(u,v,w)=-\,b(u,w,v).$$
+proof_ja: |
+  分部積分を $b(u,v,w)$ に適用すると、微分が $u$ に載った項と $w$ に載った項の和（の符号反転）になる。$u$ の発散ゼロ性から、$u$ に微分が載った項は $H^1$ テスト $v_i\cdot w_i$ に対する弱発散ゼロで消える。したがって
+
+  $$b(u,v,w)=-\sum_{i}\sum_{a}\int (\operatorname{Re} u_a)\,(\operatorname{Re} v_i)\,(\operatorname{Re}\,\partial_a w_i)\,dx.$$
+
+  残った項は、和の記号を並べ替えるとちょうど $b(u,w,v)$ に等しい（微分が $w$ に載る形は、定義上 $b(u,w,v)$ の被積分関数と一致する）。ゆえに $b(u,v,w)=-b(u,w,v)$ が従う。
+gap:
+  level: large
+  note: |
+    形式化では分部積分と発散ゼロ消去を経る。消える項では、固定 $i$ に対しテスト $v_i\cdot w_i$ が $L^3\cdot L^6\subset L^2$ に属することを Hölder で確かめ、$L^2$ テストに対する発散ゼロ（`divFree_L2test`）を適用する。残余は被積分関数の並べ替えで $b(u,w,v)$ の定義に一致させる。
+chapter: limit-passage
+tags: [convection-form, antisymmetry, h1-sigma]

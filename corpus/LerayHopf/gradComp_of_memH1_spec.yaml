@@ -1,0 +1,10 @@
+name: LerayHopf.gradComp_of_memH1_spec
+tier: full
+statement_ja: |
+  [[弱勾配成分|LerayHopf.gradComp_of_memH1]]の定義的性質。それを超関数とみなすと、$u$ の第 $j$ 複素成分の方向 $e_a$ の線微分 $\partial_{e_a}$ に一致する。
+proof_ja: |
+  弱勾配成分は、$u$ の第 $j$ 成分の線微分が位数 $0$ の Sobolev 元であることから取り出した $L^2$ 代表元であり、その代表元が元の線微分に超関数として等しいことは、代表元の定義（位数 $0$ 同値の選択）そのものである。
+gap:
+  level: none
+chapter: spaces
+tags: [sobolev, weak-gradient, spectral]

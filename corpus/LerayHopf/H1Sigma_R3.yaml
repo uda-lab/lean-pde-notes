@@ -1,0 +1,12 @@
+name: LerayHopf.H1Sigma_R3
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 上の $H^1_\sigma$、すなわち $H^1$ 正則性と発散ゼロ性をともに満たす $L^2$ ベクトル場のなす部分空間。
+
+  $$H^1_\sigma(\mathbb{R}^3)=\{\,u\in L^2(\mathbb{R}^3;\mathbb{R}^3)\mid u\ \text{は}\ H^1\ \text{正則かつ発散ゼロ}\,\}.$$
+
+  発散ゼロ条件は下流の消費者（テンソル積上の拡張、反対称性の仮説）が要求するため、$H^1$ 正則性と併せて課す。
+gap:
+  level: none
+chapter: spaces
+tags: [sobolev, h1-sigma, div-free]

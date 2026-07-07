@@ -1,0 +1,12 @@
+name: LerayHopf.convFormH1_smul_3
+tier: full
+statement_ja: |
+  [[エネルギー類の移流形式|LerayHopf.convFormH1]]は第三引数について実数倍と可換である。すなわち任意の $c\in\mathbb{R}$ に対して
+
+  $$b(u,v,c\,w)=c\,b(u,v,w).$$
+proof_ja: |
+  $c\,w$ の第 $i$ 成分の実部が $w$ の第 $i$ 成分の実部の $c$ 倍にほとんど至るところ等しいことを使い、被積分関数から $c$ をくくり出す。積分の斉次性と総和で主張が従う。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, multilinear, h1-sigma]

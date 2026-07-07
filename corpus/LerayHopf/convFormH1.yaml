@@ -1,0 +1,12 @@
+name: LerayHopf.convFormH1
+tier: full
+statement_ja: |
+  $H^1_\sigma(\mathbb{R}^3)$ 上のエネルギー類の三線形移流形式 $b(u,v,w)$ を、次の積分の総和として定める。
+
+  $$b(u,v,w)=\sum_{i}\sum_{a}\int (\operatorname{Re} u_a)\,(\operatorname{Re}\,\partial_a v_i)\,(\operatorname{Re} w_i)\,dx.$$
+
+  ここで $u_a,w_i$ は成分の $L^2$ 代表、$\partial_a v_i$ は $v$ の弱勾配成分である。符号は[[移流積分|LerayHopf.convIntegralSchwartz]]と揃えてあり（正の総和）、Schwartz 三つ組の上ではそれに一致する。各項の可積分性は別に示される。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, h1-sigma, energy-class]

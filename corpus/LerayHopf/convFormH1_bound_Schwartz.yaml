@@ -1,0 +1,28 @@
+name: LerayHopf.convFormH1_bound_Schwartz
+tier: full
+statement_ja: |
+  Schwartz な $w\in H^1_\sigma$ を固定すると、$w$ のみに依存する定数 $C_w\ge 0$ があって、任意の $u,v\in H^1_\sigma$ に対し
+
+  $$\bigl|b(u,v,w)\bigr|\le C_w\,\lVert u\rVert\,\lVert v\rVert$$
+
+  が成り立つ。ここで量化の順序は「$C_w$ が存在して、すべての $u,v$ について」であり、$C_w$ は $u,v$ に依らず一様である。
+proof_ja: |
+  反対称性で微分を $w$ に載せ替えると、移流形式は次の形になる。
+
+  $$b(u,v,w)=\sum_{i}\sum_{a}\int u_a\,(\partial_a w_i)\,v_i\,dx.$$
+
+  各項に Cauchy–Schwarz を適用し、$w$ が Schwartz なので一階微分 $\partial_a w_i$ が $L^\infty$ に属することを使うと、次で押さえられる。
+
+  $$\Bigl|\int u_a\,(\partial_a w_i)\,v_i\,dx\Bigr|\le\lVert\partial_a w_i\rVert_\infty\,\lVert u_a\rVert\,\lVert v_i\rVert.$$
+
+  成分ノルムを全体ノルムに戻し、定数を各方向の一階微分の上限ノルムと成分射影のノルムから
+
+  $$C_w=\sum_{i}\sum_{a}\lVert\partial_a w_i\rVert_\infty\cdot\lVert P\rVert^2$$
+
+  ととれば主張が従う。ここで $\lVert P\rVert$ は成分射影の作用素ノルムである。
+gap:
+  level: large
+  note: |
+    量化順は Codex レビュー（PR #58, P1）の指摘で修正されたもの。元は $u,v$ が $\exists C_w$ の前にあり、$C_w$ が $u,v$ に依存しうる（ほぼ空虚な）主張だった。現在は $C_w$ を先に量化し一様性を保証する。証明は反対称性で微分を Schwartz スロットへ移し、$\lVert\nabla w\rVert_\infty$ で抑える経路をとる。$L^\infty$ の一階微分ノルムの有限性が Schwartz 性から従う。
+chapter: limit-passage
+tags: [convection-form, trilinear-bound, schwartz]

@@ -1,0 +1,12 @@
+name: LerayHopf.gradComp_of_memH1
+tier: full
+statement_ja: |
+  [[$H^1$ 正則性|LerayHopf.memH1VF_R3]]をもつ場 $u$ に対する、弱勾配成分の $L^2$ 代表元。
+
+  第 $j$ 成分は $1$ 階 Sobolev 空間に属するので、方向 $e_a$ の弱微分 $\partial_{e_a}$ を作用させると Sobolev 位数が $0$ に下がり、$L^2$ の代表元をもつ。$\partial_a u_j$ のこの $L^2$ 代表元を $u$ の弱勾配成分とする。
+gap:
+  level: mild
+  note: |
+    形式化では、$1$ 階 Sobolev の成分に線微分作用素を作用させて位数 $0$ を得（`MemSobolev.lineDerivOp`）、位数 $0$ の Sobolev 元が $L^2$ 代表元をもつという同値（`memSobolev_zero_iff`）で代表元を選択函数として取り出す。位数の減算 $1-1=0$ は実数上の等式として `norm_num` で整える。
+chapter: spaces
+tags: [sobolev, weak-gradient, h1-sigma]

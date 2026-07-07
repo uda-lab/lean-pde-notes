@@ -1,0 +1,12 @@
+name: LerayHopf.convFormH1_smul_2
+tier: full
+statement_ja: |
+  [[エネルギー類の移流形式|LerayHopf.convFormH1]]は第二引数について実数倍と可換である。すなわち任意の $c\in\mathbb{R}$ に対して
+
+  $$b(u,c\,v,w)=c\,b(u,v,w).$$
+proof_ja: |
+  第二引数は弱勾配成分を通して入る。$c\,v$ の弱勾配成分が $v$ の弱勾配成分の $c$ 倍であること（弱勾配の斉次性）から、被積分関数から $c$ をくくり出す。積分の斉次性と総和で主張が従う。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, multilinear, h1-sigma]

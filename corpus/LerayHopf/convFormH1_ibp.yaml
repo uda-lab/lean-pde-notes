@@ -1,0 +1,22 @@
+name: LerayHopf.convFormH1_ibp
+tier: full
+statement_ja: |
+  [[エネルギー類の移流形式|LerayHopf.convFormH1]]の分部積分。発散ゼロな $u,w$ に対し、第二引数に載った微分を第一・第三引数へ移すと
+
+  $$b(u,v,w)=-\sum_{i}\sum_{a}\int (\operatorname{Re}\,\partial_a u_a)\,(\operatorname{Re} v_i)\,(\operatorname{Re} w_i)\,dx-\sum_{i}\sum_{a}\int (\operatorname{Re} u_a)\,(\operatorname{Re} v_i)\,(\operatorname{Re}\,\partial_a w_i)\,dx$$
+
+  となる。第一項は $u$ の発散ゼロ性で消える。
+proof_ja: |
+  各方向 $(i,a)$ について、$H^1$ テストに対する弱 Leibniz 積の法則を用いて分部積分を行う。微分が第二引数 $v_i$ から、第一引数の成分 $u_a$ と第三引数の成分 $w_i$ の二箇所へ移る。
+
+  積分と総和を整理すると、微分が $u$ に載った項と $w$ に載った項の和（の符号反転）が得られる。
+gap:
+  level: large
+  note: |
+    形式化の核心は $H^1$ 同士の弱 Leibniz 積則を $H^1$ テストへ拡張する部分で、単方向 Schwartz 近似列の $L^3$ 収束を要する。これは `schwartz_h1_gradConv` が与える $L^2$ 値・単方向 $L^2$ 勾配収束に加え、一様 $L^6$ 上界と補間
+
+    $$\lVert h\rVert_3\le\lVert h\rVert_2^{1/2}\,\lVert h\rVert_6^{1/2}$$
+
+    から従う。この近似・分部積分のインフラ（`h1Leibniz2` など）が証明を大きく膨らませる。
+chapter: limit-passage
+tags: [convection-form, integration-by-parts, h1-sigma]
