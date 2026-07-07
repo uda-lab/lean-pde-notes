@@ -1,0 +1,18 @@
+name: LerayHopf.convFormSchwartz_bound
+tier: full
+statement_ja: |
+  発散ゼロ類のテスト場 $w$ を固定すると、$w$ のみに依存する定数 $C$ があって、任意の発散ゼロ $u,v$ に対し
+
+  $$\bigl|b(u,v,w)\bigr|\le C\,\lVert u\rVert\,\lVert v\rVert$$
+
+  が成り立つ。これは作用素レベルの三線形評価である。
+proof_ja: |
+  値を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で選んだ表示に対する移流積分に書き換え、$u$ の[[発散ゼロ条件の成分表示|LerayHopf.schwartzDivFree_of_L2Sigma]]のもとで、移流積分の発散ゼロ上限評価を適用する。
+
+  この評価は、各成分の $L^2$ ノルムの和で $u,v$ を抑える形をしている。各成分射影の作用素ノルムでベクトル場の全体ノルムに戻し、定数は $w$ の成分表示の一階微分の上限ノルムから決まる。三成分ぶんの因子 $3$ が二乗で入る。
+gap:
+  level: mild
+  note: |
+    定数 $C$ は $w$ の成分表示の一階微分の $L^\infty$ 上限の総和に、成分ノルムと全体ノルムを結ぶ作用素ノルム由来の因子 $(3K)^2$ を掛けたもの。自然言語では「$\lVert\nabla w\rVert_\infty$ で決まる」で済むが、形式化では成分ごとの `toLp` ノルムとベクトル値 $L^2$ ノルムの帳尻合わせが必要になる。
+chapter: limit-passage
+tags: [convection-form, trilinear-bound, div-free]

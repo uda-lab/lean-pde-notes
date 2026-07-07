@@ -1,0 +1,20 @@
+name: LerayHopf.convFormSchwartz_antisymm
+tier: full
+statement_ja: |
+  発散ゼロ類の上で、[[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]は後ろ二つの引数について反対称である。すなわち
+
+  $$b(u,v,w)=-\,b(u,w,v).$$
+proof_ja: |
+  両辺を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で選んだ Schwartz 表示に対する移流積分に書き換える。
+
+  移流積分の発散ゼロ下での反対称性を適用する。その仮説である Schwartz レベルの弱発散ゼロ条件は、$u\in L^2_\sigma(\mathbb{R}^3)$ から[[発散ゼロ条件の成分表示|LerayHopf.schwartzDivFree_of_L2Sigma]]によって供給される。
+gap:
+  level: mild
+  note: |
+    反対称性は移流積分の発散ゼロ版反対称性を移送するだけだが、その仮説である Schwartz レベルの弱発散ゼロ条件を場のレベルの $u\in L^2_\sigma$ から取り出す一手間が要る。すなわち
+
+    $$\sum_a\int (\psi_u)_a\,\partial_a\varphi\,dx=0$$
+
+    を供給する必要がある。これは分部積分で消えるべき発散項が、形式化では明示の弱発散ゼロ条件として現れることを反映している。
+chapter: limit-passage
+tags: [convection-form, antisymmetry, div-free]

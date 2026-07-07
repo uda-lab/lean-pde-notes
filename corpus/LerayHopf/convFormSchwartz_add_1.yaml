@@ -1,0 +1,14 @@
+name: LerayHopf.convFormSchwartz_add_1
+tier: full
+statement_ja: |
+  [[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]は、発散ゼロ類の上で第一引数について加法的である。すなわち
+
+  $$b(u+u',v,w)=b(u,v,w)+b(u',v,w).$$
+proof_ja: |
+  和 $u+u'$ の成分表示として、それぞれの成分表示の和をとる。成分射影と Schwartz 函数の $L^2$ 類への写像はともに線形なので、これが $u+u'$ の正しい表示になる。
+
+  三つの汎関数を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で対応する移流積分に書き換えると、主張は移流積分の第一引数についての加法性に帰着し、それを適用して閉じる。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, multilinear]

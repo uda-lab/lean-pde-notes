@@ -1,0 +1,14 @@
+name: LerayHopf.convFormSchwartz_eq_witness
+tier: full
+statement_ja: |
+  [[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]は、同じ場を表す任意の Schwartz 成分表示に対する移流積分の値に等しい。
+
+  これは利用者向けの計算則であり、内部で選ばれた不透明な表示を、同じ場を表す任意の明示的な Schwartz 表示に置き換えることを可能にする。
+proof_ja: |
+  選択された表示と与えられた表示は、どちらも各成分で同じ場の $L^2$ 成分に一致する。したがって両者は成分ごとに等しい $L^2$ 類をもつ。
+
+  よって well-定義性から、両表示に対する移流積分は等しく、選ばれた表示による定義値が与えられた表示による値に一致する。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, schwartz, computation-rule]

@@ -1,0 +1,18 @@
+name: LerayHopf.schwartzDivFree_of_L2Sigma
+tier: full
+statement_ja: |
+  Schwartz 表示 $\psi_u$ をもつ発散ゼロ場 $u\in L^2_\sigma(\mathbb{R}^3)$ に対して、その成分表示は Schwartz レベルの弱発散ゼロ条件を満たす。すなわち任意の Schwartz テスト函数 $\varphi$ について
+
+  $$\sum_{a}\int (\psi_u)_a\,(\partial_a\varphi)\,dx=0$$
+
+  が成り立つ。
+proof_ja: |
+  $u\in L^2_\sigma(\mathbb{R}^3)$ であることは、任意の Schwartz テスト函数 $\varphi$ に対し弱発散が消えること、すなわち各成分と勾配との $L^2$ 内積の総和がゼロであることを意味する。
+
+  この内積を成分表示 $\psi_u$ で書き換え、各 $L^2$ 内積を点ごとの積の積分に直すと、まさに主張の総和が得られる。これは超関数レベルの発散ゼロ条件を成分表示の言葉に翻訳したものである。
+gap:
+  level: mild
+  note: |
+    形式化では発散テスト汎関数 `divTestFunctional` の核に属することを展開し、成分表示に置換したうえで各 `innerSL` を点ごとの積分に直す。$L^2$ 内積を積分に落とす際に、Schwartz 函数と成分表示の a.e. 一致（`coeFn_toLp`）を用いる。
+chapter: limit-passage
+tags: [convection-form, schwartz, weak-divergence]

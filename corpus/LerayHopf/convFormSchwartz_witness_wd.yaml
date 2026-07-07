@@ -1,0 +1,16 @@
+name: LerayHopf.convFormSchwartz_witness_wd
+tier: full
+statement_ja: |
+  同じ $L^2$ 類を成分ごとに表す二つの Schwartz 表示は、同じ移流値を返す。すなわち成分ごとの $L^2$ 類が一致すれば[[移流積分|LerayHopf.convIntegralSchwartz]]の値も一致する。
+
+  これは移流値の a.e. 類による決定性であり、各因子は a.e. 類で定まる積分としてのみ移流積分に入るため、成分表示の選び方に依らない。
+proof_ja: |
+  各成分について、等しい $L^2$ 類から等しい Schwartz 函数そのものを取り出す。連続函数の $L^2$ 類への写像は単射なので、成分ごとに二つの Schwartz 表示が函数として一致する。
+
+  三つの因子すべてについてこの一致を得れば、移流積分は同じ引数に対する評価となり、両辺は等しい。
+gap:
+  level: mild
+  note: |
+    自然言語では「値は a.e. 類で決まるから明らか」で済むが、形式化では $L^2$ 類の等式を Schwartz 函数そのものの等式へ持ち上げる必要があり、`SchwartzMap.injective_toLp`（連続函数上での `toLp` の単射性）を各成分に用いてから代入する。
+chapter: limit-passage
+tags: [convection-form, schwartz, well-defined]

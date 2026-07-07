@@ -1,0 +1,12 @@
+name: LerayHopf.convFormSchwartz
+tier: full
+statement_ja: |
+  各成分が Schwartz 表示をもつ発散ゼロ場 $u,v,w\in L^2_\sigma(\mathbb{R}^3)$ に対し、移流汎関数の値を、選んだ成分表示に対する[[移流積分|LerayHopf.convIntegralSchwartz]]として定める。
+
+  選び方に依らないことは well-定義性による。異なる表示は同じ場に対して等しい $L^2$ 類をもつので値が一致する。これは $L^2_\sigma(\mathbb{R}^3)$ の稠密なクラス上で定義された、真の場のレベルの移流汎関数である。
+gap:
+  level: mild
+  note: |
+    形式化では場ごとに「ある」Schwartz 表示を選択函数で取り出し、その表示に対する移流積分を値とする。選択の非依存性は[[well-定義性|LerayHopf.convFormSchwartz_witness_wd]]で保証され、利用側は[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で任意の明示的表示に置き換えられる。
+chapter: limit-passage
+tags: [convection-form, schwartz, div-free]

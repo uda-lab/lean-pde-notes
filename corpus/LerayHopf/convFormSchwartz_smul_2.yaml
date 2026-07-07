@@ -1,0 +1,14 @@
+name: LerayHopf.convFormSchwartz_smul_2
+tier: full
+statement_ja: |
+  [[Schwartz 台上の移流汎関数|LerayHopf.convFormSchwartz]]は、発散ゼロ類の上で第二引数について実数倍と可換である。すなわち任意の $c\in\mathbb{R}$ に対して
+
+  $$b(u,c\,v,w)=c\,b(u,v,w).$$
+proof_ja: |
+  スカラー倍 $c\,v$ の成分表示として、$v$ の成分表示の $c$ 倍をとる。成分射影と $L^2$ 類への写像の斉次性からこれが正しい表示になる。
+
+  二つの汎関数を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で移流積分に書き換え、移流積分の第二引数についての斉次性を適用して閉じる。
+gap:
+  level: none
+chapter: limit-passage
+tags: [convection-form, multilinear]
