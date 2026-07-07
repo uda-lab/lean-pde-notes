@@ -1,0 +1,14 @@
+name: LerayHopf.FourierL2.phaseMulCLM
+tier: full
+statement_ja: |
+  変調位相による**位相乗数作用素**を、$L^2(\mathbb{R}^3;\mathbb{C})$ 上の作用素ノルム $1$ 以下の有界線形作用素として定める。これは平行移動を Fourier 側の位相の掛け算として実現する作用素であり、後述の $L^2$ レベルの変調公式の担い手となる。
+proof_ja: |
+  変調位相の掛け算による線形写像は、単位性 $\lvert\varphi_h(\xi)\rvert=1$ により平行移動でノルムを保つ。したがって次の評価が成り立ち、作用素ノルム $1$ 以下の有界線形作用素として構成できる。
+
+  $$\lVert\varphi_h\cdot g\rVert\le\lVert g\rVert$$
+gap:
+  level: mild
+  note: |
+    mathlib には有界乗数を $L^p$ 上の作用素にする既製の構成がないため、位相乗数を線形写像 `phaseMulLM` と作用素ノルム評価から `LinearMap.mkContinuous` で組み立てる。単位性により `eLpNorm` が平行移動で保たれることが評価の要である。
+chapter: compactness
+tags: [fourier, modulation, multiplier-operator, operator-norm]

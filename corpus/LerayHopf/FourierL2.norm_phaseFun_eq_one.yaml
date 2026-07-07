@@ -1,0 +1,12 @@
+name: LerayHopf.FourierL2.norm_phaseFun_eq_one
+tier: full
+statement_ja: |
+  変調位相は絶対値 $1$ の単位複素数である。
+
+  $$\lvert\varphi_h(\xi)\rvert=1$$
+proof_ja: |
+  変調位相は指数関数 $e^{i\theta}$ の形をしており、その値は単位円周上にある。単位円周上の複素数の絶対値は $1$ だからである。
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, modulation, unimodular]

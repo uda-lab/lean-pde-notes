@@ -1,0 +1,14 @@
+name: LerayHopf.FourierL2.toLp_fourier_compMeasurePreserving_eq
+tier: full
+statement_ja: |
+  Schwartz 関数 $\psi$ に対する**変調公式**。右平行移動した $\psi(\cdot+h)$ を $L^2$ 元とみて Fourier 変換したものは、$\psi$ の Fourier 変換に位相乗数作用素を施したものに等しい。
+
+  $$\mathcal{F}\bigl(\psi(\cdot+h)\bigr)=\varphi_h\cdot\mathcal{F}\psi$$
+proof_ja: |
+  両辺を各点の Fourier 積分に書き下す。平行移動と Fourier 変換の関係式より、右平行移動は積分に位相因子 $e^{2\pi i\langle h,\xi\rangle}$ を掛ける。これはまさに変調位相であり、位相乗数作用素の点ごとの作用に一致する。$2\pi$ の位置・符号・内積の取り方という規約の帳尻合わせが証明の実質を占める。
+gap:
+  level: mild
+  note: |
+    Schwartz レベルの Fourier 変換を生の `VectorFourier.fourierIntegral` に落とし、`VectorFourier.fourierIntegral_comp_add_right`（$L=$ 内積、$v_0=h$）で位相因子を出す。`Real.fourierChar` の指標規約と `innerₗ` の対応を突き合わせる帳尻合わせが本体で、数学的には一行の変調公式である。
+chapter: compactness
+tags: [fourier, modulation, schwartz]

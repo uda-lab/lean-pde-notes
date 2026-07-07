@@ -1,0 +1,12 @@
+name: LerayHopf.FourierL2.normSq_eq_integral_normSq_C
+tier: full
+statement_ja: |
+  複素数値の二乗可積分関数 $g$ の $L^2$ ノルム二乗は、各点の二乗ノルムの積分に等しい。
+
+  $$\lVert g\rVert^2=\int\lVert g(\xi)\rVert^2\,d\xi$$
+proof_ja: |
+  $L^2$ ノルム二乗は自分自身との内積の実部であり、内積は被積分関数 $\overline{g(\xi)}\,g(\xi)$ の積分である。被積分関数の実部は各点の二乗ノルム $\lVert g(\xi)\rVert^2$ に等しいので、積分して主張を得る。
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, plancherel, l2-norm]

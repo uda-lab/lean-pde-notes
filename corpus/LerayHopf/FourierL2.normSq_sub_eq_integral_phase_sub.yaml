@@ -1,0 +1,12 @@
+name: LerayHopf.FourierL2.normSq_sub_eq_integral_phase_sub
+tier: full
+statement_ja: |
+  複素成分 $c$ について、平行移動した成分の Fourier 変換ともとの Fourier 変換の差の $L^2$ ノルム二乗は、変調位相の増分を荷重とする積分に等しい。
+
+  $$\bigl\lVert\mathcal{F}(c(\cdot+h))-\mathcal{F}c\bigr\rVert^2=\int\lvert\varphi_h(\xi)-1\rvert^2\,\bigl\lVert\widehat{c}(\xi)\bigr\rVert^2\,d\xi$$
+proof_ja: |
+  $L^2$ レベルの変調公式により、平行移動した成分の Fourier 変換は $\varphi_h\cdot\mathcal{F}c$ に等しい。したがって差は各点で $(\varphi_h(\xi)-1)\,\widehat{c}(\xi)$ となる。$L^2$ ノルム二乗を各点の二乗ノルムの積分に書き換え、点ごとに絶対値の積へ分解すれば主張の積分になる。
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, modulation, plancherel]

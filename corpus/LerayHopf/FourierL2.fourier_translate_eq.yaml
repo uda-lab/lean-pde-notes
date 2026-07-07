@@ -1,0 +1,18 @@
+name: LerayHopf.FourierL2.fourier_translate_eq
+tier: full
+statement_ja: |
+  任意の二乗可積分関数 $f$ に対する $L^2$ レベルの**変調公式**。$f$ を $h$ だけ右平行移動したものの Fourier 変換は、$f$ の Fourier 変換に位相乗数作用素を施したものに等しい。
+
+  $$\mathcal{F}\bigl(f(\cdot+h)\bigr)=\varphi_h\cdot\mathcal{F}f$$
+
+  これは Rellich コンパクト性の平行移動評価が必要とする中核の等式である。
+proof_ja: |
+  両辺を $f$ の関数とみると、いずれも連続な写像である。平行移動作用素は等長作用素として連続、Fourier 変換と位相乗数作用素も連続だから、両辺が一致する $f$ の集合は閉集合である。
+
+  Schwartz 関数は $L^2$ で稠密であり、そのような $f$ に対しては Schwartz レベルの変調公式が等式を与える。稠密な部分集合で成り立つ等式が閉集合上に延びるので、すべての $f$ について等式が従う。
+gap:
+  level: mild
+  note: |
+    稠密延長は `DenseRange.induction_on` を Schwartz 稠密性 `SchwartzMap.denseRange_toLpCLM` に対して適用する。述語は二つの連続写像の一致を表す `isClosed_eq` で、基底ケースが Schwartz レベルの変調公式である。テンプレートは `MeasureTheory.Lp.fourier_toTemperedDistribution_eq`。
+chapter: compactness
+tags: [fourier, modulation, density-extension]

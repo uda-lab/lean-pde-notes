@@ -1,0 +1,10 @@
+name: LerayHopf.FourierL2.fourierComponentC_ae_schwartz
+tier: full
+statement_ja: |
+  速度場 $u$ の第 $j$ 複素成分が Schwartz 関数 $\varphi$ を代表元にもつとき、その $L^2$ 上の Fourier 変換は、ほとんどすべての周波数で真の Schwartz 関数としての Fourier 変換 $\mathcal{F}\varphi$ に一致する。
+proof_ja: |
+  成分が $\varphi$ の $L^2$ 元に等しいことから、その $L^2$ Fourier 変換は $\mathcal{F}\varphi$ の $L^2$ 元に等しい。$L^2$ 元はその代表元を概至る所で復元するので、点ごとの一致が従う。
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, schwartz, representative]

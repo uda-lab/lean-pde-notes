@@ -1,0 +1,14 @@
+name: LerayHopf.FourierL2.phaseMulMemLp
+tier: full
+statement_ja: |
+  二乗可積分関数 $g$ に変調位相を掛けた $\xi\mapsto\varphi_h(\xi)\,g(\xi)$ は、ふたたび二乗可積分である。
+proof_ja: |
+  変調位相は各点で絶対値 $1$ なので、点ごとに次が成り立つ。
+
+  $$\lvert\varphi_h(\xi)\,g(\xi)\rvert=\lvert g(\xi)\rvert$$
+
+  したがって積の二乗ノルムは $g$ の二乗ノルムに一致し、$g$ が $L^2$ に属することから積も $L^2$ に属する。
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, modulation, multiplier-operator]

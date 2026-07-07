@@ -1,0 +1,24 @@
+name: LerayHopf.FourierL2.normSq_phaseFun_sub_one_le
+tier: full
+statement_ja: |
+  変調位相の $1$ からのずれは、平行移動量と周波数の大きさで二次に抑えられる。
+
+  $$\lvert\varphi_h(\xi)-1\rvert^2\le(2\pi)^2\lVert h\rVert^2\lVert\xi\rVert^2$$
+
+  この $(2\pi)^2$ の因子はスペクトル荷重と一致し、不等式の向きは平行移動評価を粘性形式で押さえるのに合わせてある。
+proof_ja: |
+  変調位相を $e^{i\theta}$（ただし $\theta=2\pi\langle h,\xi\rangle$）と書くと、単位円上の増分について次の評価が使える。
+
+  $$\lvert e^{i\theta}-1\rvert\le\lvert\theta\rvert$$
+
+  両辺を二乗すると次のようになる。
+
+  $$\lvert\varphi_h(\xi)-1\rvert^2\le\theta^2=(2\pi)^2\langle h,\xi\rangle^2$$
+
+  最後に Cauchy–Schwarz 不等式を二乗して代入すれば主張を得る。
+
+  $$\lvert\langle h,\xi\rangle\rvert\le\lVert h\rVert\,\lVert\xi\rVert$$
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, modulation, cauchy-schwarz]

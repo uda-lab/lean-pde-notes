@@ -1,0 +1,14 @@
+name: LerayHopf.FourierL2.phaseFun
+tier: full
+statement_ja: |
+  平行移動量 $h$ に対する**変調位相**を、周波数 $\xi$ の関数として次で定める。
+
+  $$\varphi_h(\xi)=e^{2\pi i\langle h,\xi\rangle}$$
+
+  これは $\mathbb{R}^3$ の Fourier 変換のもとで、被変換関数を $h$ だけ右へ平行移動したときに現れる位相因子である。すなわち次が成り立つ。
+
+  $$\mathcal{F}\bigl(f(\cdot+h)\bigr)(\xi)=\varphi_h(\xi)\,\mathcal{F}f(\xi)$$
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, modulation, phase]

@@ -1,0 +1,8 @@
+name: LerayHopf.FourierL2.phaseMulLM
+tier: full
+statement_ja: |
+  変調位相の掛け算が定める $L^2$ 上の複素線形写像。二乗可積分関数 $g$ を、積 $\xi\mapsto\varphi_h(\xi)\,g(\xi)$ の定める $L^2$ 元へ送る。位相の掛け算は加法とスカラー倍を保つので、この対応は線形である。
+gap:
+  level: none
+chapter: compactness
+tags: [fourier, modulation, multiplier-operator, linearity]
