@@ -1,0 +1,20 @@
+name: LerayHopf.mollified_family_equicontinuous
+tier: full
+statement_ja: |
+  軟化された族の一様同程度連続性。半径 $R$、$L^2$ 有界定数 $C$、族 $S$、代表元の対応、および[[軟化子核|LerayHopf.MollifierKernel]] $K$ が与えられ、核の台半径 $r$ による拡大球 $B_{R+r}$ 上での代表元の $L^2$ ノルムが一様に $C$ で押さえられるとする。
+
+  このとき任意の $\varepsilon>0$ に対しある $\delta>0$ が存在して、$f\in S$ かつ球 $B_R$ 内の二点 $x,y$ が $\lVert x-y\rVert<\delta$ を満たせば、[[軟化場の代表元|LerayHopf.mollifyRep]]の増分が次を満たす。
+
+  $$\bigl\lVert(\eta\star f)(x)-(\eta\star f)(y)\bigr\rVert<\varepsilon$$
+proof_ja: |
+  軟化場の増分の連続度は、場の $L^2$ ノルムと核自身の（族に依らない）平行移動ずれ幅との積で制御される。
+
+  $$\bigl\lVert(\eta\star f)(x)-(\eta\star f)(y)\bigr\rVert\ \le\ \bigl\lVert f\restriction B_{R+r}\bigr\rVert_{L^2}\cdot\bigl\lVert\tau_{x-y}\eta-\eta\bigr\rVert_{L^2}$$
+
+  核 $\eta$ は滑らかかつコンパクト台をもつので一様連続であり、その $L^2$ 平行移動ずれ幅は場に依らず $x-y\to 0$ で消える。よって拡大球上の一様質量有界性と合わせて、族に一様な $\delta$ がとれる。
+gap:
+  level: mild
+  note: |
+    点ごとの増分評価は[[軟化場の増分評価|LerayHopf.mollifyRep_sub_le]]、核のずれ幅の消失は[[核の平行移動連続性|LerayHopf.kernel_translate_L2_tendsto]]による。同程度連続性は $x,y\in B_R$ 上でのみ主張される。質量因子は拡大球への制限に局所化され、その有界性は判定条件の大域 $L^2$ 有界性から球質量の単調性で得られる。
+chapter: compactness
+tags: [frechet-kolmogorov, mollification, equicontinuity]

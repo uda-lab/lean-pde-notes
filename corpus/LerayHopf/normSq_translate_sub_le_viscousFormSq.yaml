@@ -1,0 +1,16 @@
+name: LerayHopf.normSq_translate_sub_le_viscousFormSq
+tier: full
+statement_ja: |
+  平行移動ずれ幅がスペクトル的な勾配形式で押さえられる（Plancherel）。$H^1$ に属する発散ゼロ速度場 $w$ に対し、ずれ $h$ の[[L² 平行移動|LerayHopf.translate_L2VF]]の $L^2$ ずれ幅の二乗は、ずれの大きさの二乗と[[粘性形式|LerayHopf.viscousFormSq_R3]]の積で押さえられる。
+
+  $$\bigl\lVert\tau_h w - w\bigr\rVert_{L^2(\mathbb{R}^3)}^2\ \le\ \lVert h\rVert^2\cdot V_1(w)$$
+proof_ja: |
+  まず $\mathbb{R}^3$ 値の $L^2$ ノルムを三つの複素成分についての和に分解する。
+
+  各成分について Plancherel 等式により、平行移動のずれ幅は Fourier 変換のずれ幅に等しい。Fourier 変換したずれは位相因子の差 $e^{-2\pi i\langle h,\xi\rangle}-1$ を乗じたものとなり、その大きさは $2\pi\lVert h\rVert\,\lvert\xi\rvert$ で押さえられる。これを積分して粘性形式のスペクトル表示を認識すると、主張の評価を得る。
+gap:
+  level: mild
+  note: |
+    これは Navier–Stokes 固有の中核で、共有の Fourier–$L^2$ 基盤（`FourierL2.lean`）により証明済みである。位相因子の各点評価と粘性形式の Fourier 積分表示（`viscousFormSq_R3_eq_integral_normSq_fourier`）を組み合わせる。ここで $V_1(w)$ は粘性係数 $1$ での粘性形式を表す。下流（一様ずれ幅・局所 Rellich・主定理）はこの主張のみを消費する。
+chapter: compactness
+tags: [frechet-kolmogorov, translation, plancherel, viscous-form]

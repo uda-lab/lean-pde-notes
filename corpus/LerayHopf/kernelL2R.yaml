@@ -1,0 +1,12 @@
+name: LerayHopf.kernelL2R
+tier: full
+statement_ja: |
+  [[軟化子核|LerayHopf.MollifierKernel]] $K$ の関数 $\eta$ を、スカラーの $L^2$ 類とみなしたもの。核は連続かつコンパクト台をもつため二乗可積分であり、$L^2$ の要素として扱える。
+gap:
+  level: none
+  note: |
+    二乗可積分性は連続性（`K.smooth.continuous`）とコンパクト台（`K.hasCompactSupport`）から従い、`MemLp 2` の証人を経て $L^2$ 類に持ち上げる。次の Young 型評価の $L^2$ 質量因子として使われる。
+
+    $$\lVert\eta\star g\rVert_{L^2}\ \le\ \lVert\eta\rVert_{L^2}\,\lVert g\rVert_{L^2}$$
+chapter: compactness
+tags: [frechet-kolmogorov, mollifier]

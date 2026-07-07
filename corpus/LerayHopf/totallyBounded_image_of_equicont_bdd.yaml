@@ -1,0 +1,18 @@
+name: LerayHopf.totallyBounded_image_of_equicont_bdd
+tier: full
+statement_ja: |
+  抽象的な Arzelà–Ascoli と上限から $L^2$ への移行。族 $S$ の各要素について、その $L^2(B_R)$ 類[[球への制限|LerayHopf.restrictToBall]]の代表元となる関数 $\Phi f$ がとれるとする。
+
+  このとき族 $\{\Phi f : f\in S\}$ がコンパクトな球 $B_R$ 上で一様有界かつ一様同程度連続ならば、制限の像 $\{f\restriction B_R : f\in S\}$ は $L^2(B_R)$ で全有界である。
+proof_ja: |
+  古典的な Arzelà–Ascoli の網構成による。
+
+  まず同程度連続性から定まる幅 $\delta$ を用いて、コンパクトな球 $B_R$ の中に中心の有限 $\delta$-網をとる。次に有界な値域から値の有限網をとり、各 $f$ を「中心での最近傍の値網点の組」で分類する。
+
+  各類ごとに代表を一つ選ぶと、同程度連続性と値網により同じ類の関数どうしは $B_R$ 上で一様に近い。これを上限から $L^2(B_R)$ への評価にかけると、有限個の代表が族全体の $L^2(B_R)$ における網を与えるので、像は全有界である。
+gap:
+  level: large
+  note: |
+    mathlib は Fréchet–Kolmogorov も Rellich も持たないため、この抽象 Arzelà–Ascoli（一様有界・同程度連続な連続関数族が全有界）を本形式化で組み上げた。上限から $L^2(B_R)$ への翻訳は有限測度の球上で[[上限から L² への移行|LerayHopf.dist_restrictToBall_le_of_ae_bound]]による。値網分類は選択（分類の選択が古典的）を用いる。
+chapter: compactness
+tags: [frechet-kolmogorov, arzela-ascoli, totally-bounded]

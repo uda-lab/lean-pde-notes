@@ -1,0 +1,14 @@
+name: LerayHopf.exists_subseq_tendsto_on_all_balls
+tier: full
+statement_ja: |
+  局所 Rellich 入力を仮定する。許容列に対し、単一の狭義単調な部分列を取り出して、そのすべての自然数半径 $k$ について[[球への制限|LerayHopf.restrictToBall]]が $L^2(B_k)$ で収束するようにできる。したがって球の単調性により任意の実半径 $R$ についても収束する。
+proof_ja: |
+  半径 $R=1,2,3,\dots$ に沿って対角線論法を用いる。
+
+  各半径で単一半径の収束部分列を取り出す操作を入れ子に繰り返し、対角線をとることで、すべての自然数半径で同時に $L^2(B_k)$ 収束する単一の部分列を得る。実半径については、その実半径を含む自然数半径での収束から従う。
+gap:
+  level: mild
+  note: |
+    単一半径の収束（[[単一球での収束部分列|LerayHopf.exists_subseq_tendsto_on_ball]]）を対角線論法で束ねる。ここで得られる対角部分列は全球で同時に収束するが、極限はまだ球ごとにばらばらで、大域極限の組み立ては次段の整合性による。
+chapter: compactness
+tags: [spatial-compactness, subsequence, diagonal]

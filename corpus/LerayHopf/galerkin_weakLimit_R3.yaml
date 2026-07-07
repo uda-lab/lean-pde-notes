@@ -1,0 +1,16 @@
+name: LerayHopf.galerkin_weakLimit_R3
+tier: full
+statement_ja: |
+  球ごとの概時刻収束から得られる、発散ゼロ空間内の可測な弱極限。狭義単調な部分列であって、すべての自然数半径 $k$ とほとんどすべての時刻 $t\in[0,T]$ で、半径 $k$ に[[球への制限|LerayHopf.restrictToBall]]した Galerkin 状態が収束するものが与えられているとする。
+
+  このとき可測な極限曲線 $u\colon[0,T]\to L^2_\sigma(\mathbb{R}^3)$ が存在して、$u$ は時間についてほとんど至るところ強可測であり、任意の実半径 $R$ についてほとんどすべての $t$ で、Galerkin 状態の半径 $R$ への制限が $u(t)$ の制限へ収束する。
+proof_ja: |
+  強い球取り尽くしと Mazur の定理による経路をとる。
+
+  まず球ごとの極限を全空間へ持ち上げたものについて Cauchy 対角列を作り、概時刻収束から強い極限を計算する。次にこの極限が発散ゼロ空間に属することを、弱極限の発散ゼロ性から確認する。最後に球ノルムの単調性を用いて、任意の実半径についての概時刻収束を確立する。この経路は弱点列コンパクト性の公理を使わない。
+gap:
+  level: large
+  note: |
+    これはかつて公理 `galerkin_weakLimit_R3` であり、issue #47 で証明済み定理へ反転された（公理→定理）。強可測な極限の計算は `exists_stronglyMeasurable_limit_of_tendsto_ae`、発散ゼロ性は[[弱極限の発散ゼロ性|LerayHopf.weakLimit_mem_L2Sigma_R3]]（Mazur）による。かつて足場として置かれた弱点列コンパクト性の公理 `L2VF_R3_weakSeqCompact_closedBall` はこの経路では使われず削除された。下流の消費者はすべて同じ名前と型でこの定理を見る。
+chapter: compactness
+tags: [aubin-lions, weak-convergence, divergence-free, frontier-resolved]

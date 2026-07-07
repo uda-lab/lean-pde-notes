@@ -1,0 +1,14 @@
+name: LerayHopf.weakLimit_mem_L2Sigma_R3
+tier: full
+statement_ja: |
+  [[発散ゼロ空間|LerayHopf.L2Sigma_R3]]の点列の弱極限はふたたび発散ゼロ空間に属する。すなわち各項が発散ゼロな速度場の列 $v_n$ が $v$ に弱収束するならば、$v$ もまた発散ゼロである。
+proof_ja: |
+  発散ゼロ空間は弱閉集合である。
+
+  弱閉集合の像への点列が弱収束するとき、その極限は像に属するという逐次的特徴づけにより、弱極限 $v$ は発散ゼロ空間に属する。
+gap:
+  level: mild
+  note: |
+    発散ゼロ空間の弱閉性は `DivergenceFree.lean` で Mazur の定理により示されている。弱位相での閉集合の逐次的特徴づけ（閉集合内の点列の極限は閉集合に属する）を使う。
+chapter: compactness
+tags: [aubin-lions, divergence-free, weak-convergence]

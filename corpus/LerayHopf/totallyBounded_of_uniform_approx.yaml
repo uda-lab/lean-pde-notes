@@ -1,0 +1,12 @@
+name: LerayHopf.totallyBounded_of_uniform_approx
+tier: full
+statement_ja: |
+  一様近似からの全有界性の移行。距離空間において、集合 $S$ が任意の $\varepsilon>0$ に対しある全有界集合で一様に $\varepsilon$-近似されるならば、$S$ 自身も全有界である。
+proof_ja: |
+  与えられた $\varepsilon$ に対し、$S$ を $\varepsilon$-近似する全有界集合をとり、その有限 $\varepsilon$-網を $\varepsilon$ だけ太らせると、$S$ の $2\varepsilon$-網が得られる。$\varepsilon$ は任意だから $S$ は全有界である。
+gap:
+  level: none
+  note: |
+    軟化による一様近似（第 1 段）と軟化された族の全有界性（第 3 段）をつなぐ抽象的な接着剤で、Fréchet–Kolmogorov の組み立てで使われる。純粋に距離空間の一般論。
+chapter: compactness
+tags: [frechet-kolmogorov, totally-bounded]

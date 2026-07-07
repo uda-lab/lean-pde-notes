@@ -1,0 +1,18 @@
+name: LerayHopf.mollifyRep_sub_le
+tier: full
+statement_ja: |
+  軟化された場の増分評価（連続度の評価）。半径 $R$ の閉球内の二点 $x,y$ に対し、[[軟化場の代表元|LerayHopf.mollifyRep]]の増分は、拡大球への場の質量と、核自身の $L^2$ 平行移動ずれ幅（ずれ量 $x-y$ における）との積で押さえられる。
+
+  $$\bigl\lVert(\eta\star f)(x)-(\eta\star f)(y)\bigr\rVert\ \le\ \bigl\lVert f\restriction B_{R+r}\bigr\rVert_{L^2}\cdot\bigl\lVert\tau_{x-y}\eta-\eta\bigr\rVert_{L^2}$$
+proof_ja: |
+  変数変換により増分は次の形になる。
+
+  $$(\eta\star f)(x)-(\eta\star f)(y)\ =\ \int\bigl(\eta(x-y')-\eta(y-y')\bigr)\,f(y')\,dy'$$
+
+  この積分に Cauchy–Schwarz 不等式を適用すると、核の平行移動ずれ幅 $\lVert\tau_{x-y}\eta-\eta\rVert_{L^2}$ と、拡大球 $B_{R+r}$ 上の $f$ の質量との積に分解される。
+gap:
+  level: mild
+  note: |
+    核の平行移動ずれ幅は[[核の平行移動連続性|LerayHopf.kernel_translate_L2_tendsto]]により $x-y\to 0$ で消えるので、この評価が族の同程度連続性を与える。質量因子は `restrictToBall (R + K.supportRadius)` に局所化される。
+chapter: compactness
+tags: [frechet-kolmogorov, mollifier, equicontinuity]

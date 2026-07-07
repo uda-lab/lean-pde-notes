@@ -1,0 +1,12 @@
+name: LerayHopf.admissible_family_uniform_bound
+tier: full
+statement_ja: |
+  制限した許容族の一様有界性。$L^2$ ノルムが $M$ 以下の速度場 $w$ に対し、その[[球への制限|LerayHopf.restrictToBall]]もふたたび $L^2$ ノルムが $M$ 以下である。
+proof_ja: |
+  球への制限はノルムを増やさないので、制限のノルムは元のノルム以下であり、それは $M$ 以下である。
+gap:
+  level: none
+  note: |
+    半径 $R$ の球への制限のノルム界。制限測度が全測度以下であること（`restrict_le_self` / `eLpNorm_mono_measure`）による。半径 $M$ の許容族 $S_{M,R}$ が一様に $\lVert\cdot\rVert\le M$ であることを与える。
+chapter: compactness
+tags: [frechet-kolmogorov, function-space]

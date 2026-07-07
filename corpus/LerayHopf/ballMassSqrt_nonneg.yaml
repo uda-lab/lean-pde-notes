@@ -1,0 +1,12 @@
+name: LerayHopf.ballMassSqrt_nonneg
+tier: full
+statement_ja: |
+  球質量因子は非負である。すなわち任意の半径 $R$ に対し $0\le V_R$ が成り立つ。体積の平方根であることから直ちに従う。
+proof_ja: |
+  球質量因子は体積の平方根として定義され、平方根は常に非負だから $0\le V_R$ である。
+gap:
+  level: none
+  note: |
+    [[球質量因子|LerayHopf.ballMassSqrt]]の非負性で、上限から $L^2(B_R)$ への評価における符号の取り扱いを保証する。
+chapter: compactness
+tags: [frechet-kolmogorov, measure]

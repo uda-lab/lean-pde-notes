@@ -1,0 +1,20 @@
+name: LerayHopf.galerkin_cell_error_bound
+tier: full
+statement_ja: |
+  メッシュのセル $[a,a+\delta]$（$0<\delta$, $0\le a$）上の標本誤差評価。良い標本 $\tau\in[a,a+\delta]$ が良い標本 Dirichlet 界 $V_1(u(\tau))\le 2\delta^{-1}\nu^{-1}E_0$（$E_0=\tfrac12\lVert u_0\rVert^2$）を満たすとする。
+
+  このときセルの $L^2$ 誤差積分は次で押さえられる。
+
+  $$\int_a^{a+\delta}\bigl\lVert u(t)-u(\tau)\bigr\rVert^2\,dt\ \le\ 2\delta\!\int_a^{a+\delta}\! V_\nu(u(\sigma))\,d\sigma\ +\ 2\delta\sqrt{2\delta^{-1}\nu^{-1}E_0}\!\int_a^{a+\delta}\!\Bigl(\nu\sqrt{V_1(u(\sigma))}+C_b\lVert u_0\rVert^{1/2}V_1(u(\sigma))^{3/4}\Bigr)d\sigma$$
+proof_ja: |
+  セルの $L^2$ 誤差の被積分関数を、運動エネルギー部分と対項に分ける。
+
+  $$\bigl\lVert u(t)-u(\tau)\bigr\rVert^2\ =\ \bigl(\lVert u(t)\rVert^2-\lVert u(\tau)\rVert^2\bigr)-2\bigl\langle u(t)-u(\tau),\,u(\tau)\bigr\rangle$$
+
+  エネルギー部分は積分されたエネルギー恒等式で制御する。対項は、固定テスト $w:=u(\tau)$ に対する対の微分積分学の基本定理・Stokes 双線型形式の Cauchy–Schwarz 評価・エネルギー類の三線型評価で制御する。これらを合わせて主張の評価を得る。
+gap:
+  level: large
+  note: |
+    ここで $V_\nu$ は粘性係数 $\nu$ での[[粘性形式|LerayHopf.viscousFormSq_R3]]、$C_b\ge 0$ は移流形式の三線型評価の定数。$C_b$ とその界を明示的な仮定にとるのは、この評価と上位の集約界を階層 $n$ に一様に保つためである（$C_b$ が $n$ に依存できないようにする）。エネルギー恒等式・対の微分積分学基本定理・Stokes の Cauchy–Schwarz・エネルギー類三線型評価を消費する。
+chapter: compactness
+tags: [aubin-lions, galerkin-time-modulus, energy-identity]

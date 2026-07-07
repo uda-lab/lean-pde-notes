@@ -1,0 +1,12 @@
+name: LerayHopf.restrictToBall
+tier: full
+statement_ja: |
+  $L^2(\mathbb{R}^3)$ の速度場を半径 $R$ の閉球 $B_R$ に制限し、[[球上の二乗可積分空間|LerayHopf.L2ballR3]]の要素とみなす操作。
+
+  場の下にある可測関数を経由して、球上の制限測度に対する二乗可積分性を得たうえで $L^2(B_R)$ 類として束ねる。
+gap:
+  level: none
+  note: |
+    下にある関数の二乗可積分性 `MemLp.restrict` から球上の `MemLp` を得て `MemLp.toLp` で類にする。制限は測度保存ではないので、平行移動と違って `Lp.compMeasurePreserving` は使えない。
+chapter: compactness
+tags: [spatial-compactness, function-space]

@@ -1,0 +1,14 @@
+name: LerayHopf.weak_tendsto_of_inner_tendsto
+tier: full
+statement_ja: |
+  固定テストベクトルに対する収束から弱収束へ。速度場の列 $u_n$ について、任意のベクトル $e$ に対し内積 $\langle e, u_n\rangle$ が $\langle e, u\rangle$ に収束するならば、$u_n$ は $u$ に弱収束する。
+proof_ja: |
+  Riesz の表現定理により、$L^2$ 上のすべての連続線型汎関数はあるベクトル $e$ との内積で表される。
+
+  したがって任意のベクトルに対する内積の収束は、すべての双対元に対する評価の収束を意味し、これは弱収束の定義そのものである。
+gap:
+  level: mild
+  note: |
+    弱位相での収束を、Riesz 表現を経てすべての固定テストベクトルに対する内積収束から得る。粘性形式の各点弱下半連続性で、Galerkin 極限の弱収束を確立するのに使われる。
+chapter: limit-passage
+tags: [limit-passage, weak-convergence]

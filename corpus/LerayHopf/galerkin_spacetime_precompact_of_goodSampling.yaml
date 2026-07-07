@@ -1,0 +1,14 @@
+name: LerayHopf.galerkin_spacetime_precompact_of_goodSampling
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 上の局所的な Aubin–Lions–Simon 時空前コンパクト性（細分可能形）。任意の入力部分列と任意の自然数半径 $k$ に対し、さらに狭義単調な部分列と可測な極限曲線 $g_k$ が存在して、Galerkin 状態の半径 $k$ への[[球への制限|LerayHopf.restrictToBall]]と $g_k$ の差の、時間についての $L^2$（Bochner）ノルムが $0$ に収束する。
+proof_ja: |
+  入力部分列と半径 $k$ を固定する。族 $t\mapsto u_n(t)\restriction B_k$ は各 $n$ で時間について二乗可積分である。
+
+  この族の $L^2$ 類の値域が全有界であることを示す。$n$ に一様な積分標本ずれ幅により、各標本スライスは局所 Rellich のコンパクト集合に置かれ、これから階段曲線の集合が全有界となり、全有界性が族へ移る。最後に全有界集合から収束部分列を取り出す。
+gap:
+  level: large
+  note: |
+    主張は `ArzelaAscoliTime.lean` の[[時空前コンパクト性|LerayHopf.galerkin_spacetime_precompact_R3]]と束縛ごとに同一で、名前だけが異なる。これがその定理を裏づける本体である。二乗可積分性は[[球制限曲線の可積分性|LerayHopf.restrictToBall_comp_curve_memLp]]、標本スライスの配置は[[標本誤差界|LerayHopf.galerkin_sampling_error_bound]]の $n$ に一様な積分標本ずれ幅と[[局所 Rellich 入力|LerayHopf.LocalRellichInput]]の球コンパクト性による。mathlib に Bochner 値 Aubin–Lions が無いため具体経路を組んだ。
+chapter: compactness
+tags: [aubin-lions, spacetime-precompact]

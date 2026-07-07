@@ -1,0 +1,22 @@
+name: LerayHopf.norm_le_liminf_of_inner_tendsto
+tier: full
+statement_ja: |
+  単一の内積収束から得られるノルムの下半連続性。実内積空間で、$\lVert g_n\rVert\le M$ かつ内積 $\langle g, g_n\rangle$ が $\lVert g\rVert^2$ に収束するならば、次が成り立つ。
+
+  $$\lVert g\rVert\ \le\ \liminf_n\lVert g_n\rVert$$
+proof_ja: |
+  Cauchy–Schwarz により次が成り立つ。
+
+  $$\langle g, g_n\rangle\ \le\ \lVert g\rVert\,\lVert g_n\rVert$$
+
+  左辺は $\lVert g\rVert^2$ に収束するから、非負スカラー $\lVert g\rVert$ を下極限と交換して
+
+  $$\lVert g\rVert^2\ =\ \lim_n\langle g, g_n\rangle\ \le\ \lVert g\rVert\cdot\liminf_n\lVert g_n\rVert$$
+
+  を得る。両辺を $\lVert g\rVert$ で割れば結論が従う。
+gap:
+  level: mild
+  note: |
+    ノルムの弱下半連続性の内積版であり、Mazur も部分列抽出も使わない。非負スカラーと下極限の交換は `Monotone.map_liminf_of_continuousAt` による。$\lVert g\rVert=0$ の場合は結論が自明。
+chapter: limit-passage
+tags: [limit-passage, weak-convergence, lower-semicontinuity]

@@ -1,0 +1,16 @@
+name: LerayHopf.norm_translate_sub_le_of_viscousBound
+tier: full
+statement_ja: |
+  許容族に対する一様平行移動ずれ幅。$H^1$ に属する発散ゼロ速度場 $w$ について、$0\le M$ かつ[[粘性形式|LerayHopf.viscousFormSq_R3]]が $M^2$ 以下ならば、ずれ $h$ の[[L² 平行移動|LerayHopf.translate_L2VF]]の $L^2$ ずれ幅は $\lVert h\rVert\cdot M$ で押さえられる。
+
+  $$\bigl\lVert\tau_h w - w\bigr\rVert_{L^2}\ \le\ \lVert h\rVert\cdot M$$
+proof_ja: |
+  平行移動ずれ幅の二乗が、ずれの大きさの二乗と粘性形式の積で押さえられるという Plancherel 評価に、粘性形式の界 $M^2$ を代入する。
+
+  両辺の平方根をとると $\lVert h\rVert\cdot\lvert M\rvert$ が得られるが、符号の仮定 $0\le M$ により $\lvert M\rvert=M$ となり、結論の $\lVert h\rVert\cdot M$ を得る。
+gap:
+  level: mild
+  note: |
+    符号の仮定 $0\le M$ は必須である。粘性形式の二乗界 $M^2$ だけでは $M$ の符号は定まらず（例えば $M=-1$、$w=0$ は偽の $0\le -\lVert h\rVert$ を与える）、平方根は $\lVert h\rVert\cdot\lvert M\rvert$ しか与えないため、結論が正しいのは $M\ge 0$ のとき。この符号は下流では $\lVert w\rVert\le M$ をもつ許容元から得られる。[[平行移動ずれ幅の Plancherel 評価|LerayHopf.normSq_translate_sub_le_viscousFormSq]]を消費する。
+chapter: compactness
+tags: [frechet-kolmogorov, translation, viscous-form]

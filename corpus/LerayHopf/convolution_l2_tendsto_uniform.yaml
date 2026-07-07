@@ -1,0 +1,20 @@
+name: LerayHopf.convolution_l2_tendsto_uniform
+tier: full
+statement_ja: |
+  平行移動同程度連続な族の、軟化による一様 $L^2$ 近似。族 $\{f\mid f\in S\}$ の $L^2(\mathbb{R}^3)$ 場が一様な $L^2$ 平行移動ずれ幅をもつとする。
+
+  このとき任意の許容誤差 $\varepsilon>0$ に対し、適当な滑らかコンパクト台の[[軟化子核|LerayHopf.MollifierKernel]] $K$ と、その[[軟化場の代表元|LerayHopf.mollifyRep]]を選ばれた代表元とする $L^2$ 類の族が存在して、各要素はその軟化と $L^2$ で $\varepsilon$ 以内に近く
+
+  $$\bigl\lVert f - (\eta\star f)\restriction B_R\bigr\rVert_{L^2}<\varepsilon\qquad(f\in S)$$
+
+  であり、かつ近似率は平行移動ずれ幅により族に一様に制御される。さらに軟化された族の像は $L^2(B_R)$ で全有界である。
+proof_ja: |
+  各要素とその軟化の $L^2$ 差は、核で重みづけした平行移動ずれ幅の積分で押さえられる。核の台半径を近似予算 $r_0$ 以下に選ぶと、積分変数は $\lVert h\rVert$ が小さい範囲を動き、族の一様な平行移動ずれ幅から一様な $<\varepsilon$ の近似率が出る。
+
+  近似の $L^2$ 類は大域的な Young 不等式で構成し、その率はベクトル値 Minkowski 不等式で得る。全有界性は、軟化された族に対する Arzelà–Ascoli から従う。
+gap:
+  level: large
+  note: |
+    mathlib は点ごとの畳み込み収束 `convolution_tendsto_right` しか持たず、この一様 $L^2$ 近似が真に欠けている中核である。$L^2$ 類の構成は[[大域 Young 不等式|LerayHopf.young_convolution_memLp_L2]]、近似率は[[畳み込み近似率|LerayHopf.convolution_sub_L2_le_translation_modulus]]、全有界性は[[軟化族の全有界性|LerayHopf.mollified_family_totallyBounded_L2]]による。全有界性の枝は拡大球 $B_{R+r_0}$ 上の質量有界性を要し、これは判定条件の大域 $L^2$ 有界性から球質量の単調性で即得る（単一半径の球有界性だけでは環状領域の質量を制御できない）。核の台半径は $r_0$ 以下に選ばれる。
+chapter: compactness
+tags: [frechet-kolmogorov, mollification, totally-bounded]

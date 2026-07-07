@@ -1,0 +1,20 @@
+name: LerayHopf.kernel_translate_L2_tendsto
+tier: full
+statement_ja: |
+  軟化子核の $L^2$ 平行移動連続性。[[軟化子核|LerayHopf.MollifierKernel]] $K$ に対し、ずれ $h$ を核 $\eta$ に施したときの $L^2$ ずれ幅
+
+  $$h\ \longmapsto\ \bigl\lVert \tau_h \eta - \eta \bigr\rVert_{L^2}$$
+
+  は $h\to 0$ のとき $0$ に収束する。
+proof_ja: |
+  核 $\eta$ は滑らかかつコンパクト台をもつので一様連続であり、固定されたコンパクト台の $L^2$ 包絡関数で優加法的に押さえられる。
+
+  したがって優収束定理により、平行移動の $L^2$-連続性が従い、ずれ幅は $h\to 0$ で $0$ に収束する。
+
+  これは軟化された族の同程度連続性を駆動する、族の要素に依らない一様なずれ幅である。
+gap:
+  level: mild
+  note: |
+    平行移動の $L^2$-連続性は mathlib の `Lp` 平行移動連続性（優収束）から得る。核が族の要素 $g$ に依らないため、このずれ幅は $g$ に一様であり、これが軟化場の同程度連続性の鍵となる。
+chapter: compactness
+tags: [frechet-kolmogorov, translation, mollifier]

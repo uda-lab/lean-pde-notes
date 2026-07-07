@@ -1,0 +1,16 @@
+name: LerayHopf.localCompactness_R3_of_ballCompact
+tier: full
+statement_ja: |
+  局所 Rellich 入力から導かれる $\mathbb{R}^3$ 上の局所空間コンパクト性。許容列に対し、単一の狭義単調な部分列と発散ゼロな大域極限 $g$ が存在して、任意の半径 $R$ について球 $B_R$ 上の差の二乗ノルムの積分が $0$ に収束する。
+
+  $$\int_{B_R}\bigl\lVert z_{\psi(n)}(x)-g(x)\bigr\rVert^2\,dx\ \xrightarrow[n\to\infty]{}\ 0$$
+proof_ja: |
+  局所 Rellich 入力から、対角線論法ですべての自然数半径で同時収束する単一の部分列を取り出し、球ごとの極限を整合的に貼り合わせて大域極限 $g$ を得る。
+
+  この $g$ は発散ゼロ空間に属する。各半径での $L^2(B_R)$ 収束を、集合積分と距離の等式で球上の二乗ノルム積分の収束に翻訳すると、結論が得られる。
+gap:
+  level: large
+  note: |
+    これはかつての公理 `spatial_compactness_R3` の結論を、局所 Rellich フロンティア[[局所 Rellich 入力|LerayHopf.LocalRellichInput]]のみを条件として、公理を用いずに再現したものである（公理→定理）。部分列の抽出は[[全球での同時収束|LerayHopf.exists_subseq_tendsto_on_all_balls]]、整合的貼り合わせは[[球ごとの極限の整合性|LerayHopf.ballLimits_are_consistent]]、発散ゼロ性は[[大域極限の発散ゼロ性|LerayHopf.ballLimit_global_mem_L2Sigma]]、集合積分と距離の橋渡しは[[集合積分と距離の等式|LerayHopf.setIntegral_normSq_eq_dist_sq_restrictToBall]]による。
+chapter: compactness
+tags: [spatial-compactness, rellich, frontier-resolved]

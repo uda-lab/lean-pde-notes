@@ -1,0 +1,14 @@
+name: LerayHopf.build_galerkin_package_R3_of_galSeq
+tier: full
+statement_ja: |
+  明示的な Galerkin 近似列から、$\mathbb{R}^3$ の完全な Galerkin コンパクト性パッケージを組み立てる構成。粘性係数 $\nu>0$、時刻 $T>0$、初期値 $u_0$、Galerkin 近似列、および $H^1$ グラフでのテスト近似性が与えられたとき、証明済みの Aubin–Lions パッケージと極限移行を連ねて、弱形式・エネルギー・初期トレースを備えたパッケージを返す。
+proof_ja: |
+  三段で組み立てる。第一に、時間コンパクト性からの Aubin–Lions パッケージを、空間側を[[Fréchet–Kolmogorov 判定条件からの局所 Rellich|LerayHopf.localRellichInput_of_frechetKolmogorov]]（証明済みの Fréchet–Kolmogorov 鎖）で、時間側を無条件の時空抽出で埋めて適用する。
+
+  第二に、[[極限移行|LerayHopf.galerkin_limit_passage_R3]]を適用して弱方程式・エネルギー・トレースを得る。第三に、これらを完全な Galerkin コンパクト性パッケージにまとめる。
+gap:
+  level: mild
+  note: |
+    かつて Step 1 は `aubin_lions_R3` 公理を適用していたが（issue #15 で再配置）、いまは証明済みの構成子を適用するため、この組み立ては Aubin–Lions 極限移行の下流に位置する。名前・型・生成する構造は旧版とバイト単位で同一なので、capstone は import 越しにこの定義を透過的に見る。時間側は構成子内部で無条件の[[時空抽出|LerayHopf.galerkinSpaceTimeExtraction_R3]]が供給する。
+chapter: limit-passage
+tags: [aubin-lions, limit-passage, assembly]

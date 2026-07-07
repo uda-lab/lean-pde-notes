@@ -1,0 +1,14 @@
+name: LerayHopf.setIntegral_normSq_eq_dist_sq_restrictToBall
+tier: full
+statement_ja: |
+  球上の差の二乗ノルムの集合積分は、二つの[[球への制限|LerayHopf.restrictToBall]]の $L^2(B_R)$ 距離の二乗に等しい。
+
+  $$\int_{B_R}\lVert u(x)-v(x)\rVert^2\,dx\ =\ \operatorname{dist}\bigl(u\restriction B_R,\ v\restriction B_R\bigr)^2$$
+proof_ja: |
+  $L^2(B_R)$ 距離の二乗はその定義により差の二乗ノルムの積分に等しく、制限した場の下にある関数は元の場に球上でほとんど至るところ一致する。よって両辺の被積分関数が一致し、等式が成り立つ。
+gap:
+  level: none
+  note: |
+    結論に現れる集合積分の形と、収束部分列を与える `IsCompact.tendsto_subseq` が働く距離との橋渡し。局所コンパクト性の結論が集合積分の言葉で述べられるのに対し、収束の抽出は距離空間で行われるため必要になる。
+chapter: compactness
+tags: [spatial-compactness, function-space]

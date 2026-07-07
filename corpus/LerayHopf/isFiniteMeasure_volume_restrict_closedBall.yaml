@@ -1,0 +1,10 @@
+name: LerayHopf.isFiniteMeasure_volume_restrict_closedBall
+tier: full
+statement_ja: |
+  半径 $R$ の閉球 $B_R\subseteq\mathbb{R}^3$ の体積は有限であり、したがって閉球に制限した Lebesgue 測度は有限測度である。閉球は完備空間内でコンパクトゆえに有限体積をもつ。
+gap:
+  level: none
+  note: |
+    有限測度性は、点ごとの一様上界から $L^2(B_R)$ ノルムへ移す評価 `Lp.norm_le_of_ae_bound` を使うために必要となる型クラスインスタンスである。
+chapter: compactness
+tags: [frechet-kolmogorov, measure]

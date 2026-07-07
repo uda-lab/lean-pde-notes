@@ -1,0 +1,14 @@
+name: LerayHopf.exists_subseq_tendsto_on_ball
+tier: full
+statement_ja: |
+  局所 Rellich 入力を仮定する。発散ゼロで $H^1$ に属し、$L^2$ ノルムと粘性形式がそれぞれ一様に $M$ および $M^2$ で押さえられる許容列に対し、任意の部分列と任意の半径 $R$ について、さらに部分列を取り出して[[球への制限|LerayHopf.restrictToBall]]が $L^2(B_R)$ で収束させることができる。
+proof_ja: |
+  許容列の像は、局所 Rellich 入力により $L^2(B_R)$ のあるコンパクト集合に含まれる。
+
+  コンパクト集合内の点列は収束部分列をもつので、球への制限のなす列から $L^2(B_R)$ で収束する部分列が取り出せる。
+gap:
+  level: mild
+  note: |
+    [[局所 Rellich 入力|LerayHopf.LocalRellichInput]]の球ごとの前コンパクト性から、`IsCompact.tendsto_subseq` で収束部分列を得る。ここで得られるのは単一半径 $R$ での収束のみ。
+chapter: compactness
+tags: [spatial-compactness, subsequence]

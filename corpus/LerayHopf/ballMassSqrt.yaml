@@ -1,0 +1,10 @@
+name: LerayHopf.ballMassSqrt
+tier: full
+statement_ja: |
+  球質量因子 $V_R:=(\operatorname{vol} B_R)^{1/2}$。半径 $R$ の閉球の体積の平方根であり、点ごとの一様上界から $L^2(B_R)$ ノルムへの移行を制御する。
+gap:
+  level: none
+  note: |
+    有限測度の球上で、値がほとんど至るところ $c$ で押さえられる関数の $L^2(B_R)$ ノルムは $V_R\cdot c$ 以下になる。この因子が上限評価と $L^2$ 評価の橋渡しに使われる。
+chapter: compactness
+tags: [frechet-kolmogorov, measure]

@@ -1,0 +1,14 @@
+name: LerayHopf.u_lim_aestronglyMeasurable
+tier: full
+statement_ja: |
+  組み上げた極限曲線 $u\colon[0,T]\to L^2_\sigma(\mathbb{R}^3)$ の存在と可測性。局所 Rellich 入力を仮定すると、狭義単調な部分列と極限曲線 $u$ が存在して、$u$ は時間についてほとんど至るところ強可測であり、任意の実半径 $R$ についてほとんどすべての時刻で、Galerkin 状態の半径 $R$ への[[球への制限|LerayHopf.restrictToBall]]が $u(t)$ の制限へ収束する。
+proof_ja: |
+  まずすべての自然数半径で概時刻収束する対角部分列を取り出す。
+
+  次に球ノルムの単調性で自然数半径から実半径へ収束を延長し、球ごとの概時刻収束から可測な弱極限 $u$ を発散ゼロ空間内に組み上げる。
+gap:
+  level: mild
+  note: |
+    対角部分列は[[対角概収束部分列|LerayHopf.diag_ae_subseq]]、自然数半径から実半径への延長は球ノルムの単調性、可測な極限の組み立ては[[測定可能弱極限|LerayHopf.galerkin_weakLimit_R3]]による。出力の型は時空抽出 `galerkinSpaceTimeExtraction_R3` が要求するものと同じ。
+chapter: compactness
+tags: [aubin-lions, limit, measurability]

@@ -1,0 +1,12 @@
+name: LerayHopf.L2ballR3
+tier: full
+statement_ja: |
+  半径 $R$ の閉球 $B_R$ 上の二乗可積分空間 $L^2(B_R)$。閉球に制限した Lebesgue 測度に対する $L^2$ 空間として定める。
+
+  これは球ごとの前コンパクト性から収束部分列を取り出すために使える距離を供給する担い手であり、以下の議論の局所的な収束はこの空間の距離で測られる。
+gap:
+  level: none
+  note: |
+    コンパクト集合から収束部分列を取り出す `IsCompact.tendsto_subseq` を適用するための距離空間として使う。全空間の $L^2(\mathbb{R}^3)$ ではなく、各閉球上の制限測度に対する $L^2$ である。
+chapter: compactness
+tags: [spatial-compactness, function-space]

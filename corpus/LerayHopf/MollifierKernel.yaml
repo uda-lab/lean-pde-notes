@@ -1,0 +1,12 @@
+name: LerayHopf.MollifierKernel
+tier: full
+statement_ja: |
+  軟化に用いる核データ。スカラー値の軟化子核 $\eta\colon\mathbb{R}^3\to\mathbb{R}$ であって、滑らか（無限回連続微分可能）かつコンパクト台をもつものを一つの対象として束ねたもの。
+
+  滑らかさとコンパクト台を明示的に要求することで、以下の族に対する一様有界性・同程度連続性の評価が空虚にではなく真に成り立つようになる。任意の作用素に対しては偽になりうる評価を、この admissible な核に限定することで正当化する。
+gap:
+  level: none
+  note: |
+    滑らかさは `ContDiff ℝ ⊤`、コンパクト台は `HasCompactSupport` として保持し、台を含む閉球の半径 $r$ を `supportRadius` として持つ。これらの仮定が、Young 不等式に必要な $\eta\in L^2$・$\eta\in L^1$ と、平行移動の $L^2$-連続性を保証する。
+chapter: compactness
+tags: [frechet-kolmogorov, mollifier]

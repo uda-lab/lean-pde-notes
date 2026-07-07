@@ -1,0 +1,18 @@
+name: LerayHopf.galerkin_norm_le_u0
+tier: full
+statement_ja: |
+  Galerkin 側の一様エネルギー界。各階層 $n$ とすべての時刻 $t\ge 0$ について、Galerkin 状態は初期値によって $L^2$ で押さえられる。
+
+  $$\bigl\lVert u_n(t)\bigr\rVert\ \le\ \lVert u_0\rVert$$
+proof_ja: |
+  エネルギー界により運動エネルギーが初期値の射影のそれで押さえられ、次が成り立つ。
+
+  $$\tfrac12\lVert u_n(t)\rVert^2\ \le\ \tfrac12\lVert P_n u_0\rVert^2$$
+
+  さらに射影がノルムを増やさないので $\lVert P_n u_0\rVert\le\lVert u_0\rVert$ であり、両者を合わせて主張を得る。
+gap:
+  level: none
+  note: |
+    エネルギー界 `energy_bound` と射影のノルム非増大 `𝔊.norm_le` を組み合わせる。時間の可測性を要しない側の評価であり、前方時間 $t\ge 0$ でのみ主張される。
+chapter: limit-passage
+tags: [aubin-lions, energy-inequality, galerkin]

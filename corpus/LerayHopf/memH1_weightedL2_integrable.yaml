@@ -1,0 +1,22 @@
+name: LerayHopf.memH1_weightedL2_integrable
+tier: full
+statement_ja: |
+  発散ゼロ速度場 $w$ が $H^1(\mathbb{R}^3)$ に属するとき、その各成分 $j\in\{1,2,3\}$ について、成分の Fourier 変換 $\widehat{c_j}$ に 1 階 Sobolev 荷重 $1+\lvert\xi\rvert^2$ をかけた被積分関数
+
+  $$\xi\ \longmapsto\ \bigl(1+\lvert\xi\rvert^2\bigr)\,\bigl\lvert\widehat{c_j}(\xi)\bigr\rvert^2$$
+
+  は $\xi\in\mathbb{R}^3$ について Lebesgue 可積分である。ここで $c_j$ は速度場 $w$ の第 $j$ 複素成分であり、$\widehat{c_j}$ はその $L^2$ 上の Fourier 変換を表す。
+proof_ja: |
+  $w$ の[[H¹ 所属|LerayHopf.memH1VF_R3]]は、各成分について Bessel 荷重 $(1+\lvert\xi\rvert^2)^{1/2}$ を Fourier 変換 $\widehat{c_j}$ にかけたものがふたたび二乗可積分な関数 $f'$ に一致することを意味する。
+
+  したがって両辺の二乗ノルムをとれば、ほとんどすべての $\xi$ で
+
+  $$\bigl(1+\lvert\xi\rvert^2\bigr)\,\bigl\lvert\widehat{c_j}(\xi)\bigr\rvert^2\ =\ \lvert f'(\xi)\rvert^2$$
+
+  が成り立つ。右辺は二乗可積分な関数の二乗ノルムであって可積分だから、左辺の被積分関数も可積分である。
+gap:
+  level: mild
+  note: |
+    $H^1$ 所属は mathlib の `TemperedDistribution.MemSobolev 1 2` として各複素成分に課され、荷重をかける操作は Bessel 荷重 `besselWeightC` に対する `SchwartzMap.smulLeftCLM` で表される。証明の要は、非有界な乗数 $(1+\lvert\xi\rvert^2)^{1/2}$ を $L^2$-Fourier 変換 `Lp.fourierTransformₗᵢ` に作用させた等式のほとんど至るところの取り出しである。この補題は、かつて `integrable_viscous_integrand_of_memH1` に残っていた唯一の未証明ギャップ（$H^1$ から $(2\pi)^2\lvert\xi\rvert^2$ 荷重付き可積分性への橋渡し）を閉じるための助補題であり、$\lvert\xi\rvert^2\le 1+\lvert\xi\rvert^2$ による優加法で後者が従う。現在この鎖はすべて証明済みである。
+chapter: compactness
+tags: [frechet-kolmogorov, sobolev, fourier-coefficient, plancherel]

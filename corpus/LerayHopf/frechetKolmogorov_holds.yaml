@@ -1,0 +1,16 @@
+name: LerayHopf.frechetKolmogorov_holds
+tier: full
+statement_ja: |
+  Fréchet–Kolmogorov（Riesz）の $L^2$ 前コンパクト性判定条件。一様に $L^2$ 有界であり、かつ平行移動ずれ幅が一様に消える $L^2(B_R)$ の族はコンパクト集合に含まれる。
+
+  これは[[Fréchet–Kolmogorov 判定条件|LerayHopf.FrechetKolmogorovInput]]の忠実な達成であり、型を弱めることなくそのまま証明する。
+proof_ja: |
+  標準的な軟化経路を組み上げる。まず一様な $L^2$ 平行移動ずれ幅から、各要素は自身の軟化で一様に $\varepsilon$-近似される。
+
+  次にその軟化された像は Arzelà–Ascoli により全有界であり、一様近似からの全有界性移行によって族 $S$ 自身が全有界になる。最後に $L^2(B_R)$ の完備性により、全有界性は前コンパクト性へ格上げされ、$S$ を含むコンパクト集合が得られる。
+gap:
+  level: large
+  note: |
+    mathlib は Fréchet–Kolmogorov も Rellich も持たないので、この判定条件は本形式化における真の達成である。第 1 段は[[軟化による一様近似|LerayHopf.convolution_l2_tendsto_uniform]]、全有界性は[[軟化族の全有界性|LerayHopf.mollified_family_totallyBounded_L2]]、移行は[[一様近似からの全有界性|LerayHopf.totallyBounded_of_uniform_approx]]による。補助補題は正直には拡大球 $B_{R+r_0}$ 上の一様質量有界性を要するが、判定条件が代表元の大域 $L^2$ ノルム上界を持つため球質量の単調性で即得る（単一半径の球有界性だけでは環状領域の低周波質量を抑えられない）。これは Riesz の全質量制御であり、Sobolev や勾配の内容を含まない。前コンパクト性への格上げは完備性（`isCompact_iff_totallyBounded_isComplete`）による。
+chapter: compactness
+tags: [frechet-kolmogorov, totally-bounded, frontier-resolved]

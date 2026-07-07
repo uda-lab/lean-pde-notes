@@ -1,0 +1,22 @@
+name: LerayHopf.galerkin_sampling_error_bound
+tier: full
+statement_ja: |
+  階層 $n$ に一様な積分標本誤差界（master）。$\lVert u_0\rVert$、$\nu$、$T$、および移流三線型定数 $C_b$ のみに依存する定数 $C_{\mathrm{mod}}\ge 0$ が存在して、これはあらゆる Galerkin 階層・Galerkin 解・メッシュ数の量化子の外側に立つ。
+
+  すなわち任意の階層 $n$、その階層の任意の Galerkin 解、任意のメッシュ数 $m>0$ に対し、$\delta:=T/m$ とおくと、標本時刻 $\tau\colon\{0,\dots,m-1\}\to\mathbb{R}$ が存在して、各標本は自身のセルに入り、次の良い標本 Dirichlet 界（$E_0=\tfrac12\lVert u_0\rVert^2$）を満たす。
+
+  $$V_1(u(\tau_i))\ \le\ 2\delta^{-1}\nu^{-1}E_0$$
+
+  さらに次の積分（セルについての和）誤差界が成り立つ。
+
+  $$\sum_{i} \int_{i\delta}^{(i+1)\delta}\bigl\lVert u(t)-u(\tau_i)\bigr\rVert^2\,dt\ \le\ C_{\mathrm{mod}}\sqrt{\delta}$$
+proof_ja: |
+  各セルで、平均以下の値をとる良い標本を選ぶ（階層とセルごとの選択は古典的）。各セルにセル誤差評価を適用し、隣接区間の積分を足し合わせる。
+
+  最後に時間についての Hölder 不等式と正則性界を用いて、和を $\sqrt{\delta}$ に比例する形にまとめる。得られる定数 $C_{\mathrm{mod}}$ は $C_b$、$\lVert u_0\rVert$、$\nu$、$T$ のみから組まれ、階層 $n$ にもメッシュ数 $m$ にも依らない。
+gap:
+  level: large
+  note: |
+    結論は積分された（セルについて和をとった）ずれ幅であり、時間についての各点強ずれ幅は主張しない。構造的に重要なのは、存在量化 $\exists C_{\mathrm{mod}}$ が $\forall n$・$\forall$解・$\forall m$ の外側に立つこと（$C_{\mathrm{mod}}$ が $n$・$m$ に依らない）と、メッシュがサイズ $m$ の固定一様メッシュであること。良い標本は[[良い標本の存在|LerayHopf.exists_goodSample]]、セル評価は[[セル誤差界|LerayHopf.galerkin_cell_error_bound]]、隣接区間の和は `intervalIntegral.sum_integral_adjacent_intervals`、時間 Hölder は正則性界と合わせて用いる。時空前コンパクト性の全有界性を駆動する $n$ 一様な積分標本ずれ幅である。
+chapter: compactness
+tags: [aubin-lions, galerkin-time-modulus, spacetime-precompact]

@@ -1,0 +1,12 @@
+name: LerayHopf.translate_L2VF
+tier: full
+statement_ja: |
+  $L^2(\mathbb{R}^3)$ の速度場の $L^2$ 平行移動 $(\tau_h w)(x)=w(x-h)$。ずれ $h$ を施した場を、ふたたび $L^2(\mathbb{R}^3)$ の速度場の要素として定める。
+
+  平行移動 $(\cdot+h)$ は Lebesgue 測度に対して測度を保つため、[[球への制限|LerayHopf.restrictToBall]]と違ってこれは測度保存写像を経て定義される。
+gap:
+  level: none
+  note: |
+    測度保存性 `measurePreserving_add_right` を用いて `Lp.compMeasurePreserving` で構成する純粋な $L^p$ の配管であり、Sobolev・勾配・発散のいずれの対象にも触れない。Fréchet–Kolmogorov 判定条件の平行移動ずれ幅はこの大域場の平行移動で述べられる。
+chapter: compactness
+tags: [frechet-kolmogorov, translation]

@@ -1,0 +1,14 @@
+name: LerayHopf.kernelL1R
+tier: full
+statement_ja: |
+  [[軟化子核|LerayHopf.MollifierKernel]] $K$ の関数 $\eta$ を、スカラーの $L^1$ 類とみなしたもの。核は連続かつコンパクト台をもつため可積分であり、$L^1$ の要素として扱える。
+
+  これは Young の畳み込み不等式に現れる質量因子 $\lVert\eta\rVert_1$ である。
+
+  $$\lVert\eta\star g\rVert_{L^2}\ \le\ \lVert\eta\rVert_{L^1}\,\lVert g\rVert_{L^2}$$
+gap:
+  level: none
+  note: |
+    可積分性は連続性（`K.smooth.continuous`）とコンパクト台（`K.hasCompactSupport`）から従い、`MemLp 1` の証人を経て $L^1$ 類に持ち上げる。大域的な Young 不等式による軟化場の $L^2$ 有界性で $L^1$ ノルムが質量因子として現れる。
+chapter: compactness
+tags: [frechet-kolmogorov, mollifier]

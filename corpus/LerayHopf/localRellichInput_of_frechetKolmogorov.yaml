@@ -1,0 +1,14 @@
+name: LerayHopf.localRellichInput_of_frechetKolmogorov
+tier: full
+statement_ja: |
+  抽象的な Fréchet–Kolmogorov 判定条件から導かれる $\mathbb{R}^3$ 上の局所 Rellich 入力。すなわち[[Fréchet–Kolmogorov 判定条件|LerayHopf.FrechetKolmogorovInput]]を仮定すると、$H^1$ 有界な発散ゼロ族の球ごとの前コンパクト性を主張する[[局所 Rellich 入力|LerayHopf.LocalRellichInput]]が構成される。
+proof_ja: |
+  Navier–Stokes 固有の内容、すなわち勾配界から一様な平行移動ずれ幅への移行を、Plancherel を用いて公理なしに組み上げる。
+
+  各許容元は $H^1$ に属し粘性形式が一様に押さえられるので、平行移動ずれ幅は一様に $\lVert h\rVert\cdot M$ で消える。これと一様な $L^2$ 有界性を Fréchet–Kolmogorov 判定条件に与えると、球ごとの前コンパクト性が従い、局所 Rellich 入力が得られる。
+gap:
+  level: large
+  note: |
+    Navier–Stokes 固有の中核（一様平行移動ずれ幅）の Plancherel コアはすべて証明済みで、この達成は未証明箇所を含まない。仮定として使うのは領域に依らない抽象 Fréchet–Kolmogorov 前コンパクト性判定条件のみである。一様ずれ幅は[[一様平行移動ずれ幅|LerayHopf.norm_translate_sub_le_of_viscousBound]]、一様有界性は[[制限族の一様有界性|LerayHopf.admissible_family_uniform_bound]]による。結論は局所 Rellich 入力の型をそのまま再現し、弱めていない。
+chapter: compactness
+tags: [frechet-kolmogorov, rellich, frontier-resolved]

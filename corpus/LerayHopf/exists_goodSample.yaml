@@ -1,0 +1,18 @@
+name: LerayHopf.exists_goodSample
+tier: full
+statement_ja: |
+  コンパクト区間 $[a,b]$（$a<b$）上の連続非負な被積分関数は、その平均以下の値をとる点をもつ。すなわちある $\tau\in[a,b]$ が存在して
+
+  $$f(\tau)\ \le\ \frac{1}{b-a}\int_a^b f(\sigma)\,d\sigma$$
+
+  が成り立つ。
+proof_ja: |
+  コンパクト区間上の連続関数は最小値を達成する。
+
+  最小値は平均以下であり、これは最小値を与える点での定数と被積分関数の間の区間積分の単調性から従う。この最小点を $\tau$ にとればよい。
+gap:
+  level: none
+  note: |
+    Galerkin の文脈に依らない一般的な補題。最小値の達成は `IsCompact.exists_isMinOn`、平均との比較は区間積分の単調性 `intervalIntegral.integral_mono_on` による。
+chapter: compactness
+tags: [aubin-lions, galerkin-time-modulus]

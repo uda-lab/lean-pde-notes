@@ -1,0 +1,16 @@
+name: LerayHopf.perBall_ae_subseq
+tier: full
+statement_ja: |
+  時間 $L^2$（Bochner）収束から、半径 $k$ の[[球への制限|LerayHopf.restrictToBall]]のノルムで概時刻収束する、さらなる部分列を取り出す。
+
+  すなわち入力部分列と半径 $k$ が与えられたとき、狭義単調な部分列と可測な極限曲線 $g_k$ が存在して、Galerkin 状態の半径 $k$ への制限がほとんどすべての時刻 $t$ で $g_k(t)$ へ収束する。
+proof_ja: |
+  まず細分可能な時空前コンパクト性を入力部分列と半径 $k$ に適用し、時間 $L^2$ ノルムが $0$ に収束する部分列と極限 $g_k$ を得る。
+
+  時間 $L^2$ ノルムの収束は測度収束を導き、測度収束からさらに部分列を取り出すと概時刻収束が得られる。出力の部分列は二段の合成として狭義単調である。
+gap:
+  level: mild
+  note: |
+    時間 $L^2$ 収束から測度収束は `tendstoInMeasure_of_tendsto_eLpNorm`、測度収束から概収束部分列は `TendstoInMeasure.exists_seq_tendsto_ae` による。差の曲線の強可測性は、Galerkin 曲線が前方時間で連続であることと制限の連続性から従う。入力は[[時空前コンパクト性|LerayHopf.galerkin_spacetime_precompact_R3]]の細分可能形。
+chapter: compactness
+tags: [aubin-lions, subsequence, convergence-in-measure]

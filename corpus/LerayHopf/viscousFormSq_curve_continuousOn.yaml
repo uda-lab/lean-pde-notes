@@ -1,0 +1,14 @@
+name: LerayHopf.viscousFormSq_curve_continuousOn
+tier: full
+statement_ja: |
+  Galerkin 状態の[[粘性形式|LerayHopf.viscousFormSq_R3]]の曲線 $s\mapsto V_1(u_n(s))$ は前方時間 $s\ge 0$ で連続である。
+proof_ja: |
+  粘性形式は各成分の荷重付き Fourier 曲線のノルム二乗の和として表される。
+
+  各荷重付き Fourier 曲線は前方時間で連続なので、そのノルム二乗の有限和も連続である。
+gap:
+  level: none
+  note: |
+    粘性形式のスペクトル表示を、連続な荷重付き Fourier 曲線（`viscous_curve_continuous` 場）のノルム二乗の有限和として連続性を得る。
+chapter: limit-passage
+tags: [aubin-lions, viscous-form, continuity]

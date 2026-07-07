@@ -1,0 +1,12 @@
+name: LerayHopf.spatialInput_R3_of_localRellich
+tier: full
+statement_ja: |
+  Aubin–Lions の組み合わせが要求する空間側の仮定は、まさに局所 Rellich から導かれる[[局所空間コンパクト性|LerayHopf.localCompactness_R3_of_ballCompact]]である。局所 Rellich 入力を供給すれば、この空間側の仮定は満たされる。
+proof_ja: |
+  局所 Rellich 入力を局所空間コンパクト性に渡すと、Aubin–Lions が空間側に要求する結論がそのまま得られる。両者の型は一致する。
+gap:
+  level: none
+  note: |
+    この型は Aubin–Lions 時間コンパクト性補題の空間側の束縛を一字一句再現したものである。局所 Rellich 入力から空間側を橋渡しするだけの薄い補題。
+chapter: limit-passage
+tags: [aubin-lions, spatial-compactness]

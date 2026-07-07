@@ -1,0 +1,16 @@
+name: LerayHopf.mollifyRep
+tier: full
+statement_ja: |
+  軟化された場の、点ごとに定まる連続な代表元。[[軟化子核|LerayHopf.MollifierKernel]] $K$ と場 $f$ に対し、各点 $x$ での値をベクトル値の畳み込み
+
+  $$(\eta\star f)(x)\ =\ \int_{\mathbb{R}^3} \eta(x-y)\,f(y)\,dy$$
+
+  で定める。核 $\eta$ が滑らかかつコンパクト台をもつため、この積分はすべての $x$ で収束し、滑らか（したがって連続）なベクトル値関数を定める。
+
+  これは軟化された $L^2$ 類の忠実な代表元であり、点ごとの上限評価や同程度連続性の評価はこの具体的な代表元の上でこそ正当である。任意の $L^2$ 上の作用素に対してではなく、この明示的な畳み込みに対して以下の族の評価は述べられる。
+gap:
+  level: none
+  note: |
+    畳み込みの被積分関数のスカラー・ベクトル積は各点で可積分（`ContDiffBump` 型の台の議論）であり、`mollifyRep` は `L2VF_R3` 類ではなく生の関数 $\mathbb{R}^3\to\mathbb{R}^3$ として定義される。台の半径は核の `supportRadius`。この具体化は、健全性を欠く「任意の作用素 $\rho$」による定式化を置き換えるためのもの。
+chapter: compactness
+tags: [frechet-kolmogorov, mollifier, convolution]

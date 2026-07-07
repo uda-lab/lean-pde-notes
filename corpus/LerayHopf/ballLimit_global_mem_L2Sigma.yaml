@@ -1,0 +1,14 @@
+name: LerayHopf.ballLimit_global_mem_L2Sigma
+tier: full
+statement_ja: |
+  貼り合わせた大域極限 $g$ は[[発散ゼロ空間|LerayHopf.L2Sigma_R3]]に属する。すなわち弱い意味で発散ゼロである。ここで $g$ は許容列の部分列の[[球への制限|LerayHopf.restrictToBall]]が各半径で収束する先の大域極限である。
+proof_ja: |
+  許容列は各項が発散ゼロであり、その球への制限は $g$ の制限へ $L^2$ 収束する。
+
+  発散ゼロ空間は弱閉集合であり、球ごとの $L^2$ 収束から弱収束が従うので、極限 $g$ もまた発散ゼロ空間に属する。
+gap:
+  level: mild
+  note: |
+    発散ゼロ空間の弱閉性は `DivergenceFree.lean` で Mazur の定理により示されている。弱閉集合の点列極限がふたたびその集合に属するという逐次的特徴づけを使う。
+chapter: compactness
+tags: [spatial-compactness, divergence-free, limit]

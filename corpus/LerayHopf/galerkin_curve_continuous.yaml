@@ -1,0 +1,12 @@
+name: LerayHopf.galerkin_curve_continuous
+tier: full
+statement_ja: |
+  Galerkin 速度曲線 $t\mapsto u_n(t)$ は前方時間 $t\ge 0$ で連続である。実際そこでは微分可能でさえある。
+proof_ja: |
+  Galerkin 曲線は前方時間で微分可能であり、微分可能性から連続性が従う。
+gap:
+  level: none
+  note: |
+    前方時間のみ: 曲線は物理的な Galerkin 解であって前方時間にのみ拘束される（`u_hasDeriv` は $t\ge 0$ での微分可能性のみを保証する）。下流はこの曲線を $[0,T]\subseteq[0,\infty)$ 上でしか使わないため前方連続性で十分。
+chapter: limit-passage
+tags: [aubin-lions, galerkin, continuity]

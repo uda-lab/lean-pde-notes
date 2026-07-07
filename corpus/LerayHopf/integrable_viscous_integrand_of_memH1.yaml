@@ -1,0 +1,22 @@
+name: LerayHopf.integrable_viscous_integrand_of_memH1
+tier: full
+statement_ja: |
+  発散ゼロ速度場 $w$ が $H^1(\mathbb{R}^3)$ に属するとき、各成分 $j$ について、スペクトル的な粘性被積分関数
+
+  $$\xi\ \longmapsto\ (2\pi)^2\,\lvert\xi\rvert^2\,\bigl\lvert\widehat{c_j}(\xi)\bigr\rvert^2$$
+
+  は $\xi$ について Lebesgue 可積分である。ここで $c_j$ は速度場 $w$ の第 $j$ 複素成分である。
+proof_ja: |
+  $H^1$ 所属から、荷重 $1+\lvert\xi\rvert^2$ をかけた次の被積分関数が可積分であることが得られる。
+
+  $$\bigl(1+\lvert\xi\rvert^2\bigr)\,\bigl\lvert\widehat{c_j}(\xi)\bigr\rvert^2$$
+
+  スペクトル的な粘性被積分関数は係数 $(2\pi)^2$ を除いて次の量であり、$\lvert\xi\rvert^2\le 1+\lvert\xi\rvert^2$ による優加法から、これも可積分になる。
+
+  $$\lvert\xi\rvert^2\,\bigl\lvert\widehat{c_j}(\xi)\bigr\rvert^2$$
+gap:
+  level: mild
+  note: |
+    これは $H^1$ 所属から $L^2$-Fourier 変換の具体的な荷重付き可積分性への橋渡しであり、荷重付き可積分性は[[H¹ の荷重付き可積分性|LerayHopf.memH1_weightedL2_integrable]]で与えられる。かつてこの命題には唯一の未証明ギャップが残っていたが、共有の Fourier–$L^2$ 基盤（`FourierL2.lean`）により閉じられ、現在は証明済みである。宣言のドキュメント文字列には旧い「未解決」の記述が残るが、実際の証明は完結している。
+chapter: compactness
+tags: [frechet-kolmogorov, sobolev, fourier-coefficient, plancherel]

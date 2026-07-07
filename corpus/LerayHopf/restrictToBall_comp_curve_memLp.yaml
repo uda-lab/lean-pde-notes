@@ -1,0 +1,14 @@
+name: LerayHopf.restrictToBall_comp_curve_memLp
+tier: full
+statement_ja: |
+  半径 $k$ に[[球への制限|LerayHopf.restrictToBall]]した Galerkin 解曲線 $t\mapsto u(t)\restriction B_k$ は、コンパクト区間 $[0,T]$ 上で（制限した Lebesgue 測度に対し）二乗可積分である。
+proof_ja: |
+  Galerkin 速度曲線は前方時間で連続であり、球への制限は $1$-Lipschitz なので、合成は $[0,T]$ 上で連続である。
+
+  ノルム空間への連続曲線は有限区間上で二乗可積分だから、主張が従う。
+gap:
+  level: mild
+  note: |
+    Galerkin 曲線の前方連続性は[[Galerkin 曲線の連続性|LerayHopf.galerkin_curve_continuous]]、制限の $1$-Lipschitz 性から合成の連続性を得て、有限区間上の連続曲線の二乗可積分性（`MemLp 2`）を得る。時空前コンパクト性の階段曲線の全有界性の出発点。
+chapter: compactness
+tags: [aubin-lions, spacetime-precompact, function-space]

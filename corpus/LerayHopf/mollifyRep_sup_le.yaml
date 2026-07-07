@@ -1,0 +1,20 @@
+name: LerayHopf.mollifyRep_sup_le
+tier: full
+statement_ja: |
+  軟化された場の点ごとの上限評価（Cauchy–Schwarz / Young）。半径 $R$ の閉球内の点 $x$ に対し、[[軟化場の代表元|LerayHopf.mollifyRep]]の値は核の $L^2$ ノルムと、拡大球への場の制限の質量との積で押さえられる。
+
+  $$\bigl\lVert(\eta\star f)(x)\bigr\rVert\ \le\ \lVert\eta\rVert_{L^2}\cdot\bigl\lVert f\restriction B_{R+r}\bigr\rVert_{L^2}\qquad(x\in B_R)$$
+
+  ここで $r$ は核の台を含む閉球の半径である。
+proof_ja: |
+  畳み込みの値は次の積分であり、その被積分関数 $\eta(x-y)\,f(y)$ に Cauchy–Schwarz 不等式を適用すると、核の $L^2$ ノルムと場の $L^2$ ノルムの積が得られる。
+
+  $$(\eta\star f)(x)\ =\ \int \eta(x-y)\,f(y)\,dy$$
+
+  さらに核 $\eta$ の台が半径 $r$ の閉球に収まるため、この積分は $x\in B_R$ から核が届く範囲、すなわち $y\in B_{R+r}$ 上の $f$ の値しか見ない。よって質量因子は拡大球 $B_{R+r}$ への制限に局所化される。
+gap:
+  level: mild
+  note: |
+    核到達性（$\eta$ の台が半径 $r$）による質量因子の拡大球への局所化が要点で、`restrictToBall (R + K.supportRadius)` として表される。出力の上界は $x\in B_R$ 上でのみ主張される。
+chapter: compactness
+tags: [frechet-kolmogorov, mollifier, young-inequality]

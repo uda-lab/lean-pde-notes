@@ -1,0 +1,20 @@
+name: LerayHopf.convolution_sub_L2_le_translation_modulus
+tier: full
+statement_ja: |
+  畳み込み近似の誤差率のベクトル値 Minkowski 形。質量 1 の[[軟化子核|LerayHopf.MollifierKernel]] $K$ と場 $g$ に対し、軟化の $L^2$ 誤差は核で重みづけした平行移動ずれ幅の積分で押さえられる。
+
+  $$\bigl\lVert\eta\star g - g\bigr\rVert_{L^2}\ \le\ \int_{\mathbb{R}^3} \eta(h)\,\bigl\lVert \tau_h g - g\bigr\rVert_{L^2}\,dh$$
+proof_ja: |
+  質量 1 の核に対して次の等式が成り立つ。
+
+  $$(\eta\star g)-g\ =\ \int \eta(h)\,(\tau_h g - g)\,dh$$
+
+  ここでベクトル値の Minkowski 積分不等式を適用すると、軟化の $L^2$ 誤差は核で重みづけした平行移動ずれ幅の積分で押さえられる。
+
+  $$\Bigl\lVert\int F(h)\,dh\Bigr\rVert_{L^2}\ \le\ \int\lVert F(h)\rVert_{L^2}\,dh$$
+gap:
+  level: large
+  note: |
+    Fréchet–Kolmogorov 経路のもう一つの解析的中核。核の台半径を $\delta$ 未満に選べば積分変数 $h$ は $\lVert h\rVert<\delta$ 上を動き、族の一様な平行移動ずれ幅と合わせて一様な $<\varepsilon$ の近似率を与える。積分の交換は `Lp`-値 Bochner 積分の係数関数の恒等式を経る。
+chapter: compactness
+tags: [frechet-kolmogorov, mollifier, minkowski-inequality]

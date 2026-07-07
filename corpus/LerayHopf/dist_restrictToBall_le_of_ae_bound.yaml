@@ -1,0 +1,18 @@
+name: LerayHopf.dist_restrictToBall_le_of_ae_bound
+tier: full
+statement_ja: |
+  上限から $L^2(B_R)$ への移行。二つの $L^2(\mathbb{R}^3)$ 場 $u,v$ が球 $B_R$ 上でそれぞれ関数 $g_1,g_2$ とほとんど至るところ一致し、$B_R$ 上のすべての点で $\lVert g_1(x)-g_2(x)\rVert\le c$（$c\ge 0$）であるとする。
+
+  このとき両者の[[球への制限|LerayHopf.restrictToBall]]は $L^2(B_R)$ で球質量因子と $c$ の積の範囲内にある。
+
+  $$\operatorname{dist}\bigl(u\restriction B_R,\ v\restriction B_R\bigr)\ \le\ V_R\cdot c$$
+proof_ja: |
+  制限の $L^2(B_R)$ 距離の二乗は、球上の差の二乗ノルムの積分に等しい。
+
+  被積分関数はほとんど至るところ $g_1-g_2$ に一致し、これは $B_R$ 上で $c^2$ 以下だから、有限測度の球上で積分すると体積の $c^2$ 倍以下になる。平方根をとれば主張の $V_R\cdot c$ を得る。
+gap:
+  level: mild
+  note: |
+    球質量因子 $V_R$ は[[球質量因子|LerayHopf.ballMassSqrt]]、有限測度性は閉球の体積有限性による。ほとんど至るところの一致を経て点ごとの一様上界を $L^2(B_R)$ 距離へ翻訳する、Arzelà–Ascoli の値網から距離評価への橋渡し。
+chapter: compactness
+tags: [frechet-kolmogorov, arzela-ascoli]

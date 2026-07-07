@@ -1,0 +1,12 @@
+name: LerayHopf.translate_L2R
+tier: full
+statement_ja: |
+  スカラー値の $L^2$ 平行移動。ずれ $h$ とスカラー $L^2$ 関数 $g$ に対し、$(\tau_h g)(x) = g(x-h)$ で定める平行移動作用素。
+
+  これはベクトル値の[[L² 平行移動|LerayHopf.translate_L2VF]]のスカラー版であり、Lebesgue 測度に対して $(\cdot+h)$ が測度を保つことを用いて同じ経路で定義される。
+gap:
+  level: none
+  note: |
+    平行移動 $(\cdot+h)$ は Lebesgue 測度に対し測度保存なので、`Lp.compMeasurePreserving` を平行移動写像とその測度保存性 `measurePreserving_add_right` に適用して構成される。純粋な $L^p$ の配管であり、Sobolev や勾配の対象には触れない。核の平行移動連続性を測る道具として使われる。
+chapter: compactness
+tags: [frechet-kolmogorov, translation]

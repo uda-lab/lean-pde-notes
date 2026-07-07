@@ -1,0 +1,14 @@
+name: LerayHopf.diag_ae_subseq
+tier: full
+statement_ja: |
+  すべての自然数半径 $k$ について概時刻収束する対角部分列。単一の狭義単調な部分列が存在して、すべての半径 $k$ とほとんどすべての時刻 $t$ で、半径 $k$ に[[球への制限|LerayHopf.restrictToBall]]した Galerkin 状態が可測な極限曲線 $g_k$ へ収束する。
+proof_ja: |
+  帰納法で Cantor 塔 $\varphi_0,\varphi_1,\varphi_2,\dots$ を構成する。$\varphi_0$ は恒等写像とし、$\varphi_{k+1}=\varphi_k\circ\rho_{k+1}$ を、球ごと概収束部分列を現在の $\varphi_k$ に半径 $k+1$ で適用して得る $\rho_{k+1}$ で定める。
+
+  対角線 $\varphi(n):=\varphi_n(n)$ は単一の狭義単調な部分列であり、固定した半径 $k$ については $n\ge k$ で $\varphi(n)$ が $\varphi_k$ の値域に入るため、塔の第 $k$ 段で確立した概時刻収束が移る。各半径の全測度集合の可算交叉はふたたび全測度である。
+gap:
+  level: mild
+  note: |
+    細分可能な[[球ごと概収束部分列|LerayHopf.perBall_ae_subseq]]を各段で現在の部分列に適用して塔を積む。細分可能性が本質的で、Galerkin 状態の型に階層が焼き込まれるため添字の付け替えではなく入力部分列を渡す形にしている。可算交叉の全測度性は `MeasureTheory.ae_all_iff` による。
+chapter: compactness
+tags: [aubin-lions, subsequence, diagonal]

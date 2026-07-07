@@ -1,0 +1,16 @@
+name: LerayHopf.R3.TensorIntersection.map_id_proj_fix_of_mem_range
+tier: full
+statement_ja: |
+  体上のベクトル空間 $V$ とその部分空間 $S$ を考える。射影 $P\colon V\to V$ が $S$ 上で恒等写像に制限されるとする。
+
+  このときテンソル写像 $\mathrm{id}\otimes P$ は、$V\otimes S$ の像 $(\mathrm{id}\otimes\iota_S)(V\otimes S)$ のすべての元を固定する。これは第一スロットについての主張の、第二スロットに対する対称版である。
+proof_ja: |
+  像の元は $V$ の元と $S$ の元の単純テンソルの有限和で表される。
+
+  各単純テンソル $v\otimes s$（$s\in S$）に $\mathrm{id}\otimes P$ を作用させると $v\otimes P(s)$ となるが、$P$ は $S$ 上で恒等だから $P(s)=s$ であり、$v\otimes s$ に戻る。線型性から像全体で固定される。
+gap:
+  level: none
+  note: |
+    第一スロットについての[[第一スロットの固定|LerayHopf.R3.TensorIntersection.map_proj_id_fix_of_mem_range]]の対称版で、移流ギャップ作用素（issue #56）の構成で使う。
+chapter: misc
+tags: [tensor-product, linear-algebra]

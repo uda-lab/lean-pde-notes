@@ -1,0 +1,12 @@
+name: LerayHopf.FrechetKolmogorovInput
+tier: full
+statement_ja: |
+  孤立させた解析的フロンティア。固定した球上での Fréchet–Kolmogorov（Riesz）の $L^2$ 前コンパクト性判定条件。
+
+  $L^2(B_R)$ の要素からなる族が、一様に $L^2$ 有界であり、かつずれ $h\to 0$ とともに消える一様な $L^2$ 平行移動ずれ幅をもつならば、$L^2(B_R)$ のコンパクト集合に含まれる、という主張である。
+gap:
+  level: large
+  note: |
+    mathlib はいまだ Fréchet–Kolmogorov も Riesz 判定条件も Rellich も持たないため、これを孤立フロンティアとして仮定する。ただし本形式化では[[Fréchet–Kolmogorov 判定条件の達成|LerayHopf.frechetKolmogorov_holds]]により証明される。密輸なし（Codex Gate 1）: この主張は抽象的な $L^2$ 族と平行移動のみを語り、$H^1$ 所属・粘性形式・発散ゼロ空間・勾配・Sobolev・部分列・極限のいずれにも言及しない。平行移動ずれ幅は大域場の[[L² 平行移動|LerayHopf.translate_L2VF]]で述べる（球内平行移動は定義域からはみ出す）。Codex Gate round 3 の修正で、単一半径の球質量に加えて代表元の大域 $L^2$ ノルム上界も要求する。これは環状領域の質量を制御するためで、依然として純粋な $L^2$ ノルム界のみを課し Rellich の結論を密輸しない。
+chapter: compactness
+tags: [frechet-kolmogorov, frontier]

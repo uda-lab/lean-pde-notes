@@ -1,0 +1,16 @@
+name: LerayHopf.galerkin_spacetime_precompact_R3
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 上の局所的な時空前コンパクト性（Aubin–Lions–Simon、細分可能形）。粘性係数 $\nu>0$、時刻 $T>0$、初期値 $u_0$、および Galerkin 近似列が与えられているとする。
+
+  このとき任意の入力部分列と任意の自然数半径 $k$ に対し、さらに狭義単調な部分列と可測な極限曲線 $g_k$ が存在して、Galerkin 状態の[[球への制限|LerayHopf.restrictToBall]]と $g_k$ の差の、時間についての $L^2$（Bochner）ノルムが $0$ に収束する。
+proof_ja: |
+  主張と一字一句同型の[[良い標本による時空前コンパクト性|LerayHopf.galerkin_spacetime_precompact_of_goodSampling]]に帰着させる。
+
+  そこでは各時刻標本のスライスを局所 Rellich のコンパクト集合に置く $n$ に一様な積分標本ずれ幅から、階段曲線の集合が全有界となり、さらに部分列を取り出して時間 $L^2$ で収束させる。細分可能な形にしているのは、対角化のために現在の部分列をそのまま入力にとり、次の階層をさらなる部分列として返すためである（Galerkin 状態の型に階層 $n$ が焼き込まれ、添字の付け替えが型として通らないことへの対処）。
+gap:
+  level: large
+  note: |
+    これはかつて公理 `galerkin_spacetime_precompact_R3` であり、issue #46（Aubin–Lions キャンペーン）で証明済み定理へ反転された（公理→定理）。mathlib は Bochner 値の Aubin–Lions／Fréchet–Kolmogorov 定理（$L^2(0,T;X)$）を持たず、具体的な経路（積分標本ずれ幅による階段曲線の全有界性＋Rellich 球コンパクト性）を本形式化で組んだ。健全・局所的で、タイトネスも時間についての各点同程度連続性も大域 $L^2$ 主張も用いない。証明は[[良い標本による時空前コンパクト性|LerayHopf.galerkin_spacetime_precompact_of_goodSampling]]に委譲され、両者の主張はバイト単位で同一である。
+chapter: compactness
+tags: [aubin-lions, spacetime-precompact, frontier-resolved]

@@ -1,0 +1,20 @@
+name: LerayHopf.mollified_family_uniformly_bounded
+tier: full
+statement_ja: |
+  軟化された族の一様有界性。半径 $R$、$L^2$ 有界定数 $C$、族 $S$、代表元の対応、および[[軟化子核|LerayHopf.MollifierKernel]] $K$ が与えられ、核の台半径 $r$ による拡大球 $B_{R+r}$ 上での代表元の $L^2$ ノルムが一様に $C$ で押さえられるとする。
+
+  このとき族の[[軟化場の代表元|LerayHopf.mollifyRep]]は球 $B_R$ 上で一様な上界をもつ。すなわちある定数 $B$ が存在して、$f\in S$ かつ $x\in B_R$ ならば $\lVert(\eta\star f)(x)\rVert\le B$ が成り立つ。
+proof_ja: |
+  上界を核の $L^2$ ノルムと $C$ の積 $B:=\lVert\eta\rVert_{L^2}\cdot C$ に定め、$f\in S$ と $x\in B_R$ を任意に固定する。
+
+  $x\in B_R$ において軟化場は核の台が半径 $r$ に収まるため拡大球 $B_{R+r}$ 上の代表元の値のみを参照する。よって軟化場の点ごとの上限評価から次が成り立つ。
+
+  $$\bigl\lVert(\eta\star f)(x)\bigr\rVert\ \le\ \lVert\eta\rVert_{L^2}\cdot\bigl\lVert f\restriction B_{R+r}\bigr\rVert_{L^2}$$
+
+  仮定より右辺の質量は $C$ 以下だから、全体は $\lVert\eta\rVert_{L^2}\cdot C=B$ で押さえられる。
+gap:
+  level: mild
+  note: |
+    核 $\eta$ のコンパクト台性と連続性から $\eta\in L^2$ が従い、Young 型の $L^\infty$ 評価が使える。点ごとの評価は[[軟化場の上限評価|LerayHopf.mollifyRep_sup_le]]として与えられる。上界は $B_R$ 上の点ごとの評価であって全空間の $L^2$ 推定ではない。拡大球の質量有界性は、判定条件の大域 $L^2$ 有界性から球質量の単調性で得られる（`restrict_le_self` の連鎖）。
+chapter: compactness
+tags: [frechet-kolmogorov, mollification, equiboundedness]

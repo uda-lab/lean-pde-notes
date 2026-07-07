@@ -1,0 +1,16 @@
+name: LerayHopf.mollified_family_totallyBounded_L2
+tier: full
+statement_ja: |
+  軟化された族の全有界性（Arzelà–Ascoli）。半径 $R$、定数 $C$、族 $S$、代表元の対応、[[軟化子核|LerayHopf.MollifierKernel]] $K$ が与えられ、族の各 $L^2(B_R)$ 類の代表元が[[軟化場の代表元|LerayHopf.mollifyRep]]にほとんど至るところ一致し、拡大球上で代表元の $L^2$ ノルムが一様に $C$ 以下であるとする。
+
+  このとき制限の像 $\{f\restriction B_R : f\in S\}$ は $L^2(B_R)$ で全有界である。
+proof_ja: |
+  コンパクトな球 $B_R$ 上の一様有界かつ一様同程度連続な連続関数族は、連続関数の空間で全有界であり、有限測度の球上での連続埋め込みを通じて $L^2(B_R)$ でも全有界になる。
+
+  一様有界性は軟化された族の一様上界から、一様同程度連続性は核の平行移動ずれ幅の消失から得られ、これらを抽象 Arzelà–Ascoli にかける。軟化場を代表元とする $L^2$ 類が与えられるため、結論は連続関数の空間ではなく $L^2(B_R)$ に着地する。
+gap:
+  level: large
+  note: |
+    一様有界性は[[軟化族の一様有界性|LerayHopf.mollified_family_uniformly_bounded]]、同程度連続性は[[軟化族の同程度連続性|LerayHopf.mollified_family_equicontinuous]]、抽象 Arzelà–Ascoli は[[抽象 Arzelà–Ascoli|LerayHopf.totallyBounded_image_of_equicont_bdd]]で供給される。両者は $B_R$ 上でのみ述べられ、拡大球の一様質量有界性に依拠する。この質量有界性は判定条件の大域 $L^2$ 有界性から球質量の単調性で得られる。
+chapter: compactness
+tags: [frechet-kolmogorov, arzela-ascoli, totally-bounded]
