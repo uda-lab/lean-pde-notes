@@ -2,8 +2,9 @@
 """
 count_decls.py — fallback name-universe generator for lean-pde-notes.
 
-Walks a lean-pde checkout, strips Lean block comments /- ... -/ (nested) and
--- line comments, and extracts declarations matching the attribute-aware pattern:
+Walks the LerayHopf/ subtree of a lean-pde checkout, strips Lean block comments
+/- ... -/ (nested) and -- line comments, and extracts declarations matching the
+attribute-aware pattern:
   ^\\s*(?:@\\[[^\\]]*\\]\\s*)*(?:private\\s+|protected\\s+|noncomputable\\s+|partial\\s+|unsafe\\s+)*
   (theorem|lemma|def|structure|instance|abbrev)\\s+([^\\s({:\\[]+)
 
@@ -157,11 +158,15 @@ ANON_INSTANCE_RE = re.compile(
 )
 
 
+DECL_SUBTREE = 'LerayHopf'
+
+
 def extract_decls(lean_root: Path) -> list[dict]:
-    """Walk lean_root for .lean files and extract all declarations."""
+    """Walk lean_root/LerayHopf for .lean files and extract declarations."""
     decls: list[dict] = []
+    scan_root = lean_root / DECL_SUBTREE
     lean_files = sorted(
-        p for p in lean_root.rglob('*.lean')
+        p for p in scan_root.rglob('*.lean')
         if '.lake' not in p.parts
     )
 
@@ -240,6 +245,9 @@ def main() -> None:
     lean_root = Path(args.lean_root).resolve()
     if not lean_root.is_dir():
         print(f'ERROR: {lean_root} is not a directory', file=sys.stderr)
+        sys.exit(1)
+    if not (lean_root / DECL_SUBTREE).is_dir():
+        print(f'ERROR: {lean_root} does not contain {DECL_SUBTREE}/', file=sys.stderr)
         sys.exit(1)
 
     if args.out:

@@ -49,8 +49,7 @@ lean-pde commit SHA and re-run `scripts/validate.py` / `scripts/coverage.py`.
 python3 scripts/count_decls.py /workspaces/lean-pde
 ```
 
-Note: `count_decls.py` scans every `.lean` file in the checkout, including the
-root-level `ExtractNotes.lean` (the extractor's own source, ~23 tooling defs that are
-NOT LerayHopf math). It therefore over-counts relative to `decls.json`, which is
-module-filtered. The committed fallback is the pre-extractor LerayHopf universe and is
-intentionally left un-refreshed; `decls.json` is authoritative.
+Note: `count_decls.py` scans only the `LerayHopf/` subtree, matching the
+module-filtered scope of `decls.json` and excluding root-level tooling such as
+`ExtractNotes.lean`. The committed fallback is the pre-extractor LerayHopf
+universe and is intentionally left un-refreshed; `decls.json` is authoritative.
