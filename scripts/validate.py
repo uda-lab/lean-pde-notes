@@ -7,6 +7,8 @@ Checks:
   2. Every corpus YAML conforms to docs/schemas/corpus.schema.json (JSON Schema draft-07).
   3. The corpus name-set is a subset of the extracted name-set
      (prefers extracted/decls.json, falls back to extracted/names-fallback.json).
+     When decls.json has duplicate display names, matching corpus entries must
+     include `file` and the pair (name, file) must identify one extracted record.
   4. When decls.json is present, extracted/PIN exists and is a 40-char hex SHA.
 
 Usage:
@@ -56,8 +58,8 @@ def load_schema() -> dict | None:
         return json.load(f)
 
 
-def load_name_universe() -> tuple[set[str], set[tuple[str, str]], set[str], str]:
-    """Return (name_set, keyed_set, collision_names, source_label)."""
+def load_name_universe() -> tuple[set[str], set[tuple[str, str]], dict[str, set[str]], str]:
+    """Return (name_set, keyed_set, collision_files_by_name, source_label)."""
     decls_path = EXTRACTED_DIR / 'decls.json'
     fallback_path = EXTRACTED_DIR / 'names-fallback.json'
     if decls_path.exists():
@@ -68,15 +70,19 @@ def load_name_universe() -> tuple[set[str], set[tuple[str, str]], set[str], str]
         counts: dict[str, int] = {}
         for d in data:
             counts[d['name']] = counts.get(d['name'], 0) + 1
-        collisions = {name for name, count in counts.items() if count > 1}
+        collision_names = {name for name, count in counts.items() if count > 1}
+        collisions = {
+            name: {d.get('file', '') for d in data if d['name'] == name}
+            for name in collision_names
+        }
         return names, keyed, collisions, 'extracted/decls.json'
     if fallback_path.exists():
         with open(fallback_path, encoding='utf-8') as f:
             data = json.load(f)
         names = {d['name'] for d in data}
         keyed = {(d['name'], d.get('file', '')) for d in data}
-        return names, keyed, set(), 'extracted/names-fallback.json'
-    return set(), set(), set(), '(no universe — skipping name check)'
+        return names, keyed, {}, 'extracted/names-fallback.json'
+    return set(), set(), {}, '(no universe — skipping name check)'
 
 
 def validate_schema_manual(doc: dict, fpath: Path) -> list[str]:
@@ -131,7 +137,7 @@ def main() -> None:
     if schema is None:
         warnings.append(f'WARNING: Schema file not found at {SCHEMA_PATH} — structural checks skipped')
 
-    universe, keyed_universe, collision_names, universe_source = load_name_universe()
+    universe, keyed_universe, collisions, universe_source = load_name_universe()
     print(f'Name universe: {len(universe)} names from {universe_source}')
 
     # Check PIN when decls.json is present
@@ -181,18 +187,22 @@ def main() -> None:
         if name:
             corpus_names.add(name)
             file = doc.get('file')
-            if name in collision_names:
+            if name in collisions:
                 if not isinstance(file, str) or not file.strip():
+                    choices = ', '.join(sorted(collisions[name]))
                     errors.append(
-                        f'ERROR: {fpath}: file is required because "{name}" is ambiguous in {universe_source}'
+                        f'ERROR: {fpath}: file is required because "{name}" is ambiguous in '
+                        f'{universe_source}; expected one of: {choices}'
                     )
                 elif (name, file) not in keyed_universe:
+                    choices = ', '.join(sorted(collisions[name]))
                     errors.append(
-                        f'ERROR: {fpath}: (name, file)=("{name}", "{file}") not found in {universe_source}'
+                        f'ERROR: {fpath}: (name, file)=("{name}", "{file}") not found in '
+                        f'{universe_source}; expected file one of: {choices}'
                     )
-            key = (name, file) if name in collision_names else (name, '')
+            key = (name, file) if name in collisions else (name, '')
             if key in corpus_keys:
-                if name in collision_names:
+                if name in collisions:
                     errors.append(
                         f'ERROR: duplicate corpus annotation for (name, file)=("{name}", "{file}")'
                     )

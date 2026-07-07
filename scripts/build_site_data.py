@@ -8,7 +8,8 @@ Inputs
                                 signature, doc, file, startLine, endLine, deps[id-refs]
   extracted/names-fallback.json (fallback)  name, kind, file, line   — skeleton only
   extracted/PIN                 40-char lean-pde SHA (recorded into the output)
-  corpus/**/*.yaml              per-declaration annotations (joined by display name)
+  corpus/**/*.yaml              per-declaration annotations (joined by display name;
+                                colliding names require file metadata)
   docs/schemas/chapters.yaml    chapter taxonomy (ids + Japanese labels)
 
 Output
@@ -19,11 +20,10 @@ Join model
   * `deps` edges reference declaration **ids** (unique). Nodes are keyed by a URL
     **slug**: the display `name` when that name is unique in the universe, else the
     (always-unique) `id`. This keeps slugs readable for the common case while staying
-    unambiguous for the private-helper name collisions.
-  * The corpus is keyed by display `name`. When a name is unique we attach its YAML.
-    When a name belongs to a collision group (see notes#7) the join is ambiguous, so
-    those records are emitted WITHOUT corpus data and listed in a warning. The corpus
-    schema has no `file` tiebreaker yet; adding it is deferred to notes#7.
+    unambiguous for declaration name collisions.
+  * The corpus is keyed by display `name` for unique names. When a name belongs to a
+    collision group (see notes#7), the corpus YAML must carry `file`; the join resolves
+    name -> file -> stable declaration id.
 
 Source embedding
   With --lean-root <path> (a checkout of lean-pde at the PIN commit), each record's
@@ -296,14 +296,23 @@ def main() -> None:
 
     warnings: list[str] = []
 
-    # Collision names are joinable when the corpus entry carries the source `file`.
+    # Collision names are joinable only when the corpus entry carries a matching source `file`.
     for name, entries in sorted(corpus_by_name.items()):
         if name in collisions:
+            valid_files = {r.get('file', '') for r in collisions[name]}
             for fpath, doc in entries:
-                if not doc.get('file'):
+                file = doc.get('file')
+                if not file:
                     warnings.append(
                         f'corpus {fpath.relative_to(REPO_ROOT)} targets collision name '
                         f'"{name}" ({len(collisions[name])} decls) without file — not joinable'
+                    )
+                elif file not in valid_files:
+                    choices = ', '.join(sorted(valid_files))
+                    warnings.append(
+                        f'corpus {fpath.relative_to(REPO_ROOT)} targets collision name '
+                        f'"{name}" with file "{file}", which is not in {universe_source}; '
+                        f'expected one of: {choices}'
                     )
 
     # Build nodes.
