@@ -1,10 +1,10 @@
 {
   "total_decls": 1412,
-  "annotated": 334,
-  "full": 329,
+  "annotated": 394,
+  "full": 389,
   "gloss": 5,
-  "unannotated": 1078,
-  "pct_annotated": 23.7,
+  "unannotated": 1018,
+  "pct_annotated": 27.9,
   "chapters": {
     "spaces": {
       "label_ja": "関数空間と基本設定",
@@ -32,14 +32,14 @@
     },
     "compactness": {
       "label_ja": "コンパクト性（空間・時間）",
-      "annotated": 71,
-      "full": 71,
+      "annotated": 120,
+      "full": 120,
       "gloss": 0
     },
     "limit-passage": {
       "label_ja": "極限移行（非線形項）",
-      "annotated": 82,
-      "full": 82,
+      "annotated": 90,
+      "full": 90,
       "gloss": 0
     },
     "capstone-r3": {
@@ -62,8 +62,8 @@
     },
     "misc": {
       "label_ja": "その他・共通基盤",
-      "annotated": 1,
-      "full": 1,
+      "annotated": 4,
+      "full": 4,
       "gloss": 0
     }
   }
