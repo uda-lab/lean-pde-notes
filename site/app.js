@@ -1,7 +1,8 @@
 /* lean-pde-notes — vanilla static viewer.
  * No framework, no bundler, no runtime deps except vendored KaTeX (global `katex`
- * and `renderMathInElement`). Data: data/nodes.json (built by scripts/build_site_data.py)
- * and data/coverage.json (scripts/coverage.py). Hash routing, all rendering client-side. */
+ * and `renderMathInElement`). Data: data/nodes.json and lazy data/sources.json
+ * (built by scripts/build_site_data.py), plus data/coverage.json (scripts/coverage.py).
+ * Hash routing, all rendering client-side. */
 'use strict';
 
 const state = {
@@ -13,6 +14,8 @@ const state = {
   shortDict: new Map(),   // unique simple name -> slug
   chapterMeta: new Map(), // chapter id -> {label_ja, description}
   chapterTotals: new Map(),
+  sources: null,           // slug -> verbatim Lean source, loaded lazily from data/sources.json
+  sourcesPromise: null,
   trail: [],              // session navigation stack of decl slugs (breadcrumb)
 };
 
@@ -354,6 +357,30 @@ async function loadData() {
     + (nodesRes.has_full_metadata ? '' : ' · (fallback universe: シグネチャ・依存辺なし)');
 }
 
+async function loadSources() {
+  if (state.sources) return state.sources;
+  if (!state.sourcesPromise) {
+    const sourcePayload = (state.data && state.data.source_payload) || 'sources.json';
+    state.sourcesPromise = fetch('data/' + sourcePayload)
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(payload => {
+        state.sources = (payload && payload.sources) || {};
+        return state.sources;
+      })
+      .catch(err => {
+        state.sourcesPromise = null;
+        throw err;
+      });
+  }
+  return state.sourcesPromise;
+}
+
+async function loadSourceFor(node) {
+  if (node.source) return node.source; // compatibility with older source-embedded payloads
+  const sources = await loadSources();
+  return sources[node.slug] || null;
+}
+
 /* ---------------- routing ---------------- */
 
 function route() {
@@ -523,15 +550,38 @@ function renderDecl(app, slug) {
     leanProof.appendChild(el('h4', { text: 'Lean 証明本文' }));
     const det = el('details', { class: 'use' });
     const inner = el('div', { class: 'use-body' });
-    if (node.has_source && node.source) {
-      // verbatim declaration source (embedded at build time via --lean-root), collapsed by default
+    if (node.has_source) {
       det.appendChild(el('summary', {}, [
         el('span', { class: 'summary-name', text: 'ソースを表示' }),
         el('span', { class: 'filemeta', text: `${node.file}:${node.startLine}–${node.endLine}` }),
       ]));
       const wrap = el('div', { class: 'codewrap' });
-      wrap.appendChild(el('pre', { class: 'lean source', html: highlightLean(node.source) }));
+      const placeholder = el('p', { class: 'filemeta', text: 'ソース本文を取得しています。' });
+      wrap.appendChild(placeholder);
       inner.appendChild(wrap);
+      let loaded = false;
+      det.addEventListener('toggle', () => {
+        if (!det.open || loaded) return;
+        loaded = true;
+        loadSourceFor(node).then(src => {
+          wrap.innerHTML = '';
+          if (src) {
+            wrap.appendChild(el('pre', { class: 'lean source', html: highlightLean(src) }));
+          } else {
+            wrap.appendChild(el('p', {
+              class: 'filemeta',
+              text: `ソース本文が見つかりません。位置: ${node.file}:${node.startLine}–${node.endLine}`,
+            }));
+          }
+        }).catch(() => {
+          loaded = false;
+          wrap.innerHTML = '';
+          wrap.appendChild(el('p', {
+            class: 'filemeta',
+            text: `ソース payload を読み込めませんでした。パネルを閉じて再度開くと再試行します。位置: ${node.file}:${node.startLine}–${node.endLine}`,
+          }));
+        });
+      });
     } else {
       // fallback: no lean-root at build time — show doc-comment + source location reference
       det.appendChild(el('summary', {}, [el('span', { class: 'summary-name', text: 'ソース参照' })]));
@@ -930,6 +980,6 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     state, splitParagraphs, joinSoftLines, joinGlue, segmentMath, tokenizeInline,
     makeRef, refSlugForRefToken, renderParagraph, renderProse, renderProseInline,
-    firstParagraph, sentencePreview, renderDecl,
+    firstParagraph, sentencePreview, renderDecl, loadSources, loadSourceFor,
   };
 }

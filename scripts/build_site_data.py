@@ -12,7 +12,8 @@ Inputs
   docs/schemas/chapters.yaml    chapter taxonomy (ids + Japanese labels)
 
 Output
-  site/data/nodes.json          one deterministic payload the SPA loads in full.
+  site/data/nodes.json          deterministic metadata/annotation payload loaded up front.
+  site/data/sources.json        optional verbatim Lean source payload loaded on demand.
   site/data/coverage.json       refreshed by shelling out to scripts/coverage.py.
 
 Join model
@@ -28,10 +29,9 @@ Join model
 Source embedding
   With --lean-root <path> (a checkout of lean-pde at the PIN commit), each record's
   verbatim declaration text (startLine..endLine, exactly as scripts/workpacket.py reads
-  it) is embedded as `source`, with `has_source: true`. Without it (e.g. CI, which has
-  no lean-pde checkout) `source` is omitted and `has_source: false` — the viewer then
-  falls back to the doc-comment + file:line reference. Source text is deterministic
-  given the PIN'd checkout, so committed output stays diff-reviewable.
+  it) is written to sources.json keyed by node slug, while nodes.json carries only
+  `has_source: true`. Without --lean-root, sources.json is empty and nodes carry
+  `has_source: false`; the viewer falls back to the doc-comment + file:line reference.
 
 Determinism: nodes are sorted by slug, edge lists are sorted, and json.dump uses
 sort_keys=True so the committed output diffs cleanly.
@@ -39,7 +39,7 @@ sort_keys=True so the committed output diffs cleanly.
 Usage:
     python3 scripts/build_site_data.py --lean-root /workspaces/lean-pde
     python3 scripts/build_site_data.py --no-coverage   # skip coverage.py refresh
-    python3 scripts/build_site_data.py --out /tmp/x.json --no-coverage  # CI: don't clobber
+    python3 scripts/build_site_data.py --out /tmp/x.json --no-coverage  # also writes /tmp/sources.json
 """
 
 import argparse
@@ -268,6 +268,8 @@ def main() -> None:
                         help='Path to a lean-pde checkout at the PIN commit; embed verbatim source')
     parser.add_argument('--out', default=None,
                         help='Output path for nodes.json (default site/data/nodes.json)')
+    parser.add_argument('--sources-out', default=None,
+                        help='Output path for sources.json (default next to nodes.json)')
     args = parser.parse_args()
 
     records, universe_source, has_decls = load_universe()
@@ -306,8 +308,9 @@ def main() -> None:
                         f'"{name}" ({len(collisions[name])} decls) without file — not joinable'
                     )
 
-    # Build nodes.
+    # Build nodes and the separate source payload.
     nodes_by_slug: dict[str, dict] = {}
+    sources_by_slug: dict[str, str] = {}
     for r in records:
         slug = slug_of(r)
         is_collision = r['name'] in collisions
@@ -323,6 +326,8 @@ def main() -> None:
         uses = sorted({id_to_slug[d] for d in r.get('deps', []) if d in id_to_slug})
 
         src = reader.source_for(r)
+        if src is not None:
+            sources_by_slug[slug] = src
         node = {
             'slug': slug,
             'id': r['id'],
@@ -343,8 +348,6 @@ def main() -> None:
             'has_source': src is not None,
             'corpus': corpus,
         }
-        if src is not None:
-            node['source'] = src
         nodes_by_slug[slug] = node
 
     # Reverse edges.
@@ -358,12 +361,20 @@ def main() -> None:
     nodes = [nodes_by_slug[s] for s in sorted(nodes_by_slug)]
     annotated = sum(1 for n in nodes if n['corpus'])
 
+    out_path = Path(args.out) if args.out else (SITE_DATA_DIR / 'nodes.json')
+    sources_out_path = (
+        Path(args.sources_out)
+        if args.sources_out
+        else out_path.with_name('sources.json')
+    )
+
     payload = {
         'pin': read_pin(),
         'universe_source': universe_source,
         'has_full_metadata': has_decls,
         'has_source': reader.hits > 0,
         'source_count': reader.hits,
+        'source_payload': sources_out_path.name,
         'decl_count': len(nodes),
         'annotated_count': annotated,
         'capstones': sorted(n['slug'] for n in nodes if n['capstone']),
@@ -379,13 +390,23 @@ def main() -> None:
         'nodes': nodes,
     }
 
-    out_path = Path(args.out) if args.out else (SITE_DATA_DIR / 'nodes.json')
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2, sort_keys=True)
         f.write('\n')
+    sources_payload = {
+        'pin': read_pin(),
+        'source_count': len(sources_by_slug),
+        'sources': {slug: sources_by_slug[slug] for slug in sorted(sources_by_slug)},
+    }
+    sources_out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(sources_out_path, 'w', encoding='utf-8') as f:
+        json.dump(sources_payload, f, ensure_ascii=False, indent=2, sort_keys=True)
+        f.write('\n')
     print(f'Wrote {out_path} ({out_path.stat().st_size // 1024} KiB, '
           f'{len(nodes)} nodes, {annotated} annotated, {reader.hits} with source)')
+    print(f'Wrote {sources_out_path} ({sources_out_path.stat().st_size // 1024} KiB, '
+          f'{len(sources_by_slug)} source entries)')
     if args.lean_root and reader.misses:
         print(f'  ({reader.misses} records had no readable source range)')
 

@@ -18,14 +18,19 @@ global.document = dom.window.document;
 const app = require('../site/app.js');
 const {
   state, splitParagraphs, joinSoftLines, firstParagraph, sentencePreview,
-  renderProse, renderProseInline, renderDecl,
+  renderProse, renderProseInline, renderDecl, loadSourceFor,
 } = app;
 
 let passed = 0;
+const pending = [];
 function check(name, fn) {
-  fn();
-  passed += 1;
-  console.log(`  ok  ${name}`);
+  const result = fn();
+  const done = () => {
+    passed += 1;
+    console.log(`  ok  ${name}`);
+  };
+  if (result && typeof result.then === 'function') pending.push(result.then(done));
+  else done();
 }
 
 /* ---- fixture universe ---- */
@@ -157,4 +162,34 @@ check('(d) gap Note renders after the proof band and before uses', () => {
   assert.ok(gapIdx < usesIdx, 'gap Note must come BEFORE the uses section');
 });
 
-console.log(`\nAll ${passed} render checks passed.`);
+check('source payload is lazy-loaded from data/sources.json by slug', async () => {
+  state.sources = null;
+  state.sourcesPromise = null;
+  state.data = { source_payload: 'sources.json' };
+  const oldFetch = global.fetch;
+  let calls = 0;
+  global.fetch = async (url) => {
+    calls += 1;
+    assert.strictEqual(url, 'data/sources.json');
+    return {
+      ok: true,
+      json: async () => ({ sources: { cap: 'theorem cap : True := by trivial' } }),
+    };
+  };
+  try {
+    const src = await loadSourceFor({ slug: 'cap', has_source: true });
+    assert.strictEqual(src, 'theorem cap : True := by trivial');
+    assert.strictEqual(calls, 1);
+  } finally {
+    global.fetch = oldFetch;
+    state.sources = null;
+    state.sourcesPromise = null;
+  }
+});
+
+Promise.all(pending).then(() => {
+  console.log(`\nAll ${passed} render checks passed.`);
+}).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
