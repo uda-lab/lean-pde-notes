@@ -1,0 +1,2 @@
+# This directory is populated with generated JSON files during build.
+# See scripts/build_site_data.py and .github/workflows/build-site-artifact.yml

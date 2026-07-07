@@ -1,2 +1,6 @@
 node_modules/
 __pycache__/
+
+# Generated site data (produced in CI and locally via build_site_data.py)
+# site/data/ is a generated-only directory; do not add hand-written source JSON here.
+site/data/*.json

@@ -1,0 +1,67 @@
+name: Build Site Data
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:  # Allow manual triggers for inspection
+
+jobs:
+  build:
+    name: Build and validate site data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Validate corpus
+        run: python3 scripts/validate.py
+
+      - name: Check for lean-pde checkout
+        id: check-lean-pde
+        run: |
+          # Phase A: lean-pde is private, so we build without source for now.
+          # Phase B will add lean-pde checkout at extracted/PIN.
+          echo "lean_available=false" >> $GITHUB_OUTPUT
+          echo "::notice::Building without lean-pde source (Phase A: pre-publication mode)"
+
+      - name: Build site data
+        run: |
+          # Build without --lean-root for Phase A
+          # This generates nodes.json and sources.json without embedded source bodies
+          python3 scripts/build_site_data.py
+
+      - name: Generate size report
+        run: |
+          python3 scripts/site_data_size_report.py --json site/data/size-report.json | tee size-report.md
+          cat size-report.md >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-data
+          path: |
+            site/
+            !site/data/.gitkeep
+          retention-days: 30
+
+      # Phase B will add Pages deployment here when ready for public launch
+      # For now, only workflow artifacts are generated for inspection
