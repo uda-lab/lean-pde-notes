@@ -25,6 +25,14 @@ During Phase A (pre-publication), generated JSON is uploaded as workflow artifac
 but not deployed to Pages. Phase B will enable public Pages deployment after the public-readiness gate.
 ```
 
+## License scope
+
+The site viewer code is licensed as a software component under Apache-2.0. Mathematical
+explanations, annotations, and prose content rendered by the viewer are licensed under
+CC-BY-4.0 unless otherwise noted. Generated `site/data/*.json` files are derived artifacts,
+not source-reviewed material; downstream users should observe the licenses of the Lean
+source and annotation/prose inputs from which they were generated.
+
 ## Build & preview
 
 ### Local build

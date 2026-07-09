@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this annotated viewer or corpus, please cite it as below."
+title: "lean-pde-notes"
+type: dataset
+authors:
+  - family-names: "Uda"
+    given-names: "Tomoki"
+repository-code: "https://github.com/uda-lab/lean-pde-notes"
+url: "https://github.com/uda-lab/lean-pde-notes"
+abstract: "A pure-static interactive viewer and annotation corpus for the lean-pde Lean 4 formalization of Leray-Hopf weak existence."
+keywords:
+  - "Lean"
+  - "formalized mathematics"
+  - "mathematical exposition"
+  - "Navier-Stokes equations"
+  - "Leray-Hopf weak solutions"
+license: "Apache-2.0 AND CC-BY-4.0"
