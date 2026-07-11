@@ -1,7 +1,7 @@
 name: LerayHopf.integral_tail_sq_limit_le
 tier: full
 statement_ja: |
-  極限曲線の尾部積分評価：弱収束・球有界・可測性を備えた極限曲線 $u$ は、Galerkin 側と同じ $n$ 一様上界
+  極限曲線の尾部積分評価：$\nu > 0$、$T > 0$ とする。弱収束・球有界・可測性を備えた極限曲線 $u$ は、Galerkin 側と同じ $n$ 一様上界
 
   $$\int_0^T \lVert u(t) - P_N u(t) \rVert^2\, dt \;\le\; \frac{T \lVert u_0 \rVert^2 + \lVert u_0 \rVert^2 / (2\nu)}{1 + N^2}$$
 

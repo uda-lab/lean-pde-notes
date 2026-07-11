@@ -1,7 +1,7 @@
 name: LerayHopf.integral_tail_sq_galerkin_le
 tier: full
 statement_ja: |
-  Galerkin 側の $n$ 一様な尾部積分評価：次数 $n$ の Galerkin 解 $u_n$ と任意のレベル $N$ に対し
+  Galerkin 側の $n$ 一様な尾部積分評価：$T > 0$ とし、次数 $n$ の Galerkin 解 $u_n$ と任意のレベル $N$ に対し
 
   $$\int_0^T \lVert u_n(t) - P_N u_n(t) \rVert^2\, dt \;\le\; \frac{T \lVert u_0 \rVert^2 + \lVert u_0 \rVert^2 / (2\nu)}{1 + N^2}.$$
 
