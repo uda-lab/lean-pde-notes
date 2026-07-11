@@ -1,12 +1,12 @@
 name: LerayHopf.VelocityValue
 tier: full
 statement_ja: |
-  この略記は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  速度場の値の型：実 $3$ 次元 Euclid 空間 $\mathbb{R}^3$（Euclid 内積とノルムを込めて）。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  $3$ 点集合で添字づけられた実数の族に $\ell^2$ ノルムを入れた空間として定める。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusDomain.lean` の `LerayHopf.VelocityValue`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    mathlib の `EuclideanSpace ℝ (Fin 3)` の略記。ノルム付き可換群・実内積空間・完備性のインスタンスが自動で供給される。
 chapter: spaces
-tags: [wave3-public, generated]
+tags: [foundations]

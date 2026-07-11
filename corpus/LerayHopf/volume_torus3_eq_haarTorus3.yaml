@@ -1,12 +1,12 @@
 name: LerayHopf.volume_torus3_eq_haarTorus3
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  $\mathbb{T}^3$ 上の標準測度と Haar 積測度 [[正準測度|LerayHopf.haarTorus3]] は一致する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  各因子円周上で標準測度が Haar 測度の $1$ 倍（スカラー $1$ の作用）であることを既知の等式から確かめ、積測度の構成関数の合同で $3$ 因子に持ち上げる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusDomain.lean` の `LerayHopf.volume_torus3_eq_haarTorus3`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    mathlib の `AddCircle.measureSpace` は `volume` を `ofReal 1 • haarAddCircle` と定めるため、一致は定義的でなく命題的（`1 • _` の簡約が要る）。測度の取り替えが必要な場面でこの等式を経由する。
 chapter: spaces
-tags: [wave3-public, generated]
+tags: [measure, torus]

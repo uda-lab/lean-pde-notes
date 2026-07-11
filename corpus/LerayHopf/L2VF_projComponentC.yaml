@@ -1,12 +1,16 @@
 name: LerayHopf.L2VF_projComponentC
 tier: full
 statement_ja: |
-  この定義は、関数空間と基本設定を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  速度場の第 $j$ 成分の複素埋め込み：連続線形写像
+
+  $$L^2(\mathbb{T}^3; \mathbb{R}^3) \longrightarrow L^2(\mathbb{T}^3; \mathbb{C}).$$
+
+  実成分を取り出し、実から複素への埋め込みを後合成する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  [[実成分の取り出し|LerayHopf.L2VF_projComponent]] と、実複素埋め込みの $L^2$ 水準への持ち上げの合成として定める。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/DivergenceFree.lean` の `LerayHopf.L2VF_projComponentC`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Fourier 係数は複素 $L^2$ 側でしか取れないため、実ベクトル場の全ての Fourier 解析はこの埋め込み成分を経由する。本 corpus で $\hat u_j(k)$ と書いたものは常に「この埋め込み成分の第 $k$ Fourier 係数」である。
 chapter: spaces
-tags: [wave3-public, generated]
+tags: [function-spaces, fourier, torus]

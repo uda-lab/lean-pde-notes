@@ -1,12 +1,12 @@
 name: LerayHopf.L2VF
 tier: full
 statement_ja: |
-  この略記は、関数空間と基本設定を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  速度場の空間 $L^2(\mathbb{T}^3; \mathbb{R}^3)$：正準測度に関する $\mathbb{R}^3$ 値 Bochner $L^2$ 空間。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  値の型を $\mathbb{R}^3$ とする $L^p$ 空間の $p = 2$ の場合として定める。ノルム付き可換群・完備性・実内積空間の構造は $L^2$ の一般論から供給される。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/FunctionSpaces.lean` の `LerayHopf.L2VF`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    本形式化の主舞台となる Hilbert 空間 $H$。`abbrev` なので `Lp` の全インスタンスが透過的に使える。
 chapter: spaces
-tags: [wave3-public, generated]
+tags: [function-spaces, torus]

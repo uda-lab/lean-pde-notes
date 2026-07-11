@@ -1,12 +1,12 @@
 name: LerayHopf.SpatialField
 tier: full
 statement_ja: |
-  このデータ型は、関数空間と基本設定を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  領域 $\Omega$ 上の空間場のための場所取りの型。数学的内容は持たない。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  台の型と自明な命題だけをフィールドに持つ空の構造として宣言されている。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Basic.lean` の `LerayHopf.SpatialField`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    最初期マイルストーン（M1）の足場で、「後のマイルストーンで実関数空間として実現する」と記されたまま、以後の開発では使われていない（実体は `Lp` 空間 [[速度場の L² 空間|LerayHopf.L2VF]] を直接用いる）。歴史的残置物である。
 chapter: spaces
-tags: [wave3-public, generated]
+tags: [foundations, legacy]

@@ -1,12 +1,12 @@
 name: LerayHopf.h1EnergySq_nonneg
 tier: full
 statement_ja: |
-  この命題は、関数空間と基本設定を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  [[H¹ エネルギー|LerayHopf.h1EnergySq]] の非負性：すべての $u$ で $0 \le$（$H^1$ エネルギー）。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  各被和項は非負因子（Sobolev 重みとノルム二乗）の積で非負だから、総和の非負性と有限和の非負性を重ねて従う。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/H1Sigma.lean` の `LerayHopf.h1EnergySq_nonneg`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    tsum の非負性 `tsum_nonneg` は総和可能でない場合（値 $0$）も込めて成り立つので、仮定なしに述べられる。
 chapter: spaces
-tags: [wave3-public, generated]
+tags: [sobolev, energy, torus]
