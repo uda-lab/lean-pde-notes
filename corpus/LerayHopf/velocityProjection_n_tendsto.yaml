@@ -1,12 +1,12 @@
 name: LerayHopf.velocityProjection_n_tendsto
 tier: full
 statement_ja: |
-  この命題は、Galerkin 射影と近似空間を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  速度截断の各点収束：任意の $u \in L^2$ で $P_n u \to u$（$n \to \infty$、ノルム収束）。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  各成分では [[スカラー截断の各点収束|LerayHopf.fourierProjection_n_tendsto]] が使える。実部の取り出しが複素埋め込みを打ち消すことを a.e. 表示で確かめ、成分の注入と再構成恒等式（三成分の注入の和が恒等）を通じて、成分ごとの収束を場の収束に組み上げる（有限和の収束）。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/VelocityGalerkin.lean` の `LerayHopf.velocityProjection_n_tendsto`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    数学的には「スカラーの結果の成分ごとの適用」だが、形式化では複素埋め込み・実部・注入・射影の四つの $L^2$ 水準写像の合成の a.e. 展開の管理が作業量。極限曲線の可測性論法（compactness 章）で「截断の各点極限」として使われる。
 chapter: projections-galerkin
-tags: [wave3-public, generated]
+tags: [galerkin, projections, torus]

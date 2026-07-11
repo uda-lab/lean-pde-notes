@@ -1,12 +1,12 @@
 name: LerayHopf.instCompleteSpaceSubtypeAEEqFunTorus3VelocityValueHaarTorus3MemAddSubgroupL2VFSubmoduleRealL2Sigma
 tier: full
 statement_ja: |
-  この標準構成は、Galerkin 射影と近似空間を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  発散ゼロ空間の完備性：$L^2_\sigma(\mathbb{T}^3)$ は完備である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  完備空間の閉部分集合は完備だから、[[閉性|LerayHopf.isClosed_L2Sigma]] から直ちに従う。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Leray.lean` の `LerayHopf.instCompleteSpaceSubtypeAEEqFunTorus3VelocityValueHaarTorus3MemAddSubgroupL2VFSubmoduleRealL2Sigma`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    インスタンス宣言（自動命名）。Fréchet–Riesz や直交射影の存在をこの空間上で使うための型クラス登録。
 chapter: projections-galerkin
-tags: [wave3-public, generated]
+tags: [leray-projection, divergence-free, torus]

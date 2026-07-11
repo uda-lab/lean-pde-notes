@@ -1,12 +1,16 @@
 name: LerayHopf.divSymbol_apply
 tier: full
 statement_ja: |
-  この命題は、Galerkin 射影と近似空間を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  発散記号の展開規則：発散記号の値は Fourier 側の発散和
+
+  $$\sum_{j} k_j\, \hat u_j(k)$$
+
+  に等しい。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  定義（係数汎関数と成分射影の合成のスカラー重み付き有限和）を展開し、汎関数の値の一致で係数に書き換える。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Leray.lean` の `LerayHopf.divSymbol_apply`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    発散記号は波数 $k$ ごとの連続線形汎関数として定義されており、発散ゼロ空間を閉部分空間として切り出すための道具である。
 chapter: projections-galerkin
-tags: [wave3-public, generated]
+tags: [leray-projection, divergence-free, torus]

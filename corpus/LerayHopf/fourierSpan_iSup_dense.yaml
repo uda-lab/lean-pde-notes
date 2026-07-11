@@ -1,12 +1,12 @@
 name: LerayHopf.fourierSpan_iSup_dense
 tier: full
 statement_ja: |
-  この命題は、Galerkin 射影と近似空間を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Fourier スパンの合併の稠密性：スパンの上限の位相的閉包は全空間である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  Hilbert 基底の張る空間は稠密である。各基底ベクトルは [[箱の枚挙性|LerayHopf.fourierBox_exhausts]] によりある次数のスパンに属するから、基底の張る空間はスパンの上限に含まれ、閉包の単調性で稠密性が上限側へ移る。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/GalerkinProjection.lean` の `LerayHopf.fourierSpan_iSup_dense`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    mathlib の `HilbertBasis.dense_span` と `Submodule.iSup_span` の組合せ。截断の各点収束の稠密性条件。
 chapter: projections-galerkin
-tags: [wave3-public, generated]
+tags: [galerkin, projections, torus]

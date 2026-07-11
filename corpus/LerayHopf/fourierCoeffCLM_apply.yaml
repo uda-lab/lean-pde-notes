@@ -1,12 +1,12 @@
 name: LerayHopf.fourierCoeffCLM_apply
 tier: full
 statement_ja: |
-  この命題は、Galerkin 射影と近似空間を整えるための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  係数汎関数の値の一致：[[係数汎関数|LerayHopf.fourierCoeffCLM]] の値は [[Fourier 係数|LerayHopf.mFourierCoeff3]] に等しい。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  Hilbert 基底の係数表示（係数は基底ベクトルとの内積）と内積汎関数の展開を並べるだけである。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Leray.lean` の `LerayHopf.fourierCoeffCLM_apply`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Fourier 係数を「連続線形汎関数の値」と見なす視点の切り替え弁。弱収束から係数ごとの収束を取り出す議論（compactness 章）はすべてこの補題を経由する。
 chapter: projections-galerkin
-tags: [wave3-public, generated]
+tags: [fourier, projections, torus]

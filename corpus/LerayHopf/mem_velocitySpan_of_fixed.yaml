@@ -1,12 +1,12 @@
 name: LerayHopf.mem_velocitySpan_of_fixed
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  固定点は像に属する（bridge の逆方向）：発散ゼロで截断に固定される場は $V_n$ に属する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  自分自身を証人として所属の特徴づけを適用する。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusGalerkinScheme.lean` の `LerayHopf.mem_velocitySpan_of_fixed`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Galerkin 解データの ODE フィールドのテスト条件（`w : L2Sigma` かつ截断で固定）が $V_n$ 所属と一致することを保証する。
 chapter: projections-galerkin
-tags: [wave3-public, generated]
+tags: [galerkin, projections, torus]

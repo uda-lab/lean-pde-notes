@@ -1,12 +1,12 @@
 name: LerayHopf.velocityProjection_n_idem
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  速度截断の冪等性：$P_n(P_n u) = P_n u$。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  [[係数による外延性|LerayHopf.L2VF_ext_componentC_mFourierCoeff]] で係数の一致に帰着し、成分可換性と截断の係数公式（箱の中は保持、外は零）で、二回適用と一回適用の係数が一致することを場合分けで確かめる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusGalerkinScheme.lean` の `LerayHopf.velocityProjection_n_idem`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    截断の係数公式は `fourierProjection_n_mFourierCoeff`。射影である（範囲上で恒等）ことの係数版。
 chapter: projections-galerkin
-tags: [wave3-public, generated]
+tags: [projections, adjoint, torus]
