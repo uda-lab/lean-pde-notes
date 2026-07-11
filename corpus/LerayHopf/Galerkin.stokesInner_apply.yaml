@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.stokesInner_apply
+tier: gloss
+statement_ja: |
+  粘性内段汎関数の値の展開規則（定義的等式）。
+gap:
+  level: none
+  note: |
+    `rfl` の simp 補題。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

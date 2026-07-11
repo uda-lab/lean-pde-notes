@@ -1,0 +1,16 @@
+name: LerayHopf.Galerkin.FieldForms.inner_self_vectorField
+tier: full
+statement_ja: |
+  エネルギー恒等式の点別形：任意の $v$ に対して
+
+  $$\bigl\langle v,\,G(v)\bigr\rangle = -\nu\, s(v,v).$$
+
+  移流項は対角消滅により跡形なく消え、エネルギーの微分に寄与するのは粘性散逸だけであることを表す。
+proof_ja: |
+  内積の対称性で左右を入れ替え、場の特徴付け[[ベクトル場の特徴付け|LerayHopf.Galerkin.FieldForms.vectorField_spec]]を代入すると $-\nu s(v,v)-b(v,v,v)$ になる。移流形式の対角消滅 $b(v,v,v)=0$ で第二項が落ちる。
+gap:
+  level: none
+  note: |
+    データに課した対角消滅 `bV_diag_zero` がそのまま効く一行計算。
+chapter: galerkin-generic
+tags: [quadratic-field, energy]

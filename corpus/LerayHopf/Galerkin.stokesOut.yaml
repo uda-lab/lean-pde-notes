@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.stokesOut
+tier: gloss
+statement_ja: |
+  粘性項の外段：$u\mapsto(w\mapsto -\nu\,s(u,w))$ の連続線形化。左引数の線形性は対称性経由の導出補題で供給する。
+gap:
+  level: none
+  note: |
+    線形性は `sV_add_left`/`sV_smul_left` から。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

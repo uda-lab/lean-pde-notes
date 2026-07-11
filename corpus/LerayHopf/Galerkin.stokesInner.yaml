@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.stokesInner
+tier: gloss
+statement_ja: |
+  粘性項の内段汎関数 $w\mapsto -\nu\,s(u,w)$ の連続線形化。場の一次部分の部品。
+gap:
+  level: none
+  note: |
+    線形性は `sV_add_right`/`sV_smul_right` から。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

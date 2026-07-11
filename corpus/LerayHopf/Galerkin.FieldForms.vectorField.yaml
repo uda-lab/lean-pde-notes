@@ -1,0 +1,20 @@
+name: LerayHopf.Galerkin.FieldForms.vectorField
+tier: full
+statement_ja: |
+  形式データ $(b,s)$ と粘性係数 $\nu$ から定まる Galerkin ベクトル場 $G$。各点 $u$ における値 $G(u)$ は、線形汎関数
+
+  $$w \mapsto -\nu\, s(u,w) - b(u,u,w)$$
+
+  の Riesz 表現元として定義される。すなわち有限次元 Galerkin 部分空間上での弱形式
+
+  $$\bigl\langle u',\,w\bigr\rangle + \nu\, s(u,w) + b(u,u,w) = 0 \qquad (\text{任意のテスト } w)$$
+
+  を、自励方程式 $u'=G(u)$ に翻訳する場である。
+proof_ja: |
+  右辺の汎関数は $s$ の右線形性と $b$ の第三引数線形性により $w$ について線形で、有限次元性から自動的に連続である。よって Riesz の表現定理（有限次元内積空間の双対同型）が適用でき、その逆像として $G(u)$ が定まる。
+gap:
+  level: mild
+  note: |
+    Riesz 表現は mathlib の `InnerProductSpace.toDual` の逆写像。符号と $\nu$ の規約は各レーンの旧 `galerkinODE_vectorField` に一致させてあり、レーン側の場との同値は `galerkinODE_vectorField_eq_generic`（両レーン）が橋渡しする。
+chapter: galerkin-generic
+tags: [quadratic-field, riesz]

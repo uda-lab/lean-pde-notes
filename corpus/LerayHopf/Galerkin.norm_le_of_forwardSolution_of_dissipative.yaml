@@ -1,0 +1,14 @@
+name: LerayHopf.Galerkin.norm_le_of_forwardSolution_of_dissipative
+tier: full
+statement_ja: |
+  場 $g$ が散逸的、すなわちすべての $v$ で $\langle v, g(v)\rangle\le 0$ を満たすとする。曲線 $c$ が区間 $[0,T]$ の各時刻で $c'(t)=g(c(t))$ を満たすならば、解はアプリオリに初期球へ閉じ込められる：
+
+  $$\lVert c(t)\rVert \le \lVert c(0)\rVert \qquad (0\le t\le T).$$
+proof_ja: |
+  運動エネルギー $E(s)=\tfrac12\lVert c(s)\rVert^2$ の微分は[[エネルギー微分公式|LerayHopf.Galerkin.energy_hasDerivAt_of_solution]]により $\langle c(s),g(c(s))\rangle$ であり、散逸性からこれは非正である。したがって $E$ は $[0,T]$ 上単調非増加で、$E(t)\le E(0)$ を得る。両辺の平方根を取り、ノルムの非負性で整理すれば主張のノルム評価になる。
+gap:
+  level: mild
+  note: |
+    「微分が非正だから単調非増加」の段は mathlib の `antitoneOn_of_deriv_nonpos` を凸区間 $[0,T]$ に適用して行う。連続性・微分可能性の前提は各時刻の微分可能性から機械的に補う。
+chapter: galerkin-generic
+tags: [dissipative-ode, energy, a-priori-bound]

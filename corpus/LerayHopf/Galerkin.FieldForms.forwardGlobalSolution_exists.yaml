@@ -1,0 +1,12 @@
+name: LerayHopf.Galerkin.FieldForms.forwardGlobalSolution_exists
+tier: full
+statement_ja: |
+  形式データから直ちに得られる前向き大域可解性：$\nu>0$ と任意の初期値 $x_0$ に対し、曲線 $c$ で $c(0)=x_0$ かつすべての $t\ge 0$ で $c'(t)=G(c(t))$ を満たすものが存在する。
+proof_ja: |
+  Galerkin ベクトル場は $C^1$ 級（[[場の正則性|LerayHopf.Galerkin.FieldForms.vectorField_contDiff]]）かつ散逸的（[[場の散逸性|LerayHopf.Galerkin.FieldForms.inner_self_vectorField_nonpos]]）なので、散逸的 $C^1$ 場の[[前向き大域存在|LerayHopf.Galerkin.forwardGlobalSolution_exists]]をそのまま適用すればよい。
+gap:
+  level: none
+  note: |
+    抽象 ODE 層への即時委譲。旧構成で両レーンに重複していた大域可解性証明は、この一行の適用に帰着した（lean-pde issue #112 PR-B）。
+chapter: galerkin-generic
+tags: [quadratic-field, forward-global]

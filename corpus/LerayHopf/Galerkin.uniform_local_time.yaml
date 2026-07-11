@@ -1,0 +1,14 @@
+name: LerayHopf.Galerkin.uniform_local_time
+tier: full
+statement_ja: |
+  $C^1$ 級の場 $g$ と半径 $R$ を固定する。このとき出発点にも出発時刻にも依らない一様な局所存在時間 $\delta>0$ が存在する：閉球 $\overline{B}(0,R)$ 内の任意の点 $x_0$ と任意の時刻 $t_0$ に対し、曲線 $\alpha$ で $\alpha(t_0)=x_0$ かつ開区間 $(t_0-\delta,\,t_0+\delta)$ の各時刻で $\alpha'(t)=g(\alpha(t))$ を満たすものが取れる。
+proof_ja: |
+  $C^1$ 級の場は各点で局所リプシッツなので、Picard–Lindelöf 型の局所存在定理により、各点 $y$ の近傍球とその上で通用する局所存在時間 $\varepsilon(y)>0$ が取れる。
+
+  閉球 $\overline{B}(0,R)$ はコンパクトだから、これらの近傍球による開被覆から有限部分被覆を選び、対応する有限個の $\varepsilon$ の最小値を $\delta$ とすればよい。出発時刻が $t_0$ 一般の場合は、時刻 $0$ を中心に得た局所解を $t\mapsto\alpha(t-t_0)$ と平行移動すれば自励系なのでそのまま解になる。
+gap:
+  level: mild
+  note: |
+    局所存在は mathlib の `ContDiffAt.exists_forall_mem_closedBall_exists_eq_forall_mem_Ioo_hasDerivAt`（Picard–Lindelöf の近傍一様版）を用いる。有限部分被覆が空になる退化ケース（$R<0$ で閉球が空）は別扱いで処理する。
+chapter: galerkin-generic
+tags: [dissipative-ode, picard-lindelof]

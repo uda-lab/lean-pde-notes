@@ -1,0 +1,14 @@
+name: LerayHopf.Galerkin.solution_agree
+tier: full
+statement_ja: |
+  $C^1$ 級の場 $g$ に対する解の一致（貼り合わせ一意性）：曲線 $\alpha,\beta$ がともに区間 $[a,b]$ の各時刻で自励方程式 $x'=g(x)$ を満たし、ある一点 $t_0\in[a,b]$ で $\alpha(t_0)=\beta(t_0)$ ならば、$[a,b]$ 全体で $\alpha=\beta$ である。
+proof_ja: |
+  両解は $[a,b]$ 上連続なので、その像はコンパクトであり、共通の閉球 $\overline{B}(0,M)$ に収まる。$C^1$ 級の場はこのコンパクト凸集合上でリプシッツ連続だから、リプシッツ定数 $K$ が取れる。
+
+  あとは一致点 $t_0$ から左右それぞれの区間 $[a,t_0]$ と $[t_0,b]$ に、リプシッツ場に対する ODE 解の一意性定理を適用すればよい。任意の $t\in[a,b]$ は $t\le t_0$ か $t_0\le t$ のどちらかに落ち、対応する側の一致から $\alpha(t)=\beta(t)$ を得る。
+gap:
+  level: mild
+  note: |
+    リプシッツ定数の取得は mathlib の `ContDiffOn.exists_lipschitzOnWith`、左右の一意性はそれぞれ `ODE_solution_unique_of_mem_Icc_left` / `ODE_solution_unique_of_mem_Icc_right` による。解を共通球に収める評価（像のコンパクト性と上界の取り出し）が形式化では明示的な作業になる。
+chapter: galerkin-generic
+tags: [dissipative-ode, uniqueness]

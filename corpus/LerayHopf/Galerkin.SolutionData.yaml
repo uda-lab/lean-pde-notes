@@ -1,0 +1,22 @@
+name: LerayHopf.Galerkin.SolutionData
+tier: full
+statement_ja: |
+  第 $n$ Galerkin 近似の解データの束。発散ゼロ部分空間に値を取る曲線 $u$ と、それが第 $n$ Galerkin 問題の解であることを表す証明群 — 初期条件 $u(0)=P_n u_0$、解が近似部分空間 $V_n$ に留まること、前向き時刻での微分可能性、射影された弱形式の方程式
+
+  $$\bigl\langle u'(t),\,w\bigr\rangle + \nu\, s\bigl(u(t),w\bigr) + b\bigl(u(t),u(t),w\bigr) = 0 \qquad (w\in V_n),$$
+
+  $H^1$ 所属、一様エネルギー評価
+
+  $$\tfrac12\lVert u(t)\rVert^2 \le \tfrac12\lVert P_n u_0\rVert^2,$$
+
+  および $n$ に依らない一様正則性評価 — をまとめて保持する。
+proof_ja: |
+  微分可能性と方程式を前向き時刻 $t\ge 0$ に限るのは本質的である：二次の Galerkin ベクトル場は後ろ向きには有限時間で爆発しうるため、大域解は前向きにしか構成できない。
+
+  一様エネルギー評価と一様正則性評価の二つが、$n\to\infty$ のコンパクト性論法（弱極限の抽出と Aubin–Lions 型の時間コンパクト性）の入力になる。旧構成では $\mathbb{T}^3$ 用と $\mathbb{R}^3$ 用に同型の束が別々に定義されていたが、Galerkin 領域でパラメータ付けた本データに一本化され、旧名は略記として残る。
+gap:
+  level: mild
+  note: |
+    数学的性質を型のフィールドとして持ち回る証明保持型。$\mathbb{R}^3$ 固有の有限次元強化（`viscous_curve_continuous`）は本データではなく R3 側の拡張 `GalerkinSolutionData_R3`（`extends` による）が担う。
+chapter: galerkin-generic
+tags: [galerkin-domain, proof-carrying, ode]

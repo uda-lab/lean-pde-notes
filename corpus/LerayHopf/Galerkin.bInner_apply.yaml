@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.bInner_apply
+tier: gloss
+statement_ja: |
+  最内段汎関数の値の展開規則：$w$ での値は $-b(u,u',w)$ に定義的に等しい。
+gap:
+  level: none
+  note: |
+    `rfl` の simp 補題。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

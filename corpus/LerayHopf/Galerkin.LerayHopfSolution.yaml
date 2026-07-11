@@ -1,0 +1,18 @@
+name: LerayHopf.Galerkin.LerayHopfSolution
+tier: full
+statement_ja: |
+  領域中立な **Leray–Hopf 弱解**の束。発散ゼロ部分空間に値を取る曲線 $u$ と、それが粘性 $\nu$・時間範囲 $[0,T]$・初期値 $u_0$ の Leray–Hopf 弱解であることを表す証明群 — 弱 NS 方程式、区間上の**すべての**時刻 $t\in[0,T]$ で成り立つエネルギー不等式
+
+  $$\tfrac12\lVert u(t)\rVert^2 + \int_0^t \mathrm{diss}_\nu\bigl(u(s)\bigr)\,ds \le \tfrac12\lVert u_0\rVert^2,$$
+
+  初期トレース $u(t)\to u_0$（$t\to 0^+$）、エネルギー類所属（ほとんどすべての時刻での $H^1$ 所属と散逸の可積分性）、時間可測性 — を保持する。
+proof_ja: |
+  エネルギー不等式が「ほとんどすべての $t$」ではなく**すべての** $t\in[0,T]$ で成り立つこと、初期トレースが右極限として初期値へ収束することの二点が、単なる弱解を Leray–Hopf 弱解たらしめる規格である。エネルギー類の条項は、エネルギー不等式が空虚に成立していないこと（散逸積分が定義できること）を保証する。
+
+  この束は各レーンの主定理の結論の型であり、$\mathbb{T}^3$・$\mathbb{R}^3$ の旧構造はいずれも本データの略記になった。
+gap:
+  level: mild
+  note: |
+    初期トレースの収束は `nhdsWithin 0 (Set.Ici 0)` に沿う極限で、このフィルターは点 $0$ 自身を含むため $u(0)=u_0$ を厳密に固定する（代表元の取り方に注意が必要になる箇所）。時間可測性は `AEStronglyMeasurable` で持つ（教科書水準の完全な Leray–Hopf 規格の一部として lean-pde PR #102 で導入されたフィールド）。
+chapter: galerkin-generic
+tags: [galerkin-domain, proof-carrying, leray-hopf]

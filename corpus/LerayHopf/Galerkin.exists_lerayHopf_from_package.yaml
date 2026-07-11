@@ -1,0 +1,12 @@
+name: LerayHopf.Galerkin.exists_lerayHopf_from_package
+tier: full
+statement_ja: |
+  組み立て定理：コンパクト性の束が与えられれば、Leray–Hopf 弱解が存在する。すなわち任意の Galerkin 領域・移流形式核・$\nu$・$T$・初期値 $u_0$ について、[[コンパクト性の束|LerayHopf.Galerkin.CompactnessPackage]]から[[Leray–Hopf 弱解の束|LerayHopf.Galerkin.LerayHopfSolution]]の非空性が従う。
+proof_ja: |
+  束の極限曲線を解曲線とし、弱方程式・エネルギー不等式・初期トレース・エネルギー類・可測性の各証明をそのまま写せばよい。数学的内容はすべて束の構築側にあり、本定理は名義の付け替えである。
+gap:
+  level: none
+  note: |
+    旧レーンの `exists_lerayHopf_from_package_full` / `_R3` が共有していた本体の一本化（lean-pde issue #112 PR-C）。両 capstone はこの定理へ委譲するが statement は byte-identical に保たれ、kernel-only（`propext / Classical.choice / Quot.sound` のみ）も不変。
+chapter: galerkin-generic
+tags: [galerkin-domain, assembly]

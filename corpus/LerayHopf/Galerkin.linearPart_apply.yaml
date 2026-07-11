@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.linearPart_apply
+tier: gloss
+statement_ja: |
+  一次部分の値の展開規則：$L(u)$ は粘性内段汎関数の Riesz 表現元に定義的に等しい。
+gap:
+  level: none
+  note: |
+    `rfl` の simp 補題。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.vectorFieldFunctional_apply
+tier: gloss
+statement_ja: |
+  上記汎関数の値の展開規則：$w$ に適用した値は $-\nu\,s(u,w)-b(u,u,w)$ に定義的に等しい。
+gap:
+  level: none
+  note: |
+    `rfl` の simp 補題。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

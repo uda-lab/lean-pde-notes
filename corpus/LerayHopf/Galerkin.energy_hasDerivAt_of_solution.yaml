@@ -1,0 +1,20 @@
+name: LerayHopf.Galerkin.energy_hasDerivAt_of_solution
+tier: full
+statement_ja: |
+  有限次元実内積空間上の場 $g$ と曲線 $c$ について、時刻 $t$ で自励方程式 $c'(t)=g(c(t))$ が成り立つならば、運動エネルギー $E(s)=\tfrac12\lVert c(s)\rVert^2$ は $t$ で微分可能で、その微分は
+
+  $$E'(t) = \bigl\langle c(t),\, g(c(t))\bigr\rangle$$
+
+  で与えられる。
+proof_ja: |
+  内積の積の微分則により、$s\mapsto\langle c(s),c(s)\rangle$ の $t$ における微分は
+
+  $$\bigl\langle c(t),\,g(c(t))\bigr\rangle + \bigl\langle g(c(t)),\,c(t)\bigr\rangle$$
+
+  である。実内積の対称性で両項をまとめ、$\lVert c\rVert^2=\langle c,c\rangle$ の書き換えと係数 $\tfrac12$ の定数倍規則で結論を得る。
+gap:
+  level: none
+  note: |
+    教科書どおりの一行計算。内積の積の微分則は mathlib の `HasDerivAt.inner`、ノルムと内積の橋渡しは `real_inner_self_eq_norm_sq` による。
+chapter: galerkin-generic
+tags: [dissipative-ode, energy]

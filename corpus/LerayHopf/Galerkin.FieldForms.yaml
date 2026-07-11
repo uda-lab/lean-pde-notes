@@ -1,0 +1,16 @@
+name: LerayHopf.Galerkin.FieldForms
+tier: full
+statement_ja: |
+  有限次元実内積空間 $V$ 上で Galerkin ベクトル場を組み立てるのに十分な生の形式データの束。三重線形な移流形式 $b$（三つの引数それぞれについての加法性と斉次性、および対角消滅 $b(v,v,v)=0$）と、粘性形式 $s$（対称、右引数について線形、対角非負 $s(v,v)\ge 0$）からなる。
+
+  対角消滅がエネルギー法則の移流項キャンセルを、対角非負性が散逸性を、それぞれこのデータの水準で保証する。
+proof_ja: |
+  線形性は生の等式（和とスカラー倍の保存）としてだけ課し、連続線形写像のデータは持たせない。有限次元空間上では線形写像は自動的に連続なので、連続性は必要になる場面でその都度回復できる。
+
+  $s$ の左引数の線形性は課さない：対称性と右線形性から導出できるからである。$\mathbb{T}^3$ と $\mathbb{R}^3$ の両レーンがそれぞれの具体的な移流形式・粘性形式でこのデータを実現し、以後のベクトル場構成・エネルギー計算・前向き大域存在はすべてこの抽象データだけから一度きり証明される。
+gap:
+  level: mild
+  note: |
+    連続性を持たせない設計は `LinearMap.toContinuousLinearMap`（有限次元の自動連続性）を下流で使うための判断で、lean-pde issue #112 の重複解消の要。両レーンの実現例は `torusFieldForms` / `r3FieldForms`。
+chapter: galerkin-generic
+tags: [quadratic-field, convection, viscous]

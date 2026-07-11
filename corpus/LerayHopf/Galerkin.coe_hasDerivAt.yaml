@@ -1,0 +1,12 @@
+name: LerayHopf.Galerkin.coe_hasDerivAt
+tier: full
+statement_ja: |
+  部分空間の内在的な微分は周囲空間へ持ち上がる：ノルム空間 $H$ の部分空間 $W$ に値を取る曲線 $c$ が時刻 $t$ で（$W$ の位相での）微分 $v$ を持つならば、$H$ の曲線と見た $c$ も同じ時刻で微分を持ち、その値は $v$ の $H$ における像である。
+proof_ja: |
+  包含写像 $W\hookrightarrow H$ は連続線形なので、それ自身が自分を微分に持つ。合成の連鎖律を内在的微分と組み合わせれば、押し出した曲線の微分が包含像として得られる。
+gap:
+  level: none
+  note: |
+    包含の連続線形性は `Submodule.subtypeL`、合成は `HasFDerivAt.comp_hasDerivAt` による。両レーンで private に重複していた周囲空間転送（旧 `solve_hasDerivAt_ambient`）の汎用形。
+chapter: galerkin-generic
+tags: [dissipative-ode, submodule-transport]

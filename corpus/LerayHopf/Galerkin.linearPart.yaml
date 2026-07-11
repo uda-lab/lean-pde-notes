@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.linearPart
+tier: gloss
+statement_ja: |
+  場の一次部分 $L$：粘性形式の段積み構成に Riesz 逆写像を合成した連続線形写像で、$\langle L(u),w\rangle=-\nu\,s(u,w)$ を満たす。場の分解 $G(u)=B(u,u)+L(u)$ の一次成分。
+gap:
+  level: none
+  note: |
+    [[場の正則性|LerayHopf.Galerkin.FieldForms.vectorField_contDiff]]の部品。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

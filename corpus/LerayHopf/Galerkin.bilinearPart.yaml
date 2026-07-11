@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.bilinearPart
+tier: gloss
+statement_ja: |
+  場の二次部分 $B$：移流形式の段積み構成に Riesz 逆写像を合成した連続双線形写像で、$\langle B(u,u'),w\rangle=-b(u,u',w)$ を満たす。場の分解 $G(u)=B(u,u)+L(u)$ の二次成分。
+gap:
+  level: none
+  note: |
+    `compL` による合成。[[場の正則性|LerayHopf.Galerkin.FieldForms.vectorField_contDiff]]の部品。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

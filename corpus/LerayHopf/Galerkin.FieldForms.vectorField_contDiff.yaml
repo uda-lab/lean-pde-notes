@@ -1,0 +1,14 @@
+name: LerayHopf.Galerkin.FieldForms.vectorField_contDiff
+tier: full
+statement_ja: |
+  Galerkin ベクトル場 $G$ は $C^1$ 級である（実際には二次多項式的な場なので滑らかである）。前向き大域存在定理へ渡すための正則性である。
+proof_ja: |
+  場を二次部分と一次部分に分解する：$G(u)=B(u,u)+L(u)$。ここで $B$ は移流形式 $b$ の最初の二つの引数から Riesz 表現を経て得られる連続双線形写像、$L$ は粘性形式 $s$ から同様に得られる連続線形写像である。
+
+  有限次元空間上では各段の線形写像が自動的に連続なので、$B$ と $L$ は実際に連続な（双）線形写像として構成でき、連続双線形写像の対角化 $u\mapsto B(u,u)$ と連続線形写像はいずれも $C^1$ 級。和も $C^1$ 級である。
+gap:
+  level: mild
+  note: |
+    分解 $G(u)=B(u,u)+L(u)$ は Riesz 単射性（すべての $w$ とテストして比較する `ext_inner_right`）で示す private 補題 `vectorField_eq_parts` による。$B,L$ は Riesz 逆写像・移流形式・粘性形式を段積みした private の連続線形写像列（旧レーンの重複構成の一本化）として構成する。
+chapter: galerkin-generic
+tags: [quadratic-field, regularity]

@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.vectorFieldFunctional
+tier: gloss
+statement_ja: |
+  各 $u$ に対し線形汎関数 $w\mapsto -\nu\,s(u,w)-b(u,u,w)$ を連続線形写像として束ねたもの。Galerkin ベクトル場はこの汎関数の Riesz 表現元として定義される。
+gap:
+  level: none
+  note: |
+    右線形性はデータの `sV_add_right`/`bV_add_3` 系から、連続性は有限次元の自動連続性（`LinearMap.toContinuousLinearMap`）から。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

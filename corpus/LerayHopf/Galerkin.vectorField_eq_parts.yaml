@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.vectorField_eq_parts
+tier: gloss
+statement_ja: |
+  場の分解等式 $G(u)=B(u,u)+L(u)$。すべてのテスト方向 $w$ と内積を取って両辺を比較し、Riesz 表現の単射性で結論する。場の $C^1$ 性の要。
+gap:
+  level: none
+  note: |
+    `ext_inner_right` によるテスト比較。[[場の正則性|LerayHopf.Galerkin.FieldForms.vectorField_contDiff]]が直接使う。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

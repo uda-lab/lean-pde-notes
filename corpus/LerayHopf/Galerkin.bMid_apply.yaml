@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.bMid_apply
+tier: gloss
+statement_ja: |
+  中段写像の値の展開規則（定義的等式）。
+gap:
+  level: none
+  note: |
+    `rfl` の simp 補題。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

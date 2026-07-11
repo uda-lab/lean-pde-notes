@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.bMid
+tier: gloss
+statement_ja: |
+  移流形式の第二引数を連続線形化する、場の分解の中段：$u'\mapsto(w\mapsto -b(u,u',w))$。
+gap:
+  level: none
+  note: |
+    線形性は `bV_add_2`/`bV_smul_2` から。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

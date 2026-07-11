@@ -1,0 +1,12 @@
+name: LerayHopf.Galerkin.CompactnessPackage
+tier: full
+statement_ja: |
+  コンパクト性論法の出力をまとめる束。Galerkin 近似列から抽出した極限曲線と、その極限が Leray–Hopf 弱解の全要件 — 弱 NS 方程式、$[0,T]$ 上のすべての時刻でのエネルギー不等式、初期トレース、エネルギー類所属、時間可測性 — を満たすことの証明群からなる。
+proof_ja: |
+  各条項は[[Leray–Hopf 弱解の束|LerayHopf.Galerkin.LerayHopfSolution]]の対応する条項の鏡像である。極限移行キャンペーン（弱収束・強収束・下半連続性・テスト拡張）の成果物を一箇所に集約し、主定理の組み立て[[束からの組み立て|LerayHopf.Galerkin.exists_lerayHopf_from_package]]へ渡すための中継データとして機能する。
+gap:
+  level: none
+  note: |
+    旧レーンの `GalerkinCompactnessPackageFull(_R3)` の一本化。フィールド構成は `LerayHopfSolution` と一対一対応。
+chapter: galerkin-generic
+tags: [galerkin-domain, proof-carrying, compactness]

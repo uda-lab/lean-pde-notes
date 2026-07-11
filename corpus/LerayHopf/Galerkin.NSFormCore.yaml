@@ -1,0 +1,16 @@
+name: LerayHopf.Galerkin.NSFormCore
+tier: full
+statement_ja: |
+  Navier–Stokes 移流形式の領域中立な核：Galerkin 領域の発散ゼロ部分空間上の三重線形形式 $b$ で、後ろ二つの引数についての反対称性 $b(u,v,w)=-b(u,w,v)$、三つの引数それぞれの加法性・斉次性、およびテスト関数 $w$ を固定するごとの $L^2$ 有界性
+
+  $$\lvert b(u,v,w)\rvert \le C_w\,\lVert u\rVert\,\lVert v\rVert$$
+
+  を満たすものの束。
+proof_ja: |
+  これは各レーンの移流形式データからの射影であって置き換えではない：$b$ が実際に $\int(u\cdot\nabla)v\cdot w$ という具体的な移流形式であることを固定する非空性の証（Galerkin 対流との一致）は、レーン側のデータに留まる。抽象層はエネルギー法則と弱形式の組み立てに必要な代数的性質と有界性だけを要求する。
+gap:
+  level: mild
+  note: |
+    レーン側の非空性の固定（`b_galerkin`）は `Torus3NSForms` / `R3NSForms` に残り、本データはその抽象化にすぎない。射影（レーンから本データを作る対応）は `Torus3NSForms.core` / `R3NSForms.core`、値の一致は `core_b` 補題が固定する。
+chapter: galerkin-generic
+tags: [galerkin-domain, convection]

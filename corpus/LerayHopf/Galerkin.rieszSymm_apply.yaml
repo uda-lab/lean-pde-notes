@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.rieszSymm_apply
+tier: gloss
+statement_ja: |
+  Riesz 逆写像の値の展開規則：連続線形写像としての値は双対同型の逆像に定義的に等しい。
+gap:
+  level: none
+  note: |
+    `rfl` の simp 補題。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

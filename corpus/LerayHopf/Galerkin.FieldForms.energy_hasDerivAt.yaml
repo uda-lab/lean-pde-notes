@@ -1,0 +1,16 @@
+name: LerayHopf.Galerkin.FieldForms.energy_hasDerivAt
+tier: full
+statement_ja: |
+  Galerkin 解のエネルギー法則（微分形）：曲線 $c$ が時刻 $t$ で $c'(t)=G(c(t))$ を満たすならば、運動エネルギー $E(s)=\tfrac12\lVert c(s)\rVert^2$ は $t$ で微分可能で
+
+  $$E'(t) = -\nu\, s\bigl(c(t),\,c(t)\bigr).$$
+
+  有限次元 Galerkin 近似の水準で、エネルギーの減少率が粘性散逸にちょうど等しいことを述べる。
+proof_ja: |
+  一般の場に対するエネルギー微分公式[[エネルギー微分公式|LerayHopf.Galerkin.energy_hasDerivAt_of_solution]]で $E'(t)=\langle c(t),G(c(t))\rangle$ を得て、点別エネルギー恒等式[[点別エネルギー恒等式|LerayHopf.Galerkin.FieldForms.inner_self_vectorField]]で右辺を書き換える。
+gap:
+  level: none
+  note: |
+    二つの既出補題の合成のみ。
+chapter: galerkin-generic
+tags: [quadratic-field, energy]

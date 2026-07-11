@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.rieszSymm
+tier: gloss
+statement_ja: |
+  Riesz 対応の逆向き（汎関数からベクトルへ）を連続線形写像として固定したもの。場の分解の最外段で使う。
+gap:
+  level: none
+  note: |
+    `InnerProductSpace.toDual` の逆同型の連続線形写像化。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper, riesz]

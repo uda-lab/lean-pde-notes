@@ -1,0 +1,20 @@
+name: LerayHopf.Galerkin.forwardGlobalSolution_exists
+tier: full
+statement_ja: |
+  **散逸的 $C^1$ 場の前向き大域存在。** 有限次元実内積空間上の場 $g$ が $C^1$ 級かつ散逸的（$\langle v,g(v)\rangle\le 0$）ならば、任意の初期値 $x_0$ に対し曲線 $c$ で $c(0)=x_0$ かつすべての前向き時刻 $t\ge 0$ で
+
+  $$c'(t) = g\bigl(c(t)\bigr)$$
+
+  を満たすものが存在する。両レーンの Galerkin ソルバーがこの一つの定理に帰着する抽象的中核である。
+proof_ja: |
+  まず初期ノルムを半径とする球 $\overline{B}(0,\lVert x_0\rVert)$ 上で、出発点・出発時刻に依らない[[一様局所存在時間|LerayHopf.Galerkin.uniform_local_time]] $\delta>0$ を取る。散逸性のアプリオリ評価により前向きの解はこの球から出ないので、同じ $\delta$ が継ぎ足しのたびに使い回せる。
+
+  幅 $\delta/2$ のステップごとに解を延長する帰納法により、各 $k$ に対し $[0,\,k\delta/2]$ 上の解 $c_k$ を得る。時刻 $t$ を覆うステップ番号 $N(t)=\lfloor t/(\delta/2)\rfloor+1$ を添字関数とし、$c(t)=c_{N(t)}(t)$ と定義する。異なる番号の解どうしは重なり区間上で[[解の一致補題|LerayHopf.Galerkin.solution_agree]]により一致するから、この定義は整合的である。
+
+  最後に、各前向き時刻 $t$ の近傍で $c$ が固定番号の局所解 $c_{N(t)}$ と一致することを確かめれば、微分可能性は局所解のそれに帰着し、$c$ が前向き大域解であることが従う。
+gap:
+  level: large
+  note: |
+    貼り合わせの整合性（添字関数 $N$ を跨ぐ一致）と「近傍での関数一致から微分の一致を引き継ぐ」段（`Filter.EventuallyEq.hasDerivAt_iff`）が形式化の作業量の大半を占める。前向き大域性が本質で、二次の場は後ろ向きには有限時間爆発しうるため、$t\ge 0$ に限った継ぎ足しを行う。旧構成では同じ議論が $\mathbb{T}^3$ と $\mathbb{R}^3$ の両レーンに逐語重複していたが、本定理への一本化（lean-pde issue #112）により各レーンの前向き大域存在はこの系になった。
+chapter: galerkin-generic
+tags: [dissipative-ode, picard-lindelof, forward-global]

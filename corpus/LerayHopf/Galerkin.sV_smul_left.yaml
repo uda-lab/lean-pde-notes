@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.sV_smul_left
+tier: gloss
+statement_ja: |
+  粘性形式の左引数の斉次性。右斉次性と対称性から導出する。
+gap:
+  level: none
+  note: |
+    `sV_symm` 経由の導出補題。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]

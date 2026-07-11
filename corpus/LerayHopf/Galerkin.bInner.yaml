@@ -1,0 +1,10 @@
+name: LerayHopf.Galerkin.bInner
+tier: gloss
+statement_ja: |
+  移流形式の第三引数を連続線形汎関数 $w\mapsto -b(u,u',w)$ として固定する、場の分解の最内段。
+gap:
+  level: none
+  note: |
+    線形性は `bV_add_3`/`bV_smul_3`、連続性は有限次元の自動連続性から。
+chapter: galerkin-generic
+tags: [quadratic-field, private-helper]
