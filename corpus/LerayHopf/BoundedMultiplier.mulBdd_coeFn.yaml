@@ -1,0 +1,12 @@
+name: LerayHopf.BoundedMultiplier.mulBdd_coeFn
+tier: full
+statement_ja: |
+  乗算作用素の値の点別表示：$\mathrm{mul}_m\,g$ の代表関数は a.e. で $x\mapsto m(x)\,g(x)$ に一致する。
+proof_ja: |
+  $L^2$ 類の構成の展開そのものである。
+gap:
+  level: none
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

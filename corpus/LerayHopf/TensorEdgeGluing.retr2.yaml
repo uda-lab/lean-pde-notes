@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.retr2
+tier: gloss
+statement_ja: |
+  スロット 2 の引き込み：$X\otimes X$ から $E\otimes X$ への線形な引き込み写像（縁因子への射影をテンソルの第 1 因子に施す）。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

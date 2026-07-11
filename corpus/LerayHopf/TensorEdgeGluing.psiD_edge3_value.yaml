@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.psiD_edge3_value
+tier: gloss
+statement_ja: |
+  スロット 3 の縁での $\psi_D$ の値が縁データの規約値に一致すること。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

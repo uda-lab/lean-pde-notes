@@ -1,0 +1,12 @@
+name: LerayHopf.TensorEdgeGluing.detExtend
+tier: full
+statement_ja: |
+  決定拡張：縁データ（各縁テスト $s$ に対する有界双線形形式の族、重なり反対称条件つき）から、全テンソル $v\otimes w$ に対する値 $b(u,v\otimes w)$ を作る貼り合わせ構成。反対称化子で決定領域へ折り返してから、貼り合わせた値を読む合成 $\psi_D\circ g^{-1}\circ A$ として組み立てる。こうして得た $b$ はすべての $(v,w)$ について反対称であり、決定領域上では縁データの値そのものを返す。
+proof_ja: |
+  核心は二段である。第一に、二つの縁上の値（スロット 2 で決まる値とスロット 3 で決まる値）が重なり $E\otimes E$ 上で整合することを、重なり反対称条件から確かめて一つの線形写像 $\psi_D$ に貼り合わせる。第二に、決定領域の補空間を（選択公理で）一つ固定して射影 $g^{-1}$ を作り、反対称化子と合成して全空間へ延ばす。補空間の選択は決定領域上の値に影響しない。
+gap:
+  level: large
+  note: |
+    lean-pde PR #120（issue #111 PR-1）で両レーンの ConvectionExtension に逐語重複していた tensor/edge-gluing 機構 72 宣言を一本化した共有モジュール。レーン側の公開名（`edgeSlot2/3`, `detDomain`, `detExtend`, `convFormL2_*` など）は同名の thin wrapper として残る。 決定領域の補空間の存在に Hamel 基底（選択公理）を使うが、決定領域上の値（＝実際に使われる値）は選択に依らない — `detExtend_edge3_eq` がそれを固定する。
+chapter: limit-passage
+tags: [convection, tensor-gluing, shared-infra]

@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.gInv_apply_mem
+tier: gloss
+statement_ja: |
+  射影が決定領域を固定すること（値の水準）：$x$ が決定領域に属するなら、射影の値を周囲のテンソル空間に戻すと $x$ 自身に一致する。決定拡張の値が縁データの貼り合わせ値そのものになる（Hamel 的自由度が現れない）ことの要。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

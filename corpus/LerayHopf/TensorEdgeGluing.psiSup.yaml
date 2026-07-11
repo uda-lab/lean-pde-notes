@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.psiSup
+tier: gloss
+statement_ja: |
+  貼り合わせた決定汎関数：$\Psi_2$ と $\Psi_3$ の（部分定義線形写像としての）上限。決定領域全体で定義される。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

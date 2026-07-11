@@ -1,0 +1,20 @@
+name: LerayHopf.PlancherelKernels.normSq_lineDeriv_toLp
+tier: full
+statement_ja: |
+  方向別の Schwartz–Plancherel 等式：複素 Schwartz 関数 $\varphi$ と方向 $m$ に対し
+
+  $$\lVert \partial_m\varphi\rVert_{L^2}^2 = \int (2\pi)^2\,\langle\xi,m\rangle^2\,\lvert\widehat{\varphi}(\xi)\rvert^2\,d\xi.$$
+
+  勾配エネルギーを Fourier 側の重み付き積分として表す基本等式。
+proof_ja: |
+  方向微分の Fourier 変換の公式
+
+  $$\widehat{\partial_m\varphi} = 2\pi i\,\langle\cdot,m\rangle\,\widehat{\varphi}$$
+
+  と Plancherel 等式を合成し、左辺のノルム二乗を Fourier 側の重み付き積分へ書き換える。
+gap:
+  level: mild
+  note: |
+    `fourier_lineDerivOp_eq` と `norm_fourier_toL2_eq` による。共有 Plancherel カーネル第 3 補題（lean-pde PR #121）。
+chapter: compactness
+tags: [plancherel, fourier, shared-kernel]

@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.psiSup_domain
+tier: gloss
+statement_ja: |
+  貼り合わせ汎関数の定義域が決定領域を含むこと。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

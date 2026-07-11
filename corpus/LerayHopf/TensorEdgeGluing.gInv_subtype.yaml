@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.gInv_subtype
+tier: gloss
+statement_ja: |
+  射影と包含の合成が恒等写像であること（写像の水準）：射影は決定領域の包含の左逆である。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

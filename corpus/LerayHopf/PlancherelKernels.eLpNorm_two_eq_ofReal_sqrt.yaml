@@ -1,0 +1,12 @@
+name: LerayHopf.PlancherelKernels.eLpNorm_two_eq_ofReal_sqrt
+tier: full
+statement_ja: |
+  $L^2$ セミノルムの実数表示：点別ノルム二乗が可積分な（a.e. 強可測）曲線 $h$ に対し、$L^2$ セミノルムは $\sqrt{\int\lVert h(t)\rVert^2\,d\mu}$ の拡張実数への埋め込みに等しい。拡張実数値のセミノルムと実数値のエネルギー積分を往復するための標準的な書き換え。
+proof_ja: |
+  $p=2$ に対する $L^p$ セミノルムの定義を展開し、可積分性を使って拡張実数の積分を実数の積分に落とす。
+gap:
+  level: none
+  note: |
+    共有 Plancherel カーネル第 8 補題（lean-pde PR #121、旧 prime 付きコピーの一本化）。
+chapter: compactness
+tags: [lp, shared-kernel]

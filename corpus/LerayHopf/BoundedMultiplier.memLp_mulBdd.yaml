@@ -1,0 +1,16 @@
+name: LerayHopf.BoundedMultiplier.memLp_mulBdd
+tier: full
+statement_ja: |
+  乗算の $L^2$ 所属：本質的有界な $m$ と $g\in L^2$ に対し、点別の積 $m\cdot g$ は二乗可積分である。乗算作用素の定義を支える所属補題。
+proof_ja: |
+  点別に ：
+
+  $$\lvert m(x)\,g(x)\rvert\le C\lvert g(x)\rvert.$$
+
+  で抑え、$L^2$ 所属の単調性で閉じる。
+gap:
+  level: none
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

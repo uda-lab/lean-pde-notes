@@ -1,0 +1,20 @@
+name: LerayHopf.PlancherelKernels.integral_normSq_fderiv_le
+tier: full
+statement_ja: |
+  勾配–Fourier の積分評価：Schwartz 関数 $\varphi$ に対し
+
+  $$\int \lVert D\varphi(x)\rVert^2\,dx \le (2\pi)^2 \int \lVert\xi\rVert^2\,\lvert\widehat{\varphi}(\xi)\rvert^2\,d\xi.$$
+
+  全微分のエネルギーを Fourier 側の $H^1$ 型重み積分で抑える。
+proof_ja: |
+  各点で全微分の作用素ノルムを Hilbert–Schmidt 評価[[HS 評価|LerayHopf.PlancherelKernels.opNorm_le_sqrt_sum_sq]]（二乗）で方向微分の二乗和に落とし、積分して方向別 Plancherel [[方向別 Plancherel|LerayHopf.PlancherelKernels.normSq_lineDeriv_toLp]]を座標方向について足し合わせると、恒等式
+
+  $$\sum_i \langle\xi,e_i\rangle^2 = \lVert\xi\rVert^2$$
+
+  で右辺が閉じる。
+gap:
+  level: mild
+  note: |
+    共有 Plancherel カーネル第 4 補題（lean-pde PR #121）。
+chapter: compactness
+tags: [plancherel, fourier, sobolev, shared-kernel]

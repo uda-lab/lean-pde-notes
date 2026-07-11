@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.psiD
+tier: gloss
+statement_ja: |
+  貼り合わせ汎関数を決定領域上へ（値を保って）型付け直したもの。決定拡張の中核部品。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

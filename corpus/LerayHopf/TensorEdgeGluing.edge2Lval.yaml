@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.edge2Lval
+tier: gloss
+statement_ja: |
+  スロット 2 の決定値を粗い因子についての線形汎関数として読み替えたもの。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

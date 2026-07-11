@@ -1,0 +1,14 @@
+name: LerayHopf.BoundedMultiplier.inner_mulBdd_left
+tier: full
+statement_ja: |
+  実乗算作用素の自己随伴性：
+
+  $$\langle c,\ \mathrm{mul}_m\,g\rangle = \langle \mathrm{mul}_m\,c,\ g\rangle.$$
+proof_ja: |
+  内積を積分表示し、実数値の $m$ が共役を取っても不変であることから被積分関数の書き換えで移項する。
+gap:
+  level: none
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

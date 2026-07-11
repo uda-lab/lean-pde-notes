@@ -1,0 +1,16 @@
+name: LerayHopf.TensorEdgeGluing.convFormL2_def
+tier: full
+statement_ja: |
+  決定された三重線形移流形式。第 1 引数 $u$ の決定拡張をテンソル $v\otimes w$ で評価した値
+
+  $$b(u,v,w) := \bigl(\text{決定拡張}\,u\bigr)(v\otimes w)$$
+
+  として、縁データだけからすべての $L^2$ 場の三つ組に対する反対称な移流形式を定める。
+proof_ja: |
+  決定拡張をテンソル $v\otimes w$ で評価するだけである。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120（issue #111 PR-1）で両レーンの ConvectionExtension に逐語重複していた tensor/edge-gluing 機構 72 宣言を一本化した共有モジュール。レーン側の公開名（`edgeSlot2/3`, `detDomain`, `detExtend`, `convFormL2_*` など）は同名の thin wrapper として残る。
+chapter: limit-passage
+tags: [convection, tensor-gluing, shared-infra]

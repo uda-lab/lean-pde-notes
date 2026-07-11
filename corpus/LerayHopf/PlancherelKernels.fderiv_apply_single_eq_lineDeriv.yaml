@@ -1,0 +1,14 @@
+name: LerayHopf.PlancherelKernels.fderiv_apply_single_eq_lineDeriv
+tier: full
+statement_ja: |
+  複素 Schwartz 関数の全微分の座標方向値は方向微分に等しい：
+
+  $$D\varphi(x)(e_i) = (\partial_{e_i}\varphi)(x).$$
+proof_ja: |
+  全微分の定義から、方向 $e_i$ への適用は $e_i$ 方向の方向微分であり、Schwartz 側の方向微分作用素の値と一致する。
+gap:
+  level: none
+  note: |
+    共有 Plancherel カーネル第 5 補題（lean-pde PR #121）。
+chapter: compactness
+tags: [plancherel, shared-kernel]

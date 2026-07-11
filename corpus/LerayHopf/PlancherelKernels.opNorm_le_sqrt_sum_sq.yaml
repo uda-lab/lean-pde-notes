@@ -1,0 +1,16 @@
+name: LerayHopf.PlancherelKernels.opNorm_le_sqrt_sum_sq
+tier: full
+statement_ja: |
+  実線形汎関数の作用素ノルムの Hilbert–Schmidt 評価：任意の正規直交基底 $b$ に対し
+
+  $$\lVert L\rVert \le \sqrt{\textstyle\sum_i \lVert L(b_i)\rVert^2}.$$
+
+  勾配の作用素ノルムを方向微分の Euclid ノルムで抑える第一の Plancherel 核補題。
+proof_ja: |
+  任意のベクトル $x$ を基底展開し、$L(x)$ を係数と基底値の和として Cauchy–Schwarz で評価すると、係数の二乗和は $\lVert x\rVert^2$、基底値の二乗和が右辺の被開平数になる。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #121（issue #111 PR-2）で SobolevEmbedding 等の private コピー群（`_C2`/`_local` 一族）を一本化した共有 Plancherel カーネル群の第 1 補題。
+chapter: compactness
+tags: [plancherel, hilbert-schmidt, shared-kernel]

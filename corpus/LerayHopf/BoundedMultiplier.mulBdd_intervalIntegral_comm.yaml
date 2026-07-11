@@ -1,0 +1,16 @@
+name: LerayHopf.BoundedMultiplier.mulBdd_intervalIntegral_comm
+tier: full
+statement_ja: |
+  乗算作用素と時間方向の区間積分の交換：区間可積分な $L^2$ 値曲線 $G$ に対し ：
+
+  $$\mathrm{mul}_m\int_a^b G = \int_a^b \mathrm{mul}_m\,G.$$
+
+  作用素を時間積分の内外で往復させる Bochner 側の互換性。
+proof_ja: |
+  連続線形作用素と Bochner 積分の交換定理を、乗算作用素の連続線形性に適用する。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

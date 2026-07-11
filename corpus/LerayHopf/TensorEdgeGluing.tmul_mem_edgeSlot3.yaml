@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.tmul_mem_edgeSlot3
+tier: gloss
+statement_ja: |
+  任意元と縁元の単純テンソルがスロット 3 の縁に属すること。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

@@ -1,0 +1,12 @@
+name: LerayHopf.TensorEdgeGluing.convFormL2_def_eq
+tier: full
+statement_ja: |
+  移流形式の定義の展開規則：$b(u,v,w)$ は決定拡張のテンソル評価に定義的に等しい。
+proof_ja: |
+  定義の書き下しそのものである。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120（issue #111 PR-1）で両レーンの ConvectionExtension に逐語重複していた tensor/edge-gluing 機構 72 宣言を一本化した共有モジュール。レーン側の公開名（`edgeSlot2/3`, `detDomain`, `detExtend`, `convFormL2_*` など）は同名の thin wrapper として残る。
+chapter: limit-passage
+tags: [convection, tensor-gluing, shared-infra]

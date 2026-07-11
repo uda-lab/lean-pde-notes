@@ -1,0 +1,12 @@
+name: LerayHopf.BilinearExtension.extendBoundedBilinearOfDense_apply
+tier: full
+statement_ja: |
+  拡張の整合性：構成した拡張は $D\times D$ 上で元の $\beta$ と一致する。
+proof_ja: |
+  各段の一意連続拡張が包含の像の上で元の写像と一致することを、内側・外側の順に適用する。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

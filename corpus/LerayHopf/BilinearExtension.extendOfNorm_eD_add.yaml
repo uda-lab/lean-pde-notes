@@ -1,0 +1,10 @@
+name: LerayHopf.BilinearExtension.extendOfNorm_eD_add
+tier: gloss
+statement_ja: |
+  一意連続拡張の加法性（拡張の一意性から従う）。外側スロットの線形性の部品。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

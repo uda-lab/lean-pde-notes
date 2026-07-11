@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.edge3BilL
+tier: gloss
+statement_ja: |
+  $b_3$ を粗い引数 $u$ について線形に束ねたもの。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

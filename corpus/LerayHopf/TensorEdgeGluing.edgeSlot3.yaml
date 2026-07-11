@@ -1,0 +1,12 @@
+name: LerayHopf.TensorEdgeGluing.edgeSlot3
+tier: full
+statement_ja: |
+  スロット 3 の縁部分空間：$X\otimes X$ の中で、第 2 因子が縁部分空間に入るテンソルの張る部分空間 $X\otimes E$。決定領域のもう半分。
+proof_ja: |
+  部分空間のテンソル像として定義する。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120（issue #111 PR-1）で両レーンの ConvectionExtension に逐語重複していた tensor/edge-gluing 機構 72 宣言を一本化した共有モジュール。レーン側の公開名（`edgeSlot2/3`, `detDomain`, `detExtend`, `convFormL2_*` など）は同名の thin wrapper として残る。
+chapter: limit-passage
+tags: [convection, tensor-gluing, shared-infra]

@@ -1,0 +1,16 @@
+name: LerayHopf.BilinearExtension.extendBoundedBilinearOfDense
+tier: full
+statement_ja: |
+  稠密部分空間上の有界双線形形式の一意連続拡張：ノルム空間 $E$ の稠密な部分空間 $D$ 上の双線形形式 $\beta$ が有界（：
+
+  $$\lvert\beta(u,v)\rvert\le C\lVert u\rVert\lVert v\rVert.$$
+
+  ）ならば、$E\times E$ 上の連続双線形形式へ拡張できる。移流形式を Galerkin span から $H^1_\sigma$ 全体へ延ばす BLT（有界線形変換）論法の抽象核。
+proof_ja: |
+  内側のスロットから順に拡張する二段構成を取る。まず各 $u\in D$ を固定して $v\mapsto\beta(u,v)$ を有界線形汎関数の一意連続拡張定理で $E$ 上へ延ばし、次に $u\mapsto(\text{その拡張})$ が再び有界線形であることを確かめて外側のスロットも同じ定理で延ばす。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

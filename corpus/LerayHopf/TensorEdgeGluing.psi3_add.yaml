@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.psi3_add
+tier: gloss
+statement_ja: |
+  $\Psi_3$ の $u$ についての加法性。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]
