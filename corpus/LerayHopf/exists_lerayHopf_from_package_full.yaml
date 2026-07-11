@@ -1,12 +1,12 @@
 name: LerayHopf.exists_lerayHopf_from_package_full
 tier: full
 statement_ja: |
-  この命題は、トーラスの主定理の組み立てを扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  パッケージからの存在：完全 Galerkin コンパクト性パッケージが与えられれば、Leray–Hopf 解（証明保持型 [[完全解構造|LerayHopf.LerayHopfSolutionFull]]）が存在する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  汎用の存在定理 [[汎用パッケージからの存在|LerayHopf.Galerkin.exists_lerayHopf_from_package]] をトーラス領域に特殊化するだけである。パッケージの各証明フィールドが解構造の各フィールドへ移し替えられる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/AxiomaticClosure.lean` の `LerayHopf.exists_lerayHopf_from_package_full`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    capstone [[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] の最終段。lean-pde issue #112 の汎用化以降、この移し替えは汎用層に一本化されている。
 chapter: capstone-torus
-tags: [wave3-public, generated]
+tags: [capstone, torus]

@@ -5,7 +5,11 @@ statement_ja: |
 
   $$t \longmapsto \langle u_{\varphi(n)}(t),\ w_m \rangle \quad\text{が}\quad [0, T] \text{ 上 } g_m \text{ に一様収束する}.$$
 proof_ja: |
-  各テストに対し、帯域水準（Galerkin テスト性の証人）・等 Lipschitz 定数（[[等 Lipschitz 評価|LerayHopf.galerkin_test_pairing_lipschitz]]）・一様上界 $\lVert u_0 \rVert \cdot \lVert w_m \rVert$（Cauchy–Schwarz と [[一様球有界|LerayHopf.galerkin_u_norm_le]]）を用意し、Lipschitz 族に対する一様部分列抽出の汎用エンジン（Arzelà–Ascoli の対角線論法版 `exists_uniform_subseq_of_lipschitz_family`）へ渡す。得られた各 $m$ の極限を選択公理で一本の関数族に束ねる。
+  各テストに対し、帯域水準（Galerkin テスト性の証人）・等 Lipschitz 定数（[[等 Lipschitz 評価|LerayHopf.galerkin_test_pairing_lipschitz]]）・一様上界
+
+  $$\lVert u_0 \rVert \cdot \lVert w_m \rVert$$
+
+  （Cauchy–Schwarz と [[一様球有界|LerayHopf.galerkin_u_norm_le]]）を用意し、Lipschitz 族に対する一様部分列抽出の汎用エンジン（Arzelà–Ascoli の対角線論法版 `exists_uniform_subseq_of_lipschitz_family`）へ渡す。得られた各 $m$ の極限を選択公理で一本の関数族に束ねる。
 gap:
   level: mild
   note: |

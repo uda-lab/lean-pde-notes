@@ -1,7 +1,11 @@
 name: LerayHopf.exists_weak_limit_curve
 tier: full
 statement_ja: |
-  Riesz 極限曲線の構成：$M$-球有界かつ連続な発散ゼロ曲線列 $v_n$ が、張る空間が全 Galerkin 部分空間を覆う可算テスト族 $(w_m)$ に対して一様収束する対を持つならば、曲線 $u \colon [0,T] \to L^2_\sigma$ が存在して、(i) すべての $t \in [0,T]$ とすべての発散ゼロテスト $z$ で $\langle v_n(t), z \rangle \to \langle u(t), z \rangle$、(ii) $\lVert u(t) \rVert \le M$、(iii) $u$ は $[0,T]$ 上 a.e. 強可測である。
+  Riesz 極限曲線の構成：$M$-球有界かつ連続な発散ゼロ曲線列 $v_n$ が、張る空間が全 Galerkin 部分空間を覆う可算テスト族 $(w_m)$ に対して一様収束する対を持つならば、曲線 $u \colon [0,T] \to L^2_\sigma$ が存在して、(i) すべての $t \in [0,T]$ とすべての発散ゼロテスト $z$ で
+
+  $$\langle v_n(t),\ z \rangle \longrightarrow \langle u(t),\ z \rangle,$$
+
+  (ii) $\lVert u(t) \rVert \le M$、(iii) $u$ は $[0,T]$ 上 a.e. 強可測である。
 proof_ja: |
   四段で構成する。第一に、テスト族の張る空間の元に対する対の収束を、span についての帰納法（生成元では仮定の一様収束、和とスカラー倍では極限の線形性）で確かめる。
 

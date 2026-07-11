@@ -1,12 +1,18 @@
 name: LerayHopf.lower_bound_from_inverse_square_lifespan
 tier: full
 statement_ja: |
-  この命題は、共通基盤の補助構成を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  逆二乗寿命評価からの爆発下界：$C > 0$ とし、$(-\infty, T)$ 上で正の量 $N(t)$ が寿命下界
+
+  $$\frac{C}{N(t)^2} \le T - t$$
+
+  を満たすならば、すべての $t < T$ で
+
+  $$\frac{1}{N(t)} \le \sqrt{\frac{T - t}{C}}.$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  寿命下界を分母を払って $C \le (T - t)\, N(t)^2$ と書き直し、両辺を $C\, N(t)^2$ で割って $(1/N(t))^2 \le (T-t)/C$ を得る。両辺は非負なので平方根の単調性で結論に至る。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/BlowupLowerBound.lean` の `LerayHopf.lower_bound_from_inverse_square_lifespan`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    爆発レート下界の初等的な言い換え（Branch 探索期の独立補題）。主線の存在定理とは独立で、実解析の初等計算のみで閉じる。
 chapter: misc
-tags: [wave3-public, generated]
+tags: [blowup, standalone]

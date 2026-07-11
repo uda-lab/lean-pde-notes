@@ -1,12 +1,12 @@
 name: LerayHopf.build_galerkin_package_of_galSeq
 tier: full
 statement_ja: |
-  この定義は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  パッケージの組み立て（公理なしの中核）：明示的に与えられた Galerkin 列から完全コンパクト性パッケージを構成する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  三段の連鎖である。第一に Aubin–Lions パッケージを構成する（[[Aubin–Lions 組み立て|LerayHopf.torusAubinLionsPackage_of_galSeq]]、空間側のコンパクト性は Rellich 埋め込み `rellich_L2Sigma` が担う）。第二に、エネルギークラス仮定を [[エネルギークラスの導出|LerayHopf.torus_energyClass_of_aubinLions]] で供給しつつ、証明済みの極限移行 [[極限移行|LerayHopf.torus_galerkin_limit_passage_of_energyClass]] を適用して、弱方程式・エネルギー不等式・初期トレース・エネルギークラスを持つ良い代表元を得る。第三に、良い代表元の時間可測性を「Aubin–Lions 極限との a.e. 一致」を経由して引き継ぎ、証明保持構造に詰める。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusGalerkinODECapstone.lean` の `LerayHopf.build_galerkin_package_of_galSeq`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    結論が命題でなく構造（`Type`）なので、存在文の展開は `obtain` でなく `Exists.choose` で行う。良い代表元と Aubin–Lions 極限の a.e. 一致の連言が可測性の移送のために保持されている。かつての公理 `aubin_lions`（A2）と `galerkin_limit_passage`（A3）は、それぞれ証明済み定理に置き換え済み。import 循環回避のため `SolutionInterfaces.lean` から capstone ファイルへ移設された。
 chapter: capstone-torus
-tags: [wave3-public, generated]
+tags: [capstone, aubin-lions, torus]

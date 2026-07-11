@@ -1,12 +1,20 @@
 name: LerayHopf.stokesTestPairing
 tier: full
 statement_ja: |
-  この定義は、トーラスの主定理の組み立てを扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  具体的な粘性（Stokes）テスト対：Fourier 係数による表示
+
+  $$s(u, w) = \sum_{j} \sum_{k} (2\pi)^2\, \lvert k \rvert^2\; \operatorname{Re}\bigl[\hat u_j(k)\, \overline{\hat w_j(k)}\bigr].$$
+
+  $e^{2\pi i k \cdot x}$ 規約のもとでの $\int \nabla u : \nabla w$ の Fourier 級数表示である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  成分の有限和と格子の総和で直接定義する。対角では実部の恒等式
+
+  $$\operatorname{Re}[z\, \bar z] = \lvert z \rvert^2$$
+
+  により係数 $1$ の [[粘性形式|LerayHopf.viscousFormSq]] を回復する。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/AxiomaticClosure.lean` の `LerayHopf.stokesTestPairing`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    公理化ではなく具体的な定義である点が設計の要：$u \notin H^1$ でも tsum のジャンク値規約により全域で定義され健全（総和可能でない場合は値 $0$）。真正な値を持つ領域の管理は有界性補題・帯域制限補題群が担う。
 chapter: capstone-torus
-tags: [wave3-public, generated]
+tags: [stokes, fourier, torus]

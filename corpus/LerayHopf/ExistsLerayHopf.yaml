@@ -1,12 +1,12 @@
 name: LerayHopf.ExistsLerayHopf
 tier: full
 statement_ja: |
-  この定義は、共通基盤の補助構成を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Leray–Hopf 解の存在の述語（最初期スキャフォールド）：領域 $\Omega$ と初期値型に対し、プレースホルダ解構造の非空性として述べる。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  プレースホルダ構造 `LerayHopfSolution`（`Statement.lean` の M1 版）の `Nonempty` として定義する。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Statement.lean` の `LerayHopf.ExistsLerayHopf`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    docstring 自身が**過大主張禁止の注意書き**を持つ：この時点の解構造の解析的フィールドは自由な命題のプレースホルダであり、本述語は構造的に自明に充足され得るため、**意味のある存在主張ではない**。実際の存在定理は別系統の [[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]]（証明保持型ベース）であり、本定義は歴史的スキャフォールドとして残る。
 chapter: misc
-tags: [wave3-public, generated]
+tags: [legacy, scaffold]

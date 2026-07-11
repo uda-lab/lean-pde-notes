@@ -1,12 +1,12 @@
 name: LerayHopf.Scaffold.exists_lerayHopf_torus3_statement
 tier: full
 statement_ja: |
-  この命題は、共通基盤の補助構成を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  歴史的な目標文（意図的な sorry）：$\mathbb{T}^3$ 上の Leray–Hopf 解の存在を、最初期のプレースホルダ述語の水準で述べたもの。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  **証明は意図的に `sorry` のまま残されている。**プレースホルダのフィールドが自明に充足できる段階でこの定理を「閉じる」ことは不誠実である、という判断が docstring に明記されており、実際の存在定理（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]]、kernel-only で証明済み）と歴史的な場所取りを峻別するために残されている。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Statement.lean` の `LerayHopf.exists_lerayHopf_torus3_statement`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    lean-pde リポジトリで唯一の恒久 `ALLOW_SORRY`。正典的な説明は lean-pde 本体の `docs/STATUS.md`（"Known scaffold caveats" 節）と本宣言の docstring 自身にある。本 corpus でも「未証明の主張」ではなく「意図的に開けてある歴史的目標文」として読むべきものである。
 chapter: misc
-tags: [wave3-public, generated]
+tags: [legacy, scaffold, sorry]

@@ -1,12 +1,12 @@
 name: LerayHopf.IsGalerkinTest
 tier: full
 statement_ja: |
-  この定義は、トーラスの主定理の組み立てを扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Galerkin テスト関数の述語：発散ゼロ場 $w$ がある次数 $n$ の Fourier 截断で固定される（有限 Fourier 台を持つ）こと。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  截断による固定を次数についての存在文として述べる定義である。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/AxiomaticClosure.lean` の `LerayHopf.IsGalerkinTest`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    発散ゼロな三角多項式の全体に相当し、発散ゼロ空間で稠密、各元は滑らか（有限 Fourier 和）。トーラス lane の弱形式はこのクラスでテストする（Faedo–Galerkin の標準テスト級）。稠密性と固定テスト連続性が全ての滑らかな発散ゼロテストへの拡張論法を支える。
 chapter: capstone-torus
-tags: [wave3-public, generated]
+tags: [galerkin, test-family, torus]
