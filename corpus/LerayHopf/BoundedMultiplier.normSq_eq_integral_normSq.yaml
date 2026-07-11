@@ -1,0 +1,10 @@
+name: LerayHopf.BoundedMultiplier.normSq_eq_integral_normSq
+tier: gloss
+statement_ja: |
+  複素 $L^2$ 元のノルム二乗の点別積分表示（Fourier 変換に依らない Parseval 抜きの核事実）。乗算作用素のノルム計算の下請け。
+gap:
+  level: none
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

@@ -1,0 +1,10 @@
+name: LerayHopf.BilinearExtension.eD
+tier: gloss
+statement_ja: |
+  稠密部分空間の包含を（拡張定理へ渡す形の）生の線形写像として固定したもの。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

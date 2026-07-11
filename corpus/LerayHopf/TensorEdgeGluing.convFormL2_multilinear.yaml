@@ -1,0 +1,12 @@
+name: LerayHopf.TensorEdgeGluing.convFormL2_multilinear
+tier: full
+statement_ja: |
+  決定された移流形式の三重線形性：三つの引数それぞれについて線形な形式 $B$ が存在して $b=B$ と書ける。
+proof_ja: |
+  第 1 引数の線形性は縁データの線形性から、後ろ二つの線形性はテンソル積の双線形性と決定拡張の線形性から従う。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120（issue #111 PR-1）で両レーンの ConvectionExtension に逐語重複していた tensor/edge-gluing 機構 72 宣言を一本化した共有モジュール。レーン側の公開名（`edgeSlot2/3`, `detDomain`, `detExtend`, `convFormL2_*` など）は同名の thin wrapper として残る。
+chapter: limit-passage
+tags: [convection, tensor-gluing, shared-infra]

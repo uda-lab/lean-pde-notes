@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.edge_lift_agree_map
+tier: gloss
+statement_ja: |
+  重なり一致を引き込み・包含との合成の形で言い直したもの（貼り合わせ補題への入力形）。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

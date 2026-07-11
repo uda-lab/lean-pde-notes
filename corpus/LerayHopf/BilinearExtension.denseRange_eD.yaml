@@ -1,0 +1,10 @@
+name: LerayHopf.BilinearExtension.denseRange_eD
+tier: gloss
+statement_ja: |
+  稠密性の仮定を包含の頭記号に合わせて言い直した補題（拡張定理との unification 用）。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

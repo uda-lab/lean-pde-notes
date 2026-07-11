@@ -1,0 +1,12 @@
+name: LerayHopf.BoundedMultiplier.norm_mulBdd_le
+tier: full
+statement_ja: |
+  乗算作用素の有界性：一様上界 $\lvert m\rvert\le C$ のもとで $\lVert\mathrm{mul}_m\,g\rVert \le C\,\lVert g\rVert$。
+proof_ja: |
+  点別評価を二乗して積分し、平方根を取る。
+gap:
+  level: none
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

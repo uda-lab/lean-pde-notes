@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.evalBil
+tier: gloss
+statement_ja: |
+  連続双線形形式を一点 $(u,v)$ で評価する対応の線形写像化。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

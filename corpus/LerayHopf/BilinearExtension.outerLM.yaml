@@ -1,0 +1,10 @@
+name: LerayHopf.BilinearExtension.outerLM
+tier: gloss
+statement_ja: |
+  外側スロットの写像 $u\mapsto(\text{内側拡張})$ を生の線形写像として束ねたもの。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

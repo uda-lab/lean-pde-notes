@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.edge2Lval_apply
+tier: gloss
+statement_ja: |
+  その値の展開規則。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

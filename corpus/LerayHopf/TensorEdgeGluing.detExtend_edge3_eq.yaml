@@ -1,0 +1,12 @@
+name: LerayHopf.TensorEdgeGluing.detExtend_edge3_eq
+tier: full
+statement_ja: |
+  決定拡張の値の固定：任意の $u,v$ と縁テスト $w\in E$ に対し、$b(u,\,v\otimes w)$ は縁データの値（テスト側の評価）にちょうど一致する。Hamel 的な自由度が実際の値に現れないことの保証。
+proof_ja: |
+  $v\otimes w$ はスロット 3 の縁に、$w\otimes v$ はスロット 2 の縁に入り、いずれも決定領域に属する。射影は決定領域を固定し、反対称化子はこの二つを平均するが、重なり反対称条件により両者の縁値は一致した符号で足し合わさり、貼り合わせ値そのものが返る。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #120（issue #111 PR-1）で両レーンの ConvectionExtension に逐語重複していた tensor/edge-gluing 機構 72 宣言を一本化した共有モジュール。レーン側の公開名（`edgeSlot2/3`, `detDomain`, `detExtend`, `convFormL2_*` など）は同名の thin wrapper として残る。
+chapter: limit-passage
+tags: [convection, tensor-gluing, shared-infra]

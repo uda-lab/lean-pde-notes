@@ -1,0 +1,10 @@
+name: LerayHopf.BilinearExtension.innerCLM_apply_eD
+tier: gloss
+statement_ja: |
+  内側拡張が $D$ 上で元の値と一致すること。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

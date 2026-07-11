@@ -1,0 +1,10 @@
+name: LerayHopf.BilinearExtension.innerCLM_bound
+tier: gloss
+statement_ja: |
+  内側拡張の一様有界性 $\lVert\text{内側拡張}(u)\rVert\le C\lVert u\rVert$。外側拡張の有界性の入力。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

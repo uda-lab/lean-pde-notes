@@ -1,0 +1,14 @@
+name: LerayHopf.PlancherelKernels.eLpNorm_fderiv_le_sum_lineDeriv
+tier: full
+statement_ja: |
+  全勾配の $L^2$ ノルムの方向分解評価：Schwartz 関数 $\varphi$ に対し
+
+  $$\lVert D\varphi\rVert_{L^2} \le \sum_{i=1}^{3} \lVert \partial_{e_i}\varphi\rVert_{L^2}.$$
+proof_ja: |
+  各点の Hilbert–Schmidt 評価で全微分のノルムを方向微分ノルムの Euclid 和で抑え、$\sqrt{a^2+b^2+c^2}\le a+b+c$ と $L^2$ ノルムの単調性・三角不等式で座標方向の和に落とす。
+gap:
+  level: mild
+  note: |
+    共有 Plancherel カーネル第 6 補題（lean-pde PR #121）。
+chapter: compactness
+tags: [plancherel, sobolev, shared-kernel]

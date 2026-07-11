@@ -1,0 +1,12 @@
+name: LerayHopf.BoundedMultiplier.continuous_mulBdd
+tier: full
+statement_ja: |
+  乗算作用素の連続性：一様上界 $\lvert m\rvert\le C$ のもとで $g\mapsto\mathrm{mul}_m\,g$ は $L^2$ 上連続である。
+proof_ja: |
+  作用素の線形性と有界性評価から Lipschitz 連続、したがって連続である。
+gap:
+  level: none
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

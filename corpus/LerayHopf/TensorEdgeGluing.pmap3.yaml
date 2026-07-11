@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.pmap3
+tier: gloss
+statement_ja: |
+  スロット 3 の縁汎関数を $X\otimes X$ 上の部分定義線形写像として束ねたもの。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

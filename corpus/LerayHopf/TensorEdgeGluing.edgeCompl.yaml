@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.edgeCompl
+tier: gloss
+statement_ja: |
+  縁部分空間の補空間とその分解データ（Hamel 的に選択）。射影の構成に使う。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

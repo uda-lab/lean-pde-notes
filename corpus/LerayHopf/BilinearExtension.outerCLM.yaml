@@ -1,0 +1,10 @@
+name: LerayHopf.BilinearExtension.outerCLM
+tier: gloss
+statement_ja: |
+  外側スロットを連続線形写像へ拡張したもの（構成の最終段の一歩手前）。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4）で両レーンの BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+chapter: misc
+tags: [bilinear-extension, shared-infra]

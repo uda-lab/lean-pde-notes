@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.psiD_eq_psiSup
+tier: gloss
+statement_ja: |
+  $\psi_D$ と貼り合わせ汎関数の値の一致。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

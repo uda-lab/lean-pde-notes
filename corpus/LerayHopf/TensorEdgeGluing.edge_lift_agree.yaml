@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.edge_lift_agree
+tier: gloss
+statement_ja: |
+  二つの縁処方が重なり $E\otimes E$ 上で一致すること。貼り合わせの well-definedness の核心で、重なり反対称条件をここで使う。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]

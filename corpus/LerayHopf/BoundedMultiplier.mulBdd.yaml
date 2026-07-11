@@ -1,0 +1,12 @@
+name: LerayHopf.BoundedMultiplier.mulBdd
+tier: full
+statement_ja: |
+  本質的有界な実関数 $m$ による乗算作用素：一般の測度空間上の複素 $L^2$ 空間で、$g\mapsto m\cdot g$ を $L^2$ から $L^2$ への写像として定める。Fourier 側の重み付き交換関係（重み関数による乗算）を統一的に扱う基盤。
+proof_ja: |
+  $m$ が本質的有界なら点別の積 $m\cdot g$ の二乗可積分性が保たれることを確かめ、その $L^2$ 類を値とする。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+chapter: misc
+tags: [multiplier, shared-infra]

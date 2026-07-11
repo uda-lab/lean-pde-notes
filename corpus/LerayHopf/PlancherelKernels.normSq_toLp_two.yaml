@@ -1,0 +1,14 @@
+name: LerayHopf.PlancherelKernels.normSq_toLp_two
+tier: full
+statement_ja: |
+  Schwartz 関数の $L^2$ 類のノルム二乗は点別ノルム二乗の積分に等しい：
+
+  $$\lVert g\rVert_{L^2}^2 = \int \lvert g(\xi)\rvert^2\,d\xi.$$
+proof_ja: |
+  $L^2$ 類の内積を Schwartz 関数どうしの積分内積として書き下す既存の等式を対角に適用する。
+gap:
+  level: none
+  note: |
+    `SchwartzMap.inner_toL2_toL2_eq` の対角特殊化。共有 Plancherel カーネル第 2 補題（lean-pde PR #121）。
+chapter: compactness
+tags: [plancherel, schwartz, shared-kernel]

@@ -1,0 +1,16 @@
+name: LerayHopf.PlancherelKernels.eLpNorm_three_le_interp
+tier: full
+statement_ja: |
+  指数 3 での $L^2\cap L^6$ 補間の定量形：$f\in L^2\cap L^6$ ならば
+
+  $$\lVert f\rVert_{L^3} \le \lVert f\rVert_{L^2}^{1/2}\,\lVert f\rVert_{L^6}^{1/2}.$$
+
+  三重線形評価（$L^3$–$L^2$–$L^6$ の Hölder）で移流項を制御する際の要。
+proof_ja: |
+  二乗の経路を通る：$\lVert f\rVert_{L^3}^2 = \lVert\,\lvert f\rvert^2\rVert_{L^{3/2}}$ と書き直し、共役指数の関係 $\tfrac{2}{3}=\tfrac{1}{6}+\tfrac{1}{2}$ に対する Hölder の不等式で右辺を $\lVert f\rVert_{L^6}\,\lVert f\rVert_{L^2}$ で抑え、両辺の平方根を取る。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #121 で旧 `eLpNorm_three_le_interp_pub`（GalerkinTrilinearBound の公開コピー）を置き換えた共有版（第 7 補題）。
+chapter: compactness
+tags: [interpolation, holder, shared-kernel]

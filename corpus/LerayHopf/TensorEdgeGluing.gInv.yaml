@@ -1,0 +1,10 @@
+name: LerayHopf.TensorEdgeGluing.gInv
+tier: gloss
+statement_ja: |
+  決定領域への射影（補空間の選択で定まる、決定領域を固定する線形写像）。
+gap:
+  level: none
+  note: |
+    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+chapter: limit-passage
+tags: [convection, tensor-gluing, private-helper]
