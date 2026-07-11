@@ -1,12 +1,22 @@
 name: LerayHopf.exists_weak_limit_curve
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Riesz 極限曲線の構成：$M$-球有界かつ連続な発散ゼロ曲線列 $v_n$ が、張る空間が全 Galerkin 部分空間を覆う可算テスト族 $(w_m)$ に対して一様収束する対を持つならば、曲線 $u \colon [0,T] \to L^2_\sigma$ が存在して、(i) すべての $t \in [0,T]$ とすべての発散ゼロテスト $z$ で $\langle v_n(t), z \rangle \to \langle u(t), z \rangle$、(ii) $\lVert u(t) \rVert \le M$、(iii) $u$ は $[0,T]$ 上 a.e. 強可測である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  四段で構成する。第一に、テスト族の張る空間の元に対する対の収束を、span についての帰納法（生成元では仮定の一様収束、和とスカラー倍では極限の線形性）で確かめる。
+
+  第二に、任意の発散ゼロテスト $z$ へ拡張する：$z$ を帯域制限近似 $P_N z$ で $\varepsilon/(4(M+1))$ の精度まで近似すると、$P_N z$ は Galerkin 部分空間の元なので対が収束し、球有界により取り替え誤差が一様に小さいことから、対の列は Cauchy 列となり完備性で収束する。
+
+  第三に、各時刻 $t$ で極限値の汎関数
+
+  $$z \longmapsto \lim_{n} \langle v_n(t),\ z \rangle$$
+
+  が線形かつ $M$-有界であることを極限の一意性と Cauchy–Schwarz から確かめ、Fréchet–Riesz の表現定理で $u(t) \in L^2_\sigma$ を得る。ノルム評価は表現の等長性と作用素ノルムの評価から従う。
+
+  第四に可測性：$u$ の各テスト対は一様極限 $g_m$（連続関数の一様極限として連続）に一致するので、$u$ は張る空間の元と連続に対をなす。よって各有限次元截断 $P_N u(t)$ は正規直交基底の座標表示により $t$ について連続であり、$u$ は截断の各点極限として a.e. 強可測になる。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusModeCompactness.lean` の `LerayHopf.exists_weak_limit_curve`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    可測性の経路が形式化の工夫どころ：$u$ 自体の連続性は主張できない（弱極限なので）が、有限次元截断の連続性は座標が対の連続関数なので出る。各点で截断が $u(t)$ に強収束すること（`velocityProjection_n_tendsto`）と合わせ、a.e. 弱化なしの各点極限として可測性を得る。
 chapter: compactness
-tags: [wave3-public, generated]
+tags: [compactness, aubin-lions, riesz, torus]

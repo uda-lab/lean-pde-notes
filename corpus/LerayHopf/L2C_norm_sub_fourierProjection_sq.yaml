@@ -1,12 +1,16 @@
 name: LerayHopf.L2C_norm_sub_fourierProjection_sq
 tier: full
 statement_ja: |
-  この命題は、コンパクト性と部分列抽出を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  スカラー尾部恒等式：$L^2$ 関数 $f$ と截断次数 $N$ に対し
+
+  $$\lVert f - P_N f \rVert^2 = \sum_{k \notin B_N} \lVert \hat f(k) \rVert^2$$
+
+  （$B_N$ は次数 $N$ の周波数箱、和は補集合上の総和）。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  残差 $f - P_N f$ の Fourier 係数が「箱の中では零、外では $\hat f(k)$」であることを、基底表現の線形性と截断の係数公式から確かめる。Parseval で残差のノルム二乗を係数の二乗総和に書き、被和項の台が箱の補集合に含まれることから、総和を補集合上の部分型の総和に書き換えて項別に一致させる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/RellichEmbedding.lean` の `LerayHopf.L2C_norm_sub_fourierProjection_sq`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Rellich 型評価の出発点。截断の係数公式は `fourierProjection_n_mFourierCoeff`、Parseval は [[Parseval ノルム公式|LerayHopf.L2C_norm_sq_eq_tsum_coeff_sq]]、台の制限は `tsum_subtype_eq_of_support_subset` による。
 chapter: compactness
-tags: [wave3-public, generated]
+tags: [rellich, fourier, torus]

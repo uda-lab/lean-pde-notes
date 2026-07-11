@@ -1,12 +1,16 @@
 name: LerayHopf.tailEnn_lsc_of_weak
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  弱収束のもとでの尾部の下半連続性：列 $v_i$ がすべての $L^2$ テストとの内積で $v$ に収束するならば、拡張非負実数値の尾部モード和は
+
+  $$\text{tail}(v) \;\le\; \liminf_{i} \text{tail}(v_i)$$
+
+  を満たす。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  尾部モード和を積添字（成分と箱外格子点の対）上の一本の総和に書き直す。各係数は連続線形汎関数（実部と虚部それぞれが実連続線形汎関数）なので、弱収束から係数ごとの収束、したがって各項の収束が従う。拡張非負実数の総和を有限部分和の上限として表すと、各有限部分和は収束列の極限として liminf 以下に評価され、上限を取って結論を得る。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusModeTail.lean` の `LerayHopf.tailEnn_lsc_of_weak`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    粘性散逸の下半連続性 `viscousEnn_lsc` と同じ Fatou 型の骨組み。係数ごとの収束の組み立て（複素値汎関数を実部・虚部の実汎関数に分けて弱収束から回収する）が形式化の作業量。
 chapter: compactness
-tags: [wave3-public, generated]
+tags: [compactness, weak-convergence, torus]

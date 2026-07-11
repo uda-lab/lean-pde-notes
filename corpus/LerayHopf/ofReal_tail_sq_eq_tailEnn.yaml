@@ -1,12 +1,14 @@
 name: LerayHopf.ofReal_tail_sq_eq_tailEnn
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  尾部の拡張非負実数橋渡し：**すべての** $v \in L^2$ に対し、尾部ノルム二乗の埋め込みは箱外係数の拡張非負実数和に等しい：
+
+  $$\bigl(\lVert v - P_N v \rVert^2\bigr)_{[0,\infty]} = \sum_{j} \sum_{k \notin B_N} \bigl(\lVert \hat v_j(k) \rVert^2\bigr)_{[0,\infty]}.$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  [[ベクトル尾部恒等式|LerayHopf.L2VF_norm_sub_velocityProjection_sq]] で実側を書き換え、埋め込みを有限和・総和と交換する。交換に要る総和可能性は、尾部族が常に総和可能な Parseval 族（[[係数の二乗総和可能性|LerayHopf.Torus.summable_norm_mFourierCoeff3_sq]]）の部分族であることから無条件に得られる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusModeTail.lean` の `LerayHopf.ofReal_tail_sq_eq_tailEnn`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    $H^1$ 所属を要しない点が要諦：これにより極限曲線（$H^1$ 所属が手に入らない）の尾部も拡張非負実数側で扱える。
 chapter: compactness
-tags: [wave3-public, generated]
+tags: [rellich, torus]

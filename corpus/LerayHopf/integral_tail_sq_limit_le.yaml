@@ -1,12 +1,18 @@
 name: LerayHopf.integral_tail_sq_limit_le
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  極限曲線の尾部積分評価：$\nu > 0$、$T > 0$ とする。弱収束・球有界・可測性を備えた極限曲線 $u$ は、Galerkin 側と同じ $n$ 一様上界
+
+  $$\int_0^T \lVert u(t) - P_N u(t) \rVert^2\, dt \;\le\; \frac{T \lVert u_0 \rVert^2 + \lVert u_0 \rVert^2 / (2\nu)}{1 + N^2}$$
+
+  を満たす。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  極限曲線には $H^1$ 所属が無いので、Galerkin 側の実数経路は使えない。代わりに各時刻で：尾部ノルム二乗を [[ENNReal 橋渡し|LerayHopf.ofReal_tail_sq_eq_tailEnn]] で拡張非負実数のモード和に書き、発散ゼロテストでの弱収束を [[テスト級の昇格|LerayHopf.tendsto_inner_L2VF_of_tendsto_inner_L2Sigma]] で全 $L^2$ テストへ広げてから、[[尾部下半連続性|LerayHopf.tailEnn_lsc_of_weak]] で近似列の尾部の liminf 以下に抑える。
+
+  時間方向には Fatou の補題（下積分と liminf の交換）を適用し、各近似元の尾部積分が [[Galerkin 側の一様評価|LerayHopf.integral_tail_sq_galerkin_le]] で共通の定数以下であることから、極限の下積分も同じ定数以下になる。最後に被積分関数の可測性と有界性（球有界から）で可積分性を確かめ、拡張非負実数からの往復で実の区間積分の不等式に戻す。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusModeTail.lean` の `LerayHopf.integral_tail_sq_limit_le`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    教科書では「ノルムの弱下半連続性で極限に遺伝」と一行で済ませる箇所。形式化では (i) $H^1$ 所属を極限曲線に密輸しない誠実な経路の設計（ENNReal モード和 + 係数ごとの弱収束 + Fatou）、(ii) 実積分・下積分・拡張非負実数の三層の往復管理、が大掛かりになる。lint 上は本 corpus 最長級の証明の一つ。
 chapter: compactness
-tags: [wave3-public, generated]
+tags: [compactness, aubin-lions, fatou, torus]
