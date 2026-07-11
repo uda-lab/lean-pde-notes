@@ -1,12 +1,12 @@
 name: LerayHopf.fourierProjection_n_isCompactOperator
 tier: full
 statement_ja: |
-  この命題は、コンパクト性と部分列抽出を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Fourier 截断のコンパクト作用素性：スカラー $L^2$ 上の截断 $P_N$ はコンパクト作用素である（有限階作用素はコンパクト）。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  截断を「有限次元部分空間への直交射影」と「部分空間の包含」の合成に分解する。有限次元部分空間は固有距離空間なので局所コンパクトであり、局所コンパクトな空間へ値を取る連続線形写像はコンパクト作用素である。コンパクト作用素は連続線形写像との合成で保たれるから、截断もコンパクトになる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/RellichEmbedding.lean` の `LerayHopf.fourierProjection_n_isCompactOperator`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Rellich 埋め込みの文脈での有限階からのコンパクト性。mathlib の `isCompactOperator_of_locallyCompactSpace_dom` と `IsCompactOperator.clm_comp` で閉じる。
 chapter: compactness
-tags: [wave3-public, generated]
+tags: [rellich, compact-operator, torus]
