@@ -38,6 +38,7 @@ CHAPTERS_ORDER = [
     'capstone-r3',
     'capstone-torus',
     'bochner',
+    'galerkin-generic',
     'misc',
 ]
 
@@ -51,6 +52,7 @@ CHAPTER_LABELS = {
     'capstone-r3':         'R3 主定理',
     'capstone-torus':      'T³ 主定理',
     'bochner':             'Bochner 時間層',
+    'galerkin-generic':    '汎用 Galerkin 層',
     'misc':                'その他・共通基盤',
 }
 

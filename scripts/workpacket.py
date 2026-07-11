@@ -44,22 +44,23 @@ DEFAULT_LEAN_ROOT = Path('/workspaces/lean-pde')
 
 # Chapter → module path heuristics (used when decls.json not available)
 CHAPTER_MODULE_PATTERNS: dict[str, list[str]] = {
-    'capstone-r3':     ['R3/GalerkinODECapstone', 'R3/AxiomaticClosure', 'R3Axiomatic'],
-    'capstone-torus':  ['TorusGalerkinODECapstone', 'AxiomaticClosure', 'TorusAxiomatic'],
+    'capstone-r3':     ['R3/GalerkinODECapstone', 'R3/SolutionInterfaces', 'R3Capstone'],
+    'capstone-torus':  ['Torus/GalerkinODECapstone', 'Torus/SolutionInterfaces', 'Torus/Capstone'],
     'spaces':          ['DivergenceFree', 'Leray', 'FunctionSpaces', 'EvolutionTriple',
-                        'R3/Domain', 'R3/DivergenceFree', 'SobolevTorus', 'TorusDomain'],
-    'projections-galerkin': ['GalerkinProjection', 'VelocityGalerkin', 'TorusGalerkinScheme',
+                        'R3/Domain', 'R3/DivergenceFree', 'SobolevTorus', 'Torus/Domain'],
+    'projections-galerkin': ['GalerkinProjection', 'VelocityGalerkin', 'Torus/GalerkinScheme',
                              'R3/GalerkinScheme', 'R3/GalerkinBasisH1', 'R3/SchwartzDivFreeBasis'],
-    'ode':             ['TorusGalerkinODESolve', 'R3/GalerkinODE', 'R3/GalerkinODESolve',
-                        'R3/GalerkinODEExistence', 'GalerkinPackage', 'R3/GalerkinCurveBounds'],
+    'ode':             ['Torus/GalerkinODESolve', 'R3/GalerkinODE', 'R3/GalerkinODESolve',
+                        'R3/GalerkinODEExistence', 'R3/GalerkinCurveBounds'],
     'energy':          ['EnergyEstimate', 'EnergySkeleton', 'H1Sigma', 'R3/Regularity',
-                        'TorusTraceEnergy', 'TorusEnergyConvection'],
+                        'Torus/TraceEnergy', 'Torus/EnergyConvection'],
     'compactness':     ['RellichEmbedding', 'R3/FrechetKolmogorov', 'R3/SpatialCompactness',
-                        'R3/SpacetimePrecompact', 'R3/ArzelaAscoliTime', 'TorusModeCompactness',
-                        'TorusModeTail', 'R3/GalerkinTimeModulus'],
+                        'R3/SpacetimePrecompact', 'R3/ArzelaAscoliTime', 'Torus/ModeCompactness',
+                        'Torus/ModeTail', 'R3/GalerkinTimeModulus'],
     'limit-passage':   ['R3/LimitPassage', 'R3/AubinLionsLimitPassage', 'R3/AubinLionsAssembly',
-                        'TorusAubinLionsAssembly', 'TorusLimitPassage', 'ExistenceFromPackage'],
+                        'Torus/AubinLionsAssembly', 'Torus/LimitPassage'],
     'bochner':         ['Bochner'],
+    'galerkin-generic': ['Galerkin/'],
     'misc':            [],
 }
 

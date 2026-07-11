@@ -72,10 +72,11 @@ CHAPTERS_PATH = REPO_ROOT / 'docs' / 'schemas' / 'chapters.yaml'
 # ---------------------------------------------------------------------------
 CHAPTER_RULES = [
     ('/Bochner/', 'bochner'),
+    ('/Galerkin/', 'galerkin-generic'),
     ('R3/GalerkinODECapstone', 'capstone-r3'),
-    ('R3/AxiomaticClosure', 'capstone-r3'),
-    ('TorusGalerkinODECapstone', 'capstone-torus'),
-    ('LerayHopf/AxiomaticClosure.lean', 'capstone-torus'),
+    ('R3/SolutionInterfaces', 'capstone-r3'),
+    ('Torus/GalerkinODECapstone', 'capstone-torus'),
+    ('Torus/SolutionInterfaces', 'capstone-torus'),
     ('LimitPassage', 'limit-passage'),
     ('Rellich', 'compactness'),
     ('FrechetKolmogorov', 'compactness'),
@@ -97,8 +98,7 @@ CHAPTER_RULES = [
     ('SchwartzDivFreeBasis', 'projections-galerkin'),
     ('VelocityGalerkin', 'projections-galerkin'),
     ('ProjectionAdjoint', 'projections-galerkin'),
-    ('GalerkinPackage', 'projections-galerkin'),
-    ('LerayHopf/Leray.lean', 'projections-galerkin'),
+    ('Torus/Leray.lean', 'projections-galerkin'),
     ('Convection', 'limit-passage'),
     ('Trilinear', 'limit-passage'),
     ('CurlDensity', 'limit-passage'),
@@ -117,8 +117,8 @@ CHAPTER_RULES = [
 ]
 
 CAPSTONE_NAMES = {
-    'LerayHopf.exists_lerayHopf_r3_axiomatic',
-    'LerayHopf.exists_lerayHopf_torus3_axiomatic',
+    'LerayHopf.exists_lerayHopf_r3',
+    'LerayHopf.exists_lerayHopf_torus3',
 }
 
 
