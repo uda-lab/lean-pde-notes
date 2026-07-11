@@ -1,0 +1,12 @@
+name: LerayHopf.Torus.torusFieldForms
+tier: full
+statement_ja: |
+  $\mathbb{T}^3$ Galerkin ODE 層の [[形式データ|LerayHopf.Galerkin.FieldForms]] 実現例。第 $n$ 速度モード空間上で、三重線形形式を（モード空間から発散ゼロ空間への包含を経由した）$\mathbb{T}^3$ 移流形式、粘性形式を周囲空間の Stokes テスト対として与える。
+proof_ja: |
+  13 個の条項はすべて、包含写像の線形性（和とスカラー倍の保存）と $\mathbb{T}^3$ 移流形式・Stokes 対の既存の代数的性質から機械的に埋まる — 新しい証明内容はない。対角消滅は移流形式の対角消滅から、対角非負性は Stokes 対の対角非負性から従う。
+gap:
+  level: mild
+  note: |
+    lean-pde issue #112 PR-B の実現例。この実現例を通じて、旧来この場所に重複していた CLM 段積み構成（`rieszSymmCLM`/`bInner` 一族）が汎用層 `Galerkin/QuadraticField.lean` へ一本化され削除された。
+chapter: ode
+tags: [galerkin, ode, torus, instance]

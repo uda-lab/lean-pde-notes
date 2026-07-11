@@ -1,0 +1,10 @@
+name: LerayHopf.weakFormNS_galerkinTest_uniform_dominator
+tier: gloss
+statement_ja: |
+  弱形式極限移行のステップ（W1、一様優関数）：Galerkin テストに対する近似列の弱形式被積分関数について、時間方向の連続性と、レベル $n$ に依らない可積分な優関数による評価をまとめて確立する。優収束定理の入力を供給する。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。優関数は一様エネルギー評価と移流形式の粗い評価から組み立てる。
+chapter: limit-passage
+tags: [limit-passage, dominated-convergence, textbook-step, private-helper]

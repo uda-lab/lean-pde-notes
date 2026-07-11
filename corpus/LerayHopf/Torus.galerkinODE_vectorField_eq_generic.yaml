@@ -1,0 +1,12 @@
+name: LerayHopf.Torus.galerkinODE_vectorField_eq_generic
+tier: full
+statement_ja: |
+  等値ブリッジ：$\mathbb{T}^3$ の具体的な Galerkin ベクトル場は、[[形式データ実現例|LerayHopf.Torus.torusFieldForms]] から汎用層が構成する[[ベクトル場|LerayHopf.Galerkin.FieldForms.vectorField]]に一致する。
+proof_ja: |
+  どちらの場も「テスト方向との内積が $-\nu\,s(u,w)-b(u,u,w)$ に等しい」という同じ特徴付けを持つので、すべてのテスト方向と内積を取って比較し、Riesz 表現の単射性で関数として一致する。
+gap:
+  level: none
+  note: |
+    `ext_inner_right` と両側の spec 補題による。issue #112 PR-B の設計則（既存の場を再定義せず、等値ブリッジで汎用層へ接続する）に従い、下流の `galerkinODE_vectorField_contDiff` などはこのブリッジを `rw` してから汎用補題を適用する系になった。
+chapter: ode
+tags: [galerkin, ode, torus, bridge]

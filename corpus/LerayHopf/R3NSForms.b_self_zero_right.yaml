@@ -1,0 +1,14 @@
+name: LerayHopf.R3NSForms.b_self_zero_right
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 移流形式の対角消滅（エネルギー評価の常用補題）：後ろ二つの引数が一致すれば
+
+  $$b(u,v,v) = 0.$$
+proof_ja: |
+  反対称性 $b(u,v,w)=-b(u,w,v)$ で $w=v$ と置くと $b(u,v,v)=-b(u,v,v)$、したがって $b(u,v,v)=0$ である。
+gap:
+  level: none
+  note: |
+    lean-pde PR #128（issue #114 Tier 3）で名前付き補題として公開された教科書ステップ。抽象版は `DissipativeEvolution.convForm_self_zero_right`。
+chapter: capstone-r3
+tags: [convection, energy, textbook-step]

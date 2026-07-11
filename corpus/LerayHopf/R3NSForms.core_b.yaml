@@ -1,0 +1,12 @@
+name: LerayHopf.R3NSForms.core_b
+tier: full
+statement_ja: |
+  簡約補題：核へ射影した移流形式の値は元の $\mathbb{R}^3$ 移流形式の値と定義的に等しい。
+proof_ja: |
+  定義の書き下しそのものである。
+gap:
+  level: none
+  note: |
+    `rfl` 補題。
+chapter: capstone-r3
+tags: [galerkin-domain, r3, reduction]

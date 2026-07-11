@@ -1,0 +1,12 @@
+name: LerayHopf.r3Domain_regIntegrand
+tier: full
+statement_ja: |
+  簡約補題：$\mathbb{R}^3$ Galerkin 領域の一様正則性評価の被積分関数は、粘性係数込みの粘性散逸形式と定義的に等しい。
+proof_ja: |
+  定義の書き下しそのものである。
+gap:
+  level: none
+  note: |
+    `rfl` 補題。$\mathbb{T}^3$ 側は $\nu$ 非依存の $H^1$ エネルギーを使うのに対し、$\mathbb{R}^3$ 側は $\nu$ を汎関数に持ち込む — 両レーンの一様評価の規格差がここに現れる。
+chapter: capstone-r3
+tags: [galerkin-domain, r3, reduction]

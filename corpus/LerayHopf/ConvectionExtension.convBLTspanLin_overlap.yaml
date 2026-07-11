@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.convBLTspanLin_overlap
+tier: gloss
+statement_ja: |
+  span 上の移流拡張の重なり整合性を、（既約化された）線形写像の頭記号に対して言い直した補題。稠密部分空間上で一致する二つの拡張が全体で一致するという一意性論法をこの節の記法で使えるようにする。
+gap:
+  level: none
+  note: |
+    `convBLTspan_overlap` の restatement。lean-pde PR #123 の接続部品。
+chapter: limit-passage
+tags: [convection, bridge, private-helper]

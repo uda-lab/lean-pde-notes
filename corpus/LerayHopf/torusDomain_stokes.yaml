@@ -1,0 +1,12 @@
+name: LerayHopf.torusDomain_stokes
+tier: full
+statement_ja: |
+  簡約補題：$\mathbb{T}^3$ Galerkin 領域の Stokes テスト対は、具体的な Stokes 対と定義的に等しい。抽象化を経由した式を旧来の具体形へ正規化するために使う。
+proof_ja: |
+  定義の書き下しそのものである（両辺は定義的に等しい）。
+gap:
+  level: none
+  note: |
+    `rfl` 補題。既存の green な証明を乱さないため意図的に `@[simp]` は付けない（下流は `simp only` で明示的に使う）。
+chapter: capstone-torus
+tags: [galerkin-domain, torus, reduction]

@@ -1,0 +1,10 @@
+name: LerayHopf.schwartz_seq_valueConv_of_memSobolev
+tier: gloss
+statement_ja: |
+  Sobolev 埋め込み論法のステップ（値の収束）：$H^1$ 級のスカラー場に対し、方向に依らない一つの Schwartz 近似列を取り、その値が $L^2$ で元の場へ収束するようにできる。後続の勾配収束・$L^3$ 収束ステップの共通の出発点。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。列の構成は既存の Schwartz 稠密性から。
+chapter: compactness
+tags: [sobolev, schwartz, textbook-step, private-helper]

@@ -1,0 +1,12 @@
+name: LerayHopf.memH1VF_R3_of_schwartz_components
+tier: full
+statement_ja: |
+  Schwartz 成分表示をもつベクトル場の $H^1$ 所属：各成分が Schwartz 関数を代表元にもつ $L^2$ ベクトル場は $H^1$ に属する。
+proof_ja: |
+  Schwartz 関数は滑らかで、その導関数もまた急減少するから二乗可積分である。成分ごとに弱微分が古典微分の類として実現されることを確かめ、$H^1$ 所属述語の各条項を成分の性質から組み立てる。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #124 で公開された component-witness 形（旧 private コピー群の一本化先）。弱微分の実現は Schwartz 側の部分積分恒等式による。
+chapter: compactness
+tags: [sobolev, schwartz, r3]

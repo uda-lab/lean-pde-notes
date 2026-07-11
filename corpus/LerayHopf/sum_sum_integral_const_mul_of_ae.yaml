@@ -1,0 +1,10 @@
+name: LerayHopf.sum_sum_integral_const_mul_of_ae
+tier: gloss
+statement_ja: |
+  $\sum_i\sum_a\int\Phi$ 型の有限和積分の斉次性の骨格：被積分関数が a.e. で定数倍に分解されるとき、全体も定数倍で分解される。移流形式 $H^1$ 版の第 1〜3 引数斉次性が共有する構造。
+gap:
+  level: none
+  note: |
+    `convFormH1_smul_1/2/3` の共通骨格（scaffold）。
+chapter: limit-passage
+tags: [convection, scaffold, private-helper]

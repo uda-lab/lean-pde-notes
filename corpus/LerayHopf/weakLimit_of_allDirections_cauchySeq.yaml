@@ -1,0 +1,10 @@
+name: LerayHopf.weakLimit_of_allDirections_cauchySeq
+tier: gloss
+statement_ja: |
+  弱極限構成のステップ（Riesz 組み立て）：固定時刻で、すべての方向に対するスカラー Cauchy 性から、閉部分空間（発散ゼロ空間）内の弱極限の存在を得る。一般補題への薄い委譲。
+gap:
+  level: none
+  note: |
+    `Bochner/WeakLimitToolkit` の `exists_weak_limit_in_submodule` の特殊化。lean-pde PR #129 で分離、PR #138（issue #131）でローカル複製が toolkit 原本へ一本化された系譜。
+chapter: energy
+tags: [limit-passage, weak-convergence, textbook-step, private-helper]

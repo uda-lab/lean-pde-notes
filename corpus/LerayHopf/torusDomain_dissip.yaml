@@ -1,0 +1,12 @@
+name: LerayHopf.torusDomain_dissip
+tier: full
+statement_ja: |
+  簡約補題：$\mathbb{T}^3$ Galerkin 領域の散逸汎関数は、具体的な粘性散逸形式と定義的に等しい。
+proof_ja: |
+  定義の書き下しそのものである。
+gap:
+  level: none
+  note: |
+    `rfl` 補題（`torusDomain_stokes` と同じ簡約補題群）。
+chapter: capstone-torus
+tags: [galerkin-domain, torus, reduction]

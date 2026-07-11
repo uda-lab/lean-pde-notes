@@ -1,0 +1,10 @@
+name: LerayHopf.hasDerivAt_intrinsic_of_coe
+tier: gloss
+statement_ja: |
+  周囲空間で微分可能な Galerkin 部分空間値曲線を、部分空間内在の微分可能性へ引き戻す転送補題（$\mathbb{R}^3$ 版）。[[周囲空間転送|LerayHopf.Galerkin.coe_hasDerivAt]]の逆向きで、直交射影（包含の連続線形な左逆）との合成で示す。
+gap:
+  level: none
+  note: |
+    周囲空間で述べられた既存のエネルギー・アプリオリ系を、内在曲線を要求する汎用 `Galerkin` 補題群へ接続するための私的ヘルパー。$\mathbb{T}^3$ 版は `Torus.hasDerivAt_intrinsic_of_coe`。
+chapter: ode
+tags: [ode, r3, private-helper]

@@ -1,0 +1,10 @@
+name: LerayHopf.ae_zero_le_of_restrictAvgMeasure
+tier: gloss
+statement_ja: |
+  時間窓制限測度に関してほとんどすべての時刻 $t$ で $0\le t$ が成り立つ。前向き時刻限定の性質（微分可能性・ODE）を a.e. 命題として使うための変換。
+gap:
+  level: none
+  note: |
+    restrictAvgMeasure ブリッジ群の一つ（lean-pde PR #130）。
+chapter: limit-passage
+tags: [measure, bridge, private-helper]

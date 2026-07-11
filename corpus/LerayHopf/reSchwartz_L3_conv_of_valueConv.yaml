@@ -1,0 +1,10 @@
+name: LerayHopf.reSchwartz_L3_conv_of_valueConv
+tier: gloss
+statement_ja: |
+  弱 Leibniz 則のステップ（$L^3$ 収束）：値が $L^2$ 収束し勾配エネルギーが有界な実 Schwartz 近似列は、$L^2$–$L^6$ 補間により $L^3$ でも収束する。積の極限移行で Hölder のパートナーに使う。
+gap:
+  level: mild
+  note: |
+    `L2L6_inter_mem_L3` 系の補間（`Analysis/LpInterpolation`）による。lean-pde PR #129（issue #114 Tier 2）で分離。
+chapter: energy
+tags: [interpolation, schwartz, textbook-step, private-helper]

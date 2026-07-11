@@ -1,0 +1,10 @@
+name: LerayHopf.h1Leibniz2_H1test_RHS_limit
+tier: gloss
+statement_ja: |
+  弱 Leibniz 則のステップ（右辺の対の極限）：積の弱微分公式の右辺に現れる $L^{3/2}$ 係数（積の成分）と $H^1$ テストの対が、Schwartz 近似の極限で収束することを確かめる。Hölder 指数 $(3/2,3)$ の双対性で各項を制御する。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。`h1Leibniz2` 本体（弱 Leibniz 則）の RHS 側の極限移行を担う。
+chapter: energy
+tags: [leibniz, holder, textbook-step, private-helper]

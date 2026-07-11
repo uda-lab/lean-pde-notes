@@ -1,0 +1,10 @@
+name: LerayHopf.isFiniteMeasure_restrictAvgMeasure
+tier: gloss
+statement_ja: |
+  時間窓制限測度が有限測度であること。優収束定理と可積分性議論の前提を供給する。
+gap:
+  level: none
+  note: |
+    区間の Lebesgue 測度の有限性から。restrictAvgMeasure ブリッジ群の一つ（lean-pde PR #130）。
+chapter: limit-passage
+tags: [measure, bridge, private-helper]
