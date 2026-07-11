@@ -1,12 +1,18 @@
 name: LerayHopf.Torus.galerkinField_inner_self_nonpos
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Galerkin 場の点別散逸性：$\nu > 0$ のとき、すべての $v \in V_n$ で
+
+  $$\langle v,\ G_n(v) \rangle \le 0.$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  汎用枠組みの散逸性定理へ委譲する。内実は次の計算である：場の定義から
+
+  $$\langle v,\ G_n(v) \rangle = -\nu\, s(v, v) - b(v, v, v).$$
+
+  移流項は対角消滅 $b(v,v,v) = 0$ で消え、[[Stokes 対角|LerayHopf.Torus.stokesTestPairing_diag]] により $s(v,v)$ は粘性形式（非負）に等しいから、全体は非正である。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusGalerkinODESolve.lean` の `LerayHopf.Torus.galerkinField_inner_self_nonpos`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    散逸的な場の前向きノルム単調性（[[散逸場のノルム評価|LerayHopf.Galerkin.norm_le_of_forwardSolution_of_dissipative]]）の仮定を充たす鍵。移流の対角消滅は形式束 `Torus3NSForms` のフィールド `b_self_zero` による。
 chapter: ode
-tags: [wave3-public, generated]
+tags: [galerkin, dissipation, torus]

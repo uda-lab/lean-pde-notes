@@ -1,12 +1,12 @@
 name: LerayHopf.Torus.galerkinODE_vectorField
 tier: full
 statement_ja: |
-  この定義は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  有限次元 Galerkin ベクトル場 $G_n$：[[Galerkin ODE 汎関数|LerayHopf.Torus.galerkinODE_functional]] の Riesz 表現元として $G_n(u) \in V_n$ を定める。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  有限次元実内積空間の双対同型（Riesz 表現）の逆写像を汎関数に適用して構成する。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusGalerkinODESolve.lean` の `LerayHopf.Torus.galerkinODE_vectorField`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    これにより弱形式（すべての $w \in V_n$ に対する等式）が単一のベクトル値 ODE $c' = G_n(c)$ に変わり、mathlib の ODE 理論（Picard–Lindelöf）が適用可能になる。
 chapter: ode
-tags: [wave3-public, generated]
+tags: [galerkin, ode, riesz, torus]

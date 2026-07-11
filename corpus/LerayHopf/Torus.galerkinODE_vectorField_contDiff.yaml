@@ -1,12 +1,12 @@
 name: LerayHopf.Torus.galerkinODE_vectorField_contDiff
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Galerkin 場の $C^1$ 性：$G_n$ は有限次元空間 $V_n$ 上 $C^1$ 級である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  トーラスの場が汎用の二次場構成に一致すること（等値補題）を確かめたうえで、[[汎用場形式|LerayHopf.Galerkin.FieldForms]] の $C^1$ 性定理に [[トーラス場形式の実現|LerayHopf.Torus.torusFieldForms]] を代入する。汎用側の内実は、二次写像と線形写像の和が $C^1$ であることの有限次元での確認である。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusGalerkinODESolve.lean` の `LerayHopf.Torus.galerkinODE_vectorField_contDiff`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Picard–Lindelöf に必要な滑らかさを供給する有効化補題。lean-pde issue #112 PR-B で per-lane の連続線形写像の段積み構成が汎用層 `Galerkin/QuadraticField.lean` へ一本化され、本補題は委譲一行になった。
 chapter: ode
-tags: [wave3-public, generated]
+tags: [galerkin, ode, torus]

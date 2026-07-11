@@ -1,12 +1,16 @@
 name: LerayHopf.Torus.stokesTestPairing_diag
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Stokes テスト対の対角値：すべての $u$ に対し $s(u, u)$ は係数 $1$ の [[粘性形式|LerayHopf.viscousFormSq]] に等しい（収束の仮定なし）。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  各被和項で実部の恒等式
+
+  $$\operatorname{Re}[z\, \bar z] = \lvert z \rvert^2$$
+
+  により両者の被和項が一致するから、項別一致で両者の総和が等しい。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusGalerkinODESolve.lean` の `LerayHopf.Torus.stokesTestPairing_diag`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    エネルギー恒等式の導出で、テストを解自身に取ったときに Stokes 項が粘性散逸へ落ちる箇所を担う書き換え。
 chapter: ode
-tags: [wave3-public, generated]
+tags: [stokes, dissipation, torus]
