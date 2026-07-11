@@ -1,7 +1,7 @@
 name: LerayHopf.restrictAvgMeasure_univ_toReal
 tier: gloss
 statement_ja: |
-  時間窓制限測度の全空間測度の実数値は $T$ に等しい（$0\le T$ のとき）。定数関数の積分値の正規化に使う。
+  時間窓制限測度の全空間測度の実数値は $T$ に等しい（仮定は $0<T$）。定数関数の積分値の正規化に使う。
 gap:
   level: none
   note: |

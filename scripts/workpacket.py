@@ -124,8 +124,9 @@ def read_lean_snippet(lean_root: Path, file_path: str,
     if not isinstance(line_start, int):
         return f'(no line info for: {file_path})'
     start = max(0, line_start - 1)
-    if line_end is not None:
-        end = min(len(lines), line_end)
+    if isinstance(line_end, int):
+        # line_end is 1-indexed inclusive; convert to a 0-based inclusive index
+        end = min(len(lines) - 1, line_end - 1)
     else:
         # Heuristic: read up to `context` lines or until next top-level declaration
         end = start
