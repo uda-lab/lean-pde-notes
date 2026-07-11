@@ -1,0 +1,10 @@
+name: LerayHopf.intervalIntegral_eq_restrictAvgMeasure_integral
+tier: gloss
+statement_ja: |
+  $[0,T]$ 上の区間積分は時間窓制限測度による Bochner 積分に等しい。区間積分の言葉で述べられた弱形式を、優収束定理が適用できる測度論の言葉へ書き換える。
+gap:
+  level: none
+  note: |
+    `intervalIntegral.integral_of_le` 系の書き換え。restrictAvgMeasure ブリッジ群の一つ（lean-pde PR #130）。
+chapter: limit-passage
+tags: [measure, bridge, private-helper]

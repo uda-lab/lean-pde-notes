@@ -1,0 +1,10 @@
+name: LerayHopf.restrictAvgMeasure
+tier: gloss
+statement_ja: |
+  時間窓 $[0,T]$ への制限測度。弱形式の極限移行で使う $[0,T]$ 窓の積分をすべて一つの有限測度の積分として統一的に扱うための記法上の橋。
+gap:
+  level: none
+  note: |
+    `volume.restrict (Set.Icc 0 T)`。lean-pde PR #130 で優収束定理への入力を整えるブリッジ群（本定義 + 5 補題）として導入。
+chapter: limit-passage
+tags: [measure, bridge, private-helper]

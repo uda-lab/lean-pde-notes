@@ -1,0 +1,10 @@
+name: LerayHopf.weakFormNS_limit_G_integrable
+tier: gloss
+statement_ja: |
+  弱形式極限移行のステップ（W2 その 1、極限側の可積分性）：任意の Schwartz テストに対し、極限解の弱形式被積分関数が時間窓上可積分であることを確かめる。極限の弱形式が意味を持つための前提。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。エネルギー類所属（a.e. $H^1$ + 散逸可積分）から各項を制御する。
+chapter: limit-passage
+tags: [limit-passage, integrability, textbook-step, private-helper]

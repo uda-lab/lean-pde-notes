@@ -1,0 +1,12 @@
+name: LerayHopf.R3NSForms.core
+tier: full
+statement_ja: |
+  $\mathbb{R}^3$ 移流形式データから、その領域中立な核 [[移流形式核|LerayHopf.Galerkin.NSFormCore]] への射影。三重線形形式 $b$ とその代数的性質（反対称性・線形性・テスト有界性）をそのまま渡す。
+proof_ja: |
+  各条項の単純な読み替えであり、新しい証明内容はない。$b$ の具体的な移流積分としての非空性の証は $\mathbb{R}^3$ 側のデータに留まる。
+gap:
+  level: none
+  note: |
+    値の一致は `R3NSForms.core_b`（`rfl`）が固定する。
+chapter: capstone-r3
+tags: [galerkin-domain, r3, convection]

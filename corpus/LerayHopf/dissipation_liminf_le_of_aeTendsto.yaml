@@ -1,0 +1,10 @@
+name: LerayHopf.dissipation_liminf_le_of_aeTendsto
+tier: gloss
+statement_ja: |
+  エネルギー不等式のステップ（散逸項）：ほとんどすべての時刻での空間方向の弱収束から、粘性形式の下半連続性と Fatou の補題により、弱極限の散逸積分 $\int_0^t$ を近似列の散逸積分の下極限で抑える。
+gap:
+  level: mild
+  note: |
+    `viscousEnn_lsc`（拡張実数値化した粘性形式の下半連続性）+ Fatou。lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。
+chapter: energy
+tags: [energy-inequality, lower-semicontinuity, fatou, textbook-step, private-helper]

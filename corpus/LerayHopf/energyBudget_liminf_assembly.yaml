@@ -1,0 +1,10 @@
+name: LerayHopf.energyBudget_liminf_assembly
+tier: gloss
+statement_ja: |
+  エネルギー不等式のステップ（予算の組み立て）：完全に一般の実数列補題。非負の二列 $a_k,b_k$ が毎項の予算 $a_k+b_k\le E$ を満たし、$X\le\liminf a_k$ と $Y\le\liminf b_k$ が分かっているなら、下極限の優加法性により $X+Y\le E$ が従う。運動エネルギー項と散逸項の二つの下極限評価を、極限のエネルギー不等式へ束ねる。
+gap:
+  level: none
+  note: |
+    mathlib の `le_liminf_add` による。NS 固有の内容を含まない純粋な実解析補題として lean-pde PR #129 で切り出された（将来 `WeakLimitToolkit` への移設候補 — issue #131 で明示的にスコープ外とされ現位置に残る）。
+chapter: energy
+tags: [energy-inequality, liminf, textbook-step, private-helper]

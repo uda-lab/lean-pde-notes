@@ -121,6 +121,8 @@ def read_lean_snippet(lean_root: Path, file_path: str,
         return f'(could not read: {file_path})'
 
     # line_start is 1-indexed
+    if not isinstance(line_start, int):
+        return f'(no line info for: {file_path})'
     start = max(0, line_start - 1)
     if line_end is not None:
         end = min(len(lines), line_end)
@@ -240,8 +242,8 @@ def main() -> None:
         name = decl['name']
         kind = decl.get('kind', '?')
         file_path = decl.get('file', '?')
-        line = decl.get('line', '?')
-        line_end = decl.get('line_end')
+        line = decl.get('startLine', decl.get('line', '?'))
+        line_end = decl.get('endLine', decl.get('line_end'))
 
         print(f'## {i}. `{name}`')
         print()

@@ -1,0 +1,10 @@
+name: LerayHopf.sum_sum_integral_add_of_ae
+tier: gloss
+statement_ja: |
+  $\sum_i\sum_a\int\Phi$ 型の有限和積分の加法性の骨格：被積分関数が a.e. で加法的に分解されるとき、二重有限和と積分の全体も加法的に分解される。移流形式 $H^1$ 版の第 1〜3 引数加法性が共有する構造を一度だけ示す。
+gap:
+  level: none
+  note: |
+    `convFormH1_add_1/2/3` の共通骨格（scaffold）。積分の線形性と a.e. 等式の伝播のみ。
+chapter: limit-passage
+tags: [convection, scaffold, private-helper]

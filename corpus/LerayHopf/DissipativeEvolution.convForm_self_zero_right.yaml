@@ -1,0 +1,16 @@
+name: LerayHopf.DissipativeEvolution.convForm_self_zero_right
+tier: full
+statement_ja: |
+  抽象散逸発展の移流形式の対角消滅：後ろ二つの引数が一致すれば
+
+  $$b(u,v,v) = 0.$$
+
+  エネルギー評価で移流項を消す常用補題の、[[散逸発展|LerayHopf.DissipativeEvolution]]水準での形。
+proof_ja: |
+  枠組みに課された反対称性 $b(u,v,w)=-b(u,w,v)$ で $w=v$ と置くと $b(u,v,v)=-b(u,v,v)$、したがって $2\,b(u,v,v)=0$ となり結論を得る。
+gap:
+  level: none
+  note: |
+    lean-pde PR #128（issue #114 Tier 3）で名前付き補題として公開。両レーンの `b_self_zero_right` はこれと同型の一行証明。
+chapter: spaces
+tags: [convection, energy, textbook-step, abstract]

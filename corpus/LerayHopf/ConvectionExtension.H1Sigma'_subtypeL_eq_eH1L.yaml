@@ -1,0 +1,10 @@
+name: LerayHopf.R3.ConvectionExtension.H1Sigma'_subtypeL_eq_eH1L
+tier: gloss
+statement_ja: |
+  $H^1_\sigma$ の包含写像に関する二つの表記（部分空間の標準包含と、この節で使う名前付き包含）が一致することの言い換え補題。汎用双線形拡張モジュールの展開規則をこの節の頭記号に接続する。
+gap:
+  level: none
+  note: |
+    lean-pde PR #123（issue #111 PR-4、BLT tower の `Analysis/BilinearExtension` への一本化）の接続部品。
+chapter: limit-passage
+tags: [convection, bridge, private-helper]

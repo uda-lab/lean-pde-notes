@@ -1,0 +1,10 @@
+name: LerayHopf.kineticEnergy_liminf_le_of_weakTendsto
+tier: gloss
+statement_ja: |
+  エネルギー不等式のステップ（運動エネルギー項）：固定時刻 $t$ で弱収束する Galerkin 近似列に対し、弱極限の運動エネルギーはノルム二乗の弱下半連続性により近似列の運動エネルギーの下極限で抑えられる。一様 Galerkin 評価 $\lVert c_k(t)\rVert\le\lVert u_0\rVert$ が有界性を供給する。
+gap:
+  level: mild
+  note: |
+    `normSq_le_liminf_of_inner_tendsto`（`Bochner/WeakLimitToolkit`）+ `torus_galerkin_norm_le_u0` に帰着。lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。
+chapter: energy
+tags: [energy-inequality, lower-semicontinuity, textbook-step, private-helper]

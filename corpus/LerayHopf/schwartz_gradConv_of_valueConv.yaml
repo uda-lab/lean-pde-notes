@@ -1,0 +1,10 @@
+name: LerayHopf.schwartz_gradConv_of_valueConv
+tier: gloss
+statement_ja: |
+  Sobolev 埋め込み論法のステップ（勾配の収束、方向別）：値が $L^2$ 収束する Schwartz 近似列に対し、各方向の偏導関数も対応する弱微分へ $L^2$ 収束する。
+gap:
+  level: mild
+  note: |
+    lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。弱微分の一意性と部分積分恒等式による。
+chapter: compactness
+tags: [sobolev, schwartz, textbook-step, private-helper]
