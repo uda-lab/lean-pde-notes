@@ -1,13 +1,22 @@
 name: LerayHopf.normSq_le_liminf_of_inner_tendsto
-file: LerayHopf/Bochner/WeakLimitToolkit.lean
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  ノルム二乗の弱下半連続性（内積形）：$\lVert x_k \rVert \le M$ かつ
+
+  $$\langle x_k,\ y \rangle \longrightarrow \lVert y \rVert^2$$
+
+  ならば
+
+  $$\lVert y \rVert^2 \le \liminf_k\, \lVert x_k \rVert^2.$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  $y = 0$ の場合は自明。そうでない場合、内積を二乗して Cauchy–Schwarz
+
+  $$\langle x_k,\ y \rangle^2 \le \lVert x_k \rVert^2\, \lVert y \rVert^2$$
+
+  で抑え、両辺の liminf を比較する。左辺の liminf は収束により $(\lVert y \rVert^2)^2$、右辺は定数 $\lVert y \rVert^2$ が単調連続写像として liminf の外に出るので、$\lVert y \rVert^2 > 0$ で割って結論を得る。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/WeakLimitToolkit.lean` の `LerayHopf.normSq_le_liminf_of_inner_tendsto`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    liminf の順序・有界性の側条件（`IsBoundedUnder` 系）の管理が形式化の作業量。エネルギー不等式の極限移行で運動エネルギー側の下半連続性を担う。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-limit, toolkit, bochner]

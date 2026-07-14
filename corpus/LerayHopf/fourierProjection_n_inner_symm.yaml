@@ -1,7 +1,9 @@
 name: LerayHopf.fourierProjection_n_inner_symm
 tier: full
 statement_ja: |
-  スカラー截断の自己随伴性：$\langle P_n f, g \rangle = \langle f, P_n g \rangle$（複素内積）。
+  スカラー截断の自己随伴性（複素内積）：
+
+  $$\langle P_n f,\ g \rangle = \langle f,\ P_n g \rangle.$$
 proof_ja: |
   直交射影の自己随伴性の一般論の適用である。
 gap:

@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.aeStronglyMeasurable_of_spaceTimeL2
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  時空 $L^2$ 極限の可測代表と a.e. 部分列：時間の測度 $\mu$ に関して各項が a.e. 強可測な曲線列 $f_n$ が、**a.e. 強可測な** $g$ に $L^2(\mu)$ で収束するならば、$g$ の a.e. 強可測性（結論に保持）と、$\mu$-a.e. の時刻で $g$ に各点収束する部分列が存在する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  $L^2$ 収束は（極限の可測性のもとで）測度収束を与え、測度収束列から a.e. 収束部分列が取れる、という mathlib の二段の一般論を直列に適用する。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeSobolev.lean` の `LerayHopf.Bochner.aeStronglyMeasurable_of_spaceTimeL2`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    仮定 `hg`（極限の可測性）は**外せない**：外した主張は偽で、docstring に反例が記録されている — $f_n = 0$、$g$ を非可測な Vitali 集合の指示関数とすると、非可測関数の下積分の慣行により $L^2$ 収束の仮定が成り立ってしまうのに $g$ は可測代表を持たない。mathlib の測度収束補題群が例外なく極限の可測性を入力に要求するのはこのためで、本補題は「可測性は別口で供給されるべき欠けた柱」として仮定に隔離している（no-smuggle：仮定は可測性のみで、部分列も極限同定も先取りしない）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [measurability, bochner]

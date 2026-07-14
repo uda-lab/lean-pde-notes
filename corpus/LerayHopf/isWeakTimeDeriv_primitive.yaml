@@ -1,12 +1,16 @@
 name: LerayHopf.Bochner.isWeakTimeDeriv_primitive
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  原始関数の分布的 FTC（意図的 sorry）：区間可積分な $v$ の原始関数 $w(t) = \int_0^t v$ は、$(0, T)$ 上の弱時間微分 $v$ を持つ。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**内容は Fubini の順序交換
+
+  $$\int_0^T \psi'(t) \int_0^t v(s)\, ds\, dt = \int_0^T v(s) \int_s^T \psi'(t)\, dt\, ds = -\int_0^T \psi(s)\, v(s)\, ds$$
+
+  （$\psi(T) = 0$ を使用）で、mathlib は Bochner 版 Fubini とスカラー FTC を個別に持つが、Banach 値原始関数のこの区間形は組み上がっていない。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeSobolevAC.lean` の `LerayHopf.Bochner.isWeakTimeDeriv_primitive`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    R1（$V'$ 値良い代表元）の単一の残余として隔離。トレースや反射を使わない（非循環）ことが明記されている。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両 lane は具体構成で閉じている）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [primitive, bochner]

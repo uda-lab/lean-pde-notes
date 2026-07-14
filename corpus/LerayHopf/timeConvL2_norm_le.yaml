@@ -1,12 +1,22 @@
 name: LerayHopf.Bochner.timeConvL2_norm_le
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  全直線の Young 評価：単位質量の時間軟化子 $\rho$ に対し
+
+  $$\lVert \rho \ast_t g \rVert \le \lVert g \rVert.$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  Banach 空間値 Bochner 積分のノルム不等式
+
+  $$\Bigl\lVert \int F \Bigr\rVert \le \int \lVert F \rVert$$
+
+  を適用し、被積分関数のノルムを [[核重み付きノルム|LerayHopf.Bochner.norm_timeMollifier_smul_translate]] で $\rho(h)\, \lVert g \rVert$ に書き換え、単位質量で積分を $\lVert g \rVert$ に潰す。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeConvolution.lean` の `LerayHopf.Bochner.timeConvL2_norm_le`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Young の畳み込み不等式
+
+    $$\lVert \rho \ast g \rVert_2 \le \lVert \rho \rVert_1\, \lVert g \rVert_2$$
+
+    の $\lVert \rho \rVert_1 = 1$ の場合のノルム内容の全体。時間軟化構築の再利用可能な土台。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [time-mollification, bochner]

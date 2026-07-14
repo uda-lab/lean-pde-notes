@@ -1,12 +1,20 @@
 name: LerayHopf.Bochner.TimeMollification
 tier: full
 statement_ja: |
-  このデータ型は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  時間軟化データの束：`W1pTime` 曲線の滑らかな時間軟化
+
+  $$u^\varepsilon = \rho^\varepsilon \ast_t u$$
+
+  が生むもの — $V$ 値で内部 $C^1$ の近似列とその強微分、両者の $[0, T]$ 上の連続性、近似列の $L^2(0,T;V)$ 収束、微分の $V'$ 像の $L^2(0,T;V')$ 収束 — をフィールドとして束ねる。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  六つのフィールド（近似列・微分列・微分可能性・二つの連続性・二つの収束）を持つ構造として定める。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeMollification.lean` の `LerayHopf.Bochner.TimeMollification`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    二つの $L^2$ 収束が**微分で連結している**（軟化した曲線の微分＝微分の軟化）ことがこの束の存在意義：$u$ と $u'$ を独立に密度近似したのでは足りない。曲線側の収束を $V$ ノルムで要求するのは、双対対の評価
+
+    $$\lVert \varphi \rVert_{V'}\, \lVert v \rVert_V$$
+
+    を極限に渡すのに $L^2(H)$ 収束では足りないため（codex P1 修正の履歴が docstring に記録されている）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [gelfand-triple, bochner]

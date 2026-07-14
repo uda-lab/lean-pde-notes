@@ -1,13 +1,12 @@
 name: LerayHopf.exists_mem_of_ae_full
-file: LerayHopf/Bochner/WeakLimitToolkit.lean
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  全測度集合の稠密性：$[0, T]$（$T > 0$）で a.e. に成り立つ集合 $S$ は、$[0, T]$ の任意の点の任意の $\varepsilon$ 近傍と交わる。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  背理法：ある点の $\varepsilon$ 近傍が $S$ と交わらなければ、その近傍と $[0, T]$ の交わりに正の長さの開区間が取れ、そこは $S$ の補集合に含まれる。補集合は零集合のはずなので、正測度と矛盾する。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/WeakLimitToolkit.lean` の `LerayHopf.exists_mem_of_ae_full`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    「a.e. の性質は稠密な点集合を与える」の定量形。Lipschitz 族の稠密部分集合上の収束を全点へ広げる際の稠密性入力。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-limit, toolkit, bochner]

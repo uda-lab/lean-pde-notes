@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.isWeakTimeDeriv_comp_clm
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  弱時間微分の連続線形写像による輸送：$v$ が $u$ の弱時間微分で $L$ が連続線形写像ならば、両 Bochner 被積分関数の区間可積分性のもとで、$L \circ v$ は $L \circ u$ の弱時間微分である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  $L$ はスカラー倍と可換で、（可積分性のもとで）区間積分とも可換なので、$X$ での部分積分恒等式に $L$ を通して $Y$ での恒等式を得る。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeSobolev.lean` の `LerayHopf.Bochner.isWeakTimeDeriv_comp_clm`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    $H$ 値の微分を $V'$ 値へ埋め込む段（[[H 値微分からの構成|LerayHopf.Bochner.W1pTime.ofHValuedDeriv]]）で使われる。可積分性の側条件は積分交換補題の忠実な前提。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-time-derivative, bochner]

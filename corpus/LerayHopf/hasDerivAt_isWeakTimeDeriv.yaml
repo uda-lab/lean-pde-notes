@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.hasDerivAt_isWeakTimeDeriv
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  強微分は弱時間微分である：$u$ が内部の各時刻で強微分 $v(t)$ を持ち、$u, v$ が $[0, T]$ 上連続ならば、$v$ は $u$ の $(0, T)$ 上の弱時間微分である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  Bochner 値の区間部分積分公式を $\psi$ と $u$ に適用する。テストの台が内部にあるので端点値 $\psi(0) = \psi(T) = 0$ となり境界項が消え、部分積分の等式がそのまま弱微分の定義式になる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeSobolev.lean` の `LerayHopf.Bochner.hasDerivAt_isWeakTimeDeriv`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Galerkin 曲線の強微分フィールド `u_hasDeriv` を抽象弱微分 API へ接続する入口。`CompleteSpace X` は部分積分公式（Bochner 積分）の忠実な前提。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-time-derivative, bochner]

@@ -1,7 +1,9 @@
 name: LerayHopf.lerayProjection_isSymmetric
 tier: full
 statement_ja: |
-  Leray 射影の自己随伴性：$\langle P u, v \rangle = \langle u, P v \rangle$。
+  Leray 射影の自己随伴性：
+
+  $$\langle P u,\ v \rangle = \langle u,\ P v \rangle.$$
 proof_ja: |
   直交射影の自己随伴性の一般論の適用である。
 gap:

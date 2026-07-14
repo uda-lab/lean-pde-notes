@@ -1,13 +1,20 @@
 name: LerayHopf.exists_weak_limit_in_submodule
-file: LerayHopf/Bochner/WeakLimitToolkit.lean
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  閉部分加群の中の弱極限：$x_k \in K$、$\lVert x_k \rVert \le M$ で、すべてのテスト $z$ に対し対の列が Cauchy ならば、$y \in K$、$\lVert y \rVert \le M$ で、すべての $z$ に対し
+
+  $$\langle x_k,\ z \rangle \longrightarrow \langle y,\ z \rangle$$
+
+  となる $y$ が存在する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  完備性により各対の極限値 $\varphi(z)$ が定まり、極限の一意性から $\varphi$ の線形性、Cauchy–Schwarz と球有界から $M$ 有界性が従う。Fréchet–Riesz の表現で $y$ を得る。$K$ への所属は直交射影論法：$y$ の直交成分 $y - P_K y$ とのすべての対が消える（$x_k \in K$）ことから $\varphi$ の値も消え、$y$ 自身との内積計算で直交成分のノルムが零になる。ノルム評価は
+
+  $$\lVert y \rVert^2 = \varphi(y) \le M\, \lVert y \rVert$$
+
+  から。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/WeakLimitToolkit.lean` の `LerayHopf.exists_weak_limit_in_submodule`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Riesz 極限曲線の構成（compactness 章）の一時刻分を抽象化した道具。所属証明の直交射影論法が要点。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-limit, toolkit, bochner]

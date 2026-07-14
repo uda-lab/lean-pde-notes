@@ -1,12 +1,16 @@
 name: LerayHopf.Bochner.timeConvL2_weakDeriv_comm
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  弱微分と時間畳み込みの交換：$v$ が $u$ の**全直線**弱時間微分で、$u, v$ が局所可積分、$\rho$ が時間軟化子ならば
+
+  $$(\rho \ast u)' = \rho \ast v$$
+
+  が全直線弱時間微分の意味で成り立つ（点別曲線の畳み込み形）。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  テスト $\psi$ を固定し、畳み込みを二重積分に開いて Fubini で順序交換する（結合可積分性は核のコンパクト台と局所可積分性から）。内側の積分では変数をずらした置換により、シフトしたテスト $\psi(\cdot + s)$ での弱微分の定義式が使える — **ここが全直線述語の存在理由**で、シフトしたテストも全直線のコンパクト台テストのままである。得られた恒等式を再度 Fubini で戻すと結論の形になる。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeMollifierInterval.lean` の `LerayHopf.Bochner.timeConvL2_weakDeriv_comm`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    区間版の弱微分では不健全だった（シフトしたテストが区間述語の適用範囲から外れる）ことが docstring に記録されており、全直線述語への signature 修正と局所可積分性の追加（codex P1 対応の履歴）がその解決である。軟化と微分の交換という時間軟化理論の心臓部。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-time-derivative, bochner]

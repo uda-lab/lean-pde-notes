@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.timeMollification_of_w1pTime
 tier: full
 statement_ja: |
-  この定義は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  時間軟化データの構成子：`W1pTime` 元から時間軟化データを（存在定理の代表元選択で）供給する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  [[存在定理|LerayHopf.Bochner.timeMollification_exists]] の非空性から選択で代表を取るだけである。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeMollification.lean` の `LerayHopf.Bochner.timeMollification_of_w1pTime`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    存在定理が現状 `sorry` なので、この構成子の値も同じ壁に条件づけられている（それを隔離して下流の配線を書けるようにするための constructor）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [gelfand-triple, bochner]

@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.kineticEnergy_lsc_transfer
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  一様ノルム有界の $L^2$ 極限への遺伝：a.e. 強可測な $g$ への $L^2(\mu)$ 収束と、一様な a.e. ノルム有界 $\lVert f_n(t) \rVert \le M$ から、極限も $\mu$-a.e. で $\lVert g(t) \rVert \le M$ を満たす。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  [[可測代表と a.e. 部分列|LerayHopf.Bochner.aeStronglyMeasurable_of_spaceTimeL2]] で a.e. 収束部分列を取り、可算個の有界性を a.e. で同時に成立させ（全称と a.e. の交換）、各 a.e. 点でノルムの極限として評価を渡す。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeSobolev.lean` の `LerayHopf.Bochner.kineticEnergy_lsc_transfer`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    結論が a.e.（全時刻でなく）なのが正直な形：$L^2$ 収束は零集合上の値を決めない。可測性仮定 `hg` の必要性は前補題と同じ Vitali 型反例による（docstring に記録）。運動エネルギー有界の極限移行（E1）の抽象核。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-limit, energy, bochner]

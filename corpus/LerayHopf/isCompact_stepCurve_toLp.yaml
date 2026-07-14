@@ -1,12 +1,12 @@
 name: LerayHopf.isCompact_stepCurve_toLp
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  コンパクト値ステップ曲線の類の集合はコンパクト：コンパクト集合 $K \subseteq X$ に対し、値を $K$ に取る刻み $m$ のステップ曲線の $L^p$ 類全体は $L^2(0,T; X)$ のコンパクト集合である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  値リストから類への組み立て写像が、値リストの上限距離に関して Lipschitz であることを示す：二つのステップ曲線の差は点別に値リストの距離で抑えられ、有限測度上の一様有界評価で $L^2$ 距離が値リストの距離の定数倍以下になる。値リストの空間 $K^m$ はコンパクト（コンパクト集合の有限直積）なので、その連続像としてコンパクト性が従う。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/StepFunctionCompactness.lean` の `LerayHopf.isCompact_stepCurve_toLp`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Fréchet–Kolmogorov 型全有界性判定の「有限次元近似のコンパクト性」の段。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [step-functions, compactness, bochner]

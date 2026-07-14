@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.timeMollification_exists
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  時間軟化データの存在（意図的 sorry）：任意の `W1pTime GT 2 2 T` 元に対し、[[時間軟化データ|LerayHopf.Bochner.TimeMollification]] が存在する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**全直線の部品（軟化収束 [[軟化収束|LerayHopf.Bochner.timeConvL2_tendsto_self]]・弱微分交換 [[弱微分交換|LerayHopf.Bochner.timeConvL2_weakDeriv_comm]]・Young 評価）は本章で証明済みだが、**区間 $[0, T]$ への移送**が壁である：時間平行移動は区間を保たず、零拡張は境界の跳びを弱 $V'$ 微分に注入するため、区間境界を壊さない Steklov 型の構成（全直線拡張 [[全直線拡張|LerayHopf.Bochner.w1pTime_lineExtension]] を経由）が要る。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeMollification.lean` の `LerayHopf.Bochner.timeMollification_exists`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    S1 スパイクの単一の from-scratch 柱として隔離されている（days〜2 週間級の見積もりが docstring に記録）。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両 lane は具体構成で閉じている）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [gelfand-triple, bochner]

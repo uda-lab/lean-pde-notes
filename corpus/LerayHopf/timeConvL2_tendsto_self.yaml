@@ -1,12 +1,14 @@
 name: LerayHopf.Bochner.timeConvL2_tendsto_self
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  軟化収束：バンプ核の族の半径が $0$ に潰れるとき、任意の $g \in L^2(\mathbb{R}; E)$ で
+
+  $$\lVert \rho_n \ast_t g - g \rVert \longrightarrow 0.$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  欠損を並進モジュラスの核重み付き積分で抑える（[[モジュラス評価|LerayHopf.Bochner.timeConvL2_sub_le_translation_modulus]]）。並進モジュラスは原点で消えて連続なので、任意の $\varepsilon$ に対し原点近傍でモジュラスが $\varepsilon/2$ 未満になる半径 $\delta$ が取れる。核の半径が $\delta$ を下回る $n$ では核の台がその近傍に収まり、核重み付き積分は単位質量により $\varepsilon/2$ 以下、したがって欠損は $\varepsilon$ 未満になる。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeMollifierInterval.lean` の `LerayHopf.Bochner.timeConvL2_tendsto_self`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    mathlib は点別の軟化収束や個々の部品は持つが、Banach 値曲線の $L^2$ ノルムでの組み上がった軟化収束定理は持たないため、ここで並進モジュラス経路により自前で組み上げられている（S1 の礎石、sorry なし）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [time-mollification, bochner]

@@ -1,12 +1,16 @@
 name: LerayHopf.Bochner.IsWeakTimeDeriv
 tier: full
 statement_ja: |
-  この定義は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  区間上の弱（超関数的）時間微分：Banach 値曲線 $u, v$ に対し、$v$ が $(0, T)$ 上の $u$ の弱時間微分であるとは、台が開区間 $(0, T)$ に含まれるコンパクト台 $C^1$ スカラーテスト $\psi$ のすべてに対し
+
+  $$\int_0^T \psi'(t)\, u(t)\, dt = -\int_0^T \psi(t)\, v(t)\, dt$$
+
+  （Bochner 積分）が成り立つこと。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  部分積分の恒等式そのものを全称文として定義に採用する。テストが端点で（全導関数込みで）消えるため境界項は現れない。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeSobolev.lean` の `LerayHopf.Bochner.IsWeakTimeDeriv`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    テストの台の規約（$(0, T)$ の内部）は弱 NS 方程式 `WeakFormNS` と揃えてあり、二つの超関数的定式化が境界項なしに合成できる。真の超関数微分であり、強微分ではない。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [weak-time-derivative, bochner]

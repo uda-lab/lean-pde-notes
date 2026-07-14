@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.w1pTime_lineExtension
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  全直線拡張（意図的 sorry）：`W1pTime` 元は、$[0, T]$ 上で元の曲線と a.e. 一致し、全直線で $L^2$ に属し、全直線の弱時間微分（境界に Dirac 跳びを入れない）を持つ拡張曲線を持つ。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**構成方針（両端点での Sobolev 偶反射 × 滑らかな切断）は確定しており、糊の部品 — 切断の Leibniz 積則（[[切断積則|LerayHopf.Bochner.isWeakTimeDerivℝ_smul_cutoff]]）と連続線形輸送 — は証明済み。残る障害は偶反射の弱微分（[[偶反射|LerayHopf.Bochner.weakTimeDerivℝ_even_reflection]]）が依存するトレースの柱と、両端反射の所属・a.e. 一致の簿記である。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeMollifierInterval.lean` の `LerayHopf.Bochner.w1pTime_lineExtension`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    時間軟化（区間版）を全直線の道具で実行するための WALL B の組み立て。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両 lane は具体構成で閉じている）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [gelfand-triple, bochner]

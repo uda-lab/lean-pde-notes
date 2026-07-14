@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.GelfandTriple.ofDissipativeEvolution
 tier: full
 statement_ja: |
-  この定義は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  橋渡し構成：散逸発展 $E$、明示的な Hilbert 構造を持つ正則性空間 $V$、連続線形埋め込み $\iota \colon V \to E$ のピボット空間（単射・稠密値域・ノルム二乗 $=$ 正則性汎関数の引き戻し）から、Gelfand 三つ組とその忠実性契約の証明の組を構成する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  与えられたデータをそのままフィールドに詰めて三つ組を作り、契約の各連言（型の等しさは `rfl`、値域は線形写像の値域の集合表示、ノルムは仮定）を検証する。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/GelfandTriple.lean` の `LerayHopf.Bochner.GelfandTriple.ofDissipativeEvolution`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    $V$ の Hilbert 構造を**明示的な入力**に取るのが正直さの要：支配されたセミノルム $q$（$E$ の正則性汎関数の平方根）だけからは Hilbert 構造は出ない（平行四辺形則を満たさないノルムの反例が docstring に記録されている）。返り値が契約付きの依存対（$\Sigma'$ 型）であることも重要で、裸の三つ組を返す設計では「任意の稠密埋め込みを返す」証明が通ってしまう。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [gelfand-triple, bochner]

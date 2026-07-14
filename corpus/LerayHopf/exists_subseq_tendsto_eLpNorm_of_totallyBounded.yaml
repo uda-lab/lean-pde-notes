@@ -1,12 +1,12 @@
 name: LerayHopf.exists_subseq_tendsto_eLpNorm_of_totallyBounded
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  全有界な類の列からの収束部分列の抽出：曲線列の $L^p$ 類の集合が全有界ならば、ある部分列と極限 $G \in L^2(0,T; X)$ が存在して、点別差の $L^2$ ノルムが $0$ に収束する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  完備空間の中では全有界集合の閉包はコンパクトなので、類の列から収束部分列が取れる。得られた $L^p$ ノルム収束を、類のノルムと点別差のノルムの一致（a.e. 代表の付け替え）で結論の形式に書き換え、有限性を確かめて拡張非負実数の収束へ持ち上げる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/StepFunctionCompactness.lean` の `LerayHopf.exists_subseq_tendsto_eLpNorm_of_totallyBounded`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    A1–A6 の鎖の出口。全有界性→列コンパクト性の変換部。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [step-functions, compactness, bochner]

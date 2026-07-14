@@ -1,12 +1,16 @@
 name: LerayHopf.Bochner.w1pTime_continuous_in_H
 tier: full
 statement_ja: |
-  この命題は、Bochner 時間層で、弱時間微分、時間軟化、可測性、または時間方向のコンパクト性を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Lions–Magenes の良い代表元（意図的 sorry）：`W1pTime` 元（$u \in L^p(0,T;V)$、$u' \in L^q(0,T;V')$）は、ピボット空間 $H$ に値を取る連続な代表元を持つ — $[0, T]$ 上連続で、$u$ の $H$ への像と a.e. 一致する曲線が存在する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**これは Lions–Magenes の埋め込み
+
+  $$\bigl\{\, u \in L^p(0,T;V) \;:\; u' \in L^q(0,T;V') \,\bigr\} \hookrightarrow C([0,T];H)$$
+
+  （微分は $V'$ 値の弱時間微分 — `W1pTime` の仮定そのもの）で、mathlib に欠けているベクトル値の時間 Sobolev／良い代表元理論の柱に当たる。months 級の残余と宣言され、主張は本来の強さ（連続、弱連続に弱めない）のまま保たれている。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/Bochner/TimeSobolev.lean` の `LerayHopf.Bochner.w1pTime_continuous_in_H`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Stream D の最深部の単一定理。$V'$ 値版は [[V' 値の良い代表元|LerayHopf.Bochner.w1pTime_continuous_in_Vprime]] として**証明済み**（原始関数 + du Bois-Reymond 経路）で、$H$ 値版だけが残る。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両 lane は具体構成で閉じている）。
 chapter: bochner
-tags: [wave3-public, generated]
+tags: [gelfand-triple, bochner]

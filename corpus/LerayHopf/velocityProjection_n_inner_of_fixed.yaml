@@ -1,7 +1,9 @@
 name: LerayHopf.velocityProjection_n_inner_of_fixed
 tier: full
 statement_ja: |
-  帯域制限テストとの対は截断を素通しする：$P_n w = w$ ならば $\langle P_n u, w \rangle = \langle u, w \rangle$。
+  帯域制限テストとの対は截断を素通しする：$P_n w = w$ ならば
+
+  $$\langle P_n u,\ w \rangle = \langle u,\ w \rangle.$$
 proof_ja: |
   [[自己随伴性|LerayHopf.velocityProjection_n_inner_symm]] で截断を $w$ 側へ移し、固定性で消す。
 gap:
