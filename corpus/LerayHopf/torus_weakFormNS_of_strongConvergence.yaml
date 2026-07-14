@@ -1,12 +1,18 @@
 name: LerayHopf.torus_weakFormNS_of_strongConvergence
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  弱 NS 方程式の極限移行：$\nu > 0$、$T > 0$ とする。Aubin–Lions パッケージの極限曲線は、トーラスの散逸発展に関する弱 NS 方程式（時間テストと Galerkin テストでテストした分布的等式）を満たす。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  時間テスト $\psi$ と空間テスト $w$（帯域水準 $n_0$）を固定する。トーラスではすべての空間テストが帯域制限されているので、**稠密性による近似段が不要**（本 lane の要の利点）：水準 $n \ge n_0$ の各近似元では、部分積分と Galerkin ODE により弱形式の積分が厳密に零になる。
+
+  極限曲線の積分と近似元の積分の差を線形化する：内積項は差との内積、Stokes 項は左加法性で差の対に、移流項は双線形分解
+
+  $$b(u, u, w) - b(u_n, u_n, w) = b(u - u_n, u, w) + b(u_n, u - u_n, w)$$
+
+  に分ける。各片を、テストでの Stokes 有界・移流有界と一様球有界で「差のノルム × 定数（または × 極限のノルム）」の形に抑え、時間について積分して Hölder（指数 $2, 2$）を当てると、差の $L^2(0,T)$ ノルム（パッケージの強収束フィールドの量）の定数倍が上界になる。強収束によりこの上界は零へ向かうので、挟み撃ちで極限曲線の積分の絶対値は零、すなわち弱形式が成り立つ。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusLimitPassage.lean` の `LerayHopf.torus_weakFormNS_of_strongConvergence`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    教科書の「強収束すれば非線形項も収束する」の一行が、形式化では (i) 被積分関数の可測性・可積分性の管理（極限曲線は可測性フィールドしか持たない）、(ii) Stokes 対の箱上有限和表示による連続性・可測性の回収、(iii) Hölder と優収束の側条件、に展開される本 corpus 最長の証明（約 400 行）。極限移行 capstone `torus_galerkin_limit_passage_of_energyClass` の弱方程式側の主部品。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [limit-passage, capstone, torus]

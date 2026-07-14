@@ -1,12 +1,16 @@
 name: LerayHopf.TorusConvectionExtension.convSummandW_norm_summable
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  移項被和項のノルム総和可能性：$u, v$ は**任意の** $L^2$ 場、$w$ は Galerkin テスト関数とする。固定した成分対ごとに、移項被和項のノルムは格子点対全体で総和可能である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  $w$ の帯域水準 $n$ を取ると、係数 $\hat w$ は周波数箱の外で消え、箱の中では乗数が
+
+  $$\lvert (k+l)_a \rvert = \lvert m_a \rvert \le n$$
+
+  と一様に抑えられる。したがって被和項のノルムは定数 $2\pi n$ 倍の優関数族（$\ell^2 \cdot \ell^2 \cdot \ell^1$ 型）で押さえられ、[[優関数族の総和可能性|LerayHopf.TorusConvectionExtension.dom_summable]] と優級数判定で従う。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionExtension.lean` の `LerayHopf.TorusConvectionExtension.convSummandW_norm_summable`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    乗数がテスト側の周波数に付くことで「箱の中では有界」となり、$H^1$ 重みが不要になる — 移項形式の要諦がこの証明に凝縮されている。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [convection, determined-form, torus]

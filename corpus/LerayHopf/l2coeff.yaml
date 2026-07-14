@@ -1,12 +1,14 @@
 name: LerayHopf.TorusConvectionExtension.l2coeff
 tier: full
 statement_ja: |
-  この定義は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  係数の $\ell^2$ 量：スカラー $L^2$ 関数 $f$ に対し、Fourier 係数のノルム二乗和の平方根
+
+  $$\Bigl( \sum_{k} \lVert \hat f(k) \rVert^2 \Bigr)^{1/2}.$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  係数の二乗総和の $1/2$ 乗として定める。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionExtension.lean` の `LerayHopf.TorusConvectionExtension.l2coeff`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    Parseval により実は $\lVert f \rVert$ に等しいが、評価の中では「係数側の量」として持ち回り、[[ノルムによる上界|LerayHopf.TorusConvectionExtension.l2coeff_le]] で必要な時だけノルムへ渡す設計。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [summability, convection, torus]

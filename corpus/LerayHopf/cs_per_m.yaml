@@ -1,12 +1,16 @@
 name: LerayHopf.TorusConvectionExtension.cs_per_m
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  シフト付き Cauchy–Schwarz：係数二乗和が総和可能な $f_U, f_V$ と任意の $m$ に対し、和
+
+  $$\sum_{k} \lVert \hat f_U(k) \rVert\, \lVert \hat f_V(-k - m) \rVert$$
+
+  は $f_U$ と $f_V$ の [[ℓ² 量|LerayHopf.TorusConvectionExtension.l2coeff]] の積以下である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  シフト側の二乗総和可能性を[[シフト補題|LerayHopf.TorusConvectionExtension.summable_sq_shift]]で確保し、総和の Hölder（指数 $2, 2$）を適用する。右辺のシフト側の $\ell^2$ 量は[[シフト不変性|LerayHopf.TorusConvectionExtension.tsum_sq_shift]]で元の量に戻る。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionExtension.lean` の `LerayHopf.TorusConvectionExtension.cs_per_m`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    畳み込みの対角評価の一行分。指数の実数冪への橋渡し（`rpow`）が形式化の細部。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [summability, convection, torus]

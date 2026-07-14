@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.convFormFourier_eq_galerkin
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  全格子形式と箱形式の一致：$u, v$ が次数 $n$ の截断で固定され、$v, w$ が Galerkin テスト関数ならば、[[全 Fourier 移流形式|LerayHopf.convFormFourier]] は [[Galerkin 移流形式|LerayHopf.galerkinConvection]] の値に一致する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  全格子の総和が箱 $\times$ 箱の有限和に潰れることを示す：箱の外の格子点対では $\hat u$ または $\hat v$ の因子が消えるから被和項が零で、総和可能性のもとで `tsum_eq_sum` により有限和に落ちる。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionExtension.lean` の `LerayHopf.TorusConvectionExtension.convFormFourier_eq_galerkin`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    無限和の定式化（energy 章）と有限和の定式化（ODE 層）の橋。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [convection, galerkin, torus]

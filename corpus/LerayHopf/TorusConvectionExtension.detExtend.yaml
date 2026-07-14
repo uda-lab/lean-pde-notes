@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.detExtend
 tier: full
 statement_ja: |
-  この定義は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  決定拡張：$u \in L^2_\sigma$ ごとに、テンソル積 $L^2_\sigma \otimes L^2_\sigma$ 上の線形汎関数を与える線形写像。二つの辺の上では対応する連続双線形形式の値を取り、重なりでの一致により貼り合わせが well-defined になる。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  汎用のテンソル辺貼り合わせ構成に、テスト張り空間・テストについて線形な連続双線形形式の族（[[線形化|LerayHopf.TorusConvectionExtension.convBLTgalerkinLin]]）・重なりでの一致の証明を渡して得る。
 gap:
-  level: mild
+  level: large
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionExtension.lean` の `LerayHopf.TorusConvectionExtension.detExtend`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    「片方の因子が滑らかなら値が決まる」を厳密化する構成の心臓部。重なり $\mathcal{G} \otimes \mathcal{G}$ での一致（`convBLTgalerkin_overlap`、抽出上は private）が貼り合わせの糊。テンソル積の商構成を経由する純代数の議論は汎用層 `TensorEdgeGluing` に隔離されており、トーラス側は入力データの供給だけを行う。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [determined-form, tensor, torus]

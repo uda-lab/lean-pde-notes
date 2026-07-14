@@ -1,12 +1,16 @@
 name: LerayHopf.TorusConvectionExtension.convSummandW
 tier: full
 statement_ja: |
-  この定義は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  微分をテスト側へ移した移流被和項：成分対 $(i, a)$ と格子点対 $(k, l)$ に対する複素数
+
+  $$\hat u_a(k) \cdot 2\pi i\, (k + l)_a \cdot \hat v_i(l) \cdot \hat w_i(-(k+l)).$$
+
+  energy 章の被和項（乗数 $l_a$、微分が中央因子 $v$ に当たる）と比べ、乗数が $(k+l)_a = -m_a$（$m$ は $w$ の周波数）に変わっており、部分積分で微分をテスト因子 $w$ へ移した形に対応する。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  三つの Fourier 係数と移した乗数の積として直接定義する。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionExtension.lean` の `LerayHopf.TorusConvectionExtension.convSummandW`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    移項の配当は総和可能性の仮定の軽さに現れる：この形は **$v$ の $H^1$ を要求せず**、$w$ の帯域制限だけで総和可能になる（[[ノルム総和可能性|LerayHopf.TorusConvectionExtension.convSummandW_norm_summable]]）。これが $(u, v)$ について $L^2 \times L^2$ 全体への連続拡張を可能にする。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [convection, determined-form, torus]

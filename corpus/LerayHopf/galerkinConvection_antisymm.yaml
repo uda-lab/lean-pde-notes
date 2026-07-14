@@ -1,12 +1,18 @@
 name: LerayHopf.galerkinConvection_antisymm
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  Galerkin 移流形式のテスト部分空間上の反対称性：$u$ が発散ゼロで、$v, w$ がともに次数 $n$ の截断で固定されるならば
+
+  $$b_n(u, v, w) = -\,b_n(u, w, v).$$
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  両向きの和の合計が消えることを示す。要は添字集合の対称化：箱截断の和は $m = -(k+l)$ を制約しないので、そのままでは対合 $(k, l) \mapsto (k, -(k+l))$ で閉じない。しかし $v, w$ の帯域制限により、非零の被和項は $l$ と $-(k+l)$ がともに箱に入る対称な部分集合 $C_k$ 上にしかなく、そこでは対合が真の対合になる。$C_k$ 上で第二の向きを再添字化して合流させると、乗数の和 $l_a + (-(k+l))_a = -k_a$ が現れ、成分 $a$ の和が発散ゼロ条件
+
+  $$\sum_a k_a\, \hat u_a(k) = 0$$
+
+  で消える。
 gap:
   level: mild
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionForm.lean` の `LerayHopf.galerkinConvection_antisymm`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    テスト側の帯域制限が**外せない**ことの理由（生の箱 $\times$ 箱は対合不変でない）が docstring に明記されている。energy 章の全格子版（[[Fourier 側反対称性|LerayHopf.convFormFourier_antisymm_galerkinTest]]）の有限和版で、相殺機構は同じ。形式束の反対称性フィールドの忠実な実現可能部分。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [convection, galerkin, torus]

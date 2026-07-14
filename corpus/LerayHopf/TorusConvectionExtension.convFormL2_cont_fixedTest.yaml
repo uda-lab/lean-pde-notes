@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.convFormL2_cont_fixedTest
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  固定テストでの結合連続性：Galerkin テスト関数 $w$ に対し、$(u, v) \mapsto b(u, v, w)$ は $L^2_\sigma \times L^2_\sigma$ 上結合連続である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  テスト上の値の同定（[[同定|LerayHopf.TorusConvectionExtension.convFormL2_def_eq_convValW]]）で決定形式を連続双線形形式 [[連続双線形化|LerayHopf.TorusConvectionExtension.convBLTw]] に書き換え、その結合連続性を引き継ぐ。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionExtension.lean` の `LerayHopf.TorusConvectionExtension.convFormL2_cont_fixedTest`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    極限移行で近似列を二つの引数に同時に流し込める理由。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [determined-form, tensor, torus]

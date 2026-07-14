@@ -1,12 +1,12 @@
 name: LerayHopf.coeff_zero_outside_box
 tier: full
 statement_ja: |
-  この命題は、三次元トーラス上の Galerkin 構成、対流項、エネルギー評価、または極限移行を扱うための公開された構成または主張である。抽出された型に現れる仮定のもとで、対応する対象の存在、保存性、評価、連続性、可測性、または極限性を与える。
+  帯域制限場の係数の消滅：$u$ が次数 $n$ の截断で固定されるならば、周波数箱の外の Fourier 係数はすべて零である。
 proof_ja: |
-  証明は、関連する定義を展開し、既に準備した代数的性質、射影の性質、積分評価、可測性、連続性、または収束補題を順に組み合わせる。有限次元の議論や既存の抽象補題に帰着できる箇所ではそれを用い、最後に必要な等式や不等式を整理して結論を得る。
+  截断と成分射影の可換性で成分の係数を截断後の係数に書き換え、截断の係数公式（箱の外は零）を適用する。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 3 の public full 注釈として追加。抽出元は `LerayHopf/TorusConvectionForm.lean` の `LerayHopf.coeff_zero_outside_box`。詳細な証明構造は抽出済み docstring とソース範囲に保持されている。
+    本 corpus で最も頻繁に引用される支持補題の一つ。import の都合で `GalerkinScheme.lean` に移設された複製である旨がソースに記録されている。
 chapter: limit-passage
-tags: [wave3-public, generated]
+tags: [convection, galerkin, torus]
