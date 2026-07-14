@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.stokesTestPairing_smul_left
 tier: full
 statement_ja: |
-  Stokes テスト対の左斉次性（帯域制限された第二引数のもとで）：$s(c\, u,\ w) = c\, s(u, w)$。
+  Stokes 双線形形式の左斉次性（帯域制限された第二引数のもとで）：$s(c\, u,\ w) = c\, s(u, w)$。
 proof_ja: |
   [[対称性|LerayHopf.Torus.stokesTestPairing_symm]] で引数を入れ替え、[[右斉次性|LerayHopf.Torus.stokesTestPairing_smul_right]] に帰着する。
 gap:

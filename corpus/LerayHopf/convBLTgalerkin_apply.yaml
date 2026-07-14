@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convBLTgalerkin_apply
 tier: full
 statement_ja: |
-  その値の展開規則：値は移項形式の値に等しい。
+  その値の展開規則：値は部分積分形の値に等しい。
 proof_ja: |
   定義的等式（`rfl`）である。
 gap:

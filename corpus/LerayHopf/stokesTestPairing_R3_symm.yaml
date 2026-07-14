@@ -1,7 +1,7 @@
 name: LerayHopf.stokesTestPairing_R3_symm
 tier: full
 statement_ja: |
-  Stokes テスト対の対称性：任意の $u,w$ に対し $s(u,w) = s(w,u)$（Galerkin span への制限なしに周囲空間全体で成り立つ）。
+  Stokes 双線形形式の対称性：任意の $u,w$ に対し $s(u,w) = s(w,u)$（Galerkin span への制限なしに周囲空間全体で成り立つ）。
 proof_ja: |
   被積分関数
 

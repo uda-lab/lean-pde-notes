@@ -1,7 +1,7 @@
 name: LerayHopf.viscousFormSq_nonneg
 tier: full
 statement_ja: |
-  [[粘性形式|LerayHopf.viscousFormSq]] の非負性：$\nu \ge 0$ ならばすべての $u$ で $0 \le$（粘性形式の値）。
+  [[粘性形式|LerayHopf.viscousFormSq]] の非負性：$\nu \ge 0$ ならば、すべての $u$ に対し粘性形式の値は非負である。
 proof_ja: |
   各被和項は非負因子の積で非負であり、総和・有限和の非負性と $\nu \ge 0$ との積の非負性で従う。
 gap:

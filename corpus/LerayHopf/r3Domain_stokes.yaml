@@ -1,7 +1,7 @@
 name: LerayHopf.r3Domain_stokes
 tier: full
 statement_ja: |
-  簡約補題：$\mathbb{R}^3$ Galerkin 領域の Stokes テスト対は、具体的な Stokes 対と定義的に等しい。
+  簡約補題：$\mathbb{R}^3$ Galerkin 領域の Stokes 双線形形式は、具体的な Stokes 双線形形式と定義的に等しい。
 proof_ja: |
   定義の書き下しそのものである。
 gap:

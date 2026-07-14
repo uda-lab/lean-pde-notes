@@ -1,11 +1,11 @@
 name: LerayHopf.stokesTestPairing_R3_eq_sum_inner_negLap
 tier: full
 statement_ja: |
-  発散ゼロな Schwartz テスト場 $w$（ポテンシャル $\psi$ を代表元にもつ）に対し、[[粘性テスト対|LerayHopf.stokesTestPairing_R3]]は、$u$ の各成分を固定された負ラプラシアン場 $-\Delta\psi_j$ と対にした実 $L^2$ 内積の有限和に等しい。
+  発散ゼロな Schwartz テスト場 $w$（ポテンシャル $\psi$ を代表元にもつ）に対し、[[Stokes 双線形形式|LerayHopf.stokesTestPairing_R3]]は、$u$ の各成分を固定された負ラプラシアン場 $-\Delta\psi_j$ と対にした実 $L^2$ 内積の有限和に等しい。
 
   $$B(u,w)=\sum_{j}\bigl\langle u_j,\,(-\Delta\psi_j)\bigr\rangle$$
 proof_ja: |
-  粘性テスト対は Fourier 側でスペクトル荷重 $(2\pi)^2\lVert\xi\rVert^2$ を挟んだ成分ごとの積分である。テスト場の成分の Fourier 変換を代表元 $\psi_j$ の Fourier 変換で書き換えると、荷重は Fourier 側で負ラプラシアン $-\Delta$ の記号にあたるので、各成分は $u_j$ と $-\Delta\psi_j$ の実 $L^2$ 内積に一致する。
+  Stokes 双線形形式は Fourier 側でスペクトル荷重 $(2\pi)^2\lVert\xi\rVert^2$ を挟んだ成分ごとの積分である。テスト場の成分の Fourier 変換を代表元 $\psi_j$ の Fourier 変換で書き換えると、荷重は Fourier 側で負ラプラシアン $-\Delta$ の記号にあたるので、各成分は $u_j$ と $-\Delta\psi_j$ の実 $L^2$ 内積に一致する。
 gap:
   level: mild
   note: |

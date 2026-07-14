@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    截断の全値域でなく**発散ゼロ空間の像**を取ることが要：截断は任意の場を発散ゼロに保つわけではなく、発散ゼロな入力に限って保つ（[[発散ゼロの保存|LerayHopf.velocityProjection_n_preserves_L2Sigma]]）。この定義の取り方が $V_n \subseteq L^2_\sigma$（[[発散ゼロ性|LerayHopf.velocitySpan_le_sigma]]）を成り立たせる。ℝ³ lane の基底スパン版 `galerkinSpan` の鏡像。
+    截断の全値域でなく**発散ゼロ空間の像**を取ることが要：截断は任意の場を発散ゼロに保つわけではなく、発散ゼロな入力に限って保つ（[[発散ゼロの保存|LerayHopf.velocityProjection_n_preserves_L2Sigma]]）。この定義の取り方が $V_n \subseteq L^2_\sigma$（[[発散ゼロ性|LerayHopf.velocitySpan_le_sigma]]）を成り立たせる。ℝ³ 系列の基底スパン版 `galerkinSpan` の鏡像。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

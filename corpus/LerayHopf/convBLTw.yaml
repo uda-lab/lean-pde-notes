@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convBLTw
 tier: full
 statement_ja: |
-  移項形式の連続双線形化：Galerkin テスト関数 $w$ に対し、対応
+  部分積分形の連続双線形化：Galerkin テスト関数 $w$ に対し、対応
 
   $$(u, v) \longmapsto \operatorname{val}(u, v, w)$$
 

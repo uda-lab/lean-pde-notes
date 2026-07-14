@@ -1,11 +1,11 @@
 name: LerayHopf.galerkin_test_pairing_lipschitz
 tier: full
 statement_ja: |
-  テスト対の等 Lipschitz 評価：帯域水準 $m$ のテスト $w$ に対し定数 $L$ が存在し、**$m \le n$ を満たすすべての** $n$ と $0 \le s \le t$ で
+  テストとの内積の同程度 Lipschitz 評価：帯域水準 $m$ のテスト $w$ に対し定数 $L$ が存在し、**$m \le n$ を満たすすべての** $n$ と $0 \le s \le t$ で
 
   $$\bigl|\langle u_n(t), w \rangle - \langle u_n(s), w \rangle\bigr| \le L\,(t - s).$$
 proof_ja: |
-  対 $t \mapsto \langle u_n(t), w \rangle$ の微分を ODE フィールドで書き下すと $-(\nu\, s(u_n, w) + b(u_n, u_n, w))$ になる（$n \ge m$ でテストが次数 $n$ の Galerkin 部分空間に属し ODE が使える）。Stokes 対の有界性（[[Stokes 対の有界性|LerayHopf.stokesTestPairing_bound_of_galerkinTest]]）と移流形式の第三引数固定の有界性、および一様球有界
+  内積 $t \mapsto \langle u_n(t), w \rangle$ の微分を ODE フィールドで書き下すと $-(\nu\, s(u_n, w) + b(u_n, u_n, w))$ になる（$n \ge m$ でテストが次数 $n$ の Galerkin 部分空間に属し ODE が使える）。Stokes 双線形形式の有界性（[[Stokes 双線形形式の有界性|LerayHopf.stokesTestPairing_bound_of_galerkinTest]]）と移流形式の第三引数固定の有界性、および一様球有界
 
   $$\lVert u_n(t) \rVert \le \lVert u_0 \rVert$$
 

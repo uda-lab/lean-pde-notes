@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_add_w
 tier: full
 statement_ja: |
-  移項形式の第三引数の加法性（$w, w'$ がともに Galerkin テスト関数）。
+  部分積分形の第三引数の加法性（$w, w'$ がともに Galerkin テスト関数）。
 proof_ja: |
   第三因子の係数の加法性で項別に分配し、双方の総和可能性のもとで総和を分ける。
 gap:

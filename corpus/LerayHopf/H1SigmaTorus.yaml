@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    ℝ³ lane の対応物 `H1Sigma'`（`R3/ConvectionExtension.lean`）のトーラス版。$H^1$ 所属は Fourier 係数の重み付き二乗和の総和可能性として与えられており、Hilbert 空間としての $H^1$ 内積構造は持たせていない（本補題群の用途では所属述語で足りる）。
+    ℝ³ 系列の対応物 `H1Sigma'`（`R3/ConvectionExtension.lean`）のトーラス版。$H^1$ 所属は Fourier 係数の重み付き二乗和の総和可能性として与えられており、Hilbert 空間としての $H^1$ 内積構造は持たせていない（本補題群の用途では所属述語で足りる）。
 chapter: energy
 tags: [sobolev, divergence-free, torus]

@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.torusConvectionGap_holds
 tier: full
 statement_ja: |
-  トーラス移流ギャップの充足：決定形式の構成一式（形式 $b$・pin・三重線形性・反対称性・テスト有界性・固定テスト連続性・テスト稠密性の七点）を束ねた構造が非空である。
+  トーラス移流形式の存在：決定形式の構成一式 — 移流形式 $b$、Galerkin 形式との一致、三重線形性、反対称性、テスト有界性、固定テストでの連続性、テスト稠密性の七点 — を満たすものが存在する。
 proof_ja: |
-  七つのフィールドすべてに、上で証明済みの宣言をそのまま充てる。
+  七つの各条件に、上で証明済みの命題をそれぞれ充てる。
 gap:
   level: none
   note: |
-    「トーラスの移流形式は要求仕様どおりに実在する」の一点集約。形式束 `Torus3NSForms` の非空性、ひいては capstone の無条件性を支える。
+    「トーラスの移流形式は要求どおりに実在する」の一点集約。構造 `Torus3NSForms` が実際に構成できること、ひいては capstone（最終存在定理）が追加仮定を要しないことを支える。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

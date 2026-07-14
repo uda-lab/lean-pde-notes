@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    「どの箱で切っても同じ」という整合性が、形式束の `b_galerkin` フィールド（すべての水準で pin する）の well-posedness を与える。
+    「どの箱で切っても同じ」という整合性が、形式束の `b_galerkin` フィールド（すべての次数で Galerkin 形式と一致する）の well-posedness を与える。
 chapter: limit-passage
 tags: [convection, galerkin, torus]

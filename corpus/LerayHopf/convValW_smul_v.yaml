@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_smul_v
 tier: full
 statement_ja: |
-  移項形式の第二引数の実斉次性（仮定なし）。
+  部分積分形の第二引数の実斉次性（仮定なし）。
 proof_ja: |
   第一引数と同様である。
 gap:

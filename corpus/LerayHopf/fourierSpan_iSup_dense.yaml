@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   Fourier スパンの合併の稠密性：スパンの上限の位相的閉包は全空間である。
 proof_ja: |
-  Hilbert 基底の張る空間は稠密である。各基底ベクトルは [[箱の枚挙性|LerayHopf.fourierBox_exhausts]] によりある次数のスパンに属するから、基底の張る空間はスパンの上限に含まれ、閉包の単調性で稠密性が上限側へ移る。
+  Hilbert 基底の張る空間は稠密である。各基底ベクトルは [[箱による波数の被覆|LerayHopf.fourierBox_exhausts]] によりある次数のスパンに属するから、基底の張る空間はスパンの上限に含まれ、閉包の単調性で稠密性が上限側へ移る。
 gap:
   level: none
   note: |

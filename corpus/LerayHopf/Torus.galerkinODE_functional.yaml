@@ -5,9 +5,9 @@ statement_ja: |
 
   $$w \longmapsto -\nu\, s(u, w) - b(u, u, w)$$
 
-  （$s$ は [[Stokes テスト対|LerayHopf.stokesTestPairing]]、$b$ は移流形式）を $V_n$ 上の連続線形汎関数として構成する。
+  （$s$ は [[Stokes 双線形形式|LerayHopf.stokesTestPairing]]、$b$ は移流形式）を $V_n$ 上の連続線形汎関数として構成する。
 proof_ja: |
-  $w$ についての加法性と斉次性を、Stokes テスト対の右線形性（$V_n$ の元は帯域制限されているので適用できる）と移流形式の第三引数についての線形性から確かめる。$V_n$ は有限次元なので、線形写像の連続性は自動である。
+  $w$ についての加法性と斉次性を、Stokes 双線形形式の右線形性（$V_n$ の元は帯域制限されているので適用できる）と移流形式の第三引数についての線形性から確かめる。$V_n$ は有限次元なので、線形写像の連続性は自動である。
 gap:
   level: none
   note: |

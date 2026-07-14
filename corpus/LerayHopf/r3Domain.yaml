@@ -1,7 +1,7 @@
 name: LerayHopf.r3Domain
 tier: full
 statement_ja: |
-  $\mathbb{R}^3$ の [[Galerkin 領域|LerayHopf.Galerkin.Domain]] 実現例（Galerkin スキームでパラメータ付け）。周囲空間を $L^2$ ベクトル場の空間、発散ゼロ部分空間をその閉部分空間、射影族をスキームの射影とし、領域汎関数を $\mathbb{R}^3$ の具体物 — $H^1$ 所属述語、Stokes テスト対、粘性散逸、発散ゼロ Schwartz テスト述語 — で埋める。一様正則性評価の被積分関数は粘性散逸（$\nu$ 込み）で、右辺は $\tfrac12\lVert u_0\rVert^2$。
+  $\mathbb{R}^3$ の [[Galerkin 領域|LerayHopf.Galerkin.Domain]] 実現例（Galerkin スキームでパラメータ付け）。周囲空間を $L^2$ ベクトル場の空間、発散ゼロ部分空間をその閉部分空間、射影族をスキームの射影とし、領域汎関数を $\mathbb{R}^3$ の具体物 — $H^1$ 所属述語、Stokes 双線形形式、粘性散逸、発散ゼロ Schwartz テスト述語 — で埋める。一様正則性評価の被積分関数は粘性散逸（$\nu$ 込み）で、右辺は $\tfrac12\lVert u_0\rVert^2$。
 proof_ja: |
   各成分は既存の $\mathbb{R}^3$ 構成の読み替えである。$\mathbb{T}^3$ 版と違いスキームが引数に残るのは、$\mathbb{R}^3$ では Galerkin 射影族が基底の選択（Schwartz 発散ゼロ基底）に依存するためである。
 gap:

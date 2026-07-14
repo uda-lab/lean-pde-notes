@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convBilL2Sigma
 tier: full
 statement_ja: |
-  移項形式の双線形写像化：Galerkin テスト関数 $w$ を固定し、対応
+  部分積分形の双線形写像化：Galerkin テスト関数 $w$ を固定し、対応
 
   $$(u, v) \longmapsto \operatorname{val}(u, v, w)$$
 

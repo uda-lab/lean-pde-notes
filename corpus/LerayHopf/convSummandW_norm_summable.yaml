@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convSummandW_norm_summable
 tier: full
 statement_ja: |
-  移項被和項のノルム総和可能性：$u, v$ は**任意の** $L^2$ 場、$w$ は Galerkin テスト関数とする。固定した成分対ごとに、移項被和項のノルムは格子点対全体で総和可能である。
+  部分積分形の被和項のノルム総和可能性：$u, v$ は**任意の** $L^2$ 場、$w$ は Galerkin テスト関数とする。固定した成分対ごとに、部分積分形の被和項のノルムは格子点対全体で総和可能である。
 proof_ja: |
   $w$ の帯域水準 $n$ を取ると、係数 $\hat w$ は周波数箱の外で消え、箱の中では乗数が
 
@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    乗数がテスト側の周波数に付くことで「箱の中では有界」となり、$H^1$ 重みが不要になる — 移項形式の要諦がこの証明に凝縮されている。
+    乗数がテスト側の周波数に付くことで「箱の中では有界」となり、$H^1$ 重みが不要になる — 部分積分形の要諦がこの証明に凝縮されている。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

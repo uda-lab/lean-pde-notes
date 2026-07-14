@@ -7,7 +7,7 @@ statement_ja: |
 
   $$\bigl\langle u_n'(t),w\bigr\rangle + \nu\,\langle u_n(t),w\rangle_{\mathrm{St}} + b\bigl(u_n(t),u_n(t),w\bigr) = 0$$
 
-  の形をとる（$\langle\cdot,\cdot\rangle_{\mathrm{St}}$ は Stokes 対形式）。
+  の形をとる（$\langle\cdot,\cdot\rangle_{\mathrm{St}}$ は Stokes 双線形形式）。
 gap:
   level: large
   note: |

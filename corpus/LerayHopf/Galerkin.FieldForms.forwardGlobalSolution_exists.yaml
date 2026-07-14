@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    抽象 ODE 層への即時委譲。旧構成で両レーンに重複していた大域可解性証明は、この一行の適用に帰着した（lean-pde issue #112 PR-B）。
+    抽象 ODE 層への即時委譲。旧構成で両系列に重複していた大域可解性証明は、この一行の適用に帰着した（lean-pde issue #112 PR-B）。
 chapter: galerkin-generic
 tags: [quadratic-field, forward-global]

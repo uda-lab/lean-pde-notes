@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.stokesTestPairing_symm
 tier: full
 statement_ja: |
-  [[Stokes テスト対|LerayHopf.stokesTestPairing]] の対称性：任意の $L^2$ 場 $u, w$ に対し $s(u, w) = s(w, u)$ が、収束の仮定なしに成り立つ。
+  [[Stokes 双線形形式|LerayHopf.stokesTestPairing]] の対称性：任意の $L^2$ 場 $u, w$ に対し $s(u, w) = s(w, u)$ が、収束の仮定なしに成り立つ。
 proof_ja: |
   各成分・各格子点の被和項で、複素数とその共役の積の実部の対称性
 

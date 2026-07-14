@@ -9,7 +9,7 @@ proof_ja: |
 
   $$\langle v,\ G_n(v) \rangle = -\nu\, s(v, v) - b(v, v, v).$$
 
-  移流項は対角消滅 $b(v,v,v) = 0$ で消え、[[Stokes 対角|LerayHopf.Torus.stokesTestPairing_diag]] により $s(v,v)$ は粘性形式（非負）に等しいから、全体は非正である。
+  移流項は対角消滅 $b(v,v,v) = 0$ で消え、[[対角値の恒等式|LerayHopf.Torus.stokesTestPairing_diag]] により $s(v,v)$ は粘性形式（非負）に等しいから、全体は非正である。
 gap:
   level: none
   note: |

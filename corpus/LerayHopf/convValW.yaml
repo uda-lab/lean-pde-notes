@@ -1,11 +1,11 @@
 name: LerayHopf.TorusConvectionExtension.convValW
 tier: full
 statement_ja: |
-  移項移流形式：成分対の有限和と格子点対の総和で
+  部分積分形の移流形式：成分対の有限和と格子点対の総和で
 
-  $$\operatorname{val}(u, v, w) := \sum_{i, a} \operatorname{Re} \sum_{k, l} (\text{移項被和項}).$$
+  $$\operatorname{val}(u, v, w) := \sum_{i, a} \operatorname{Re} \sum_{k, l} (\text{部分積分形の被和項}).$$
 proof_ja: |
-  [[移項被和項|LerayHopf.TorusConvectionExtension.convSummandW]] の格子総和の実部を成分対にわたり足して定義する。
+  [[部分積分形の被和項|LerayHopf.TorusConvectionExtension.convSummandW]] の格子総和の実部を成分対にわたり足して定義する。
 gap:
   level: none
   note: |

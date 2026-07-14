@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.stokesTestPairing_diag
 tier: full
 statement_ja: |
-  Stokes テスト対の対角値：すべての $u$ に対し $s(u, u)$ は係数 $1$ の [[粘性形式|LerayHopf.viscousFormSq]] に等しい（収束の仮定なし）。
+  Stokes 双線形形式の対角値：すべての $u$ に対し $s(u, u)$ は係数 $1$ の [[粘性形式|LerayHopf.viscousFormSq]] に等しい（収束の仮定なし）。
 proof_ja: |
   各被和項で実部の恒等式
 

@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.stokesTestPairing_add_right
 tier: full
 statement_ja: |
-  Stokes テスト対の右加法性（帯域制限された第一引数のもとで）：$u$ がある次数 $n$ の Fourier 截断で固定されるならば
+  Stokes 双線形形式の右加法性（帯域制限された第一引数のもとで）：$u$ がある次数 $n$ の Fourier 截断で固定されるならば
 
   $$s(u,\ w + w') = s(u, w) + s(u, w').$$
 proof_ja: |

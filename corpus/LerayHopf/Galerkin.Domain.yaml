@@ -1,7 +1,7 @@
 name: LerayHopf.Galerkin.Domain
 tier: full
 statement_ja: |
-  **Galerkin 領域**：Leray–Hopf の Galerkin 構成を空間形状に依らず述べるためのデータの束。周囲の実 Hilbert 空間 $X$（$L^2$ ベクトル場の空間）、その閉部分空間である発散ゼロ部分空間 $\sigma$、Galerkin 射影の族 $P_n$（各 $P_n$ は $\sigma$ を保つ）、そして解束をパラメータ付ける領域汎関数たち — 正則性述語（$H^1$ 所属）、Stokes 型のテスト対、粘性係数付きの散逸汎関数、非負の正則性汎関数、一様正則性評価の被積分関数とその右辺、テスト関数述語 — からなる。
+  **Galerkin 領域**：Leray–Hopf の Galerkin 構成を空間形状に依らず述べるためのデータの束。周囲の実 Hilbert 空間 $X$（$L^2$ ベクトル場の空間）、その閉部分空間である発散ゼロ部分空間 $\sigma$、Galerkin 射影の族 $P_n$（各 $P_n$ は $\sigma$ を保つ）、そして解束をパラメータ付ける領域汎関数たち — 正則性述語（$H^1$ 所属）、Stokes 型の双線形形式、粘性係数付きの散逸汎関数、非負の正則性汎関数、一様正則性評価の被積分関数とその右辺、テスト関数述語 — からなる。
 
   $\mathbb{T}^3$ と $\mathbb{R}^3$ の両方の幾何がこの一つの枠組みの実現例になる。
 proof_ja: |
@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    完備性フィールド `σ_complete` をデータとして持つのが形式化特有の判断（`CompleteSpace ↥σ` は abstract submodule では推論不能）。実現例は `torusDomain`（`Torus/SolutionInterfaces.lean`）と `r3Domain`（`R3/SolutionInterfaces.lean`）で、各簡約補題（`torusDomain_stokes` など）が旧レーンの汎関数と定義的に一致することを固定する。
+    完備性フィールド `σ_complete` をデータとして持つのが形式化特有の判断（`CompleteSpace ↥σ` は abstract submodule では推論不能）。実現例は `torusDomain`（`Torus/SolutionInterfaces.lean`）と `r3Domain`（`R3/SolutionInterfaces.lean`）で、各簡約補題（`torusDomain_stokes` など）が旧系列の汎関数と定義的に一致することを固定する。
 chapter: galerkin-generic
 tags: [galerkin-domain, interface]

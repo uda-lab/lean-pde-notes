@@ -1,11 +1,11 @@
 name: LerayHopf.stokesTestPairing_bound_of_galerkinTest
 tier: full
 statement_ja: |
-  Galerkin テスト関数に対する Stokes 対の有界性：$w$ が Galerkin テスト関数ならば、定数 $C$ が存在してすべての $u \in L^2$ で
+  Galerkin テスト関数に対する Stokes 双線形形式の有界性：$w$ が Galerkin テスト関数ならば、定数 $C$ が存在してすべての $u \in L^2$ で
 
   $$\lvert s(u, w) \rvert \le C\, \lVert u \rVert.$$
 proof_ja: |
-  $w$ の帯域制限により、[[Stokes テスト対|LerayHopf.stokesTestPairing]] の格子総和は周波数箱上の有限和に潰れる。三角不等式で項別に分け、各モードで実部の絶対値を係数ノルムの積
+  $w$ の帯域制限により、[[Stokes 双線形形式|LerayHopf.stokesTestPairing]] の格子総和は周波数箱上の有限和に潰れる。三角不等式で項別に分け、各モードで実部の絶対値を係数ノルムの積
 
   $$\lVert \hat u_j(k) \rVert \cdot \lVert \hat w_j(k) \rVert$$
 
