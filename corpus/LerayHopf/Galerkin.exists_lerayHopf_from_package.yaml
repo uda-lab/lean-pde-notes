@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    旧レーンの `exists_lerayHopf_from_package_full` / `_R3` が共有していた本体の一本化（lean-pde issue #112 PR-C）。両 capstone はこの定理へ委譲するが statement は byte-identical に保たれ、kernel-only（`propext / Classical.choice / Quot.sound` のみ）も不変。
+    旧系列の `exists_lerayHopf_from_package_full` / `_R3` が共有していた本体の一本化（lean-pde issue #112 PR-C）。両 capstone はこの定理へ委譲するが statement は byte-identical に保たれ、kernel-only（`propext / Classical.choice / Quot.sound` のみ）も不変。
 chapter: galerkin-generic
 tags: [galerkin-domain, assembly]

@@ -1,7 +1,7 @@
 name: LerayHopf.torusDomain_stokes
 tier: full
 statement_ja: |
-  簡約補題：$\mathbb{T}^3$ Galerkin 領域の Stokes テスト対は、具体的な Stokes 対と定義的に等しい。抽象化を経由した式を旧来の具体形へ正規化するために使う。
+  簡約補題：$\mathbb{T}^3$ Galerkin 領域の Stokes 双線形形式は、具体的な Stokes 双線形形式と定義的に等しい。抽象化を経由した式を旧来の具体形へ正規化するために使う。
 proof_ja: |
   定義の書き下しそのものである（両辺は定義的に等しい）。
 gap:

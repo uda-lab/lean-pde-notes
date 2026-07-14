@@ -15,6 +15,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    散逸の被積分関数は Fourier 側で定義された [[粘性形式|LerayHopf.viscousFormSq]] であり、$e^{2\pi i k \cdot x}$ 規約のもとで勾配エネルギー $\nu \lVert \nabla u \rVert^2$ に一致する（$(2\pi)^2$ の因子が規約を吸収する）。恒等式側は解の曲線を自分自身でテストし、移流項の対角消滅と Stokes 対の対角化、微積分学の基本定理で導かれる。
+    散逸の被積分関数は Fourier 側で定義された [[粘性形式|LerayHopf.viscousFormSq]] であり、$e^{2\pi i k \cdot x}$ 規約のもとで勾配エネルギー $\nu \lVert \nabla u \rVert^2$ に一致する（$(2\pi)^2$ の因子が規約を吸収する）。恒等式側は解の曲線を自分自身でテストし、移流項の対角消滅と Stokes 双線形形式の対角値の恒等式、微積分学の基本定理で導かれる。
 chapter: energy
 tags: [energy-inequality, galerkin, torus]

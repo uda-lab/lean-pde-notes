@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    実数値の tsum は総和可能でないとき $0$ に潰れる（mathlib のジャンク値規約）のに対し、`ℝ≥0∞` の tsum は常に上限として意味を持つ。この対比が docstring の「正直な和」の意味で、実側との橋渡しは [[実粘性形式の優越|LerayHopf.ofReal_viscousFormSq_le]] と [[帯域制限場での一致|LerayHopf.viscousEnn_eq_ofReal_of_bandlimited]] が与える。
+    実数値の tsum は総和可能でないとき $0$ に潰れる（mathlib のジャンク値規約）のに対し、`ℝ≥0∞` の tsum は常に上限として意味を持つ。この対比が docstring の「正直な和」の意味で、実側との橋渡しは [[実粘性形式は拡張版以下|LerayHopf.ofReal_viscousFormSq_le]] と [[帯域制限場での一致|LerayHopf.viscousEnn_eq_ofReal_of_bandlimited]] が与える。
 chapter: energy
 tags: [energy, dissipation, torus]

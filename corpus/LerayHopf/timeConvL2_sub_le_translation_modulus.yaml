@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    ℝ³ lane の空間版評価の直移植。軟化収束（[[軟化収束|LerayHopf.Bochner.timeConvL2_tendsto_self]]）の中核入力。
+    ℝ³ 系列の空間版評価の直移植。軟化収束（[[軟化収束|LerayHopf.Bochner.timeConvL2_tendsto_self]]）の中核入力。
 chapter: bochner
 tags: [time-mollification, bochner]

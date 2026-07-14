@@ -1,7 +1,7 @@
 name: LerayHopf.stokesTestPairing_R3_smul_right
 tier: full
 statement_ja: |
-  Stokes テスト対の右斉次性（span 元上）。
+  Stokes 双線形形式の右斉次性（span 元上）。
 proof_ja: |
   被積分関数の斉次性と積分の斉次性から従う。
 gap:

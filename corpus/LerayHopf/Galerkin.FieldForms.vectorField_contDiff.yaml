@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    分解 $G(u)=B(u,u)+L(u)$ は Riesz 単射性（すべての $w$ とテストして比較する `ext_inner_right`）で示す private 補題 `vectorField_eq_parts` による。$B,L$ は Riesz 逆写像・移流形式・粘性形式を段積みした private の連続線形写像列（旧レーンの重複構成の一本化）として構成する。
+    分解 $G(u)=B(u,u)+L(u)$ は Riesz 単射性（すべての $w$ とテストして比較する `ext_inner_right`）で示す private 補題 `vectorField_eq_parts` による。$B,L$ は Riesz 逆写像・移流形式・粘性形式を段積みした private の連続線形写像列（旧系列の重複構成の一本化）として構成する。
 chapter: galerkin-generic
 tags: [quadratic-field, regularity]

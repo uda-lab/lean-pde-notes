@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    トーラス lane の最終的な移流三重形式。以下の五性質（pin・多重線形・反対称・有界・固定テスト連続）が形式束 `Torus3NSForms` の要求フィールドを充たす。
+    トーラス系列の最終的な移流三重形式。以下の五性質（Galerkin 形式との一致・多重線形性・反対称性・有界性・固定テスト連続性）が形式束 `Torus3NSForms` の要求フィールドを充たす。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

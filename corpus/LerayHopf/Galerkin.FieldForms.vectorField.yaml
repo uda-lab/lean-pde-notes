@@ -15,6 +15,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    Riesz 表現は mathlib の `InnerProductSpace.toDual` の逆写像。符号と $\nu$ の規約は各レーンの旧 `galerkinODE_vectorField` に一致させてあり、レーン側の場との同値は `galerkinODE_vectorField_eq_generic`（両レーン）が橋渡しする。
+    Riesz 表現は mathlib の `InnerProductSpace.toDual` の逆写像。符号と $\nu$ の規約は各系列の旧 `galerkinODE_vectorField` に一致させてあり、系列側の場との同値は `galerkinODE_vectorField_eq_generic`（両系列）が橋渡しする。
 chapter: galerkin-generic
 tags: [quadratic-field, riesz]

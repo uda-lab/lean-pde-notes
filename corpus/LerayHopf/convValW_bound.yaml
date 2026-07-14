@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_bound
 tier: full
 statement_ja: |
-  移項形式の双線形有界性：Galerkin テスト関数 $w$ に対し、非負定数 $C(w)$ が存在してすべての $u, v \in L^2$ で
+  部分積分形の双線形有界性：Galerkin テスト関数 $w$ に対し、非負定数 $C(w)$ が存在してすべての $u, v \in L^2$ で
 
   $$\lvert \operatorname{val}(u, v, w) \rvert \le C(w)\, \lVert u \rVert\, \lVert v \rVert.$$
 proof_ja: |

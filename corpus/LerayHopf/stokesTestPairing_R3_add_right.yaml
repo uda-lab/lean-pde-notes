@@ -1,7 +1,7 @@
 name: LerayHopf.stokesTestPairing_R3_add_right
 tier: full
 statement_ja: |
-  Stokes テスト対の右加法性（span 元上）：Fourier 積分表示の水準での加法性。
+  Stokes 双線形形式の右加法性（span 元上）：Fourier 積分表示の水準での加法性。
 proof_ja: |
   被積分関数が Fourier 変換の線形性により加法的に分解され、可積分性のもとで積分が分配される。
 gap:

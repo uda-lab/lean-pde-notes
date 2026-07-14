@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    [[移項形式の有界性|LerayHopf.TorusConvectionExtension.convValW_bound]] の定量的中核。
+    [[部分積分形の有界性|LerayHopf.TorusConvectionExtension.convValW_bound]] の定量的中核。
 chapter: limit-passage
 tags: [summability, convection, torus]

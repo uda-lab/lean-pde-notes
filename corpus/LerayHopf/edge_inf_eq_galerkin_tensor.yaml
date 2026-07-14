@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    貼り合わせの well-definedness の土台：二つの辺で別々に定めた値が重なりで一致すべき場所を正確に特定する。ℝ³ lane の Schwartz 版と同じ汎用定理（`TensorIntersection`）を使い回している。純代数のテンソル積の交わりの計算は見かけによらず非自明で、汎用層に隔離されている。
+    貼り合わせの well-definedness の土台：二つの辺で別々に定めた値が重なりで一致すべき場所を正確に特定する。ℝ³ 系列の Schwartz 版と同じ汎用定理（`TensorIntersection`）を使い回している。純代数のテンソル積の交わりの計算は見かけによらず非自明で、汎用層に隔離されている。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_add_v
 tier: full
 statement_ja: |
-  移項形式の第二引数の加法性（$w$ は Galerkin テスト関数）。
+  部分積分形の第二引数の加法性（$w$ は Galerkin テスト関数）。
 proof_ja: |
   第一引数と同様に、係数の加法性と総和の分割で従う。
 gap:

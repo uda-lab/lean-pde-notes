@@ -1,7 +1,7 @@
 name: LerayHopf.stokesTestPairing
 tier: full
 statement_ja: |
-  具体的な粘性（Stokes）テスト対：Fourier 係数による表示
+  具体的な Stokes 双線形形式（粘性形式の双線形版）：Fourier 係数による表示
 
   $$s(u, w) = \sum_{j} \sum_{k} (2\pi)^2\, \lvert k \rvert^2\; \operatorname{Re}\bigl[\hat u_j(k)\, \overline{\hat w_j(k)}\bigr].$$
 

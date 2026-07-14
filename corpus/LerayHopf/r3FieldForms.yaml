@@ -1,9 +1,9 @@
 name: LerayHopf.r3FieldForms
 tier: full
 statement_ja: |
-  $\mathbb{R}^3$ Galerkin ODE 層の [[形式データ|LerayHopf.Galerkin.FieldForms]] 実現例。第 $n$ Galerkin 部分空間上で、三重線形形式を（部分空間から発散ゼロ空間への包含を経由した）$\mathbb{R}^3$ 移流形式、粘性形式を周囲空間の Stokes テスト対として与える。
+  $\mathbb{R}^3$ Galerkin ODE 層の [[形式データ|LerayHopf.Galerkin.FieldForms]] 実現例。第 $n$ Galerkin 部分空間上で、三重線形形式を（部分空間から発散ゼロ空間への包含を経由した）$\mathbb{R}^3$ 移流形式、粘性形式を周囲空間の Stokes 双線形形式として与える。
 proof_ja: |
-  13 個の条項はすべて、包含写像の線形性と $\mathbb{R}^3$ 移流形式・Stokes 対の既存の代数的性質から機械的に埋まる。対角消滅は移流形式の対角消滅から、対角非負性は Stokes 対の対角非負性から従う。
+  13 個の条項はすべて、包含写像の線形性と $\mathbb{R}^3$ 移流形式・Stokes 双線形形式の既存の代数的性質から機械的に埋まる。対角消滅は移流形式の対角消滅から、対角非負性は Stokes 双線形形式の対角非負性から従う。
 gap:
   level: mild
   note: |

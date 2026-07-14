@@ -1,10 +1,10 @@
 name: LerayHopf.galerkinTest_cauchySeq_of_aeStrong
 tier: gloss
 statement_ja: |
-  弱極限構成のステップ（毎時刻 Cauchy 化）：Galerkin テスト $w$ ごとのスカラー曲線 $t\mapsto\langle c_k(t),w\rangle$ は、等 Lipschitz 評価と a.e.-良集合上の Cauchy 性から、$[0,T]$ の**すべての**時刻で Cauchy になる。a.e. の強収束情報を全時刻へ拡張する稠密性論法。
+  弱極限構成のステップ（毎時刻 Cauchy 化）：Galerkin テスト $w$ ごとのスカラー曲線 $t\mapsto\langle c_k(t),w\rangle$ は、同程度 Lipschitz 評価と a.e.-良集合上の Cauchy 性から、$[0,T]$ の**すべての**時刻で Cauchy になる。a.e. の強収束情報を全時刻へ拡張する稠密性論法。
 gap:
   level: mild
   note: |
-    稠密集合上の Cauchy 性 + 等 Lipschitz から全点 Cauchy を出す一般補題 `cauchySeq_of_equiLipschitz_of_dense`（`Bochner/WeakLimitToolkit`）に帰着。lean-pde PR #129（issue #114 Tier 2）で名前付きステップとして分離。
+    稠密集合上の Cauchy 性 + 同程度 Lipschitz から全点 Cauchy を出す一般補題 `cauchySeq_of_equiLipschitz_of_dense`（`Bochner/WeakLimitToolkit`）に帰着。lean-pde PR #129（issue #114 Tier 2）で名前付きステップとして分離。
 chapter: energy
 tags: [limit-passage, weak-convergence, textbook-step, private-helper]

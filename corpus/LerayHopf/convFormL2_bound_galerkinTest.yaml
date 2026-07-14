@@ -5,7 +5,7 @@ statement_ja: |
 
   $$\lvert b(u, v, w) \rvert \le C(w)\, \lVert u \rVert\, \lVert v \rVert.$$
 proof_ja: |
-  テスト上の値の同定で移項形式に書き換え、[[移項形式の有界性|LerayHopf.TorusConvectionExtension.convValW_bound]] を適用する。
+  テスト上の値の同定で部分積分形に書き換え、[[部分積分形の有界性|LerayHopf.TorusConvectionExtension.convValW_bound]] を適用する。
 gap:
   level: none
   note: |

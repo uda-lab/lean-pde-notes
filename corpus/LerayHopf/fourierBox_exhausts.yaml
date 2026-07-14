@@ -1,7 +1,7 @@
 name: LerayHopf.fourierBox_exhausts
 tier: full
 statement_ja: |
-  周波数箱の枚挙性：任意の波数 $k$ はある次数の箱に属する。
+  周波数箱による波数の被覆：任意の波数 $k$ はある次数の箱に属する。
 proof_ja: |
   $n$ として座標の絶対値の最大値を取れば、各座標が $[-n, n]$ に入る。
 gap:

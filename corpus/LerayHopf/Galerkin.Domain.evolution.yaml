@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   Galerkin 領域と移流形式核から散逸発展の枠組みを組み立てる対応。台空間を発散ゼロ部分空間 $\sigma$、正則性汎関数・粘性形式・テスト述語を領域データの制限、移流形式を核の $b$ として、[[散逸発展|LerayHopf.DissipativeEvolution]]の全データを埋める。
 proof_ja: |
-  各成分の単純な読み替えである。粘性形式は周囲空間の Stokes 対を部分空間へ制限し、正則性汎関数の非負性は領域データの非負性から、移流形式の反対称性は核の反対称性からそのまま渡す。
+  各成分の単純な読み替えである。粘性形式は周囲空間の Stokes 双線形形式を部分空間へ制限し、正則性汎関数の非負性は領域データの非負性から、移流形式の反対称性は核の反対称性からそのまま渡す。
 gap:
   level: mild
   note: |
-    `@[reducible]` 指定が本質的（lean-pde issue #112 PR-C）：旧レーンの `torus3Evolution` / `r3Evolution` は reducible な直接定義だったため、この対応を経由しても定義展開の高速経路を保たないと、極限移行証明での `WeakFormNS` の展開が透過性混在で破綻する。数学的内容ではなく elaboration 性能のための注記。
+    `@[reducible]` 指定が本質的（lean-pde issue #112 PR-C）：旧系列の `torus3Evolution` / `r3Evolution` は reducible な直接定義だったため、この対応を経由しても定義展開の高速経路を保たないと、極限移行証明での `WeakFormNS` の展開が透過性混在で破綻する。数学的内容ではなく elaboration 性能のための注記。
 chapter: galerkin-generic
 tags: [galerkin-domain, evolution-triple]

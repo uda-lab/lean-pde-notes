@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    移流形式の総和可能性論法の骨格。energy 章の $H^1$ 重み経路と違い、こちらは第三因子の有限台だけで閉じる（中央因子の $H^1$ を要求しない）ことが移項形式の存在意義につながる。
+    移流形式の総和可能性論法の骨格。energy 章の $H^1$ 重み経路と違い、こちらは第三因子の有限台だけで閉じる（中央因子の $H^1$ を要求しない）ことが部分積分形の存在意義につながる。
 chapter: limit-passage
 tags: [summability, convection, torus]

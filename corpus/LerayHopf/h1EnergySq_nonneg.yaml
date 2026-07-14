@@ -1,9 +1,9 @@
 name: LerayHopf.h1EnergySq_nonneg
 tier: full
 statement_ja: |
-  [[H¹ エネルギー|LerayHopf.h1EnergySq]] の非負性：すべての $u$ で $0 \le$（$H^1$ エネルギー）。
+  [[H¹ エネルギー|LerayHopf.h1EnergySq]] の非負性：すべての $u$ に対し、$H^1$ エネルギーの値は非負である。
 proof_ja: |
-  各被和項は非負因子（Sobolev 重みとノルム二乗）の積で非負だから、総和の非負性と有限和の非負性を重ねて従う。
+  各被和項は非負因子（Sobolev 重みとノルム二乗）の積で非負だから、総和の非負性と有限和の非負性を順に用いて従う。
 gap:
   level: none
   note: |

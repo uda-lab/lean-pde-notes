@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    包含の連続線形性は `Submodule.subtypeL`、合成は `HasFDerivAt.comp_hasDerivAt` による。両レーンで private に重複していた周囲空間転送（旧 `solve_hasDerivAt_ambient`）の汎用形。
+    包含の連続線形性は `Submodule.subtypeL`、合成は `HasFDerivAt.comp_hasDerivAt` による。両系列で private に重複していた周囲空間転送（旧 `solve_hasDerivAt_ambient`）の汎用形。
 chapter: galerkin-generic
 tags: [dissipative-ode, submodule-transport]

@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_eq_convFormFourier
 tier: full
 statement_ja: |
-  移項形式と元の形式の一致：$u$ が発散ゼロ、$v, w$ が Galerkin テスト関数ならば
+  部分積分形と元の形式の一致：$u$ が発散ゼロ、$v, w$ が Galerkin テスト関数ならば
 
   $$\operatorname{val}(u, v, w) = b_{\mathrm{Fourier}}(u, v, w)$$
 

@@ -1,7 +1,7 @@
 name: LerayHopf.stokesTestPairing_R3_integrand_integrable
 tier: full
 statement_ja: |
-  Stokes テスト対の被積分関数の可積分性：両引数が span 元なら、成分ごとの重み付き Fourier 積の被積分関数は可積分である。
+  Stokes 双線形形式の被積分関数の可積分性：両引数が span 元なら、成分ごとの重み付き Fourier 積の被積分関数は可積分である。
 proof_ja: |
   span 元の Fourier 変換は Schwartz 代表元の急減少性を引き継ぐので、多項式重みを掛けても可積分性が保たれる。
 gap:

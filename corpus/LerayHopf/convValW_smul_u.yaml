@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_smul_u
 tier: full
 statement_ja: |
-  移項形式の第一引数の実斉次性（仮定なし）。
+  部分積分形の第一引数の実斉次性（仮定なし）。
 proof_ja: |
   係数のスカラー倍を括り出し、実スカラーと総和・実部の交換（無条件に成立）で従う。
 gap:

@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.stokesTestPairing_smul_right
 tier: full
 statement_ja: |
-  Stokes テスト対の右斉次性：第一引数 $u$ がある次数の Fourier 截断で固定される（帯域制限）という仮定のもとで、実スカラー $c$ に対し $s(u,\ c\, w) = c\, s(u, w)$。
+  Stokes 双線形形式の右斉次性：第一引数 $u$ がある次数の Fourier 截断で固定される（帯域制限）という仮定のもとで、実スカラー $c$ に対し $s(u,\ c\, w) = c\, s(u, w)$。
 proof_ja: |
   スカラー倍の Fourier 係数は元の係数の $c$ 倍であり、実スカラーは複素共役と実部の取り出しの双方と可換なので積から括り出せる。あとは実スカラー倍と総和の交換（mathlib では無条件に成立する）で従う。
 gap:

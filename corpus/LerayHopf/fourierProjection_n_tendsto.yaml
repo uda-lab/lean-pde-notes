@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    mathlib の `Submodule.starProjection_tendsto_self` の適用。ベクトル版は [[速度截断の各点収束|LerayHopf.velocityProjection_n_tendsto]]。
+    mathlib の `Submodule.starProjection_tendsto_self` の適用。ベクトル版は [[速度截断の強収束|LerayHopf.velocityProjection_n_tendsto]]。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

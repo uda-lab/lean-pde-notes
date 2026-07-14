@@ -5,7 +5,7 @@ statement_ja: |
 
   $$\langle c,\ \mathrm{mul}_m\,g\rangle = \langle \mathrm{mul}_m\,c,\ g\rangle.$$
 proof_ja: |
-  内積を積分表示し、実数値の $m$ が共役を取っても不変であることから被積分関数の書き換えで移項する。
+  内積を積分表示し、実数値の $m$ が共役を取っても不変であることを用い、被積分関数の書き換えで乗数を他方の因子へ移す。
 gap:
   level: none
   note: |

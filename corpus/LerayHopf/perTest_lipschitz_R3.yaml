@@ -1,7 +1,7 @@
 name: LerayHopf.perTest_lipschitz_R3
 tier: full
 statement_ja: |
-  $\mathbb{R}^3$ 上の**各 Galerkin テストに対する等 Lipschitz 評価**。発散ゼロな Schwartz テスト $w$ をレベル $n_0$ に固定し、任意の Galerkin レベル $n\ge n_0$ を取る。このときスカラー対関数 $t\mapsto\langle u_n(t),w\rangle$ は $[0,\infty)$ 上で Lipschitz 連続であり、Lipschitz 定数は
+  $\mathbb{R}^3$ 上の**各 Galerkin テストに対する同程度 Lipschitz 評価**。発散ゼロな Schwartz テスト $w$ をレベル $n_0$ に固定し、任意の Galerkin レベル $n\ge n_0$ を取る。このときスカラー対関数 $t\mapsto\langle u_n(t),w\rangle$ は $[0,\infty)$ 上で Lipschitz 連続であり、Lipschitz 定数は
 
   $$L(w)=\nu\,C_s(w)\,\lVert u_0\rVert+C_b(w)\,\lVert u_0\rVert^2$$
 

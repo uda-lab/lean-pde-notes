@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convSummandW_summable
 tier: full
 statement_ja: |
-  移項被和項（複素数値）の総和可能性：同じ仮定のもとで絶対収束する。
+  部分積分形の被和項（複素数値）の総和可能性：同じ仮定のもとで絶対収束する。
 proof_ja: |
   [[ノルム総和可能性|LerayHopf.TorusConvectionExtension.convSummandW_norm_summable]] からの帰結である。
 gap:

@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_smul_w
 tier: full
 statement_ja: |
-  移項形式の第三引数の実斉次性（仮定なし）。
+  部分積分形の第三引数の実斉次性（仮定なし）。
 proof_ja: |
   第三因子の係数のスカラー倍を括り出して同様に従う。
 gap:

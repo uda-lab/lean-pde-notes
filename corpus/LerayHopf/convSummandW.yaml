@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    移項の配当は総和可能性の仮定の軽さに現れる：この形は **$v$ の $H^1$ を要求せず**、$w$ の帯域制限だけで総和可能になる（[[ノルム総和可能性|LerayHopf.TorusConvectionExtension.convSummandW_norm_summable]]）。これが $(u, v)$ について $L^2 \times L^2$ 全体への連続拡張を可能にする。
+    部分積分の利点は総和可能性の仮定の軽さに現れる：この形は **$v$ の $H^1$ を要求せず**、$w$ の帯域制限だけで総和可能になる（[[ノルム総和可能性|LerayHopf.TorusConvectionExtension.convSummandW_norm_summable]]）。これが $(u, v)$ について $L^2 \times L^2$ 全体への連続拡張を可能にする。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

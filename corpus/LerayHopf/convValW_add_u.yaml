@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convValW_add_u
 tier: full
 statement_ja: |
-  移項形式の第一引数の加法性（$w$ は Galerkin テスト関数）。
+  部分積分形の第一引数の加法性（$w$ は Galerkin テスト関数）。
 proof_ja: |
   被和項の係数の加法性で項別に分配し、両方の族の総和可能性のもとで総和を分ける。
 gap:
