@@ -15,6 +15,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    エネルギー有界は [[Galerkin 解データ|LerayHopf.Galerkin.SolutionData]] の `energy_bound` フィールドとして持ち回られる（トーラス Galerkin ODE の解では散逸恒等式から公理なしに証明済み）。打ち切りの非拡大性は `Torus.velocityProjection_n_norm_le`。ℝ³ 系列の `galerkin_norm_le_u0` の対応物。
+    エネルギー有界は [[Galerkin 解データ|LerayHopf.Galerkin.SolutionData]] の `energy_bound` フィールドとして持ち回られる（トーラス Galerkin ODE の解では散逸恒等式から公理なしに証明済み）。打ち切りの非拡大性は `Torus.velocityProjection_n_norm_le`。ℝ³ 系統の `galerkin_norm_le_u0` の対応物。
 chapter: energy
 tags: [energy, galerkin, torus]

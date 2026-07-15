@@ -1,7 +1,7 @@
 name: LerayHopf.continuous_sqrtViscousWeightTrunc
 tier: full
 statement_ja: |
-  各 $k$ について截断乗数 $\sqrt{W}_k$ は周波数について連続である。
+  各 $k$ について打ち切り乗数 $\sqrt{W}_k$ は周波数について連続である。
 proof_ja: |
   連続関数 $\sqrt{W}$ と定数関数 $k$ の点ごとの最小値であり、二つの連続関数の最小値は連続だからである。
 gap:

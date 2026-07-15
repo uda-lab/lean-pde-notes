@@ -1,7 +1,7 @@
 name: LerayHopf.velocityProjection_n_comp_of_le
 tier: full
 statement_ja: |
-  截断の入れ子性：$n \le m$ ならば $P_n(P_m u) = P_n u$（小さい箱への截断は大きい箱を忘れる）。
+  打ち切りの入れ子性：$n \le m$ ならば $P_n(P_m u) = P_n u$（小さい箱への打ち切りは大きい箱を忘れる）。
 proof_ja: |
   係数の外延性に帰着し、両辺の係数がともに「$k$ が箱 $B_n$ に入るときは $\hat u_j(k)$、外では零」であることを、[[箱の単調性|LerayHopf.fourierBox_monotone]]（$B_n \subseteq B_m$）を使った場合分けで確かめる。
 gap:

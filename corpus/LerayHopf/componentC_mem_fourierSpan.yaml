@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   $V_n$ の元の成分は Fourier スパンに属する：$v \in V_n$ の各複素埋め込み成分は [[Fourier スパン|LerayHopf.fourierSpan]] の元である。
 proof_ja: |
-  $v$ は截断で固定されるので、成分可換性によりその成分はスカラー截断の値に等しく、截断の値域（＝スパン）に属する。
+  $v$ は次数 $n$ の打ち切りで不変なので、成分可換性によりその成分はスカラー打ち切りの値に等しく、打ち切りの値域（＝スパン）に属する。
 gap:
   level: none
   note: |

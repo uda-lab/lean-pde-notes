@@ -7,7 +7,7 @@ statement_ja: |
 
   を満たす。
 proof_ja: |
-  [[Galerkin エネルギー恒等式|LerayHopf.torus_galerkin_energy_identity]] により左辺は $\tfrac{1}{2} \lVert P_n u_0 \rVert^2$ に等しい。Fourier 截断の非拡大性
+  [[Galerkin エネルギー恒等式|LerayHopf.torus_galerkin_energy_identity]] により左辺は $\tfrac{1}{2} \lVert P_n u_0 \rVert^2$ に等しい。Fourier 打ち切りの非拡大性
 
   $$\lVert P_n u_0 \rVert \le \lVert u_0 \rVert$$
 

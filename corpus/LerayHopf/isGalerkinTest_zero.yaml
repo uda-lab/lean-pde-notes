@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   零場は Galerkin テスト関数である。
 proof_ja: |
-  次数 $0$ の截断が零を固定することから従う。
+  次数 $0$ の打ち切りが零を固定することから従う。
 gap:
   level: none
   note: |

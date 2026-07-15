@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    lean-pde PR #123（issue #111 PR-4）で両系列の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+    lean-pde PR #123（issue #111 PR-4）で両系統の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
 chapter: misc
 tags: [bilinear-extension, shared-infra]

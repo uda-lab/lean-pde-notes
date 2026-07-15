@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    截断の自己随伴性をスカラー側から持ち上げる要の分解。ノルム分解を三回使う偏極論法が証明の設計。
+    打ち切りの自己随伴性をスカラー側から持ち上げる要の分解。ノルム分解を三回使う偏極論法が証明の設計。
 chapter: projections-galerkin
 tags: [projections, adjoint, torus]

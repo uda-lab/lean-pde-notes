@@ -1,14 +1,14 @@
 name: LerayHopf.velocityProjection_n_inner_of_fixed
 tier: full
 statement_ja: |
-  帯域制限テストとの対は截断を素通しする：$P_n w = w$ ならば
+  帯域制限テストとの対は打ち切りを素通しする：$P_n w = w$ ならば
 
   $$\langle P_n u,\ w \rangle = \langle u,\ w \rangle.$$
 proof_ja: |
-  [[自己随伴性|LerayHopf.velocityProjection_n_inner_symm]] で截断を $w$ 側へ移し、固定性で消す。
+  [[自己随伴性|LerayHopf.velocityProjection_n_inner_symm]] で打ち切りを $w$ 側へ移し、固定性で消す。
 gap:
   level: none
   note: |
-    Galerkin テストに対する弱形式の各項が截断に鈍感であることを支える。
+    Galerkin テストに対する弱形式の各項が打ち切りに鈍感であることを支える。
 chapter: projections-galerkin
 tags: [projections, adjoint, torus]

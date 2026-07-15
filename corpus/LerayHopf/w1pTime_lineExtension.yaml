@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: large
   note: |
-    時間軟化（区間版）を全直線の道具で実行するための WALL B の組み立て。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系列は具体構成で閉じている）。
+    時間軟化（区間版）を全直線の道具で実行するための WALL B の組み立て。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
 chapter: bochner
 tags: [gelfand-triple, bochner]

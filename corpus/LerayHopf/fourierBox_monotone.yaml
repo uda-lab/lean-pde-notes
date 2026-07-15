@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    Fourier スパンの単調性、ひいては截断の入れ子性の源。
+    Fourier スパンの単調性、ひいては打ち切りの入れ子性の源。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

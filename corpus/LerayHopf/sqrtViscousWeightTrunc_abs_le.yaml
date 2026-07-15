@@ -1,11 +1,11 @@
 name: LerayHopf.sqrtViscousWeightTrunc_abs_le
 tier: full
 statement_ja: |
-  截断乗数は絶対値が頭打ちの高さで抑えられる。
+  打ち切り乗数は絶対値が頭打ちの高さで抑えられる。
 
   $$\bigl\lvert\sqrt{W}_k(\xi)\bigr\rvert\le k$$
 proof_ja: |
-  截断乗数は非負なので絶対値はそれ自身に等しく、最小値の性質から頭打ちの高さ $k$ を超えない。
+  打ち切り乗数は非負なので絶対値はそれ自身に等しく、最小値の性質から頭打ちの高さ $k$ を超えない。
 gap:
   level: none
 chapter: compactness

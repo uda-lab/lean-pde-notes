@@ -1,12 +1,12 @@
 name: LerayHopf.velocityProjection_n_preserves_L2Sigma
 tier: full
 statement_ja: |
-  截断の発散ゼロ保存：$u$ が発散ゼロならば截断 $P_n u$ も発散ゼロである。
+  打ち切りの発散ゼロ保存：$u$ が発散ゼロならば打ち切り $P_n u$ も発散ゼロである。
 proof_ja: |
-  発散ゼロ性を波数ごとの Fourier 発散和の消滅（[[所属の特徴づけ|LerayHopf.mem_L2Sigma_iff]]）に開く。截断の係数は「箱の中は元の係数、外は零」なので、発散和は箱の中の波数では元の発散和（仮定により零）、外では恒等的に零となり、いずれにせよ消える。
+  発散ゼロ性を波数ごとの Fourier 発散和の消滅（[[所属の特徴づけ|LerayHopf.mem_L2Sigma_iff]]）に開く。打ち切りの係数は「箱の中は元の係数、外は零」なので、発散和は箱の中の波数では元の発散和（仮定により零）、外では恒等的に零となり、いずれにせよ消える。
 gap:
   level: none
   note: |
-    截断が波数ごとに対角に作用する（係数を一斉に保つか一斉に消す）ことが、発散条件（同一波数の成分間の線形関係）と両立する、という構図。
+    打ち切りが波数ごとに対角に作用する（係数を一斉に保つか一斉に消す）ことが、発散条件（同一波数の成分間の線形関係）と両立する、という構図。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

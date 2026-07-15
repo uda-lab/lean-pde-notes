@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   （L4）**一様近似**。$H^1$ 有界集合の上で、[[Galerkin 射影|LerayHopf.fourierProjection_n]]は $L^2$ で一様に収束する。すなわち $M\ge 0$ と $\varepsilon>0$ に対し、ある $N$ が存在して、$H^1$ エネルギーが $M^2$ 以下のすべての $f$ で $\lVert f-P_N f\rVert\le\varepsilon$ が成り立つ。
 proof_ja: |
-  截断残差の公式（L2）とテイル評価（L3）から $\lVert f-P_N f\rVert^2\le M^2/(1+N^2)$ を得る。ここで $M/\sqrt{1+N^2}\le\varepsilon$、すなわち $1+N^2\ge(M/\varepsilon)^2$ となる $N$ を選び、平方根をとって $\lVert f-P_N f\rVert\le\varepsilon$ を導く。
+  打ち切り残差の公式（L2）とテイル評価（L3）から $\lVert f-P_N f\rVert^2\le M^2/(1+N^2)$ を得る。ここで $M/\sqrt{1+N^2}\le\varepsilon$、すなわち $1+N^2\ge(M/\varepsilon)^2$ となる $N$ を選び、平方根をとって $\lVert f-P_N f\rVert\le\varepsilon$ を導く。
 
   $N$ の選び方が $f$ によらず $M$ と $\varepsilon$ だけに依存することが、一様性の要である。
 gap:

@@ -5,7 +5,7 @@ statement_ja: |
 
   $$\langle u_{\varphi(n)}(t),\ z \rangle \longrightarrow \langle u(t),\ z \rangle,$$
 
-  (ii) $\lVert u(t) \rVert \le \lVert u_0 \rVert$、(iii) a.e. 強可測性、(iv) すべてのレベル $N$ で截断の時間二乗平均の強収束、が同時に成り立つ。
+  (ii) $\lVert u(t) \rVert \le \lVert u_0 \rVert$、(iii) a.e. 強可測性、(iv) すべてのレベル $N$ で打ち切りの時間二乗平均の強収束、が同時に成り立つ。
 proof_ja: |
   配線の定理である：[[可算テスト族|LerayHopf.exists_galerkin_test_family]] を取り、[[モードごとの抽出|LerayHopf.exists_galerkin_modewise_extraction]] で単一の部分列と一様極限族を得る。[[連続性|LerayHopf.galerkin_u_continuousOn]] と [[一様球有界|LerayHopf.galerkin_u_norm_le]] のエクスポートを添えて [[Riesz 極限曲線|LerayHopf.exists_weak_limit_curve]] に代入し、弱収束・球有界・可測性を得る。最後に各レベルの強収束を [[有限次元強収束|LerayHopf.integral_sq_proj_tendsto_zero_of_weak]] で付け加える。
 gap:

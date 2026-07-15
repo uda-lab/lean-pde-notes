@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   第 $n$ **Galerkin 射影**（スカラー版）$P_n$。$L^2(\mathbb{T}^3;\mathbb{C})$ を、$\lVert k\rVert_\infty\le n$ を満たす Fourier モードが張る有限次元部分空間への直交射影として定める。
 proof_ja: |
-  有限個の Fourier モードが張る閉部分空間への直交射影として構成する。これは有限個のモードのみを保持する Fourier 截断であり、Rellich コンパクト性の近似列と Galerkin 近似の双方の基盤を与える。
+  有限個の Fourier モードが張る閉部分空間への直交射影として構成する。これは有限個のモードのみを保持する Fourier 打ち切りであり、Rellich コンパクト性の近似列と Galerkin 近似の双方の基盤を与える。
 gap:
   level: none
 chapter: projections-galerkin

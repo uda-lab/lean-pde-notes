@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   [[Fourier 射影|LerayHopf.fourierProjection_n]]は共役の不動点、すなわち実数値関数を保つ。$f$ が実数値（複素共役をとって不変）ならば、その Fourier 射影もまた実数値である。
 proof_ja: |
-  実数値関数の Fourier 係数は共役対称性 $\hat f(-k)=\overline{\hat f(k)}$ を満たし、截断の箱は $k\mapsto -k$ について対称である。したがって Fourier 射影は共役対称性を保ち、像もまた実数値になる。
+  実数値関数の Fourier 係数は共役対称性 $\hat f(-k)=\overline{\hat f(k)}$ を満たし、打ち切りの箱は $k\mapsto -k$ について対称である。したがって Fourier 射影は共役対称性を保ち、像もまた実数値になる。
 
   自然言語では「実だから実」の一行が、成分ごとの複素化という設計のために、共役の不動点をめぐる議論に化ける。
 gap:

@@ -1,7 +1,7 @@
 name: LerayHopf.allDirections_cauchySeq_of_galerkinTest
 tier: gloss
 statement_ja: |
-  弱極限構成のステップ（方向の拡張）：Galerkin テスト方向での Cauchy 性を、周囲空間のすべての方向 $z$ へ拡張する。$z$ を発散ゼロ成分と直交成分に分解し、直交成分は列が発散ゼロ空間に居るため消え、発散ゼロ成分は Galerkin テストの稠密性（Fourier 截断射影の収束）で近似する。
+  弱極限構成のステップ（方向の拡張）：Galerkin テスト方向での Cauchy 性を、周囲空間のすべての方向 $z$ へ拡張する。$z$ を発散ゼロ成分と直交成分に分解し、直交成分は列が発散ゼロ空間に居るため消え、発散ゼロ成分は Galerkin テストの稠密性（Fourier 打ち切り射影の収束）で近似する。
 gap:
   level: mild
   note: |

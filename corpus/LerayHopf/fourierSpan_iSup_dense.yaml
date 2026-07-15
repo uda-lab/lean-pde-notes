@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    mathlib の `HilbertBasis.dense_span` と `Submodule.iSup_span` の組合せ。截断の強収束（[[スカラー截断の強収束|LerayHopf.fourierProjection_n_tendsto]]）の稠密性条件。
+    mathlib の `HilbertBasis.dense_span` と `Submodule.iSup_span` の組合せ。打ち切りの強収束（[[スカラー打ち切りの強収束|LerayHopf.fourierProjection_n_tendsto]]）の稠密性条件。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

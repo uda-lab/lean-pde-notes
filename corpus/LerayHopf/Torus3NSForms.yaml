@@ -11,7 +11,7 @@ statement_ja: |
 
   $$\lvert b(u,v,w)\rvert \le C(w)\,\lVert u\rVert\,\lVert v\rVert ,$$
 
-  そして Galerkin 部分空間上では有限の[[箱截断対流形式|LerayHopf.galerkinConvection]]に一致するという固定条件が課される。この最後の条件が形式を実質的な Navier–Stokes の対流に釘付けし、自明な $b=0$ を排除する。
+  そして Galerkin 部分空間上では有限の[[箱打ち切りの対流形式|LerayHopf.galerkinConvection]]に一致するという固定条件が課される。この最後の条件が形式を実質的な Navier–Stokes の対流に釘付けし、自明な $b=0$ を排除する。
 gap:
   level: large
   note: |

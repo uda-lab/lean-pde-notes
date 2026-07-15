@@ -1,12 +1,12 @@
 name: LerayHopf.fourierProjection_n_tendsto
 tier: full
 statement_ja: |
-  スカラー截断の強収束：任意の $f \in L^2(\mathbb{T}^3; \mathbb{C})$ に対し、截断値は $n \to \infty$ のとき $f$ に $L^2$ ノルムで収束する（Hilbert 空間のノルム位相での収束）。
+  スカラー打ち切りの強収束：任意の $f \in L^2(\mathbb{T}^3; \mathbb{C})$ に対し、打ち切りの値は $n \to \infty$ のとき $f$ に $L^2$ ノルムで収束する（Hilbert 空間のノルム位相での収束）。
 proof_ja: |
   単調な部分空間族への直交射影は、合併が稠密ならば恒等写像に各点収束する、という mathlib の一般定理に、[[スパンの単調性|LerayHopf.fourierSpan_monotone]] と [[稠密性|LerayHopf.fourierSpan_iSup_dense]] を渡す。
 gap:
   level: none
   note: |
-    mathlib の `Submodule.starProjection_tendsto_self` の適用。ベクトル版は [[速度截断の強収束|LerayHopf.velocityProjection_n_tendsto]]。
+    mathlib の `Submodule.starProjection_tendsto_self` の適用。ベクトル版は [[速度の打ち切りの強収束|LerayHopf.velocityProjection_n_tendsto]]。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

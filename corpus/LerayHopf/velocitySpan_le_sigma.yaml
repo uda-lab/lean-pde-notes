@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   $V_n$ は発散ゼロ空間に含まれる。
 proof_ja: |
-  $V_n$ の元は発散ゼロ場の截断であり、[[発散ゼロの保存|LerayHopf.velocityProjection_n_preserves_L2Sigma]] により截断後も発散ゼロである。
+  $V_n$ の元は発散ゼロ場の打ち切りであり、[[発散ゼロの保存|LerayHopf.velocityProjection_n_preserves_L2Sigma]] により打ち切り後も発散ゼロである。
 gap:
   level: none
   note: |

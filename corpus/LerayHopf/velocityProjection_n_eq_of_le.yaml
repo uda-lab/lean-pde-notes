@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.velocityProjection_n_eq_of_le
 tier: full
 statement_ja: |
-  帯域水準の昇格：次数 $n$ の截断で固定される場は、任意の $m \ge n$ の截断でも固定される。
+  打ち切り次数を増やしたときの不変性：次数 $n$ の打ち切りで不変な場は、任意の次数 $m \ge n$ の打ち切りでも不変である。
 proof_ja: |
-  係数の外延性に帰着する：水準 $m$ の截断の係数は箱 $B_m$ の中では元の係数、外では零だが、外では[[係数の消滅|LerayHopf.coeff_zero_outside_box]]（$B_n \subseteq B_m$ の対偶）により元の係数自体が零なので一致する。
+  係数の外延性に帰着する：次数 $m$ の打ち切りの係数は箱 $B_m$ の中では元の係数、外では零だが、外では[[係数の消滅|LerayHopf.coeff_zero_outside_box]]（$B_n \subseteq B_m$ の対偶）により元の係数自体が零なので一致する。
 gap:
   level: none
   note: |
-    テストの帯域水準を Galerkin 次数へ引き上げて ODE を発火させる、極限移行の常用部品。
+    テストの打ち切り次数を Galerkin 次数へ引き上げて Galerkin ODE を適用可能にする、極限移行の常用部品。
 chapter: limit-passage
 tags: [convection, galerkin, torus]

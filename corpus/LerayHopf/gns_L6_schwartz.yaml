@@ -5,12 +5,12 @@ statement_ja: |
 
   $$\lVert\varphi\rVert_{L^6}\le C\,\lVert\nabla\varphi\rVert_{L^2}$$
 proof_ja: |
-  滑らかな動径截断関数 $\chi_R$ を用いて $\varphi$ を截断した $\chi_R\varphi$ を作る。これは $C^1$ かつコンパクト台をもつので、そのクラスに対する不等式が使える。截断の勾配は $R$ を大きくすると $O(1/R)$ で消えるので、勾配側の余分な寄与は $R\to\infty$ で $0$ に向かう。
+  滑らかな動径打ち切り関数 $\chi_R$ を用いて $\varphi$ を打ち切った $\chi_R\varphi$ を作る。これは $C^1$ かつコンパクト台をもつので、そのクラスに対する不等式が使える。打ち切りの勾配は $R$ を大きくすると $O(1/R)$ で消えるので、勾配側の余分な寄与は $R\to\infty$ で $0$ に向かう。
 
-  截断列は各点で $\varphi$ に収束するので、$L^6$ ノルムの下半連続性（Fatou 型の評価）により、極限の $L^6$ ノルムは截断列の $L^6$ ノルムの下極限で抑えられる。右辺の下極限は $C\lVert\nabla\varphi\rVert_{L^2}$ に収束するので、不等式が閉じる。
+  打ち切りの列は各点で $\varphi$ に収束するので、$L^6$ ノルムの下半連続性（Fatou 型の評価）により、極限の $L^6$ ノルムは打ち切りの列の $L^6$ ノルムの下極限で抑えられる。右辺の下極限は $C\lVert\nabla\varphi\rVert_{L^2}$ に収束するので、不等式が閉じる。
 gap:
   level: mild
   note: |
-    mathlib の `ContDiffBump` は $O(1/R)$ の勾配評価を提供しないため、動径截断の勾配上限 $\lVert\nabla\chi_R\rVert_\infty\le K/R$ を手で証明して使う。$R\to\infty$ の極限移行は `Lp.eLpNorm_lim_le_liminf_eLpNorm`（局所版 Fatou）による。
+    mathlib の `ContDiffBump` は $O(1/R)$ の勾配評価を提供しないため、動径打ち切りの勾配上限 $\lVert\nabla\chi_R\rVert_\infty\le K/R$ を手で証明して使う。$R\to\infty$ の極限移行は `Lp.eLpNorm_lim_le_liminf_eLpNorm`（局所版 Fatou）による。
 chapter: spaces
 tags: [sobolev-embedding, gagliardo-nirenberg, schwartz]

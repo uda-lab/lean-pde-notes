@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    インスタンス宣言。これによりスカラー截断 `fourierProjection_n` が直交射影として定義される。
+    インスタンス宣言。これによりスカラー打ち切り `fourierProjection_n` が直交射影として定義される。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

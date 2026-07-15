@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: large
   note: |
-    証明は四つの部品からなる。Schwartz 勾配を Fourier で押さえる Plancherel 核、$O(1/R)$ 動径截断、コンパクト台を外した Schwartz 版 GNS、そして有界乗数 `mulBdd wInv` による $L^2$ 収束と Fatou である。Sobolev 代表元の抽出には du-Bois-Reymond 型の概至る所ステップを用いる。値域が複素数値なのは Fourier 変換を経由するためで、実ベクトル場へは成分ごとに適用する。
+    証明は四つの部品からなる。Schwartz 勾配を Fourier で押さえる Plancherel 核、$O(1/R)$ 動径打ち切り、コンパクト台を外した Schwartz 版 GNS、そして有界乗数 `mulBdd wInv` による $L^2$ 収束と Fatou である。Sobolev 代表元の抽出には du-Bois-Reymond 型の概至る所ステップを用いる。値域が複素数値なのは Fourier 変換を経由するためで、実ベクトル場へは成分ごとに適用する。
 chapter: spaces
 tags: [sobolev-embedding, gagliardo-nirenberg, fourier]

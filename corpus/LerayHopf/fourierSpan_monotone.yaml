@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    截断の強収束定理（[[スカラー截断の強収束|LerayHopf.fourierProjection_n_tendsto]]）の単調族条件を供給する。
+    打ち切りの強収束定理（[[スカラー打ち切りの強収束|LerayHopf.fourierProjection_n_tendsto]]）の単調族条件を供給する。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

@@ -1,11 +1,11 @@
 name: LerayHopf.velocityProjection_n_inner_symm
 tier: full
 statement_ja: |
-  速度截断の自己随伴性（実内積）：
+  速度の打ち切りの自己随伴性（実内積）：
 
   $$\langle P_n u,\ v \rangle = \langle u,\ P_n v \rangle.$$
 proof_ja: |
-  [[内積の成分分解|LerayHopf.L2VF_inner_eq_sum_componentC]] で両辺を複素成分内積の実部の和に分解し、各成分では截断がスカラー截断として作用する（成分可換性）ので、[[スカラー截断の自己随伴性|LerayHopf.fourierProjection_n_inner_symm]] を成分ごとに適用する。
+  [[内積の成分分解|LerayHopf.L2VF_inner_eq_sum_componentC]] で両辺を複素成分内積の実部の和に分解し、各成分では打ち切りがスカラー打ち切りとして作用する（成分可換性）ので、[[スカラー打ち切りの自己随伴性|LerayHopf.fourierProjection_n_inner_symm]] を成分ごとに適用する。
 gap:
   level: none
   note: |

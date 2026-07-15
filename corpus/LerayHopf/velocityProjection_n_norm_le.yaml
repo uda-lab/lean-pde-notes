@@ -1,12 +1,12 @@
 name: LerayHopf.Torus.velocityProjection_n_norm_le
 tier: full
 statement_ja: |
-  Fourier 截断の非拡大性：$\lVert P_n u \rVert \le \lVert u \rVert$。
+  Fourier 打ち切りの非拡大性：$\lVert P_n u \rVert \le \lVert u \rVert$。
 proof_ja: |
-  両辺の二乗を [[Pythagoras 分解|LerayHopf.Torus.L2VF_norm_sq_eq_sum_componentC]] と成分ごとの Parseval で係数の二乗和に書き換え、係数ごとに比較する：截断の係数は周波数箱の中では元の係数と一致し、外では零だから、二乗は項別に元以下である。両側の総和可能性（[[係数の二乗総和可能性|LerayHopf.Torus.summable_norm_mFourierCoeff3_sq]]）のもとで総和の単調性を適用し、最後に二乗の単調性からノルムの不等式へ戻す。
+  両辺の二乗を [[Pythagoras 分解|LerayHopf.Torus.L2VF_norm_sq_eq_sum_componentC]] と成分ごとの Parseval で係数の二乗和に書き換え、係数ごとに比較する：打ち切りの係数は周波数箱の中では元の係数と一致し、外では零だから、二乗は項別に元以下である。両側の総和可能性（[[係数の二乗総和可能性|LerayHopf.Torus.summable_norm_mFourierCoeff3_sq]]）のもとで総和の単調性を適用し、最後に二乗の単調性からノルムの不等式へ戻す。
 gap:
   level: none
   note: |
-    「截断はモードを落とすだけ」という一行の直観を、係数ごとの場合分けと tsum の単調性で忠実になぞる証明である。
+    「打ち切りはモードを落とすだけ」という一行の直観を、係数ごとの場合分けと tsum の単調性で忠実になぞる証明である。
 chapter: ode
 tags: [parseval, galerkin, torus]

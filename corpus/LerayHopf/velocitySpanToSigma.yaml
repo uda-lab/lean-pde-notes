@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    移流形式（発散ゼロ空間の三引数で定義される）を $V_n$ の引数で使うための型の橋。ℝ³ 系列の `galerkinSpanToSigma` の対応物。
+    移流形式（発散ゼロ空間の三引数で定義される）を $V_n$ の引数で使うための型の橋。ℝ³ 系統の `galerkinSpanToSigma` の対応物。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

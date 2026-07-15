@@ -1,7 +1,7 @@
 name: LerayHopf.sqrtViscousWeightTrunc_nonneg
 tier: full
 statement_ja: |
-  截断乗数 $\sqrt{W}_k$ は各周波数で非負である。
+  打ち切り乗数 $\sqrt{W}_k$ は各周波数で非負である。
 proof_ja: |
   平方根乗数 $\sqrt{W}(\xi)$ が非負であり、頭打ちの高さ $k$ も非負なので、両者の小さいほうも非負である。
 gap:

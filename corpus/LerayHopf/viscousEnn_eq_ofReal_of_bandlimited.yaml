@@ -1,7 +1,7 @@
 name: LerayHopf.viscousEnn_eq_ofReal_of_bandlimited
 tier: full
 statement_ja: |
-  帯域制限された場では両者は一致する：$\nu \ge 0$ とし、場 $u$ がある次数 $n$ の Fourier 截断で固定される（帯域制限）ならば、[[拡張非負実数値の粘性和|LerayHopf.viscousEnn]] は実数値の [[粘性形式|LerayHopf.viscousFormSq]] の埋め込みに等しい。
+  帯域制限された場では両者は一致する：$\nu \ge 0$ とし、場 $u$ がある次数 $n$ で帯域制限されているならば、[[拡張非負実数値の粘性和|LerayHopf.viscousEnn]] は実数値の [[粘性形式|LerayHopf.viscousFormSq]] の埋め込みに等しい。
 proof_ja: |
   帯域制限により Fourier 係数は次数 $n$ の周波数箱の外で消えるので、被和項は有限集合の外で零である。左辺の拡張非負実数の総和と右辺の各成分の格子総和はどちらも同じ有限和（成分と周波数箱の直積上の和）に潰れ、非負性のもとで埋め込みを有限和と交換すれば両辺が一致する。
 gap:

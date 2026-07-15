@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    Galerkin 截断の保持モード集合。$\ell^\infty$ 球（立方体）を採用しているので座標ごとの評価と相性がよい。
+    Galerkin 打ち切りの保持モード集合。$\ell^\infty$ 球（立方体）を採用しているので座標ごとの評価と相性がよい。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

@@ -7,7 +7,7 @@ statement_ja: |
 proof_ja: |
   Hilbert 基底の表現写像は等長同型なので、ノルムを保つ。像は $\ell^2(\mathbb{Z}^3;\mathbb{C})$ に属し、その二乗ノルムは座標の二乗和である。座標はまさに[[Fourier 係数|LerayHopf.mFourierCoeff3]]に一致するので、等式が従う。
 
-  この等式が、Rellich コンパクト性の出発点、すなわち「截断残差＝高周波テイル」の評価を与える。
+  この等式が、Rellich コンパクト性の出発点、すなわち「打ち切り残差＝高周波テイル」の評価を与える。
 gap:
   level: none
 chapter: compactness

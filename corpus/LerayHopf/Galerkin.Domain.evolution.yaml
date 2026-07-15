@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    `@[reducible]` 指定が本質的（lean-pde issue #112 PR-C）：旧系列の `torus3Evolution` / `r3Evolution` は reducible な直接定義だったため、この対応を経由しても定義展開の高速経路を保たないと、極限移行証明での `WeakFormNS` の展開が透過性混在で破綻する。数学的内容ではなく elaboration 性能のための注記。
+    `@[reducible]` 指定が本質的（lean-pde issue #112 PR-C）：旧系統の `torus3Evolution` / `r3Evolution` は reducible な直接定義だったため、この対応を経由しても定義展開の高速経路を保たないと、極限移行証明での `WeakFormNS` の展開が透過性混在で破綻する。数学的内容ではなく elaboration 性能のための注記。
 chapter: galerkin-generic
 tags: [galerkin-domain, evolution-triple]
