@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   テスト類の稠密性：任意の発散ゼロ場は Galerkin テスト関数の列の $L^2$ 極限である。
 proof_ja: |
-  近似列として自身の Fourier 截断を取る：各截断は冪等性によりテスト関数で、截断の強収束（[[速度截断の強収束|LerayHopf.velocityProjection_n_tendsto]]）が発散ゼロ空間の位相（部分型の位相）でもそのまま収束を与える。
+  近似列として自身の Fourier 打ち切りを取る：各打ち切りは冪等性によりテスト関数で、打ち切りの強収束（[[速度の打ち切りの強収束|LerayHopf.velocityProjection_n_tendsto]]）が発散ゼロ空間の位相（部分型の位相）でもそのまま収束を与える。
 gap:
   level: none
   note: |

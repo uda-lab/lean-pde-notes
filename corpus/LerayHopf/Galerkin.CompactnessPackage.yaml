@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    旧系列の `GalerkinCompactnessPackageFull(_R3)` の一本化。フィールド構成は `LerayHopfSolution` と一対一対応。
+    旧系統の `GalerkinCompactnessPackageFull(_R3)` の一本化。フィールド構成は `LerayHopfSolution` と一対一対応。
 chapter: galerkin-generic
 tags: [galerkin-domain, proof-carrying, compactness]

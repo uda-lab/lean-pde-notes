@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    内積を Bochner 積分の内外へ移す操作は、実係数へ制限した連続線形汎関数 `innerSL` の `intervalIntegral_comp_comm` による。有界乗数に限定するのは、非有界な $\sqrt{W}$ に対してはこの交換が直接には使えず、截断・優収束の極限として別に処理するためである。
+    内積を Bochner 積分の内外へ移す操作は、実係数へ制限した連続線形汎関数 `innerSL` の `intervalIntegral_comp_comm` による。有界乗数に限定するのは、非有界な $\sqrt{W}$ に対してはこの交換が直接には使えず、打ち切り・優収束の極限として別に処理するためである。
 chapter: compactness
 tags: [multiplier-operator, bochner-integral, commute]

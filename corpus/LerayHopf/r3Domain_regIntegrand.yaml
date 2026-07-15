@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    `rfl` 補題。$\mathbb{T}^3$ 側は $\nu$ 非依存の $H^1$ エネルギーを使うのに対し、$\mathbb{R}^3$ 側は $\nu$ を汎関数に持ち込む — 両系列の一様評価の規格差がここに現れる。
+    `rfl` 補題。$\mathbb{T}^3$ 側は $\nu$ 非依存の $H^1$ エネルギーを使うのに対し、$\mathbb{R}^3$ 側は $\nu$ を汎関数に持ち込む — 両系統の一様評価の規格差がここに現れる。
 chapter: capstone-r3
 tags: [galerkin-domain, r3, reduction]

@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   Galerkin テスト関数は加法で閉じる。
 proof_ja: |
-  二つの帯域水準の最大値を取れば、截断の入れ子性（[[水準の昇格|LerayHopf.TorusConvectionExtension.velocityProjection_n_eq_of_le]]）により両方が同じ水準で固定され、線形性で和も固定される。
+  二つの帯域水準の最大値を取れば、打ち切りの入れ子性（[[水準の昇格|LerayHopf.TorusConvectionExtension.velocityProjection_n_eq_of_le]]）により両方が同じ水準で帯域制限され、線形性で和も帯域制限される。
 gap:
   level: none
   note: |

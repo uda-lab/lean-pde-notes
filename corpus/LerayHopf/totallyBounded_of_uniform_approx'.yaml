@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    ℝ³ 系列の公開補題の意図的な複製（このファイルを ℝ³ の import から自由に保つための設計判断がファイル冒頭に記録されている）。プライム付きの名前はその複製であることの印。
+    ℝ³ 系統の公開補題の意図的な複製（このファイルを ℝ³ の import から自由に保つための設計判断がファイル冒頭に記録されている）。プライム付きの名前はその複製であることの印。
 chapter: bochner
 tags: [step-functions, compactness, bochner]

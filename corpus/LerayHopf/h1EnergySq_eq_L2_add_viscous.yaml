@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.h1EnergySq_eq_L2_add_viscous
 tier: full
 statement_ja: |
-  帯域制限された場の $H^1$ エネルギーの分解：$u$ がある次数 $n$ の Fourier 截断で固定されるならば
+  帯域制限された場の $H^1$ エネルギーの分解：$u$ がある次数 $n$ で帯域制限されているならば
 
   $$\sum_{j,\,k} (1 + \lvert k \rvert^2)\, \lVert \hat u_j(k) \rVert^2 = \lVert u \rVert^2 + \frac{1}{(2\pi)^2}\, \lVert \nabla u \rVert^2$$
 

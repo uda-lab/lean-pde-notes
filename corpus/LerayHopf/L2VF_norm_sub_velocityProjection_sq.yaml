@@ -1,14 +1,14 @@
 name: LerayHopf.L2VF_norm_sub_velocityProjection_sq
 tier: full
 statement_ja: |
-  ベクトル尾部恒等式：速度場 $u$ と截断次数 $N$ に対し
+  ベクトル尾部恒等式：速度場 $u$ と打ち切り次数 $N$ に対し
 
   $$\lVert u - P_N u \rVert^2 = \sum_{j} \sum_{k \notin B_N} \lVert \hat u_j(k) \rVert^2.$$
 proof_ja: |
-  [[Pythagoras 分解|LerayHopf.Torus.L2VF_norm_sq_eq_sum_componentC]] で左辺を成分ごとに分け、截断と成分射影の可換性を経て各成分に [[スカラー尾部恒等式|LerayHopf.L2C_norm_sub_fourierProjection_sq]] を適用する。
+  [[Pythagoras 分解|LerayHopf.Torus.L2VF_norm_sq_eq_sum_componentC]] で左辺を成分ごとに分け、打ち切りと成分射影の可換性を経て各成分に [[スカラー尾部恒等式|LerayHopf.L2C_norm_sub_fourierProjection_sq]] を適用する。
 gap:
   level: none
   note: |
-    成分射影と截断の可換性は `velocityProjection_n_component_comm` による。
+    成分射影と打ち切りの可換性は `velocityProjection_n_component_comm` による。
 chapter: compactness
 tags: [rellich, fourier, torus]

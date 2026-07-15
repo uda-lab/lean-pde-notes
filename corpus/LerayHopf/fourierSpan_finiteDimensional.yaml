@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    インスタンス宣言。コンパクト作用素性（[[截断のコンパクト性|LerayHopf.fourierProjection_n_isCompactOperator]]）の源。
+    インスタンス宣言。コンパクト作用素性（[[打ち切りのコンパクト性|LerayHopf.fourierProjection_n_isCompactOperator]]）の源。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

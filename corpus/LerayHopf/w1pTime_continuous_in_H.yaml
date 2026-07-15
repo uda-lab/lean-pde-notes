@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: large
   note: |
-    Stream D の最深部の単一定理。$V'$ 値版は [[V' 値の良い代表元|LerayHopf.Bochner.w1pTime_continuous_in_Vprime]] として**証明済み**（原始関数 + du Bois-Reymond 経路）で、$H$ 値版だけが残る。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系列は具体構成で閉じている）。
+    Stream D の最深部の単一定理。$V'$ 値版は [[V' 値の良い代表元|LerayHopf.Bochner.w1pTime_continuous_in_Vprime]] として**証明済み**（原始関数 + du Bois-Reymond 経路）で、$H$ 値版だけが残る。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
 chapter: bochner
 tags: [gelfand-triple, bochner]

@@ -1,12 +1,12 @@
 name: LerayHopf.velocitySpan
 tier: full
 statement_ja: |
-  第 $n$ Galerkin 部分空間 $V_n$：発散ゼロ空間の速度截断 $P_n$ による像として定める実部分空間。
+  第 $n$ Galerkin 部分空間 $V_n$：発散ゼロ空間の速度の打ち切り $P_n$ による像として定める実部分空間。
 proof_ja: |
-  截断の線形写像による発散ゼロ空間の像として構成する。
+  打ち切りの線形写像による発散ゼロ空間の像として構成する。
 gap:
   level: mild
   note: |
-    截断の全値域でなく**発散ゼロ空間の像**を取ることが要：截断は任意の場を発散ゼロに保つわけではなく、発散ゼロな入力に限って保つ（[[発散ゼロの保存|LerayHopf.velocityProjection_n_preserves_L2Sigma]]）。この定義の取り方が $V_n \subseteq L^2_\sigma$（[[発散ゼロ性|LerayHopf.velocitySpan_le_sigma]]）を成り立たせる。ℝ³ 系列の基底スパン版 `galerkinSpan` の鏡像。
+    打ち切りの全値域でなく**発散ゼロ空間の像**を取ることが要：打ち切りは任意の場を発散ゼロに保つわけではなく、発散ゼロな入力に限って保つ（[[発散ゼロの保存|LerayHopf.velocityProjection_n_preserves_L2Sigma]]）。この定義の取り方が $V_n \subseteq L^2_\sigma$（[[発散ゼロ性|LerayHopf.velocitySpan_le_sigma]]）を成り立たせる。ℝ³ 系統の基底スパン版 `galerkinSpan` の対応物。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

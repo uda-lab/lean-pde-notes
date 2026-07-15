@@ -1,11 +1,11 @@
 name: LerayHopf.sqrtViscousWeightTrunc
 tier: full
 statement_ja: |
-  平方根乗数を高さ $k$ で頭打ちにした**截断乗数**を、周波数 $\xi$ と自然数 $k$ に対して次で定める。
+  平方根乗数を高さ $k$ で頭打ちにした**打ち切り乗数**を、周波数 $\xi$ と自然数 $k$ に対して次で定める。
 
   $$\sqrt{W}_k(\xi)=\min\bigl(\sqrt{W}(\xi),\,k\bigr)$$
 
-  もとの $\sqrt{W}$ は非有界だが、この截断乗数は $k$ で上から有界であり、Bochner 積分との交換を有界乗数の場合に帰着させるための近似列を与える。
+  もとの $\sqrt{W}$ は非有界だが、この打ち切り乗数は $k$ で上から有界であり、Bochner 積分との交換を有界乗数の場合に帰着させるための近似列を与える。
 gap:
   level: none
 chapter: compactness

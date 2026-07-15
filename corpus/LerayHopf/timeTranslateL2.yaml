@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    ℝ³ 系列の空間平行移動（Fréchet–Kolmogorov 論法）の時間軸版。等長性は [[平行移動の等長性|LerayHopf.Bochner.timeTranslateL2_norm]]。
+    ℝ³ 系統の空間平行移動（Fréchet–Kolmogorov 論法）の時間軸版。等長性は [[平行移動の等長性|LerayHopf.Bochner.timeTranslateL2_norm]]。
 chapter: bochner
 tags: [time-mollification, bochner]

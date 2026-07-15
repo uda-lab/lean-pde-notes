@@ -42,7 +42,7 @@
 | F032 | fourierCoeffCLM_apply | gap.note | JP-13/比喩 | M | projections-galerkin | open | Fourier 係数を「連続線形汎関数の値」と見なす視点の切り替 |
 | F033 | velocityProjection_n_inner_of_fixed | statement_ja | 自然さ | M | projections-galerkin | open | 帯域制限テストとの対は截断を素通しする |
 | F034 | fourierCoeffCLM | statement_ja | 造語/自然さ | M | projections-galerkin | open | 第 $k$ Fourier 係数の連続線形汎関数化 |
-| F035 | velocitySpan | gap.note | JP-13/表記 | M | projections-galerkin | open | 再検証で reopen: lane→系列 は #52 処理済みだが「鏡像」が残存 |
+| F035 | velocitySpan | gap.note | JP-13/表記 | M | projections-galerkin | fixed | P1.5: 鏡像→対応物 + ℝ³ 系統（reopen 後 P1.5 で修正） |
 | F036 | fourierProjection_n_tendsto | gap.note | 表記/訳語ゆれ | M | projections-galerkin | superseded-by-#52 |  |
 | F037 | mem_velocitySpan_iff | gap.note | JP-14/表記 | M | projections-galerkin | open | 以下の bridge 補題群（固定点と像の一致）の出発点。 |
 | F038 | fourierBox_exhausts | statement_ja | 自然さ | A | projections-galerkin | superseded-by-#52 |  |
@@ -218,7 +218,7 @@
 | F208 | velocityP_initial_mem | proof_ja | JP-13 | B | projections-galerkin | fixed | P1: F031 と統合適用 |
 | F209 | velocityProjection_n_comp_of_le | statement_ja | JP-13 | B | projections-galerkin | open | 小さい箱への截断は大きい箱を忘れる |
 | F210 | velocityProjection_n_inner_of_fixed | statement_ja | JP-13 | B | projections-galerkin | open | 帯域制限テストとの対は截断を素通しする |
-| F211 | velocitySpan | gap.note | 自然さ | M | projections-galerkin | open | 再検証で reopen: 「鏡像」残存（F035 と同件） |
+| F211 | velocitySpan | gap.note | 自然さ | M | projections-galerkin | fixed | P1.5: F035 と統合適用（P1.5） |
 | F212 | velocitySpanToSigma | statement_ja | 表記 | B | projections-galerkin | open | 発散ゼロ所属の証明とともに発散ゼロ空間の元として包み直す |
 | F213 | velocitySpanToSigma | proof_ja | JP-17 | B | projections-galerkin | open | 台の元は変えず、所属証明を |
 | F214 | velocitySpanToSigma | gap.note | JP-13 | M | projections-galerkin | open | 再検証で reopen: lane→系列 は #52 処理済みだが「型の橋」が残存 |

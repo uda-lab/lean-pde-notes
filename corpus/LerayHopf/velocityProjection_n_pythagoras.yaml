@@ -1,11 +1,11 @@
 name: LerayHopf.velocityProjection_n_pythagoras
 tier: full
 statement_ja: |
-  截断分解の Pythagoras：
+  打ち切り分解の Pythagoras：
 
   $$\lVert P_n u \rVert^2 + \lVert u - P_n u \rVert^2 = \lVert u \rVert^2.$$
 proof_ja: |
-  $u$ を截断部分と尾部の和に分け、ノルム二乗の展開公式の交差項が [[直交性|LerayHopf.velocityProjection_n_inner_sub_self]] で消えることから従う。
+  $u$ を打ち切り部分と尾部の和に分け、ノルム二乗の展開公式の交差項が [[直交性|LerayHopf.velocityProjection_n_inner_sub_self]] で消えることから従う。
 gap:
   level: none
   note: |

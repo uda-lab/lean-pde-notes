@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   Galerkin テスト関数は実スカラー倍で閉じる。
 proof_ja: |
-  截断の線形性から直ちに従う。
+  打ち切りの線形性から直ちに従う。
 gap:
   level: none
   note: |

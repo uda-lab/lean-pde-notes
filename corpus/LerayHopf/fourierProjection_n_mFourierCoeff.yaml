@@ -7,7 +7,7 @@ statement_ja: |
 proof_ja: |
   閉部分空間 $S$ への直交射影は、$S$ の元のうち $f$ に最も近いものであり、内積による特徴づけ「$S$ 上では $f$ と一致し、$S$ の直交補空間上では $0$」を満たす。
 
-  これを Hilbert 基底ベクトルに適用する。$\lVert k\rVert_\infty\le n$ ならその基底ベクトルは $S$ に属するので係数は保たれ、$\lVert k\rVert_\infty>n$ なら直交補空間に属するので係数は $0$ になる。これにより $P_n$ が真の Fourier 截断射影となり、発散ゼロ部分空間の保存の道具にもなる。
+  これを Hilbert 基底ベクトルに適用する。$\lVert k\rVert_\infty\le n$ ならその基底ベクトルは $S$ に属するので係数は保たれ、$\lVert k\rVert_\infty>n$ なら直交補空間に属するので係数は $0$ になる。これにより $P_n$ が真の Fourier 打ち切り射影となり、発散ゼロ部分空間の保存の道具にもなる。
 gap:
   level: mild
   note: |

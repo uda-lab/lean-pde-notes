@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    トーラス系列で整備されている橋渡しは Fourier 発散記号との同値 `divFreeL2_iff_divSymbol` と発散ゼロ空間の所属の特徴づけ `mem_L2Sigma_iff` であり、超関数的な弱発散述語との同値はこの系列では形式化されていない（ℝ³ 系列の扱い）。移流反対称性（[[Fourier 側反対称性|LerayHopf.convFormFourier_antisymm_galerkinTest]]）で相殺を起こすのがまさにこの条件である。
+    トーラス系統で整備されている橋渡しは Fourier 発散記号との同値 `divFreeL2_iff_divSymbol` と発散ゼロ空間の所属の特徴づけ `mem_L2Sigma_iff` であり、超関数的な弱発散述語との同値はこの系統では形式化されていない（ℝ³ 系統の扱い）。移流反対称性（[[Fourier 側反対称性|LerayHopf.convFormFourier_antisymm_galerkinTest]]）で相殺を起こすのがまさにこの条件である。
 chapter: spaces
 tags: [divergence-free, fourier, torus]

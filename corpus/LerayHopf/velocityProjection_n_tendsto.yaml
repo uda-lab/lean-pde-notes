@@ -1,12 +1,12 @@
 name: LerayHopf.velocityProjection_n_tendsto
 tier: full
 statement_ja: |
-  速度截断の強収束：任意の $u \in L^2$ に対し、$n \to \infty$ のとき $P_n u \to u$（$L^2$ ノルム収束）。
+  速度の打ち切りの強収束：任意の $u \in L^2$ に対し、$n \to \infty$ のとき $P_n u \to u$（$L^2$ ノルム収束）。
 proof_ja: |
-  各成分では [[スカラー截断の強収束|LerayHopf.fourierProjection_n_tendsto]] が使える。実部の取り出しが複素埋め込みを打ち消すことを a.e. 表示で確かめ、成分の注入と再構成恒等式（三成分の注入の和が恒等）を通じて、成分ごとの収束を場の収束に組み上げる（有限和の収束）。
+  各成分では [[スカラー打ち切りの強収束|LerayHopf.fourierProjection_n_tendsto]] が使える。実部の取り出しが複素埋め込みを打ち消すことを a.e. 表示で確かめ、成分の注入と再構成恒等式（三成分の注入の和が恒等）を通じて、成分ごとの収束を場の収束に組み上げる（有限和の収束）。
 gap:
   level: mild
   note: |
-    数学的には「スカラーの結果の成分ごとの適用」だが、形式化では複素埋め込み・実部・注入・射影の四つの $L^2$ 水準写像の合成の a.e. 展開の管理が作業量。極限曲線の可測性論法（compactness 章）で「截断の各点極限」として使われる。
+    数学的には「スカラーの結果の成分ごとの適用」だが、形式化では複素埋め込み・実部・注入・射影の四つの $L^2$ 水準写像の合成の a.e. 展開の管理が作業量。極限曲線の可測性論法（compactness 章）で「打ち切りの各点極限」として使われる。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

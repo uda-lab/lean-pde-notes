@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.convFormL2_galerkin_pin
 tier: full
 statement_ja: |
-  Galerkin 部分空間上での一致：三つの引数がすべて次数 $n$ の截断で固定されるならば、決定移流形式は箱截断形式 [[Galerkin 移流形式|LerayHopf.galerkinConvection]] の値に一致する。
+  Galerkin 部分空間上での一致：三つの引数がすべて次数 $n$ で帯域制限されているならば、決定移流形式は箱打ち切りの形式 [[Galerkin 移流形式|LerayHopf.galerkinConvection]] の値に一致する。
 proof_ja: |
   テスト上の値の同定 → 部分積分形と全格子形式の一致（[[一致|LerayHopf.TorusConvectionExtension.convValW_eq_convFormFourier]]）→ 全格子形式と箱形式の一致（[[箱への潰し|LerayHopf.TorusConvectionExtension.convFormFourier_eq_galerkin]]）の三段の書き換えである。
 gap:

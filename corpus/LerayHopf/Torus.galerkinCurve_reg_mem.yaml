@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.galerkinCurve_reg_mem
 tier: full
 statement_ja: |
-  帯域制限された場の $H^1$ 正則性：ある次数の Fourier 截断で固定される場は、成分ごとの $H^1$ 所属を満たす。
+  帯域制限された場の $H^1$ 正則性：ある次数で帯域制限された場は、成分ごとの $H^1$ 所属を満たす。
 proof_ja: |
   各成分の $H^1$ 重み付き二乗和は、係数が周波数箱の外で消えることから有限和に潰れ、総和可能である。
 gap:

@@ -1,16 +1,16 @@
 name: LerayHopf.L2C_norm_sub_fourierProjection_sq
 tier: full
 statement_ja: |
-  スカラー尾部恒等式：$L^2$ 関数 $f$ と截断次数 $N$ に対し
+  スカラー尾部恒等式：$L^2$ 関数 $f$ と打ち切り次数 $N$ に対し
 
   $$\lVert f - P_N f \rVert^2 = \sum_{k \notin B_N} \lVert \hat f(k) \rVert^2$$
 
   （$B_N$ は次数 $N$ の周波数箱、和は補集合上の総和）。
 proof_ja: |
-  残差 $f - P_N f$ の Fourier 係数が「箱の中では零、外では $\hat f(k)$」であることを、基底表現の線形性と截断の係数公式から確かめる。Parseval で残差のノルム二乗を係数の二乗総和に書き、被和項の台が箱の補集合に含まれることから、総和を補集合上の部分型の総和に書き換えて項別に一致させる。
+  残差 $f - P_N f$ の Fourier 係数が「箱の中では零、外では $\hat f(k)$」であることを、基底表現の線形性と打ち切りの係数公式から確かめる。Parseval で残差のノルム二乗を係数の二乗総和に書き、被和項の台が箱の補集合に含まれることから、総和を補集合上の部分型の総和に書き換えて項別に一致させる。
 gap:
   level: none
   note: |
-    Rellich 型評価の出発点。截断の係数公式は `fourierProjection_n_mFourierCoeff`、Parseval は [[Parseval ノルム公式|LerayHopf.L2C_norm_sq_eq_tsum_coeff_sq]]、台の制限は `tsum_subtype_eq_of_support_subset` による。
+    Rellich 型評価の出発点。打ち切りの係数公式は `fourierProjection_n_mFourierCoeff`、Parseval は [[Parseval ノルム公式|LerayHopf.L2C_norm_sq_eq_tsum_coeff_sq]]、台の制限は `tsum_subtype_eq_of_support_subset` による。
 chapter: compactness
 tags: [rellich, fourier, torus]

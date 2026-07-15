@@ -5,12 +5,12 @@ statement_ja: |
 
   $\mathbb{T}^3$ と $\mathbb{R}^3$ の両方の幾何がこの一つの枠組みの実現例になる。
 proof_ja: |
-  設計の要点は、幾何固有の構成（Fourier 截断、Schwartz 基底、Leray 射影の具体形）を一切含めず、解の存在定理を述べるのに必要な作用素と汎関数のインターフェースだけを抽象化することにある。散逸発展の枠組み[[散逸発展|LerayHopf.DissipativeEvolution]]がテスト・粘性・移流の三点セットを抽象化したのと同じ精神で、その Galerkin 近似版に相当するデータを束ねる。
+  設計の要点は、幾何固有の構成（Fourier 打ち切り、Schwartz 基底、Leray 射影の具体形）を一切含めず、解の存在定理を述べるのに必要な作用素と汎関数のインターフェースだけを抽象化することにある。散逸発展の枠組み[[散逸発展|LerayHopf.DissipativeEvolution]]がテスト・粘性・移流の三点セットを抽象化したのと同じ精神で、その Galerkin 近似版に相当するデータを束ねる。
 
   発散ゼロ部分空間の完備性は、抽象的な部分空間では周囲空間の完備性から導けない（閉であることと同値）ため、データとして持ち回る。両方の実現例では既存の閉部分空間完備性からこれを埋める。
 gap:
   level: mild
   note: |
-    完備性フィールド `σ_complete` をデータとして持つのが形式化特有の判断（`CompleteSpace ↥σ` は abstract submodule では推論不能）。実現例は `torusDomain`（`Torus/SolutionInterfaces.lean`）と `r3Domain`（`R3/SolutionInterfaces.lean`）で、各簡約補題（`torusDomain_stokes` など）が旧系列の汎関数と定義的に一致することを固定する。
+    完備性フィールド `σ_complete` をデータとして持つのが形式化特有の判断（`CompleteSpace ↥σ` は abstract submodule では推論不能）。実現例は `torusDomain`（`Torus/SolutionInterfaces.lean`）と `r3Domain`（`R3/SolutionInterfaces.lean`）で、各簡約補題（`torusDomain_stokes` など）が旧系統の汎関数と定義的に一致することを固定する。
 chapter: galerkin-generic
 tags: [galerkin-domain, interface]

@@ -1,9 +1,9 @@
 name: LerayHopf.velocityP_fixes_span
 tier: full
 statement_ja: |
-  像は固定される（bridge の片方向）：$V_n$ の元は截断で固定される。
+  像は固定される（bridge の片方向）：$V_n$ の元は帯域制限されている。
 proof_ja: |
-  $V_n$ の元を発散ゼロ場の截断として書き、[[冪等性|LerayHopf.velocityProjection_n_idem]] を適用する。
+  $V_n$ の元を発散ゼロ場の打ち切りとして書き、[[冪等性|LerayHopf.velocityProjection_n_idem]] を適用する。
 gap:
   level: none
   note: |

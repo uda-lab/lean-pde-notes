@@ -1,11 +1,11 @@
 name: LerayHopf.tendsto_sqrtViscousWeightTrunc
 tier: full
 statement_ja: |
-  各周波数 $\xi$ を固定すると、截断乗数は頭打ちの高さを上げるにつれてもとの平方根乗数へ単調に収束する。
+  各周波数 $\xi$ を固定すると、打ち切り乗数は頭打ちの高さを上げるにつれてもとの平方根乗数へ単調に収束する。
 
   $$\sqrt{W}_k(\xi)\ \xrightarrow[k\to\infty]{}\ \sqrt{W}(\xi)$$
 proof_ja: |
-  $\xi$ を固定すると $\sqrt{W}(\xi)$ は定数である。$k$ がこの定数以上になれば最小値は $\sqrt{W}(\xi)$ 自身に一致するので、截断列は $k$ が十分大きいところで定数列に等しくなり、その極限は $\sqrt{W}(\xi)$ である。
+  $\xi$ を固定すると $\sqrt{W}(\xi)$ は定数である。$k$ がこの定数以上になれば最小値は $\sqrt{W}(\xi)$ 自身に一致するので、打ち切りの列は $k$ が十分大きいところで定数列に等しくなり、その極限は $\sqrt{W}(\xi)$ である。
 gap:
   level: none
 chapter: compactness

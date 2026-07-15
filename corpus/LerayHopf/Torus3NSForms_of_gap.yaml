@@ -9,7 +9,7 @@ proof_ja: |
 gap:
   level: large
   note: |
-    箱截断の有界性（`galerkinConvection_bound`）はここでは使わない。その定数はレベル $n$ に依存するのに対し、必要なのは単一の定数 $C(w)$ だからである。有界性の極限移行は `le_of_tendsto_of_tendsto` による。
+    箱打ち切りの有界性（`galerkinConvection_bound`）はここでは使わない。その定数はレベル $n$ に依存するのに対し、必要なのは単一の定数 $C(w)$ だからである。有界性の極限移行は `le_of_tendsto_of_tendsto` による。
 
     ギャップは量的な形式束の内容を出来合いで手渡すわけではなく、非制限の有界性はテスト対角の有界性から固定テスト連続性と稠密性を通じて導かれる。代数的な三重線形性・反対称性のみが仮定として持たれ、これらが欠落した弱作用素の誠実な残余である。
 chapter: limit-passage

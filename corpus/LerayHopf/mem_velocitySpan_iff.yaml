@@ -1,7 +1,7 @@
 name: LerayHopf.mem_velocitySpan_iff
 tier: full
 statement_ja: |
-  $V_n$ の所属の特徴づけ：$x \in V_n$ とは、ある発散ゼロ場の截断として $x$ が書けること。
+  $V_n$ の所属の特徴づけ：$x \in V_n$ とは、ある発散ゼロ場の打ち切りとして $x$ が書けること。
 proof_ja: |
   像の所属の定義の書き下しである。
 gap:

@@ -1,12 +1,12 @@
 name: LerayHopf.velocityProjection_n_idem
 tier: full
 statement_ja: |
-  速度截断の冪等性：$P_n(P_n u) = P_n u$。
+  速度の打ち切りの冪等性：$P_n(P_n u) = P_n u$。
 proof_ja: |
-  [[係数による外延性|LerayHopf.L2VF_ext_componentC_mFourierCoeff]] で係数の一致に帰着し、成分可換性と截断の係数公式（箱の中は保持、外は零）で、二回適用と一回適用の係数が一致することを場合分けで確かめる。
+  [[係数による外延性|LerayHopf.L2VF_ext_componentC_mFourierCoeff]] で係数の一致に帰着し、成分可換性と打ち切りの係数公式（箱の中は保持、外は零）で、二回適用と一回適用の係数が一致することを場合分けで確かめる。
 gap:
   level: none
   note: |
-    截断の係数公式は `fourierProjection_n_mFourierCoeff`。射影である（範囲上で恒等）ことの係数版。
+    打ち切りの係数公式は `fourierProjection_n_mFourierCoeff`。射影である（範囲上で恒等）ことの係数版。
 chapter: projections-galerkin
 tags: [projections, adjoint, torus]

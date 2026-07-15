@@ -1,9 +1,9 @@
 name: LerayHopf.velocityProjection_n_inner_sub_self
 tier: full
 statement_ja: |
-  截断部分と尾部の直交性：$\langle P_n u,\ u - P_n u \rangle = 0$。
+  打ち切り部分と尾部の直交性：$\langle P_n u,\ u - P_n u \rangle = 0$。
 proof_ja: |
-  [[自己随伴性|LerayHopf.velocityProjection_n_inner_symm]] で截断を右へ移し、線形性と [[冪等性|LerayHopf.velocityProjection_n_idem]] で右因子が零になる。
+  [[自己随伴性|LerayHopf.velocityProjection_n_inner_symm]] で打ち切りを右へ移し、線形性と [[冪等性|LerayHopf.velocityProjection_n_idem]] で右因子が零になる。
 gap:
   level: none
   note: |

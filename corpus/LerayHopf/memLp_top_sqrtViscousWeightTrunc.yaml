@@ -1,9 +1,9 @@
 name: LerayHopf.memLp_top_sqrtViscousWeightTrunc
 tier: full
 statement_ja: |
-  截断乗数を複素数に埋め込んだ関数 $\xi\mapsto\sqrt{W}_k(\xi)$ は本質的有界、すなわち $L^\infty$ に属する。
+  打ち切り乗数を複素数に埋め込んだ関数 $\xi\mapsto\sqrt{W}_k(\xi)$ は本質的有界、すなわち $L^\infty$ に属する。
 proof_ja: |
-  截断乗数は連続なので可測であり、絶対値が定数 $k$ で一様に抑えられる。一様有界な可測関数は本質的上限が有限であり、$L^\infty$ に属する。
+  打ち切り乗数は連続なので可測であり、絶対値が定数 $k$ で一様に抑えられる。一様有界な可測関数は本質的上限が有限であり、$L^\infty$ に属する。
 gap:
   level: none
 chapter: compactness
