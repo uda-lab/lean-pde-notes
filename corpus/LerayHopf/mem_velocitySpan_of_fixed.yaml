@@ -1,12 +1,12 @@
 name: LerayHopf.mem_velocitySpan_of_fixed
 tier: full
 statement_ja: |
-  固定点は像に属する（bridge の逆方向）：発散ゼロで截断に固定される場は $V_n$ に属する。
+  固定点は像に属する（bridge の逆方向）：発散ゼロで、打ち切っても変わらない場は $V_n$ に属する。
 proof_ja: |
-  自分自身を証人として所属の特徴づけを適用する。
+  所属の特徴づけにおいて、その場自身を打ち切る前の場として選べば、$V_n$ への所属が従う。
 gap:
   level: none
   note: |
-    Galerkin 解データの ODE フィールドのテスト条件（`w : L2Sigma` かつ截断で固定）が $V_n$ 所属と一致することを保証する。
+    Galerkin 解データの ODE フィールドのテスト条件（`w : L2Sigma` かつ打ち切りで不変）が $V_n$ 所属と一致することを保証する。
 chapter: projections-galerkin
 tags: [galerkin, projections, torus]

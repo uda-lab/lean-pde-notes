@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    エネルギー恒等式の導出で、テストを解自身に取ったときに Stokes 項が粘性散逸へ落ちる箇所を担う書き換え。
+    エネルギー恒等式の導出で、テストを解自身に取ったときに Stokes 項が粘性散逸に等しいことを用いる箇所を担う書き換え。
 chapter: ode
 tags: [stokes, dissipation, torus]

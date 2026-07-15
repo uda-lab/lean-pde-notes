@@ -1,9 +1,9 @@
 name: LerayHopf.cauchySeq_of_equiLipschitz_of_dense
 tier: full
 statement_ja: |
-  稠密収束と同程度 Lipschitz 性からの各点 Cauchy 性：$[0, T]$ 上の実関数列が（ある番号以降）同程度 Lipschitz で、$[0, T]$ 内で稠密な集合の各点で Cauchy ならば、$[0, T]$ のすべての点で Cauchy である。
+  稠密収束と同程度 Lipschitz 連続性からの各点 Cauchy 性：$[0, T]$ 上の実関数列が（ある番号以降）同程度 Lipschitz 連続で、$[0, T]$ 内で稠密な集合の各点で Cauchy ならば、$[0, T]$ のすべての点で Cauchy である。
 proof_ja: |
-  $\varepsilon/3$ 論法：目標の点 $t$ を稠密集合の近くの点 $s$ に取り替える誤差は同程度 Lipschitz 性で一様に小さく、$s$ での列は Cauchy なので、三角不等式で束ねる。
+  $\varepsilon/3$ 論法：目標の点 $t$ を稠密集合の近くの点 $s$ に取り替える誤差は同程度 Lipschitz 連続性で一様に小さく、$s$ での列は Cauchy なので、三角不等式で束ねる。
 gap:
   level: none
   note: |

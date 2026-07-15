@@ -9,6 +9,6 @@ statement_ja: |
 gap:
   level: none
   note: |
-    可積分性は連続性（`K.smooth.continuous`）とコンパクト台（`K.hasCompactSupport`）から従い、`MemLp 1` の証人を経て $L^1$ 類に持ち上げる。大域的な Young 不等式による軟化場の $L^2$ 有界性で $L^1$ ノルムが質量因子として現れる。
+    可積分性は連続性（`K.smooth.continuous`）とコンパクト台（`K.hasCompactSupport`）から従い、`MemLp 1` であることを経て $L^1$ 類に持ち上げる。大域的な Young 不等式による軟化場の $L^2$ 有界性で $L^1$ ノルムが質量因子として現れる。
 chapter: compactness
 tags: [frechet-kolmogorov, mollifier]

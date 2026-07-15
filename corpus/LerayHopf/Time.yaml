@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    型シノニム（`abbrev`）。汎用 Galerkin 層の解曲線 `Time → ↥D.σ` の定義域など、時間変数の意図を型面で明示するために使われる。
+    型シノニム（`abbrev`）。汎用 Galerkin 層の解曲線 `Time → ↥D.σ` の定義域など、時間変数であることを型によって明示するために使われる。
 chapter: spaces
 tags: [foundations]

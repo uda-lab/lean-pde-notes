@@ -1,12 +1,12 @@
 name: LerayHopf.Torus.galerkinField_solution_agree
 tier: full
 statement_ja: |
-  局所解の一致（継ぎ足しの整合性）：区間 $[a, b]$ 上の二つの解 $\alpha, \beta$（ともに ODE $\alpha' = G_n(\alpha)$ を満たす）が一点 $t_0 \in [a, b]$ で一致するならば、$[a, b]$ 全体で一致する。
+  局所解の一致（貼り合わせの整合性）：区間 $[a, b]$ 上の二つの解 $\alpha, \beta$（ともに ODE $\alpha' = G_n(\alpha)$ を満たす）が一点 $t_0 \in [a, b]$ で一致するならば、$[a, b]$ 全体で一致する。
 proof_ja: |
-  場の $C^1$ 性（したがって局所 Lipschitz 性）による ODE の解の一意性から従う。汎用の一致定理（[[解の一致|LerayHopf.Galerkin.solution_agree]]）への委譲である。
+  場の $C^1$ 性（したがって局所 Lipschitz 性）による ODE の解の一意性から従う。汎用の一致定理（[[解の一致|LerayHopf.Galerkin.solution_agree]]）に帰着する。
 gap:
   level: none
   note: |
-    局所解を継ぎ足して大域解を構成する際、重なり区間で二つの解が一致することを保証し、継ぎ足しが well-defined であることを与える。
+    局所解を接続して大域解を構成する際、重なり区間で二つの解が一致することを保証し、接続が well-defined であることを与える。
 chapter: ode
 tags: [galerkin, ode, picard-lindelof, torus]

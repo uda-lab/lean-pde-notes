@@ -7,14 +7,14 @@ statement_ja: |
 
   を満たす。右辺は $n$ に依らない。
 proof_ja: |
-  Galerkin 解データのエネルギー有界フィールドから
+  Galerkin 解データのもつエネルギー有界性から
 
   $$\tfrac{1}{2} \lVert u_n(t) \rVert^2 \le \tfrac{1}{2} \lVert P_n u_0 \rVert^2$$
 
-  を取り出し、Fourier 截断 $P_n$ の非拡大性で右辺を $\tfrac{1}{2} \lVert u_0 \rVert^2$ で抑える。最後に二乗の単調性からノルムの不等式へ戻す。
+  を取り出し、Fourier 打ち切り $P_n$ の非拡大性で右辺を $\tfrac{1}{2} \lVert u_0 \rVert^2$ で抑える。最後に二乗の単調性からノルムの不等式へ戻す。
 gap:
   level: none
   note: |
-    エネルギー有界は [[Galerkin 解データ|LerayHopf.Galerkin.SolutionData]] の `energy_bound` フィールドとして持ち回られる（トーラス Galerkin ODE の解では散逸恒等式から公理なしに証明済み）。截断の非拡大性は `Torus.velocityProjection_n_norm_le`。ℝ³ 系列の `galerkin_norm_le_u0` の対応物。
+    エネルギー有界は [[Galerkin 解データ|LerayHopf.Galerkin.SolutionData]] の `energy_bound` フィールドとして持ち回られる（トーラス Galerkin ODE の解では散逸恒等式から公理なしに証明済み）。打ち切りの非拡大性は `Torus.velocityProjection_n_norm_le`。ℝ³ 系列の `galerkin_norm_le_u0` の対応物。
 chapter: energy
 tags: [energy, galerkin, torus]

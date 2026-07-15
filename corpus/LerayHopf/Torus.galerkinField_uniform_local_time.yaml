@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   一様局所存在時刻：任意の半径 $R$ に対し $\delta > 0$ が存在し、$V_n$ の原点中心半径 $R$ の閉球内の任意の点 $x_0$ と任意の時刻 $t_0$ から、幅 $2\delta$ の開区間 $(t_0 - \delta,\ t_0 + \delta)$ 上で ODE $\alpha' = G_n(\alpha)$ の局所解 $\alpha$（$\alpha(t_0) = x_0$）が取れる。
 proof_ja: |
-  場の $C^1$ 性のもとで、汎用の一様局所存在定理（[[一様局所存在|LerayHopf.Galerkin.uniform_local_time]]）へ委譲する。内実は Picard–Lindelöf の局所存在で、存在時刻の下限が閉球上の場の有界性と Lipschitz 定数だけで定まることから、初期値・初期時刻に依らない一様な $\delta$ が取れる。
+  場の $C^1$ 性のもとで、汎用の一様局所存在定理（[[一様局所存在|LerayHopf.Galerkin.uniform_local_time]]）に帰着する。具体的には Picard–Lindelöf の局所存在定理を用いる。存在時刻の下限が閉球上の場の有界性と Lipschitz 定数だけで定まることから、初期値・初期時刻に依らない一様な $\delta$ が取れる。
 gap:
   level: none
   note: |
-    アプリオリ評価（解は閉球に留まる）と組み合わせると、幅 $\delta$ の局所解を等幅で継ぎ足して前向き大域解が得られる。時間方向の一様性がこの継ぎ足し構成の要である。
+    アプリオリ評価（解は閉球に留まる）と組み合わせると、長さの等しい区間上の局所解を順次貼り合わせて前向き大域解が得られる。時間方向の一様性がこの貼り合わせ構成の要である。
 chapter: ode
 tags: [galerkin, ode, picard-lindelof, torus]

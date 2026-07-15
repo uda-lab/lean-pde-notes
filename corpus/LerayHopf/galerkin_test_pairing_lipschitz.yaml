@@ -1,7 +1,7 @@
 name: LerayHopf.galerkin_test_pairing_lipschitz
 tier: full
 statement_ja: |
-  テストとの内積の同程度 Lipschitz 評価：帯域水準 $m$ のテスト $w$ に対し定数 $L$ が存在し、**$m \le n$ を満たすすべての** $n$ と $0 \le s \le t$ で
+  テストとの内積の同程度 Lipschitz 連続性の評価：打ち切り次数 $m$ のテスト $w$ に対し定数 $L$ が存在し、**$m \le n$ を満たすすべての** $n$ と $0 \le s \le t$ で
 
   $$\bigl|\langle u_n(t), w \rangle - \langle u_n(s), w \rangle\bigr| \le L\,(t - s).$$
 proof_ja: |
@@ -17,6 +17,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    $m \le n$ の閾値は「テストの帯域水準を $n$ へ昇格させて初めて ODE フィールドが発火する」ことの反映で、抽出エンジン側の eventually-$n_0$ 入力に対応する（全 $n$ への強化は不可能）。移流の有界性は形式束のフィールド `b_bound` による。
+    $m \le n$ の閾値は「テストの打ち切り次数を $n$ へ昇格させて初めて ODE フィールドが発火する」ことの反映で、抽出エンジン側の「ある番号以降」という入力条件に対応する（全 $n$ への強化は不可能）。移流の有界性は形式束のフィールド `b_bound` による。
 chapter: compactness
 tags: [compactness, lipschitz, torus]

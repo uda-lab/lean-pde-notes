@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    mathlib にはトーラスの Sobolev 空間 API が無い（`ℝ^n` 用のみ）ため、Fourier 側の特徴づけを定義に採用した足場である。$H^1$ 内積による Hilbert 空間構造と Rellich のコンパクト埋め込みは後続マイルストーンの別モジュールが扱う。
+    mathlib にはトーラスの Sobolev 空間 API が無い（`ℝ^n` 用のみ）ため、Fourier 側の特徴づけを定義として採用したものである。$H^1$ 内積による Hilbert 空間構造と Rellich のコンパクト埋め込みは後続マイルストーンの別モジュールが扱う。
 chapter: spaces
 tags: [sobolev, fourier, torus]

@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   抽象 Galerkin 近似のデータ束：実内積空間 $H$、その中の曲線 $u \colon \mathbb{R} \to H$、散逸形式 $D \colon H \to \mathbb{R}$（具体例では粘性勾配エネルギーの役割）、移流非線形項の役割を担う三重線形形式 $B$ を一つに束ねる。
 proof_ja: |
-  内積空間の構造（ノルム付き可換群と実内積のインスタンス）も台の型とともにフィールドとして持ち、任意の実内積空間上の抽象エネルギー論法を単一のデータで受け渡せるように束ねた定義である。
+  内積空間の構造（ノルム付き可換群と実内積の構造）を台となる型とともに一括りのデータとして持ち、任意の実内積空間上の抽象エネルギー論法を単一のデータで受け渡せるように束ねた定義である。
 gap:
   level: mild
   note: |
-    初期の抽象スケルトン層（`LerayHopf/EnergyEstimate.lean`）で導入された、データ一式を一つに束ねた構造。後続の [[抽象 Galerkin エネルギー恒等式|LerayHopf.abstract_galerkin_energy_identity]] などの定理は、束ねた形だと明示引数の展開が冗長になるため、この構造を引数に取らず同じデータを仮定として直接並べる形で述べられている。本構造は「具体実現が供給すべきデータ」の一覧として残る。
+    初期の抽象化段階（`LerayHopf/EnergyEstimate.lean`）で導入された、データ一式を一つに束ねた構造。後続の [[抽象 Galerkin エネルギー恒等式|LerayHopf.abstract_galerkin_energy_identity]] などの定理は、束ねた形だと明示引数の展開が冗長になるため、この構造を引数に取らず同じデータを仮定として直接並べる形で述べられている。本構造は「具体実現が供給すべきデータ」の一覧として残る。
 chapter: energy
 tags: [energy, abstract-interface]

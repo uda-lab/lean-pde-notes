@@ -9,10 +9,10 @@ proof_ja: |
 
   $$\lVert\eta\star g\rVert_{L^2}\ \le\ \lVert\eta\rVert_{L^1}\,\lVert g\rVert_{L^2}$$
 
-  二乗可積分性の証人は、得られた $L^2$ 類のノルム評価とともに束ねられ、呼び出し側は軟化場を $L^2$ の要素として構成しつつそのノルムを制御できる。
+  二乗可積分性は、得られた $L^2$ 類のノルム評価とともに保証され、呼び出し側は軟化場を $L^2$ の要素として構成しつつそのノルムを制御できる。
 gap:
   level: large
   note: |
-    これは Fréchet–Kolmogorov 経路の解析的中核の一つで、mathlib は点ごとの畳み込み収束（`convolution_tendsto_right`）しか持たず、この大域的 $L^2$ Young 不等式は本形式化で組み上げた。二乗可積分性の証人（`MemLp`）とそのノルム上界を対にして返すことで、`toLp` 類の形成とノルム制御を同時に可能にしている。$L^1$ 質量因子は[[核の L¹ 表現|LerayHopf.kernelL1R]]で与えられる。
+    これは Fréchet–Kolmogorov 経路の解析的中核の一つで、mathlib は点ごとの畳み込み収束（`convolution_tendsto_right`）しか持たず、この大域的 $L^2$ Young 不等式は本形式化で組み上げた。二乗可積分性の証明（`MemLp`）とそのノルム上界を対にして返すことで、`toLp` 類の形成とノルム制御を同時に可能にしている。$L^1$ 質量因子は[[核の L¹ 表現|LerayHopf.kernelL1R]]で与えられる。
 chapter: compactness
 tags: [frechet-kolmogorov, mollifier, young-inequality]

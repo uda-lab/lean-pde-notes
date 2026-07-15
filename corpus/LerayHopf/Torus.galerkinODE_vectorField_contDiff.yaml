@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   Galerkin 場の $C^1$ 性：$G_n$ は有限次元空間 $V_n$ 上 $C^1$ 級である。
 proof_ja: |
-  トーラスの場が汎用の二次場構成に一致すること（等値補題）を確かめたうえで、[[汎用場形式|LerayHopf.Galerkin.FieldForms]] の $C^1$ 性定理に [[トーラス場形式の実現|LerayHopf.Torus.torusFieldForms]] を代入する。汎用側の内実は、二次写像と線形写像の和が $C^1$ であることの有限次元での確認である。
+  トーラスの場が汎用の二次場構成に一致すること（等値補題）を確かめたうえで、[[汎用場形式|LerayHopf.Galerkin.FieldForms]] の $C^1$ 性定理に [[トーラス場形式の実現|LerayHopf.Torus.torusFieldForms]] を代入する。汎用定理では、二次写像と線形写像の和が $C^1$ であることの有限次元での確認である。
 gap:
   level: none
   note: |
-    Picard–Lindelöf に必要な滑らかさを供給する有効化補題。lean-pde issue #112 PR-B で 系列ごと の連続線形写像の段積み構成が汎用層 `Galerkin/QuadraticField.lean` へ一本化され、本補題は委譲一行になった。
+    Picard–Lindelöf 定理に必要な滑らかさを与える補題。lean-pde issue #112 PR-B で、系列ごとに構成していた連続線形写像の段階的な合成が汎用層 `Galerkin/QuadraticField.lean` へ一本化され、本補題は委譲一行になった。
 chapter: ode
 tags: [galerkin, ode, torus]

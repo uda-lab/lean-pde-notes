@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    tsum のジャンク値規約により全引数で定義される全域化であり、総和可能でない引数では値に意味はない。真正な値を持つ領域（$H^1$／Galerkin テスト領域）は [[被和項の実部総和可能性|LerayHopf.gradPairingSummable]] が特定する。
+    tsum のジャンク値規約により全引数で定義される全域化であり、総和可能でない引数では値に意味はない。意味のある値を与える領域（$H^1$／Galerkin テスト領域）は [[被和項の実部総和可能性|LerayHopf.gradPairingSummable]] が特定する。
 chapter: energy
 tags: [convection, fourier, torus]
