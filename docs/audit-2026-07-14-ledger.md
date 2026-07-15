@@ -365,7 +365,7 @@
 | F355 | galerkinConvection_level_step | statement_ja | 造語 | B | limit-passage | open | 水準安定性（単調ステップ） |
 | F356 | isGalerkinTest_add | proof_ja | JP-13 | B | limit-passage | open | 水準の昇格 |
 | F357 | isGalerkinTest_zero | gap.note | JP-13 | M | limit-passage | open | 閉性の部品。 |
-| F358 | l2coeff | gap.note | 自然さ | M | limit-passage | open | 「係数側の量」として持ち回り |
+| F358 | l2coeff | gap.note | 自然さ | M | limit-passage | fixed | P1.5: 参照表示語「水準の昇格」→「打ち切り次数を増やしたときの不変性」（isGalerkinTest_add、Copilot 指摘契機） |
 | F359 | mem_galerkinTestSpan_isTest | proof_ja | JP-14 | M | limit-passage | open | span についての帰納法 |
 | F360 | torusConvectionGap_holds | statement_ja | 造語 | B | limit-passage | superseded-by-#52 |  |
 | F361 | torusConvectionGap_holds | statement_ja | JP-14 | B | limit-passage | superseded-by-#52 |  |
@@ -377,5 +377,5 @@
 | F367 | torus_weakFormNS_of_strongConvergence | proof_ja | 造語 | B | limit-passage | open | 一様球有界 |
 | F368 | torus_weakFormNS_of_strongConvergence | proof_ja | 自然さ | B | limit-passage | open | パッケージの強収束フィールドの量 |
 | F369 | torus_weakFormNS_of_strongConvergence | gap.note | JP-14 | M | limit-passage | open | 極限移行 capstone |
-| F370 | velocityProjection_n_eq_of_le | statement_ja | JP-13 | B | limit-passage | open | 帯域水準の昇格 |
-| F371 | velocityProjection_n_eq_of_le | gap.note | JP-13 | M | limit-passage | open | ODE を発火させる |
+| F370 | velocityProjection_n_eq_of_le | statement_ja | JP-13 | B | limit-passage | fixed | P1.5: 「帯域水準の昇格」→「打ち切り次数を増やしたときの不変性」（velocityProjection_n_eq_of_le statement_ja） |
+| F371 | velocityProjection_n_eq_of_le | gap.note | JP-13 | M | limit-passage | fixed | P1.5: 「ODE を発火させる」→「Galerkin ODE を適用可能にする」（同 gap.note） |

@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   Galerkin テスト関数は加法で閉じる。
 proof_ja: |
-  二つの帯域水準の最大値を取れば、打ち切りの入れ子性（[[水準の昇格|LerayHopf.TorusConvectionExtension.velocityProjection_n_eq_of_le]]）により両方が同じ水準の打ち切りで不変になり、打ち切りの線形性で和も不変である。
+  二つの打ち切り次数の最大値を取れば、打ち切りの入れ子性（[[打ち切り次数を増やしたときの不変性|LerayHopf.TorusConvectionExtension.velocityProjection_n_eq_of_le]]）により両方が同じ次数の打ち切りで不変になり、打ち切りの線形性で和も不変である。
 gap:
   level: none
   note: |
