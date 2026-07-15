@@ -1,7 +1,7 @@
 name: LerayHopf.exists_uniform_subseq_of_lipschitz_family
 tier: full
 statement_ja: |
-  Lipschitz 族の一様収束部分列（対角線論法エンジン）：二重添字の実関数族 $f_{m,n} \colon [0, T] \to \mathbb{R}$ が一様有界（$\lvert f_{m,n}(t) \rvert \le B_m$）かつ族ごとに eventually 同程度 Lipschitz 連続（各 $m$ にある閾値 $n_0$ があり $n \ge n_0$ で Lipschitz 定数 $L_m$）ならば、単一の狭義単調部分列 $\varphi$ が存在して、すべての $m$ で $n \mapsto f_{m, \varphi(n)}$ が $[0, T]$ 上一様収束する。
+  Lipschitz 族の一様収束部分列（対角線論法エンジン）：二重添字の実関数族 $f_{m,n} \colon [0, T] \to \mathbb{R}$ が一様有界（$\lvert f_{m,n}(t) \rvert \le B_m$）かつ族ごとにある番号以降で同程度 Lipschitz 連続（各 $m$ にある閾値 $n_0$ があり $n \ge n_0$ で Lipschitz 定数 $L_m$）ならば、単一の狭義単調部分列 $\varphi$ が存在して、すべての $m$ で $n \mapsto f_{m, \varphi(n)}$ が $[0, T]$ 上一様収束する。
 proof_ja: |
   第一段（同時 Bolzano–Weierstrass）：可算添字集合（族番号と $[0, T]$ 内の有理数の対）上の値の列は、閉区間の直積（コンパクトかつ列コンパクト）に値を取るから、一本の部分列 $\varphi$ に沿って全座標が収束する。これがすべての族・すべての有理点での同時各点収束である。
 
@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    Lipschitz 閾値が「eventually」形（$n_0$ 以降のみ）なのが載荷点：Galerkin 応用ではテストの帯域水準以降でしか Lipschitz 評価が出ない（compactness 章の [[同程度 Lipschitz 連続性の評価|LerayHopf.galerkin_test_pairing_lipschitz]]）。一様収束は尾部の性質なので有限個の先頭は吸収される。Lipschitz 定数の非負性も評価から導出している。
+    Lipschitz 閾値が「eventually」形（$n_0$ 以降のみ）であることが技術上の要点：Galerkin 応用ではテストの截断次数以降でしか Lipschitz 評価が出ない（compactness 章の [[同程度 Lipschitz 連続性の評価|LerayHopf.galerkin_test_pairing_lipschitz]]）。一様収束は尾部の性質なので有限個の先頭は吸収される。Lipschitz 定数の非負性も評価から導出している。
 chapter: bochner
 tags: [arzela-ascoli, bochner]

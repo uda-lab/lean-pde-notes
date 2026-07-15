@@ -1,7 +1,7 @@
 name: LerayHopf.Torus.galerkinField_inner_self_nonpos
 tier: full
 statement_ja: |
-  Galerkin 場の点別散逸性：$\nu > 0$ のとき、すべての $v \in V_n$ で
+  Galerkin 場が各点で満たす散逸性：$\nu > 0$ のとき、すべての $v \in V_n$ で
 
   $$\langle v,\ G_n(v) \rangle \le 0.$$
 proof_ja: |

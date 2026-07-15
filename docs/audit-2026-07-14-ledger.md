@@ -25,7 +25,7 @@
 | F015 | exists_limit_curve_of_galSeq | gap.note | JP-13 | M | compactness | open | が握る唯一の取っ手となる capstone |
 | F016 | galerkin_u_norm_le | statement_ja | 自然さ | M | compactness | open | 一様球有界（エクスポート形） |
 | F017 | integral_tail_sq_limit_le | gap.note | JP-13 | M | compactness | open | 極限曲線に密輸しない誠実な経路 |
-| F018 | galerkin_test_pairing_lipschitz | statement_ja | 造語/自然さ | A | compactness | open | 帯域水準 $m$ のテスト $w$ |
+| F018 | galerkin_test_pairing_lipschitz | statement_ja | 造語/自然さ | A | compactness | fixed | P1: 帯域水準→截断次数（owner 裁定 2026-07-15b、statement_ja + gap.note の 2 箇所） |
 | F019 | tail_sq_le_h1EnergySq_div | statement_ja | 造語/自然さ | M | compactness | open | 尾部の $H^1$ 優越 |
 | F020 | DivFreeL2 | statement_ja | 自然さ | M | spaces | fixed | P1: statement_ja: 「発散ゼロ性の」→「発散がゼロであることの」. decls.json checked: doc confirms 'Fourier characterisation of div u=0 for L2 vector fields'; meaning preserved. |
 | F021 | DivFreeL2 | gap.note | JP-14 | M | spaces | superseded-by-#52 |  |
@@ -47,8 +47,8 @@
 | F037 | mem_velocitySpan_iff | gap.note | JP-14/表記 | M | projections-galerkin | open | 以下の bridge 補題群（固定点と像の一致）の出発点。 |
 | F038 | fourierBox_exhausts | statement_ja | 自然さ | A | projections-galerkin | superseded-by-#52 |  |
 | F039 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-13/造語 | B | bochner | open | 一様収束部分列（対角線論法エンジン） |
-| F040 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-14 | M | bochner | open | 再検証で reopen: 等 Lipschitz は #52 処理済みだが未訳 eventually が残存（owner 指摘） |
-| F041 | exists_uniform_subseq_of_lipschitz_family | gap.note | 造語 | M | bochner | open | 以降のみ）なのが載荷点 |
+| F040 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-14 | M | bochner | fixed | P1: eventually→ある番号以降で（reopen 後、owner 裁定に従い修正） |
+| F041 | exists_uniform_subseq_of_lipschitz_family | gap.note | 造語 | M | bochner | fixed | P1: 載荷点→技術上の要点（owner 裁定 2026-07-15b）+ 同文の帯域水準→截断次数 |
 | F042 | exists_Icc_of_compact_subset_Ioo | gap.note | JP-13 | M | bochner | open | 同時に収める区間を取る簿記の補題 |
 | F043 | isWeakTimeDeriv_zero_ae_const | statement_ja | JP-13 | M | bochner | open | du Bois-Reymond の要石： |
 | F044 | w1pTime_continuous_in_H | proof_ja | JP-13 | M | bochner | open | 良い代表元理論の柱に当たる |
@@ -256,10 +256,10 @@
 | F246 | exists_Icc_of_compact_subset_Ioo | gap.note | JP-13 | M | bochner | open | 簿記の補題。 |
 | F247 | exists_subseq_tendsto_eLpNorm_of_totallyBounded | gap.note | JP-13 | M | bochner | open | A1–A6 の鎖の出口。 |
 | F248 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-13 | B | bochner | open | 対角線論法エンジン |
-| F249 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-14 | B | bochner | open | 再検証で reopen: 同上（owner 指摘） |
+| F249 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-14 | B | bochner | fixed | P1: F040 と統合適用 |
 | F250 | exists_uniform_subseq_of_lipschitz_family | statement_ja | 造語 | B | bochner | fixed | P1: #52（等→同程度 Lipschitz）+ P1（「連続（性）」付与、owner 裁定）で解消 |
 | F251 | exists_uniform_subseq_of_lipschitz_family | proof_ja | 造語 | B | bochner | open | 一様 Cauchy 化 |
-| F252 | exists_uniform_subseq_of_lipschitz_family | gap.note | 造語 | B | bochner | open | 載荷点 |
+| F252 | exists_uniform_subseq_of_lipschitz_family | gap.note | 造語 | B | bochner | fixed | P1: F041 と統合適用 |
 | F253 | exists_unitMass_weight | gap.note | JP-13 | M | bochner | open | 要石で「a.e. 定数の値」を汲み出す |
 | F254 | hToVprimeCLM | statement_ja | 自然さ | B | bochner | open | 束ねられた連続線形写像として構成する。 |
 | F255 | hToVprimeCLM | proof_ja | JP-13 | B | bochner | open | 正直な連続線形写像 |
