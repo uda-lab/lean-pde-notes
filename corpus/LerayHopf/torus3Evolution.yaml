@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   トーラスの散逸発展の束：$\mathbb{T}^3$ の形式束から散逸発展（空間・正則性汎関数・粘性形式・移流形式・テスト関数系の束）を組み立てる。空間は発散ゼロ $L^2$、正則性汎関数は [[H¹ エネルギー|LerayHopf.h1EnergySq]]、粘性形式は [[Stokes 双線形形式|LerayHopf.stokesTestPairing]]、移流形式は形式束の $b$、テスト関数系は [[Galerkin テスト|LerayHopf.IsGalerkinTest]]。
 proof_ja: |
-  [[トーラス領域データ|LerayHopf.torusDomain]] と形式束（粘性形式・移流形式・テスト関数族）に汎用構成を適用した略記として定める。
+  [[トーラス領域データ|LerayHopf.torusDomain]]（粘性形式・テスト関数族を含む）と、移流形式を与える形式束に汎用構成を適用した略記として定める。
 gap:
   level: mild
   note: |
