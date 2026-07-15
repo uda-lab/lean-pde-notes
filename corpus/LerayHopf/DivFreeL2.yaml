@@ -1,7 +1,7 @@
 name: LerayHopf.DivFreeL2
 tier: full
 statement_ja: |
-  $L^2$ ベクトル場の発散ゼロ性の Fourier 特徴づけ：すべての波数 $k \in \mathbb{Z}^3$ で
+  $L^2$ ベクトル場の発散がゼロであることの Fourier 特徴づけ：すべての波数 $k \in \mathbb{Z}^3$ で
 
   $$\sum_{j} k_j\, \hat u_j(k) = 0.$$
 proof_ja: |

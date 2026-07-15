@@ -1,7 +1,7 @@
 name: LerayHopf.Torus3
 tier: full
 statement_ja: |
-  空間領域である $3$ 次元トーラス $\mathbb{T}^3$：単位加法円周（周期 $1$ の $\mathbb{R}/\mathbb{Z}$）の三つ組の直積として実現する。
+  空間領域である $3$ 次元トーラス $\mathbb{T}^3$：単位加法円周（周期 $1$ の $\mathbb{R}/\mathbb{Z}$）の $3$ 重直積として実現する。
 proof_ja: |
   単位加法円周の $3$ 個の直積型として定める。各因子は全測度 $1$ の Haar 測度を持ち、直積には積測度が入る。
 gap:

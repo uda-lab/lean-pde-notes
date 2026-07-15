@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   テスト張り空間の元での連続双線形形式：Galerkin テストの張る空間 $\mathcal{G}$ の元 $w$ に対する [[連続双線形化|LerayHopf.TorusConvectionExtension.convBLTw]] の特殊化。
 proof_ja: |
-  $\mathcal{G}$ の元が Galerkin テスト関数であること（[[張る空間のテスト性|LerayHopf.TorusConvectionExtension.mem_galerkinTestSpan_isTest]]）を証人にして適用する。
+  $\mathcal{G}$ の元が Galerkin テスト関数であること（[[張る空間のテスト性|LerayHopf.TorusConvectionExtension.mem_galerkinTestSpan_isTest]]）を用いて適用する。
 gap:
   level: none
   note: |

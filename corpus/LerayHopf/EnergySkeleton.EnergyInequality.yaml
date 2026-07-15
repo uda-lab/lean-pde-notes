@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    `LerayHopf/EnergySkeleton.lean` の抽象層。この述語の具体的な実現は [[抽象エネルギー則からのエネルギー不等式|LerayHopf.abstract_galerkin_satisfies_EnergyInequality]] が与える。
+    `LerayHopf/EnergySkeleton.lean` で導入された抽象的な定義。この述語の具体的な実現は [[抽象エネルギー則からのエネルギー不等式|LerayHopf.abstract_galerkin_satisfies_EnergyInequality]] が与える。
 chapter: energy
 tags: [energy-inequality, abstract-interface]

@@ -5,7 +5,7 @@ statement_ja: |
 gap:
   level: none
   note: |
-    二乗可積分性は連続性（`K.smooth.continuous`）とコンパクト台（`K.hasCompactSupport`）から従い、`MemLp 2` の証人を経て $L^2$ 類に持ち上げる。次の Young 型評価の $L^2$ 質量因子として使われる。
+    二乗可積分性は連続性（`K.smooth.continuous`）とコンパクト台（`K.hasCompactSupport`）から従い、`MemLp 2` であることを経て $L^2$ 類に持ち上げる。次の Young 型評価の $L^2$ 質量因子として使われる。
 
     $$\lVert\eta\star g\rVert_{L^2}\ \le\ \lVert\eta\rVert_{L^2}\,\lVert g\rVert_{L^2}$$
 chapter: compactness

@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   初期値の截断は $V_n$ に属する：発散ゼロ初期値 $u_0$ に対し $P_n u_0 \in V_n$。
 proof_ja: |
-  $u_0$ 自身を証人として所属の特徴づけを適用する。
+  所属の特徴づけにおいて、截断前の発散ゼロ場として $u_0$ 自身を選べば、$P_n u_0 \in V_n$ が従う。
 gap:
   level: none
   note: |

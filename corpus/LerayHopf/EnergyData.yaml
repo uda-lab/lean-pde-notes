@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   抽象エネルギー不等式のデータ：時刻の関数としての運動エネルギー $E$、区間 $[s,t]$ 上の蓄積散逸 $A(s,t)$、粘性係数 $\nu$ の三つ組。
 proof_ja: |
-  エネルギー不等式を主張として述べるのに必要な三つの量をフィールドとして束ねるだけの定義である。
+  エネルギー不等式を主張として述べるのに必要な三つの量を一組のデータとして指定するだけの定義である。
 gap:
   level: none
   note: |
-    最初期の抽象スケルトン層（`LerayHopf/EnergySkeleton.lean`）。この上に [[抽象エネルギー則|LerayHopf.AbstractEnergyLaw]] 系の議論（`EnergyEstimate.lean`）が組み立てられる。
+    最初期の抽象化段階（`LerayHopf/EnergySkeleton.lean`）。この上に [[抽象エネルギー則|LerayHopf.AbstractEnergyLaw]] 系の議論（`EnergyEstimate.lean`）が組み立てられる。
 chapter: energy
 tags: [energy, abstract-interface]

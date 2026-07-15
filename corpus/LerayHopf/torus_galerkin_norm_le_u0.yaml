@@ -7,7 +7,7 @@ statement_ja: |
 
   を満たす。右辺は $n$ に依らない。
 proof_ja: |
-  Galerkin 解データのエネルギー有界フィールドから
+  Galerkin 解データのもつエネルギー有界性から
 
   $$\tfrac{1}{2} \lVert u_n(t) \rVert^2 \le \tfrac{1}{2} \lVert P_n u_0 \rVert^2$$
 

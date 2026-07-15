@@ -1,7 +1,7 @@
 name: LerayHopf.VelocityValue
 tier: full
 statement_ja: |
-  速度場の値の型：実 $3$ 次元 Euclid 空間 $\mathbb{R}^3$（Euclid 内積とノルムを込めて）。
+  速度場の値の型：標準内積とそれに付随するノルムを備えた実 $3$ 次元 Euclid 空間 $\mathbb{R}^3$。
 proof_ja: |
   $3$ 点集合で添字づけられた実数の族に $\ell^2$ ノルムを入れた空間として定める。
 gap:

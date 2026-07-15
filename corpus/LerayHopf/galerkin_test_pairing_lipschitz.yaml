@@ -1,7 +1,7 @@
 name: LerayHopf.galerkin_test_pairing_lipschitz
 tier: full
 statement_ja: |
-  テストとの内積の同程度 Lipschitz 評価：帯域水準 $m$ のテスト $w$ に対し定数 $L$ が存在し、**$m \le n$ を満たすすべての** $n$ と $0 \le s \le t$ で
+  テストとの内積の同程度 Lipschitz 連続性の評価：帯域水準 $m$ のテスト $w$ に対し定数 $L$ が存在し、**$m \le n$ を満たすすべての** $n$ と $0 \le s \le t$ で
 
   $$\bigl|\langle u_n(t), w \rangle - \langle u_n(s), w \rangle\bigr| \le L\,(t - s).$$
 proof_ja: |

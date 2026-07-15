@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   $L^2(\mathbb{T}^3; \mathbb{C})$ の Fourier Hilbert 基底：格子 $\mathbb{Z}^3$ で添字づけられた指数関数系 $e^{2\pi i k \cdot x}$。
 proof_ja: |
-  mathlib の多次元加法トーラスの Fourier 基底を $3$ 次元に特殊化して得る。
+  一般の加法トーラスの Fourier Hilbert 基底の理論を $3$ 次元の場合に特殊化し、三次元トーラスの標準 Fourier 基底として指数関数系を得る。
 gap:
   level: none
   note: |
-    [[複素スカラー L²|LerayHopf.L2C]] の測度が基底側の測度と定義的に一致するよう選ばれているため、この特殊化は追加の証明なしに型が合う（設計上の急所として docstring に記録されている）。Parseval 等式・係数の二乗総和可能性はすべてこの基底の Hilbert 基底性から流れ出す。
+    mathlib の `UnitAddTorus.mFourierBasis` を $d = \mathrm{Fin}\,3$ に特殊化したものである。[[複素スカラー L²|LerayHopf.L2C]] の測度が基底側の測度と定義的に一致するよう選ばれているため、この特殊化は追加の証明なしに型が合う（設計上の急所として docstring に記録されている）。Parseval 等式・係数の二乗総和可能性はすべて、この基底が Hilbert 基底であることから従う。
 chapter: spaces
 tags: [fourier, torus]

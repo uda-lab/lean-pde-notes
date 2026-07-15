@@ -5,7 +5,7 @@ statement_ja: |
 
   $$\lVert c(t) \rVert \le \lVert c(0) \rVert.$$
 proof_ja: |
-  [[Galerkin 場の点別散逸性|LerayHopf.Torus.galerkinField_inner_self_nonpos]] を確かめたうえで、散逸的な場の前向き解に対する汎用のノルム単調性定理（[[散逸場のノルム評価|LerayHopf.Galerkin.norm_le_of_forwardSolution_of_dissipative]]）へ委譲する。残りは部分空間の内在的微分と周囲空間の微分の往復、およびノルムが部分空間の取り方に依らないことの書き換えである。
+  [[Galerkin 場の点別散逸性|LerayHopf.Torus.galerkinField_inner_self_nonpos]] を確かめたうえで、散逸的な場の前向き解に対する汎用のノルム単調性定理（[[散逸場のノルム評価|LerayHopf.Galerkin.norm_le_of_forwardSolution_of_dissipative]]）に帰着する。残りは部分空間内での微分と全空間での微分を対応させること、およびノルムが部分空間の取り方に依らないことの書き換えである。
 gap:
   level: none
   note: |

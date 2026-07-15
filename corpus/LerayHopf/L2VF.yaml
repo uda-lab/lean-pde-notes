@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    本形式化の主舞台となる Hilbert 空間 $H$。`abbrev` なので `Lp` の全インスタンスが透過的に使える。
+    本形式化の中心となる Hilbert 空間 $H$。`abbrev` なので `Lp` の全インスタンスが透過的に使える。
 chapter: spaces
 tags: [function-spaces, torus]
