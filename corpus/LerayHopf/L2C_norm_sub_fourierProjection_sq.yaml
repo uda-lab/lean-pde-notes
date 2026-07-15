@@ -1,7 +1,7 @@
 name: LerayHopf.L2C_norm_sub_fourierProjection_sq
 tier: full
 statement_ja: |
-  スカラー尾部恒等式：$L^2$ 関数 $f$ と打ち切り次数 $N$ に対し
+  スカラー打ち切り残差の恒等式：$L^2$ 関数 $f$ と打ち切り次数 $N$ に対し
 
   $$\lVert f - P_N f \rVert^2 = \sum_{k \notin B_N} \lVert \hat f(k) \rVert^2$$
 

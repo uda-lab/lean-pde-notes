@@ -1,16 +1,16 @@
 name: LerayHopf.integral_tail_sq_galerkin_le
 tier: full
 statement_ja: |
-  Galerkin 側の $n$ 一様な尾部積分評価：$T > 0$ とし、次数 $n$ の Galerkin 解 $u_n$ と任意のレベル $N$ に対し
+  Galerkin 側の $n$ 一様な打ち切り残差の時間積分評価：$T > 0$ とし、次数 $n$ の Galerkin 解 $u_n$ と任意のレベル $N$ に対し
 
   $$\int_0^T \lVert u_n(t) - P_N u_n(t) \rVert^2\, dt \;\le\; \frac{T \lVert u_0 \rVert^2 + \lVert u_0 \rVert^2 / (2\nu)}{1 + N^2}.$$
 
   右辺は $n$ に依らない。
 proof_ja: |
-  各時刻で [[尾部の $H^1$ エネルギーによる評価|LerayHopf.tail_sq_le_h1EnergySq_div]] を解データが持つ $H^1$ 正則性とともに適用する。左辺の被積分関数は曲線の連続性から、右辺の優関数は [[H¹ エネルギーの連続性|LerayHopf.h1EnergySq_continuousOn_galerkin]] から、それぞれ区間可積分である。積分の単調性で優関数の積分に移り、解データの一様正則性評価（$H^1$ エネルギーの時間積分の $n$ 一様な上界）で分子を抑え、$1 + N^2$ で割る。
+  各時刻で [[打ち切り残差の $H^1$ エネルギーによる評価|LerayHopf.tail_sq_le_h1EnergySq_div]] を解データが持つ $H^1$ 正則性とともに適用する。左辺の被積分関数は曲線の連続性から、右辺の優関数は [[H¹ エネルギーの連続性|LerayHopf.h1EnergySq_continuousOn_galerkin]] から、それぞれ区間可積分である。積分の単調性で優関数の積分に移り、解データの一様正則性評価（$H^1$ エネルギーの時間積分の $n$ 一様な上界）で分子を抑え、$1 + N^2$ で割る。
 gap:
   level: mild
   note: |
-    $\nu > 0$ の仮定は不要（正則性評価フィールド `reg_bound` が右辺の形の上界をそのまま供給する）。高周波尾部が $N \to \infty$ で一様に消えることを与える、Aubin–Lions の空間方向の入力。
+    $\nu > 0$ の仮定は不要（正則性評価フィールド `reg_bound` が右辺の形の上界をそのまま供給する）。Fourier 打ち切り残差が $N \to \infty$ で一様に消えることを与える、Aubin–Lions の空間方向の入力。
 chapter: compactness
 tags: [compactness, aubin-lions, torus]

@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    [[尾部下半連続性|LerayHopf.tailEnn_lsc_of_weak]] の前提（全 $L^2$ テストでの弱収束）を、極限曲線定理が与える発散ゼロテストに対する弱収束から導く補題。自己随伴性は `lerayProjection_isSymmetric`、固定性は `lerayProjection_fixes_divFree` による。
+    [[打ち切り残差の下半連続性|LerayHopf.tailEnn_lsc_of_weak]] の前提（全 $L^2$ テストでの弱収束）を、極限曲線定理が与える発散ゼロテストに対する弱収束から導く補題。自己随伴性は `lerayProjection_isSymmetric`、固定性は `lerayProjection_fixes_divFree` による。
 chapter: compactness
 tags: [compactness, weak-convergence, torus]

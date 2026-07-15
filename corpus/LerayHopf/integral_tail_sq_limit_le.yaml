@@ -1,15 +1,15 @@
 name: LerayHopf.integral_tail_sq_limit_le
 tier: full
 statement_ja: |
-  極限曲線の尾部積分評価：$\nu > 0$、$T > 0$ とする。弱収束・球有界・可測性を備えた極限曲線 $u$ は、Galerkin 側と同じ $n$ 一様上界
+  極限曲線の打ち切り残差の時間積分評価：$\nu > 0$、$T > 0$ とする。弱収束・球有界・可測性を備えた極限曲線 $u$ は、Galerkin 側と同じ $n$ 一様上界
 
   $$\int_0^T \lVert u(t) - P_N u(t) \rVert^2\, dt \;\le\; \frac{T \lVert u_0 \rVert^2 + \lVert u_0 \rVert^2 / (2\nu)}{1 + N^2}$$
 
   を満たす。
 proof_ja: |
-  極限曲線の $H^1$ 所属は得られていないため、実数値の尾部評価は直接適用できない。代わりに各時刻で：尾部ノルム二乗を [[ENNReal 橋渡し|LerayHopf.ofReal_tail_sq_eq_tailEnn]] で拡張非負実数のモード和に書き、発散ゼロテストでの弱収束を [[全 $L^2$ テストへの拡張|LerayHopf.tendsto_inner_L2VF_of_tendsto_inner_L2Sigma]] で全 $L^2$ テストへ広げてから、[[尾部下半連続性|LerayHopf.tailEnn_lsc_of_weak]] で近似列の尾部の liminf 以下に抑える。
+  極限曲線の $H^1$ 所属は得られていないため、実数値の打ち切り残差評価は直接適用できない。代わりに各時刻で：打ち切り残差のノルム二乗を [[ENNReal 橋渡し|LerayHopf.ofReal_tail_sq_eq_tailEnn]] で拡張非負実数のモード和に書き、発散ゼロテストでの弱収束を [[全 $L^2$ テストへの拡張|LerayHopf.tendsto_inner_L2VF_of_tendsto_inner_L2Sigma]] で全 $L^2$ テストへ広げてから、[[打ち切り残差の下半連続性|LerayHopf.tailEnn_lsc_of_weak]] で近似列の周波数箱外の係数二乗和の liminf 以下に抑える。
 
-  時間方向には Fatou の補題（下積分と liminf の交換）を適用し、各近似元の尾部積分が [[Galerkin 側の一様評価|LerayHopf.integral_tail_sq_galerkin_le]] で共通の定数以下であることから、極限の下積分も同じ定数以下になる。最後に被積分関数の可測性と有界性（球有界から）で可積分性を確かめ、拡張非負実数からの往復で実の区間積分の不等式に戻す。
+  時間方向には Fatou の補題（下積分と liminf の交換）を適用し、各近似元の打ち切り残差の時間積分が [[Galerkin 側の一様評価|LerayHopf.integral_tail_sq_galerkin_le]] で共通の定数以下であることから、極限の下積分も同じ定数以下になる。最後に被積分関数の可測性と有界性（球有界から）で可積分性を確かめ、拡張非負実数からの往復で実の区間積分の不等式に戻す。
 gap:
   level: large
   note: |

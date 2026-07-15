@@ -1,14 +1,14 @@
 name: LerayHopf.ofReal_tail_sq_eq_tailEnn
 tier: full
 statement_ja: |
-  尾部の拡張非負実数橋渡し：**すべての** $v \in L^2$ に対し、尾部ノルム二乗の埋め込みは箱外係数の拡張非負実数和に等しい：
+  打ち切り残差の拡張非負実数橋渡し：**すべての** $v \in L^2$ に対し、打ち切り残差のノルム二乗の埋め込みは周波数箱外の係数の拡張非負実数和に等しい：
 
   $$\bigl(\lVert v - P_N v \rVert^2\bigr)_{[0,\infty]} = \sum_{j} \sum_{k \notin B_N} \bigl(\lVert \hat v_j(k) \rVert^2\bigr)_{[0,\infty]}.$$
 proof_ja: |
-  [[ベクトル尾部恒等式|LerayHopf.L2VF_norm_sub_velocityProjection_sq]] を用いて実数値の左辺を書き換え、埋め込みを有限和・総和と交換する。交換に要る総和可能性は、尾部族が常に総和可能な Parseval 族（[[係数の二乗総和可能性|LerayHopf.Torus.summable_norm_mFourierCoeff3_sq]]）の部分族であることから無条件に得られる。
+  [[ベクトル打ち切り残差の恒等式|LerayHopf.L2VF_norm_sub_velocityProjection_sq]] を用いて実数値の左辺を書き換え、埋め込みを有限和・総和と交換する。交換に要る総和可能性は、周波数箱外の Fourier 係数二乗族が常に総和可能な Parseval 族（[[係数の二乗総和可能性|LerayHopf.Torus.summable_norm_mFourierCoeff3_sq]]）の部分族であることから無条件に得られる。
 gap:
   level: none
   note: |
-    $H^1$ 所属を要しない点が要諦：これにより極限曲線（$H^1$ 所属が手に入らない）の尾部も拡張非負実数側で扱える。
+    $H^1$ 所属を要しない点が要諦：これにより極限曲線（$H^1$ 所属が手に入らない）の打ち切り残差も拡張非負実数側で扱える。
 chapter: compactness
 tags: [rellich, torus]

@@ -1,14 +1,14 @@
 name: LerayHopf.tail_sq_le_h1EnergySq_div
 tier: full
 statement_ja: |
-  尾部の $H^1$ エネルギーによる評価：$u$ が成分ごとの $H^1$ 所属を満たすならば
+  打ち切り残差の $H^1$ エネルギーによる評価：$u$ が成分ごとの $H^1$ 所属を満たすならば
 
   $$\lVert u - P_N u \rVert^2 \;\le\; \frac{1}{1 + N^2}\, \bigl(\text{$H^1$ エネルギー}\bigr).$$
 proof_ja: |
-  [[ベクトル尾部恒等式|LerayHopf.L2VF_norm_sub_velocityProjection_sq]] で左辺を箱外係数和に書き、成分ごとに比較する。周波数箱の外では Sobolev 重みが $1 + N^2$ 以上なので、箱外の係数二乗和は $H^1$ 重み付き和の $(1 + N^2)^{-1}$ 倍で抑えられる（成分ごとの標準的な Fourier 尾部評価を適用する）。
+  [[ベクトル打ち切り残差の恒等式|LerayHopf.L2VF_norm_sub_velocityProjection_sq]] で左辺を箱外係数和に書き、成分ごとに比較する。周波数箱の外では Sobolev 重みが $1 + N^2$ 以上なので、箱外の係数二乗和は $H^1$ 重み付き和の $(1 + N^2)^{-1}$ 倍で抑えられる（成分ごとの標準的な Fourier 打ち切り残差の評価を適用する）。
 gap:
   level: mild
   note: |
-    $H^1$ 所属の総和可能性により、tsum 規約のもとで総和不能な場合に値が $0$ となる事態（仮定なしでは右辺が $0$ になり偽になり得る）を防ぐ。Galerkin 曲線は解データの `reg_mem` でこの仮定を満たすが、**極限曲線には $H^1$ 所属が無い**ため、極限側は [[ENNReal 尾部下半連続性|LerayHopf.tailEnn_lsc_of_weak]] を経る別経路で処理される。
+    $H^1$ 所属の総和可能性により、tsum 規約のもとで総和不能な場合に値が $0$ となる事態（仮定なしでは右辺が $0$ になり偽になり得る）を防ぐ。Galerkin 曲線は解データの `reg_mem` でこの仮定を満たすが、**極限曲線には $H^1$ 所属が無い**ため、極限側は [[ENNReal 打ち切り残差の下半連続性|LerayHopf.tailEnn_lsc_of_weak]] を経る別経路で処理される。
 chapter: compactness
 tags: [rellich, sobolev, torus]

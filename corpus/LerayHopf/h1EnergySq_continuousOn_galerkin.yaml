@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    尾部積分評価で優関数の区間可積分性を保証するための側条件。曲線の連続性は解データの `u_hasDeriv` から来る。
+    打ち切り残差の時間積分評価で優関数の区間可積分性を保証するための側条件。曲線の連続性は解データの `u_hasDeriv` から来る。
 chapter: compactness
 tags: [rellich, energy, torus]
