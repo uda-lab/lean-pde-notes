@@ -1,7 +1,7 @@
 name: LerayHopf.galerkinConvection_level_step
 tier: full
 statement_ja: |
-  水準安定性（単調ステップ）：三つの引数のうち $u, v$ が次数 $m$ で帯域制限され $m \le n$ ならば、次数 $n$ の箱で切った値は次数 $m$ の値に等しい。
+  打ち切り次数によらないこと（単調ステップ）：三つの引数のうち $u, v$ が次数 $m$ で帯域制限され $m \le n$ ならば、次数 $n$ の箱で切った値は次数 $m$ の値に等しい。
 proof_ja: |
   大きい箱の和のうち小さい箱の外の項は、先頭因子 $\hat u_a(k)$ または中央因子 $\hat v_i(l)$ の消滅（[[係数の消滅|LerayHopf.coeff_zero_outside_box]]）で零になるから、和は小さい箱に制限される。
 gap:

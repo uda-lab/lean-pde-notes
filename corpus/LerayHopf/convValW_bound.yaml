@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    この双線形有界性が移流形式の $L^2 \times L^2$ への連続拡張（極限移行の心臓部）を可能にする。定数の最適性は問わない。本 corpus 最長級の評価計算の一つ。
+    この双線形有界性が移流形式の $L^2 \times L^2$ への連続拡張（極限移行の中核）を可能にする。定数の最適性は問わない。本 corpus 最長級の評価計算の一つ。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.edgeSlot2
 tier: full
 statement_ja: |
-  第二スロット Galerkin 辺：テンソル積 $L^2_\sigma \otimes L^2_\sigma$ の部分加群 $\mathcal{G} \otimes L^2_\sigma$。
+  第 2 因子を Galerkin テスト空間に制限した部分加群：テンソル積 $L^2_\sigma \otimes L^2_\sigma$ の部分加群 $\mathcal{G} \otimes L^2_\sigma$。
 proof_ja: |
   汎用のテンソル辺構成をテスト張り空間 $\mathcal{G}$ で特殊化する。
 gap:
   level: none
   note: |
-    「中央因子が滑らか」な側の辺。決定域はこの辺と第三スロット辺の和。
+    「中央因子が滑らか」な側の部分加群。決定域はこの部分加群と第 3 因子を制限した部分加群の和。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

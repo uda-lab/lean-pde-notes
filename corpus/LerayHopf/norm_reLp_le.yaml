@@ -5,7 +5,7 @@ statement_ja: |
 
   $$\lVert\mathrm{Re}\,f\rVert \le \lVert f\rVert.$$
 proof_ja: |
-  点別に
+  各点で
 
   $$\lvert\mathrm{Re}\,z\rvert\le\lvert z\rvert.$$
 

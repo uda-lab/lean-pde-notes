@@ -1,7 +1,7 @@
 name: LerayHopf.mulRBdd_coeFn
 tier: full
 statement_ja: |
-  乗算の値の点別表示：代表関数は a.e. で点別の積に一致する。
+  乗算の値の各点表示：代表関数は a.e. で各点の積に一致する。
 proof_ja: |
   構成の展開そのものである。
 gap:

@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   張る空間の元はテスト関数である：$\mathcal{G}$ の任意の元は Galerkin テスト関数である。
 proof_ja: |
-  span についての帰納法：生成元は仮定そのもの、零・和・スカラー倍はテスト類の閉性（[[零|LerayHopf.TorusConvectionExtension.isGalerkinTest_zero]]・[[加法|LerayHopf.TorusConvectionExtension.isGalerkinTest_add]]・[[スカラー倍|LerayHopf.TorusConvectionExtension.isGalerkinTest_smul]]）で処理する。
+  生成された部分加群についての帰納法：生成元は仮定そのもの、零・和・スカラー倍はテスト類の閉性（[[零|LerayHopf.TorusConvectionExtension.isGalerkinTest_zero]]・[[加法|LerayHopf.TorusConvectionExtension.isGalerkinTest_add]]・[[スカラー倍|LerayHopf.TorusConvectionExtension.isGalerkinTest_smul]]）で処理する。
 gap:
   level: none
   note: |
-    「張る空間」と「テスト類」の一致。テスト述語の存在量化（帯域水準）が最大値で併合できることの帰結。
+    「張る空間」と「テスト類」の一致。テスト述語の存在量化（打ち切り次数）が最大値で併合できることの帰結。
 chapter: limit-passage
 tags: [galerkin, test-family, torus]

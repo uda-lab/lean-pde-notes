@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.edge_inf_eq_galerkin_tensor
 tier: full
 statement_ja: |
-  辺の重なりの同定：二つの辺の交わりは $\mathcal{G} \otimes \mathcal{G}$ に等しい。
+  共通部分の同定：二つのテンソル積部分加群の共通部分は $\mathcal{G} \otimes \mathcal{G}$ に等しい。
 proof_ja: |
   汎用のテンソル交叉定理（部分加群の包含のテンソル像の交わり）の $\mathcal{G}$ での特殊化である。
 gap:
   level: mild
   note: |
-    貼り合わせの well-definedness の土台：二つの辺で別々に定めた値が重なりで一致すべき場所を正確に特定する。ℝ³ 系統の Schwartz 版と同じ汎用定理（`TensorIntersection`）を使い回している。純代数のテンソル積の交わりの計算は見かけによらず非自明で、汎用層に隔離されている。
+    貼り合わせの well-definedness の土台：二つの辺で別々に定めた値が重なりで一致すべき場所を正確に特定する。ℝ³ 系統の Schwartz 版と同じ汎用定理（`TensorIntersection`）を再利用している。純代数のテンソル積の交わりの計算は見かけによらず非自明で、汎用層に隔離されている。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

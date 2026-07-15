@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    点別の射影 `EuclideanSpace.proj j` の `compLpL` による持ち上げ。値の代表関数が点別の第 $j$ 成分に a.e. 一致することは、使う側が `coeFn_compLpL` で都度展開する。
+    各点の射影 `EuclideanSpace.proj j` の `compLpL` による持ち上げ。値の代表関数が各点の第 $j$ 成分に a.e. 一致することは、使う側が `coeFn_compLpL` で都度展開する。
 chapter: spaces
 tags: [function-spaces, torus]

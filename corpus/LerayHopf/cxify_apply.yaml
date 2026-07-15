@@ -1,7 +1,7 @@
 name: LerayHopf.cxify_apply
 tier: full
 statement_ja: |
-  複素化の点別値の展開規則。
+  複素化の各点値の展開規則。
 proof_ja: |
   定義の書き下しそのものである。
 gap:

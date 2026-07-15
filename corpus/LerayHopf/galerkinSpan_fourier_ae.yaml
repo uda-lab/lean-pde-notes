@@ -1,7 +1,7 @@
 name: LerayHopf.galerkinSpan_fourier_ae
 tier: full
 statement_ja: |
-  span 元の Fourier 変換の点別表示：$w\in V_n$ の成分の $L^2$-Fourier 変換の代表関数は、Schwartz 代表元の古典 Fourier 変換に a.e. 一致する。
+  span 元の Fourier 変換の a.e. 表示：$w\in V_n$ の成分の $L^2$-Fourier 変換の代表関数は、Schwartz 代表元の古典 Fourier 変換に a.e. 一致する。
 proof_ja: |
   Schwartz 成分表示を取り、Schwartz 関数の $L^2$-Fourier 変換がその古典変換の類であることに帰着する。
 gap:

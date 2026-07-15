@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    本 corpus で最も頻繁に引用される支持補題の一つ。import の都合で `GalerkinScheme.lean` に移設された複製である旨がソースに記録されている。
+    本 corpus で最も頻繁に引用される基本補題の一つ。import の都合で `GalerkinScheme.lean` に移設された複製である旨がソースに記録されている。
 chapter: limit-passage
 tags: [convection, galerkin, torus]

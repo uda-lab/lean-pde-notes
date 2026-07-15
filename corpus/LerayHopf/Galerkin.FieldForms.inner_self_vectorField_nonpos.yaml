@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   Galerkin ベクトル場の散逸性：粘性係数 $\nu>0$ のとき、任意の $v$ で $\langle v, G(v)\rangle\le 0$ が成り立つ。前向き大域存在定理が要求する散逸性の仮定を、このデータの水準で供給する補題である。
 proof_ja: |
-  点別エネルギー恒等式[[点別エネルギー恒等式|LerayHopf.Galerkin.FieldForms.inner_self_vectorField]]により左辺は $-\nu\,s(v,v)$ に等しい。粘性形式の対角非負性 $s(v,v)\ge 0$ と $\nu>0$ から、これは非正である。
+  [[各点エネルギー恒等式|LerayHopf.Galerkin.FieldForms.inner_self_vectorField]]により左辺は $-\nu\,s(v,v)$ に等しい。粘性形式の対角非負性 $s(v,v)\ge 0$ と $\nu>0$ から、これは非正である。
 gap:
   level: none
   note: |

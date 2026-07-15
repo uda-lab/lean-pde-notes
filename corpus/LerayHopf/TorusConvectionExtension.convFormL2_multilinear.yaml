@@ -1,9 +1,9 @@
 name: LerayHopf.TorusConvectionExtension.convFormL2_multilinear
 tier: full
 statement_ja: |
-  決定移流形式の三重線形性：$b$ と一致する真の実三重線形写像が存在する。
+  決定移流形式の三重線形性：$b$ と一致する実三重線形写像が存在する。
 proof_ja: |
-  決定拡張が $u$ について線形で、値がテンソル因子について線形なので、カリー化した三重線形写像として束ねられる（汎用層の定理の特殊化）。
+  決定拡張が $u$ について線形で、値がテンソル因子について線形なので、三つの変数に関する線形性から実三重線形写像が得られる（汎用層の定理の特殊化）。
 gap:
   level: none
   note: |

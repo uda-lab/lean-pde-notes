@@ -7,7 +7,7 @@ statement_ja: |
 
   有限次元 Galerkin 近似の水準で、エネルギーの減少率が粘性散逸にちょうど等しいことを述べる。
 proof_ja: |
-  一般の場に対するエネルギー微分公式[[エネルギー微分公式|LerayHopf.Galerkin.energy_hasDerivAt_of_solution]]で $E'(t)=\langle c(t),G(c(t))\rangle$ を得て、点別エネルギー恒等式[[点別エネルギー恒等式|LerayHopf.Galerkin.FieldForms.inner_self_vectorField]]で右辺を書き換える。
+  一般の場に対するエネルギー微分公式[[エネルギー微分公式|LerayHopf.Galerkin.energy_hasDerivAt_of_solution]]で $E'(t)=\langle c(t),G(c(t))\rangle$ を得て、各点エネルギー恒等式[[各点エネルギー恒等式|LerayHopf.Galerkin.FieldForms.inner_self_vectorField]]で右辺を書き換える。
 gap:
   level: none
   note: |

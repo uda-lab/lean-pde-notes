@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    テスト類の張る空間の閉性の部品。
+    テスト類の張る空間の閉性を示すための補題。
 chapter: limit-passage
 tags: [galerkin, test-family, torus]

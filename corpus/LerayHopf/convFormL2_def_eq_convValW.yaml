@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   テスト上の値の同定：$w$ が Galerkin テスト関数ならば、決定移流形式の値は部分積分形の値に等しい。
 proof_ja: |
-  $w$ をテスト張り空間の元と見なすと、$v \otimes w$ は第三スロット辺に属するから、決定拡張の辺上の値の同定（汎用の `detExtend_edge3_eq`）と[[連続双線形形式の展開|LerayHopf.TorusConvectionExtension.convBLTgalerkin_apply]]で部分積分形の値に落ちる。
+  $w$ をテスト張り空間の元と見なすと、$v \otimes w$ は第 3 因子をテスト空間に制限した部分加群に属するから、決定拡張の辺上の値の同定（汎用の `detExtend_edge3_eq`）と[[連続双線形形式の展開|LerayHopf.TorusConvectionExtension.convBLTgalerkin_apply]]で部分積分形の値に落ちる。
 gap:
   level: none
   note: |
-    抽象構成と具体的な Fourier 級数の値を繋ぐ橋。
+    抽象構成と具体的な Fourier 級数の値との一致を与える補題。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

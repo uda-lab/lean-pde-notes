@@ -1,11 +1,11 @@
 name: LerayHopf.TorusConvectionExtension.dom_tsum_le
 tier: full
 statement_ja: |
-  優関数族の総和の評価：同じ仮定のもとで
+  上界を与える非負関数の総和の評価：同じ仮定のもとで
 
   $$\sum_{k, l} W_c(-(k+l))\, \lVert \hat f_U(k) \rVert\, \lVert \hat f_V(l) \rVert \;\le\; \Bigl( \sum_{m \in B_n} W_c(m) \Bigr) \cdot (\ell^2 \text{ 量の積}).$$
 proof_ja: |
-  $(k, l) \mapsto (m, k)$ の再添字化で総和を $m$ ごとの断面に分解し、有限台により $m$ 和を周波数箱上の有限和に潰す。各断面は[[シフト付き CS|LerayHopf.TorusConvectionExtension.cs_per_m]]で $\ell^2$ 量の積に抑えられ、$W_c$ の非負性で係数ごと足し上げる。
+  $(k, l) \mapsto (m, k)$ の再添字化で総和を $m$ ごとの断面に分解し、有限台により $m$ 和を周波数箱上の有限和に帰着させる。各断面は[[シフト付き CS|LerayHopf.TorusConvectionExtension.cs_per_m]]で $\ell^2$ 量の積に抑えられ、$W_c$ の非負性で係数ごと足し上げる。
 gap:
   level: none
   note: |

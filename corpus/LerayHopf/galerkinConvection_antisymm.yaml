@@ -13,6 +13,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    テスト側の帯域制限が**外せない**ことの理由（生の箱 $\times$ 箱は対合不変でない）が docstring に明記されている。energy 章の全格子版（[[Fourier 側反対称性|LerayHopf.convFormFourier_antisymm_galerkinTest]]）の有限和版で、相殺機構は同じ。形式束の反対称性フィールドの忠実な実現可能部分。
+    テスト側の帯域制限が**外せない**ことの理由（生の箱 $\times$ 箱は対合不変でない）が docstring に明記されている。energy 章の全格子版（[[Fourier 側反対称性|LerayHopf.convFormFourier_antisymm_galerkinTest]]）の有限和版で、相殺が生じる理由は同じである。形式束の反対称性フィールドの忠実な実現可能部分。
 chapter: limit-passage
 tags: [convection, galerkin, torus]

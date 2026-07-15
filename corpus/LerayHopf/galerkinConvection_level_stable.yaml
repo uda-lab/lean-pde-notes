@@ -1,9 +1,9 @@
 name: LerayHopf.galerkinConvection_level_stable
 tier: full
 statement_ja: |
-  水準安定性（対称形）：$u, v$ が二つの水準 $m, n$ の両方で固定されるならば、どちらの水準の値も一致する。
+  打ち切り次数によらないこと（対称形）：$u, v$ が二つの次数 $m, n$ の両方の打ち切りで固定されるならば、どちらの次数の値も一致する。
 proof_ja: |
-  両者を共通の水準 $\max(m, n)$ の値に[[単調ステップ|LerayHopf.galerkinConvection_level_step]]で持ち上げて比較する。
+  両者を共通の次数 $\max(m, n)$ の打ち切りに[[打ち切り次数の引き上げ|LerayHopf.galerkinConvection_level_step]]で持ち上げて比較する。
 gap:
   level: none
   note: |

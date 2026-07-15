@@ -7,10 +7,10 @@ statement_ja: |
 
   を発散ゼロ空間上の連続双線形写像（実数値）として構成する。
 proof_ja: |
-  双線形写像化に[[有界性|LerayHopf.TorusConvectionExtension.convValW_bound]]の定数を添えて連続化する（`mkContinuous₂`）。
+  [[有界性|LerayHopf.TorusConvectionExtension.convValW_bound]]の評価から、対応する連続双線形写像を得る（`mkContinuous₂`）。
 gap:
   level: none
   note: |
-    固定テストの移流対が $(u, v)$ について結合連続 — 極限移行で近似列を同時に動かせる理由。
+    固定テストの移流対が $(u, v)$ について同時連続 — 極限移行で近似列を同時に動かせる理由。
 chapter: limit-passage
 tags: [convection, determined-form, torus]
