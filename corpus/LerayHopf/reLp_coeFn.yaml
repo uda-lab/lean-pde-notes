@@ -1,7 +1,7 @@
 name: LerayHopf.reLp_coeFn
 tier: full
 statement_ja: |
-  実部写像の値の各点表示：$\mathrm{Re}$ を取った $L^2$ 類の代表関数は a.e. で各点の実部に一致する。
+  実部写像の値の a.e. 表示：$\mathrm{Re}$ を取った $L^2$ 類の代表関数は、a.e. で元の代表関数の実部に一致する。
 proof_ja: |
   構成の展開そのものである。
 gap:
