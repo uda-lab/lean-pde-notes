@@ -953,14 +953,14 @@
   "doc":
   "The convection trilinear form vanishes when its last two arguments coincide —\nthe energy-estimate workhorse.\n\nProof: `b(u, v, v) = -b(u, v, v)` by `convForm_antisymm u v v`, so `2 * b(u, v, v) = 0`,\nhence `b(u, v, v) = 0`. ",
   "deps": ["LerayHopf.DissipativeEvolution"]},
- {"startLine": 80,
+ {"startLine": 134,
   "signature": "↥LerayHopf.L2VF → Prop",
   "private": false,
   "name": "LerayHopf.DivFreeL2",
   "kind": "def",
   "id": "LerayHopf.DivFreeL2",
   "file": "LerayHopf/Torus/DivergenceFree.lean",
-  "endLine": 92,
+  "endLine": 146,
   "doc":
   "A velocity field `u ∈ L²(𝕋³; ℝ³)` is **divergence-free** (in the L² / Fourier sense) if\nevery wavenumber `k ∈ ℤ³` satisfies the orthogonality condition\n\n  `∑ j : Fin 3, (k j : ℂ) * û_j(k) = 0`\n\nwhere `û_j(k) = mFourierCoeff3 (L2VF_projComponentC j u) k ∈ ℂ` is the `k`-th scalar\nFourier coefficient of the `j`-th complex-embedded component of `u`.\n\nThis is the Fourier characterisation of `div u = 0` for L² vector fields on `𝕋³`:\nin the Fourier domain, `div u = 0` iff `k · û(k) = ∑_j k_j û_j(k) = 0` for all `k`. ",
   "deps":
@@ -1898,7 +1898,7 @@
   "kind": "theorem",
   "id": "LerayHopf.L2VF_ext_componentC_mFourierCoeff",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 125,
+  "endLine": 101,
   "doc":
   "Two velocity fields are equal once all complex components have equal Fourier coefficients.\n\n`L2VF_projComponentC j u` is `RCLike.ofRealCLM ∘ L2VF_projComponent j u`; equality of all complex\ncomponents forces equality of the real components (`ofRealCLM` injective at the `Lp` level), and a\nvelocity field is determined by its three real components. ",
   "deps":
@@ -4987,7 +4987,7 @@
   "doc":
   "A family of eventually-equi-Lipschitz real functions on `[0, T]` that is Cauchy on a\ndense-in-`[0,T]` subset is Cauchy at every point of `[0, T]`. ",
   "deps": []},
- {"startLine": 168,
+ {"startLine": 144,
   "signature":
   "∀ (n : ℕ) (u : ↥LerayHopf.L2VF),\n  (LerayHopf.velocityProjection_n n) u = u →\n    ∀ (j : Fin 3), ∀ k ∉ LerayHopf.fourierBox n, LerayHopf.mFourierCoeff3 ((LerayHopf.L2VF_projComponentC j) u) k = 0",
   "private": false,
@@ -4995,7 +4995,7 @@
   "kind": "theorem",
   "id": "LerayHopf.coeff_zero_outside_box",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 178,
+  "endLine": 154,
   "doc":
   "If `velocityProjection_n n u = u` (i.e. `u ∈ Vₙ`), the `j`-th Fourier coefficient of `u`\nvanishes outside `fourierBox n`.  Copy of the `TorusConvectionForm.lean` lemma, hoisted here so\nthe downstream torus ODE solver (which does not import `TorusConvectionForm`) can use it. ",
   "deps":
@@ -5020,7 +5020,7 @@
   "doc":
   "The complex L²-inner product of the complexifications of two real Lp components equals the\ncast of their real L²-inner product.  Both sides are the integral of the pointwise product. ",
   "deps": ["LerayHopf.Domain3"]},
- {"startLine": 197,
+ {"startLine": 173,
   "signature":
   "∀ (n : ℕ) (v : ↥(LerayHopf.velocitySpan n)) (j : Fin 3), (LerayHopf.L2VF_projComponentC j) ↑v ∈ LerayHopf.fourierSpan n",
   "private": false,
@@ -5028,7 +5028,7 @@
   "kind": "theorem",
   "id": "LerayHopf.componentC_mem_fourierSpan",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 211,
+  "endLine": 187,
   "doc":
   "The `j`-th complex component of a `velocitySpan n` element lies in `fourierSpan n`.\n\nA `velocitySpan n` element `v` is fixed by `Pₙ`, so by `velocityProjection_n_component_comm` its\n`j`-th component equals `fourierProjection_n n` of itself, hence lies in the projector's range,\nwhich is `fourierSpan n`. ",
   "deps":
@@ -6482,7 +6482,7 @@
   "doc":
   "**Weak limit inside a closed submodule.**  If `xₖ ∈ K`, `‖xₖ‖ ≤ M`, and every inner-product\nsequence `k ↦ ⟪xₖ, z⟫` is Cauchy, then there is `y ∈ K` with `‖y‖ ≤ M` and `⟪xₖ, z⟫ → ⟪y, z⟫`\nfor every `z` (Riesz representation of the limit functional; membership by the\northogonal-projection argument). ",
   "deps": []},
- {"startLine": 157,
+ {"startLine": 178,
   "signature":
   "∀ (𝔊 : LerayHopf.R3GalerkinScheme) (F : LerayHopf.R3NSForms 𝔊) (ν : ℝ),\n  0 < ν →\n    ∀ (T : ℝ),\n      0 < T →\n        ∀ (u₀ : ↥LerayHopf.L2Sigma_R3) (galSeq : (n : ℕ) → LerayHopf.GalerkinSolutionData_R3 𝔊 F ν u₀ n)\n          (alPkg : LerayHopf.AubinLionsPackage_R3 𝔊 F ν T u₀ galSeq),\n          ∃ v,\n            (∀ᵐ (t : LerayHopf.Time) ∂MeasureTheory.volume.restrict (Set.Icc 0 T), v t = alPkg.u t) ∧\n              (∀ t ∈ Set.Icc 0 T,\n                  ∀ (z : ↥LerayHopf.L2VF_R3),\n                    Filter.Tendsto (fun n => inner ℝ (↑((galSeq (alPkg.φ n)).u t)) z) Filter.atTop\n                      (nhds (inner ℝ (↑(v t)) z))) ∧\n                (∀ t ∈ Set.Icc 0 T, ‖↑(v t)‖ ≤ ‖↑u₀‖) ∧\n                  v 0 = u₀ ∧\n                    ∀ (w : ↥LerayHopf.L2Sigma_R3),\n                      LerayHopf.IsGalerkinTest_R3 𝔊 w →\n                        ∃ L,\n                          0 ≤ L ∧\n                            ∀ s ∈ Set.Icc 0 T, ∀ t ∈ Set.Icc 0 T, |inner ℝ ↑(v t) ↑w - inner ℝ ↑(v s) ↑w| ≤ L * |t - s|",
   "private": false,
@@ -6490,7 +6490,7 @@
   "kind": "theorem",
   "id": "LerayHopf.exists_weak_representative_R3",
   "file": "LerayHopf/R3/GoodRepresentative.lean",
-  "endLine": 334,
+  "endLine": 357,
   "doc":
   "**Master construction: the ∀t-weakly-continuous representative** of the Aubin–Lions\nlimit on ℝ³.\n\nProduces `v : Time → L2Sigma_R3` such that:\n- (a.e.)      `v t = alPkg.u t` for a.e. `t ∈ [0, T]`.\n- (∀t weak)  `⟪(galSeq (alPkg.φ n)).u t, z⟫ → ⟪v t, z⟫` for every `t ∈ [0, T]`, `z : L2VF_R3`.\n- (∀t bound) `‖v t‖ ≤ ‖u₀‖` for every `t ∈ [0, T]`.\n- (v 0)       `v 0 = u₀` (endpoint pinning via `u_initial` + `𝔊.tendsto_id`).\n- (Lip)       `t ↦ ⟪v t, w⟫` is Lipschitz on `[0, T]` for every Galerkin test `w`.\n\nThis is the **verbatim S5 statement** from the feasibility spike\n(`LerayHopf/Scratch/Issue4LimitPassageSpike.lean`). ",
   "deps":
@@ -8346,7 +8346,7 @@
    "LerayHopf.viscousFormSq_R3"]},
  {"startLine": 262,
   "signature":
-  "∀ (𝔊 : LerayHopf.R3GalerkinScheme) (F : LerayHopf.R3NSForms 𝔊) (ν : ℝ) (u₀ : ↥LerayHopf.L2Sigma_R3)\n  (galSeq : (n : ℕ) → LerayHopf.GalerkinSolutionData_R3 𝔊 F ν u₀ n) (φ : ℕ → ℕ),\n  StrictMono φ →\n    ∀ (T : ℝ),\n      0 < T →\n        (∀ (k : ℕ),\n            ∃ g_k,\n              MeasureTheory.AEStronglyMeasurable g_k (MeasureTheory.volume.restrict (Set.Icc 0 T)) ∧\n                ∀ᵐ (t : LerayHopf.Time) ∂MeasureTheory.volume.restrict (Set.Icc 0 T),\n                  Filter.Tendsto (fun n => LerayHopf.restrictToBall ↑k ↑((galSeq (φ n)).u t)) Filter.atTop\n                    (nhds (g_k t))) →\n          ∃ u,\n            MeasureTheory.AEStronglyMeasurable (fun t => ↑(u t)) (MeasureTheory.volume.restrict (Set.Icc 0 T)) ∧\n              ∀ (R : ℝ),\n                ∀ᵐ (t : LerayHopf.Time) ∂MeasureTheory.volume.restrict (Set.Icc 0 T),\n                  Filter.Tendsto (fun n => LerayHopf.restrictToBall R ↑((galSeq (φ n)).u t)) Filter.atTop\n                    (nhds (LerayHopf.restrictToBall R ↑(u t)))",
+  "∀ (𝔊 : LerayHopf.R3GalerkinScheme) (F : LerayHopf.R3NSForms 𝔊) (ν : ℝ) (u₀ : ↥LerayHopf.L2Sigma_R3)\n  (galSeq : (n : ℕ) → LerayHopf.Galerkin.SolutionData (LerayHopf.r3Domain 𝔊) F.core ν u₀ n) (φ : ℕ → ℕ),\n  StrictMono φ →\n    ∀ (T : ℝ),\n      0 < T →\n        (∀ (k : ℕ),\n            ∃ g_k,\n              MeasureTheory.AEStronglyMeasurable g_k (MeasureTheory.volume.restrict (Set.Icc 0 T)) ∧\n                ∀ᵐ (t : LerayHopf.Time) ∂MeasureTheory.volume.restrict (Set.Icc 0 T),\n                  Filter.Tendsto (fun n => LerayHopf.restrictToBall ↑k ↑((galSeq (φ n)).u t)) Filter.atTop\n                    (nhds (g_k t))) →\n          ∃ u,\n            MeasureTheory.AEStronglyMeasurable (fun t => ↑(u t)) (MeasureTheory.volume.restrict (Set.Icc 0 T)) ∧\n              ∀ (R : ℝ),\n                ∀ᵐ (t : LerayHopf.Time) ∂MeasureTheory.volume.restrict (Set.Icc 0 T),\n                  Filter.Tendsto (fun n => LerayHopf.restrictToBall R ↑((galSeq (φ n)).u t)) Filter.atTop\n                    (nhds (LerayHopf.restrictToBall R ↑(u t)))",
   "private": false,
   "name": "LerayHopf.galerkin_weakLimit_R3",
   "kind": "theorem",
@@ -8359,7 +8359,6 @@
   ["LerayHopf.Domain3",
    "LerayHopf.Galerkin.Domain",
    "LerayHopf.Galerkin.SolutionData",
-   "LerayHopf.GalerkinSolutionData_R3",
    "LerayHopf.L2Sigma_R3",
    "LerayHopf.L2VF_R3",
    "LerayHopf.L2ballR3",
@@ -9703,7 +9702,7 @@
    "LerayHopf.L2VF_R3",
    "LerayHopf.SchwartzGalerkinBasis",
    "LerayHopf.galerkinSpan"]},
- {"startLine": 270,
+ {"startLine": 246,
   "signature":
   "∀ (n : ℕ) (v : ↥(LerayHopf.velocitySpan n)), ↑v ∈ LerayHopf.L2Sigma",
   "private": false,
@@ -9711,7 +9710,7 @@
   "kind": "theorem",
   "id": "LerayHopf.mem_sigma_of_mem_velocitySpan",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 272,
+  "endLine": 248,
   "doc":
   "The `j`-th component coercion is the same data; helper to keep the `L2Sigma` membership. ",
   "deps":
@@ -9721,7 +9720,7 @@
    "LerayHopf.VelocityValue",
    "LerayHopf.haarTorus3",
    "LerayHopf.velocitySpan"]},
- {"startLine": 161,
+ {"startLine": 137,
   "signature":
   "∀ (n : ℕ) (x : ↥LerayHopf.L2VF),\n  x ∈ LerayHopf.velocitySpan n ↔ ∃ y ∈ LerayHopf.L2Sigma, (LerayHopf.velocityProjection_n n) y = x",
   "private": false,
@@ -9729,7 +9728,7 @@
   "kind": "theorem",
   "id": "LerayHopf.mem_velocitySpan_iff",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 164,
+  "endLine": 140,
   "doc":
   "Membership in `velocitySpan n`: is the projection of some divergence-free field. ",
   "deps":
@@ -9740,7 +9739,7 @@
    "LerayHopf.haarTorus3",
    "LerayHopf.velocityProjection_n",
    "LerayHopf.velocitySpan"]},
- {"startLine": 188,
+ {"startLine": 164,
   "signature":
   "∀ (n : ℕ), ∀ x ∈ LerayHopf.L2Sigma, (LerayHopf.velocityProjection_n n) x = x → x ∈ LerayHopf.velocitySpan n",
   "private": false,
@@ -9748,7 +9747,7 @@
   "kind": "theorem",
   "id": "LerayHopf.mem_velocitySpan_of_fixed",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 193,
+  "endLine": 169,
   "doc":
   "**Bridge (fixed points ⊆ range).** Any divergence-free `x` fixed by the projector lies in\n`velocitySpan n`.  The `L2Sigma` hypothesis is exactly satisfied by the Galerkin test functions\nin `u_ode` (typed `w : L2Sigma` with `velocityProjection_n n w = w`). ",
   "deps":
@@ -10282,22 +10281,21 @@
    "LerayHopf.Time",
    "LerayHopf.r3Domain",
    "LerayHopf.restrictToBall"]},
- {"startLine": 68,
+ {"startLine": 89,
   "signature":
-  "∀ {𝔊 : LerayHopf.R3GalerkinScheme} {F : LerayHopf.R3NSForms 𝔊} (ν : ℝ),\n  0 < ν →\n    ∀ (u₀ : ↥LerayHopf.L2Sigma_R3) (galSeq : (n : ℕ) → LerayHopf.GalerkinSolutionData_R3 𝔊 F ν u₀ n)\n      (w : ↥LerayHopf.L2Sigma_R3),\n      LerayHopf.IsSchwartzDivFree_R3 w →\n        ∀ (n₀ : ℕ),\n          (𝔊.P n₀) ↑w = ↑w →\n            ∃ L,\n              0 ≤ L ∧\n                ∀ (n : ℕ),\n                  n₀ ≤ n →\n                    ∀ s ∈ Set.Ici 0,\n                      ∀ t ∈ Set.Ici 0, |inner ℝ ↑((galSeq n).u t) ↑w - inner ℝ ↑((galSeq n).u s) ↑w| ≤ L * |t - s|",
+  "∀ {𝔊 : LerayHopf.R3GalerkinScheme} {F : LerayHopf.R3NSForms 𝔊} (ν : ℝ),\n  0 < ν →\n    ∀ (u₀ : ↥LerayHopf.L2Sigma_R3)\n      (galSeq : (n : ℕ) → LerayHopf.Galerkin.SolutionData (LerayHopf.r3Domain 𝔊) F.core ν u₀ n)\n      (w : ↥LerayHopf.L2Sigma_R3),\n      LerayHopf.IsSchwartzDivFree_R3 w →\n        ∀ (n₀ : ℕ),\n          (𝔊.P n₀) ↑w = ↑w →\n            ∃ L,\n              0 ≤ L ∧\n                ∀ (n : ℕ),\n                  n₀ ≤ n →\n                    ∀ s ∈ Set.Ici 0,\n                      ∀ t ∈ Set.Ici 0, |inner ℝ ↑((galSeq n).u t) ↑w - inner ℝ ↑((galSeq n).u s) ↑w| ≤ L * |t - s|",
   "private": false,
   "name": "LerayHopf.perTest_lipschitz_R3",
   "kind": "theorem",
   "id": "LerayHopf.perTest_lipschitz_R3",
   "file": "LerayHopf/R3/GoodRepresentative.lean",
-  "endLine": 152,
+  "endLine": 173,
   "doc":
   "**Per-Galerkin-test equi-Lipschitz bound** on ℝ³.  For a Galerkin test `w` at level `n₀`,\nand any Galerkin level `n ≥ n₀`, the scalar pairing curve\n`t ↦ ⟪uₙ(t), w⟫` is Lipschitz on `[0,∞)` with constant\n`L(w) := ν·Cs(w)·‖u₀‖ + Cb(w)·‖u₀‖²`,\nwhere `Cs(w)` comes from `stokesTestPairing_abs_le` via `range_schwartz` + negLap,\nand `Cb(w)` from `F.b_bound`. ",
   "deps":
   ["LerayHopf.Domain3",
    "LerayHopf.Galerkin.Domain",
    "LerayHopf.Galerkin.SolutionData",
-   "LerayHopf.GalerkinSolutionData_R3",
    "LerayHopf.IsSchwartzDivFree_R3",
    "LerayHopf.L2Sigma_R3",
    "LerayHopf.L2VF_R3",
@@ -10504,7 +10502,25 @@
   "endLine": 38,
   "doc": null,
   "deps": ["LerayHopf.Domain3", "LerayHopf.L2C_R3", "LerayHopf.reLp"]},
- {"startLine": 153,
+ {"startLine": 84,
+  "signature":
+  "∀ (j : Fin 3) (w : ↥LerayHopf.L2VF),\n  (ContinuousLinearMap.compLpL 2 LerayHopf.haarTorus3 RCLike.reCLM) ((LerayHopf.L2VF_projComponentC j) w) =\n    (LerayHopf.L2VF_projComponent j) w",
+  "private": false,
+  "name": "LerayHopf.re_compLpL_projComponentC",
+  "kind": "theorem",
+  "id": "LerayHopf.re_compLpL_projComponentC",
+  "file": "LerayHopf/Torus/DivergenceFree.lean",
+  "endLine": 96,
+  "doc": "Taking the real part undoes the complex embedding of a component. ",
+  "deps":
+  ["LerayHopf.L2C",
+   "LerayHopf.L2VF",
+   "LerayHopf.L2VF_projComponent",
+   "LerayHopf.L2VF_projComponentC",
+   "LerayHopf.Torus3",
+   "LerayHopf.VelocityValue",
+   "LerayHopf.haarTorus3"]},
+ {"startLine": 108,
   "signature":
   "∀ (M : ℝ) (u : ℕ → ↥LerayHopf.L2VF),\n  (∀ (n : ℕ), u n ∈ LerayHopf.L2Sigma) →\n    (∀ (n : ℕ), LerayHopf.memH1VF (u n)) →\n      (∀ (n : ℕ), LerayHopf.h1EnergySq (u n) ≤ M ^ 2) →\n        ∃ φ g, StrictMono φ ∧ g ∈ LerayHopf.L2Sigma ∧ Filter.Tendsto (fun n => u (φ n)) Filter.atTop (nhds g)",
   "private": false,
@@ -10512,7 +10528,7 @@
   "kind": "theorem",
   "id": "LerayHopf.rellich_L2Sigma",
   "file": "LerayHopf/Torus/H1Sigma.lean",
-  "endLine": 223,
+  "endLine": 178,
   "doc":
   "**Rellich compactness for L²_σ.**\n\nAny sequence `u : ℕ → L2VF` of divergence-free velocity fields bounded in H¹\nhas a subsequence converging in `L2VF`.\n\nMore precisely: if each `u n ∈ L2Sigma`, each component satisfies `memH1VF (u n)`,\nand `h1EnergySq (u n) ≤ M²` for all `n`, then there exist a strictly monotone\nextraction `φ : ℕ → ℕ` and a limit `g ∈ L2Sigma` such that\n`u (φ n) → g` in `L2VF`.\n\nProof strategy (prover target):\n- Apply `rellich_seq_compact` componentwise (j = 0, 1, 2) to extract convergent\n  subsequences in `L2C`, using `hH1` (summability) and `hbound` (energy bound).\n- Combine via diagonal extraction to get a single subsequence converging in all\n  components.\n- Reconstruct the limit in `L2VF` from the componentwise limits.\n- Use `velocityProjection_n_preserves_L2Sigma` / `mem_L2Sigma_iff` to verify\n  the limit is divergence-free. ",
   "deps":
@@ -11126,7 +11142,7 @@
    "LerayHopf.memH1VF_R3",
    "LerayHopf.stokesTestPairing_R3",
    "LerayHopf.weightedFourierComponent"]},
- {"startLine": 452,
+ {"startLine": 475,
   "signature":
   "∀ (𝔊 : LerayHopf.R3GalerkinScheme) (T : ℝ),\n  0 < T →\n    ∀ (u₀ : ↥LerayHopf.L2Sigma_R3) (v : LerayHopf.Time → ↥LerayHopf.L2Sigma_R3),\n      (∀ t ∈ Set.Icc 0 T, ‖↑(v t)‖ ≤ ‖↑u₀‖) →\n        v 0 = u₀ →\n          (∀ (w : ↥LerayHopf.L2Sigma_R3),\n              LerayHopf.IsGalerkinTest_R3 𝔊 w →\n                ∃ L,\n                  0 ≤ L ∧ ∀ s ∈ Set.Icc 0 T, ∀ t ∈ Set.Icc 0 T, |inner ℝ ↑(v t) ↑w - inner ℝ ↑(v s) ↑w| ≤ L * |t - s|) →\n            Filter.Tendsto (fun t => ↑(v t)) (nhdsWithin 0 (Set.Ici 0)) (nhds ↑u₀)",
   "private": false,
@@ -11134,7 +11150,7 @@
   "kind": "theorem",
   "id": "LerayHopf.strong_trace_of_props_R3",
   "file": "LerayHopf/R3/GoodRepresentative.lean",
-  "endLine": 499,
+  "endLine": 522,
   "doc":
   "**Conjunct (4): strong initial trace** on ℝ³.\n\nPort of `TorusTraceEnergy.lean:935` (`strong_trace_of_props`). The strategy is identical:\n`weak_trace_inner_R3` gives `⟪v(t), u₀⟫ → ‖u₀‖²`; together with the uniform bound `‖v(t)‖ ≤ ‖u₀‖`\nand the norm expansion `‖v(t) − u₀‖² = ‖v(t)‖² − 2⟪v(t), u₀⟫ + ‖u₀‖² ≤ 2‖u₀‖² − 2⟪v(t), u₀⟫ → 0`,\nthis yields strong `L²_σ(ℝ³)` convergence.  Density at `u₀` for `hlip` is `𝔊.tendsto_id`. ",
   "deps":
@@ -11160,6 +11176,24 @@
    "LerayHopf.L2VF_R3",
    "LerayHopf.L2VF_projComponent_R3",
    "LerayHopf.viscousFormSq_R3"]},
+ {"startLine": 113,
+  "signature":
+  "∀ (w : ↥LerayHopf.L2VF), ∑ j, (LerayHopf.L2VF_injectComponent j) ((LerayHopf.L2VF_projComponent j) w) = w",
+  "private": false,
+  "name": "LerayHopf.sum_inject_projComponent",
+  "kind": "theorem",
+  "id": "LerayHopf.sum_inject_projComponent",
+  "file": "LerayHopf/Torus/DivergenceFree.lean",
+  "endLine": 130,
+  "doc":
+  "The componentwise reassembly recovers a vector field: summing the injected\nper-component projections over `j : Fin 3` reconstructs the original field. ",
+  "deps":
+  ["LerayHopf.L2VF",
+   "LerayHopf.L2VF_injectComponent",
+   "LerayHopf.L2VF_projComponent",
+   "LerayHopf.Torus3",
+   "LerayHopf.VelocityValue",
+   "LerayHopf.haarTorus3"]},
  {"startLine": 96,
   "signature":
   "∀ (N : ℕ) (v : ↥LerayHopf.L2VF) (vk : ℕ → ↥LerayHopf.L2VF),\n  (∀ (y : ↥LerayHopf.L2VF), Filter.Tendsto (fun i => inner ℝ (vk i) y) Filter.atTop (nhds (inner ℝ v y))) →\n    ∑ j,\n        ∑' (k : { k // k ∉ LerayHopf.fourierBox N }),\n          ENNReal.ofReal (‖LerayHopf.mFourierCoeff3 ((LerayHopf.L2VF_projComponentC j) v) ↑k‖ ^ 2) ≤\n      Filter.liminf\n        (fun i =>\n          ∑ j,\n            ∑' (k : { k // k ∉ LerayHopf.fourierBox N }),\n              ENNReal.ofReal (‖LerayHopf.mFourierCoeff3 ((LerayHopf.L2VF_projComponentC j) (vk i)) ↑k‖ ^ 2))\n        Filter.atTop",
@@ -11711,7 +11745,7 @@
   "kind": "theorem",
   "id": "LerayHopf.u_lim_aestronglyMeasurable",
   "file": "LerayHopf/R3/ArzelaAscoliTime.lean",
-  "endLine": 957,
+  "endLine": 958,
   "doc":
   "**`u_lim_aestronglyMeasurable` — The assembled limit curve `u : Time → L2Sigma_R3` exists,\nis AE strongly measurable, and the diagonal Galerkin subsequence converges per-ball a.e.-t.**\n\nCombines:\n- `diag_ae_subseq` (new): diagonal subsequence + per-ball a.e.-t convergence for all `k : ℕ`,\n- monotone ball-norm extension from ℕ to ℝ (via `restrictToBall_sub_norm_mono`),\n- axiom B (`galerkin_weakLimit_R3`): assembles the measurable limit `u : Time → L2Sigma_R3`.\n\nThe output has the SAME type as `galerkinSpaceTimeExtraction_R3` requires. ",
   "deps":
@@ -11729,7 +11763,7 @@
    "LerayHopf.Time",
    "LerayHopf.r3Domain",
    "LerayHopf.restrictToBall"]},
- {"startLine": 182,
+ {"startLine": 158,
   "signature":
   "∀ (n : ℕ) (v : ↥(LerayHopf.velocitySpan n)), (LerayHopf.velocityProjection_n n) ↑v = ↑v",
   "private": false,
@@ -11737,7 +11771,7 @@
   "kind": "theorem",
   "id": "LerayHopf.velocityP_fixes_span",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 186,
+  "endLine": 162,
   "doc":
   "**Bridge (range ⊆ fixed points).** Every `v ∈ velocitySpan n` is fixed by the projector. ",
   "deps":
@@ -11747,7 +11781,7 @@
    "LerayHopf.haarTorus3",
    "LerayHopf.velocityProjection_n",
    "LerayHopf.velocitySpan"]},
- {"startLine": 291,
+ {"startLine": 267,
   "signature":
   "∀ (n : ℕ) (u₀ : ↥LerayHopf.L2Sigma), (LerayHopf.velocityProjection_n n) ↑u₀ ∈ LerayHopf.velocitySpan n",
   "private": false,
@@ -11755,7 +11789,7 @@
   "kind": "theorem",
   "id": "LerayHopf.velocityP_initial_mem",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 294,
+  "endLine": 270,
   "doc":
   "`velocityProjection_n n u₀ ∈ velocitySpan n` (analog of `galerkinP_mem_span`). ",
   "deps":
@@ -11822,7 +11856,7 @@
    "LerayHopf.fourierProjection_n",
    "LerayHopf.haarTorus3",
    "LerayHopf.velocityProjection_n"]},
- {"startLine": 127,
+ {"startLine": 103,
   "signature":
   "∀ (n : ℕ) (u : ↥LerayHopf.L2VF),\n  (LerayHopf.velocityProjection_n n) ((LerayHopf.velocityProjection_n n) u) = (LerayHopf.velocityProjection_n n) u",
   "private": false,
@@ -11830,7 +11864,7 @@
   "kind": "theorem",
   "id": "LerayHopf.velocityProjection_n_idem",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 145,
+  "endLine": 121,
   "doc":
   "**Idempotence of the velocity Galerkin projection.**  `Pₙ (Pₙ u) = Pₙ u`.\n\nComponentwise from `velocityProjection_n_component_comm` + idempotence of `fourierProjection_n`\n(`fourierProjection_n_mFourierCoeff`: coefficients inside the box are preserved, outside killed,\nso applying the cutoff twice is the cutoff). ",
   "deps":
@@ -11933,7 +11967,7 @@
   "kind": "theorem",
   "id": "LerayHopf.velocityProjection_n_tendsto",
   "file": "LerayHopf/Torus/VelocityGalerkin.lean",
-  "endLine": 396,
+  "endLine": 362,
   "doc":
   "The velocity Galerkin projections converge to the identity in `L2VF = L²(𝕋³; ℝ³)`.\n\n**Proof outline:**\n\nFor each component `j`, `L2VF_projComponentC j (velocityProjection_n n u) → L2VF_projComponentC j u`\nin `L2C` follows from `fourierProjection_n_tendsto` (D-30) applied to `L2VF_projComponentC j u`\nand the bridge lemma `velocityProjection_n_component_comm`.\n\nThe convergence `velocityProjection_n n u → u` in `L2VF` then follows from convergence in each\ncomponent via `tendsto_finsetSum`, using the componentwise decomposition\n`∑ j, L2VF_injectComponent j (L2VF_projComponent j u) = u`.\n\nKey lemmas used: `velocityProjection_n_component_comm`, `fourierProjection_n_tendsto`,\n`tendsto_finsetSum`. ",
   "deps":
@@ -11942,14 +11976,14 @@
    "LerayHopf.VelocityValue",
    "LerayHopf.haarTorus3",
    "LerayHopf.velocityProjection_n"]},
- {"startLine": 149,
+ {"startLine": 125,
   "signature": "ℕ → Submodule ℝ ↥LerayHopf.L2VF",
   "private": false,
   "name": "LerayHopf.velocitySpan",
   "kind": "def",
   "id": "LerayHopf.velocitySpan",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 159,
+  "endLine": 135,
   "doc":
   "The `n`-th Galerkin subspace `Vₙ ≤ L2VF`: the image of the divergence-free subspace\n`L2Sigma` under the componentwise projector `velocityProjection_n n`.\n\nMirrors `R3/GalerkinScheme.lean`'s `galerkinSpan B n` (the span of finitely many div-free basis\nvectors), but built from the Route-C projector.  Taking the image of `L2Sigma` — rather than the\nfull range of `velocityProjection_n n` — is what makes `velocitySpan n ≤ L2Sigma` true:\n`velocityProjection_n n` does NOT map an arbitrary field into `L2Sigma` (it only does so when the\nargument is already divergence-free, `velocityProjection_n_preserves_L2Sigma`), so the honest\nGalerkin subspace is `Pₙ '' L2Sigma`. ",
   "deps":
@@ -11959,14 +11993,14 @@
    "LerayHopf.VelocityValue",
    "LerayHopf.haarTorus3",
    "LerayHopf.velocityProjection_n"]},
- {"startLine": 274,
+ {"startLine": 250,
   "signature": "(n : ℕ) → ↥(LerayHopf.velocitySpan n) → ↥LerayHopf.L2Sigma",
   "private": false,
   "name": "LerayHopf.velocitySpanToSigma",
   "kind": "def",
   "id": "LerayHopf.velocitySpanToSigma",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 276,
+  "endLine": 252,
   "doc":
   "The embedding `velocitySpan n ↪ L2Sigma` (torus analog of `galerkinSpanToSigma`). ",
   "deps":
@@ -11977,7 +12011,7 @@
    "LerayHopf.haarTorus3",
    "LerayHopf.mem_sigma_of_mem_velocitySpan",
    "LerayHopf.velocitySpan"]},
- {"startLine": 281,
+ {"startLine": 257,
   "signature":
   "∀ (n : ℕ) (v w : ↥(LerayHopf.velocitySpan n)),\n  LerayHopf.velocitySpanToSigma n (v + w) = LerayHopf.velocitySpanToSigma n v + LerayHopf.velocitySpanToSigma n w",
   "private": false,
@@ -11985,7 +12019,7 @@
   "kind": "theorem",
   "id": "LerayHopf.velocitySpanToSigma_add",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 283,
+  "endLine": 259,
   "doc": null,
   "deps":
   ["LerayHopf.L2Sigma",
@@ -11995,7 +12029,7 @@
    "LerayHopf.haarTorus3",
    "LerayHopf.velocitySpan",
    "LerayHopf.velocitySpanToSigma"]},
- {"startLine": 278,
+ {"startLine": 254,
   "signature":
   "∀ (n : ℕ) (v : ↥(LerayHopf.velocitySpan n)), ↑(LerayHopf.velocitySpanToSigma n v) = ↑v",
   "private": false,
@@ -12003,7 +12037,7 @@
   "kind": "theorem",
   "id": "LerayHopf.velocitySpanToSigma_coe",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 279,
+  "endLine": 255,
   "doc": null,
   "deps":
   ["LerayHopf.L2Sigma",
@@ -12013,7 +12047,7 @@
    "LerayHopf.haarTorus3",
    "LerayHopf.velocitySpan",
    "LerayHopf.velocitySpanToSigma"]},
- {"startLine": 285,
+ {"startLine": 261,
   "signature":
   "∀ (n : ℕ) (c : ℝ) (v : ↥(LerayHopf.velocitySpan n)),\n  LerayHopf.velocitySpanToSigma n (c • v) = c • LerayHopf.velocitySpanToSigma n v",
   "private": false,
@@ -12021,7 +12055,7 @@
   "kind": "theorem",
   "id": "LerayHopf.velocitySpanToSigma_smul",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 287,
+  "endLine": 263,
   "doc": null,
   "deps":
   ["LerayHopf.L2Sigma",
@@ -12031,14 +12065,14 @@
    "LerayHopf.haarTorus3",
    "LerayHopf.velocitySpan",
    "LerayHopf.velocitySpanToSigma"]},
- {"startLine": 249,
+ {"startLine": 225,
   "signature": "∀ (n : ℕ), CompleteSpace ↥(LerayHopf.velocitySpan n)",
   "private": false,
   "name": "LerayHopf.velocitySpan_completeSpace",
   "kind": "instance",
   "id": "LerayHopf.velocitySpan_completeSpace",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 251,
+  "endLine": 227,
   "doc":
   "`velocitySpan n` is complete (finite-dimensional submodule of a normed space). ",
   "deps":
@@ -12047,14 +12081,14 @@
    "LerayHopf.VelocityValue",
    "LerayHopf.haarTorus3",
    "LerayHopf.velocitySpan"]},
- {"startLine": 213,
+ {"startLine": 189,
   "signature": "∀ (n : ℕ), FiniteDimensional ℝ ↥(LerayHopf.velocitySpan n)",
   "private": false,
   "name": "LerayHopf.velocitySpan_finiteDimensional",
   "kind": "instance",
   "id": "LerayHopf.velocitySpan_finiteDimensional",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 247,
+  "endLine": 223,
   "doc":
   "`velocitySpan n` is finite-dimensional.\n\nEach complex component of a `velocitySpan n` element lies in the finite-dimensional `fourierSpan n`\n(`componentC_mem_fourierSpan`), and a velocity field is determined by its three complex components\n(`L2VF_ext_componentC_mFourierCoeff`).  Hence the linear map sending `v` to its three components is\nan **injection** `velocitySpan n ↪ (Fin 3 → fourierSpan n)` into a finite-dimensional space, so\n`velocitySpan n` is finite-dimensional. ",
   "deps":
@@ -12063,14 +12097,14 @@
    "LerayHopf.VelocityValue",
    "LerayHopf.haarTorus3",
    "LerayHopf.velocitySpan"]},
- {"startLine": 253,
+ {"startLine": 229,
   "signature": "∀ (n : ℕ), (LerayHopf.velocitySpan n).HasOrthogonalProjection",
   "private": false,
   "name": "LerayHopf.velocitySpan_hasOrthogonalProjection",
   "kind": "instance",
   "id": "LerayHopf.velocitySpan_hasOrthogonalProjection",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 256,
+  "endLine": 232,
   "doc": "`velocitySpan n` has an orthogonal projection (from completeness). ",
   "deps":
   ["LerayHopf.L2VF",
@@ -12078,14 +12112,14 @@
    "LerayHopf.VelocityValue",
    "LerayHopf.haarTorus3",
    "LerayHopf.velocitySpan"]},
- {"startLine": 260,
+ {"startLine": 236,
   "signature": "∀ (n : ℕ), LerayHopf.velocitySpan n ≤ LerayHopf.L2Sigma",
   "private": false,
   "name": "LerayHopf.velocitySpan_le_sigma",
   "kind": "theorem",
   "id": "LerayHopf.velocitySpan_le_sigma",
   "file": "LerayHopf/Torus/GalerkinScheme.lean",
-  "endLine": 268,
+  "endLine": 244,
   "doc":
   "`velocitySpan n ≤ L2Sigma`: every element of the Galerkin subspace is divergence-free.\n\nImmediate now that `velocitySpan n = Pₙ '' L2Sigma`: a value `v = Pₙ y` with `y ∈ L2Sigma` is\ndiv-free by `velocityProjection_n_preserves_L2Sigma`. ",
   "deps":
@@ -12443,7 +12477,7 @@
   "doc":
   "**Fixed-test-vector convergence ⟹ weak convergence** in `WeakSpace ℝ L2VF_R3`.  If\n`⟪e, uₙ⟫ → ⟪e, u⟫` for every `e` (Riesz: every dual), then `uₙ ⇀ u`. ",
   "deps": ["LerayHopf.Domain3", "LerayHopf.L2VF_R3"]},
- {"startLine": 338,
+ {"startLine": 361,
   "signature":
   "∀ (𝔊 : LerayHopf.R3GalerkinScheme) (T : ℝ),\n  0 < T →\n    ∀ (u₀ : ↥LerayHopf.L2Sigma_R3) (v : LerayHopf.Time → ↥LerayHopf.L2Sigma_R3),\n      (∀ t ∈ Set.Icc 0 T, ‖↑(v t)‖ ≤ ‖↑u₀‖) →\n        v 0 = u₀ →\n          (∀ (w : ↥LerayHopf.L2Sigma_R3),\n              LerayHopf.IsGalerkinTest_R3 𝔊 w →\n                ∃ L,\n                  0 ≤ L ∧ ∀ s ∈ Set.Icc 0 T, ∀ t ∈ Set.Icc 0 T, |inner ℝ ↑(v t) ↑w - inner ℝ ↑(v s) ↑w| ≤ L * |t - s|) →\n            Filter.Tendsto (fun t => inner ℝ ↑(v t) ↑u₀) (nhdsWithin 0 (Set.Ici 0)) (nhds (inner ℝ ↑u₀ ↑u₀))",
   "private": false,
@@ -12451,7 +12485,7 @@
   "kind": "theorem",
   "id": "LerayHopf.weak_trace_inner_R3",
   "file": "LerayHopf/R3/GoodRepresentative.lean",
-  "endLine": 450,
+  "endLine": 473,
   "doc":
   "**Weak initial trace against `u₀`** on ℝ³: `⟪v(t), u₀⟫ → ⟪u₀, u₀⟫` as `t → 0⁺`.\n\nPort of `TorusTraceEnergy.lean:824` (`weak_trace_inner`) with `L2Sigma_R3` / `IsGalerkinTest_R3 𝔊`\n/ `𝔊.tendsto_id` replacing the torus counterparts.  The ε/3 argument uses the per-Galerkin-test\nLipschitz continuity `hlip` and density of Galerkin tests via `𝔊.tendsto_id` at `u₀`. ",
   "deps":
@@ -18033,21 +18067,42 @@
   "deps": []},
  {"startLine": 50,
   "signature":
-  "∀ {𝔊 : LerayHopf.R3GalerkinScheme} {F : LerayHopf.R3NSForms 𝔊} (ν : ℝ) (u₀ : ↥LerayHopf.L2Sigma_R3) (n : ℕ)\n  (gs : LerayHopf.GalerkinSolutionData_R3 𝔊 F ν u₀ n) (w : ↥LerayHopf.L2Sigma_R3),\n  (𝔊.P n) ↑w = ↑w →\n    ∀ (t : ℝ),\n      0 ≤ t →\n        HasDerivAt (fun s => inner ℝ ↑(gs.u s) ↑w)\n          (-(ν * LerayHopf.stokesTestPairing_R3 ↑(gs.u t) ↑w + F.b (gs.u t) (gs.u t) w)) t",
+  "∀ (𝔊 : LerayHopf.R3GalerkinScheme) (F : LerayHopf.R3NSForms 𝔊) (ν : ℝ) (u₀ : ↥LerayHopf.L2Sigma_R3) (n : ℕ)\n  (gs : LerayHopf.Galerkin.SolutionData (LerayHopf.r3Domain 𝔊) F.core ν u₀ n) {t : ℝ}, 0 ≤ t → ‖↑(gs.u t)‖ ≤ ‖↑u₀‖",
+  "private": true,
+  "name": "LerayHopf.galerkin_norm_le_u0_generic",
+  "kind": "theorem",
+  "id":
+  "_private.LerayHopf.R3.GoodRepresentative.0.LerayHopf.galerkin_norm_le_u0_generic",
+  "file": "LerayHopf/R3/GoodRepresentative.lean",
+  "endLine": 69,
+  "doc":
+  "**Generic-bundle counterpart of `EnergyWeakLsc.galerkin_norm_le_u0`** (verbatim port): the\nGalerkin state is `L²`-bounded by the initial datum, using only the generic `energy_bound` field\nand `𝔊.norm_le` — no R3-specific (`viscous_curve_continuous`) enrichment is needed for this fact.\n\nKept local/private rather than reusing `galerkin_norm_le_u0` directly: that lemma is typed on the\nconcrete `GalerkinSolutionData_R3`, and `perTest_lipschitz_R3`'s narrowed (issue #135) `galSeq`\nargument is generic — there is no `GalerkinSolutionData_R3 → Galerkin.SolutionData` direction to\nproject along, so the (already-verified) proof is ported instead of the statement being reused. ",
+  "deps":
+  ["LerayHopf.Domain3",
+   "LerayHopf.Galerkin.Domain",
+   "LerayHopf.Galerkin.SolutionData",
+   "LerayHopf.L2Sigma_R3",
+   "LerayHopf.L2VF_R3",
+   "LerayHopf.R3GalerkinScheme",
+   "LerayHopf.R3NSForms",
+   "LerayHopf.R3NSForms.core",
+   "LerayHopf.r3Domain"]},
+ {"startLine": 71,
+  "signature":
+  "∀ {𝔊 : LerayHopf.R3GalerkinScheme} {F : LerayHopf.R3NSForms 𝔊} (ν : ℝ) (u₀ : ↥LerayHopf.L2Sigma_R3) (n : ℕ)\n  (gs : LerayHopf.Galerkin.SolutionData (LerayHopf.r3Domain 𝔊) F.core ν u₀ n) (w : ↥LerayHopf.L2Sigma_R3),\n  (𝔊.P n) ↑w = ↑w →\n    ∀ (t : ℝ),\n      0 ≤ t →\n        HasDerivAt (fun s => inner ℝ ↑(gs.u s) ↑w)\n          (-(ν * LerayHopf.stokesTestPairing_R3 ↑(gs.u t) ↑w + F.b (gs.u t) (gs.u t) w)) t",
   "private": true,
   "name": "LerayHopf.perTest_hasDerivAt_R3",
   "kind": "theorem",
   "id":
   "_private.LerayHopf.R3.GoodRepresentative.0.LerayHopf.perTest_hasDerivAt_R3",
   "file": "LerayHopf/R3/GoodRepresentative.lean",
-  "endLine": 65,
+  "endLine": 86,
   "doc":
   "The scalar test curve `t ↦ ⟪uₙ(t), w⟫` has derivative\n`-(ν·stokesTestPairing_R3(uₙ t, w) + b(uₙ t, uₙ t, w))` at forward times, for tests fixed at\nlevel `n` (from `u_hasDeriv` + `u_ode`).  R3 port of the torus `perTest_hasDerivAt`. ",
   "deps":
   ["LerayHopf.Domain3",
    "LerayHopf.Galerkin.Domain",
    "LerayHopf.Galerkin.SolutionData",
-   "LerayHopf.GalerkinSolutionData_R3",
    "LerayHopf.L2Sigma_R3",
    "LerayHopf.L2VF_R3",
    "LerayHopf.R3GalerkinScheme",
@@ -20180,6 +20235,25 @@
   "endLine": 138,
   "doc": "Key: `Re[(c : ℂ) * z] = c * Re[z]` for `c : ℝ`. ",
   "deps": []},
+ {"startLine": 98,
+  "signature":
+  "∀ (j : Fin 3) (w : ↥LerayHopf.L2VF),\n  ↑↑((LerayHopf.L2VF_injectComponent j) ((LerayHopf.L2VF_projComponent j) w)) =ᵐ[LerayHopf.haarTorus3] fun x =>\n    (↑↑w x).ofLp j • EuclideanSpace.single j 1",
+  "private": true,
+  "name": "LerayHopf.injectComponent_projComponent_ae",
+  "kind": "theorem",
+  "id":
+  "_private.LerayHopf.Torus.DivergenceFree.0.LerayHopf.injectComponent_projComponent_ae",
+  "file": "LerayHopf/Torus/DivergenceFree.lean",
+  "endLine": 111,
+  "doc":
+  "Pointwise (a.e.) description of a reassembled `j`-th component: injecting the `j`-th\nreal component back into `L2VF` agrees a.e. with the `j`-th coordinate projection scaled\nby the standard basis vector `eⱼ`. ",
+  "deps":
+  ["LerayHopf.L2VF",
+   "LerayHopf.L2VF_injectComponent",
+   "LerayHopf.L2VF_projComponent",
+   "LerayHopf.Torus3",
+   "LerayHopf.VelocityValue",
+   "LerayHopf.haarTorus3"]},
  {"startLine": 409,
   "signature": "(Fin 3 → ℤ) × (Fin 3 → ℤ) ≃ (Fin 3 → ℤ) × (Fin 3 → ℤ)",
   "private": true,
@@ -20526,44 +20600,6 @@
    "LerayHopf.h1EnergySq",
    "LerayHopf.haarTorus3",
    "LerayHopf.mFourierCoeff3"]},
- {"startLine": 108,
-  "signature":
-  "∀ (j : Fin 3) (w : ↥LerayHopf.L2VF),\n  (ContinuousLinearMap.compLpL 2 LerayHopf.haarTorus3 RCLike.reCLM) ((LerayHopf.L2VF_projComponentC j) w) =\n    (LerayHopf.L2VF_projComponent j) w",
-  "private": true,
-  "name": "LerayHopf.re_compLpL_projComponentC",
-  "kind": "theorem",
-  "id":
-  "_private.LerayHopf.Torus.H1Sigma.0.LerayHopf.re_compLpL_projComponentC",
-  "file": "LerayHopf/Torus/H1Sigma.lean",
-  "endLine": 121,
-  "doc":
-  "Taking the real part undoes the complex embedding of a component\n(cf. `velocityProjection_n_tendsto`). ",
-  "deps":
-  ["LerayHopf.L2C",
-   "LerayHopf.L2VF",
-   "LerayHopf.L2VF_projComponent",
-   "LerayHopf.L2VF_projComponentC",
-   "LerayHopf.Torus3",
-   "LerayHopf.VelocityValue",
-   "LerayHopf.haarTorus3"]},
- {"startLine": 123,
-  "signature":
-  "∀ (w : ↥LerayHopf.L2VF), ∑ j, (LerayHopf.L2VF_injectComponent j) ((LerayHopf.L2VF_projComponent j) w) = w",
-  "private": true,
-  "name": "LerayHopf.sum_inject_projComponent",
-  "kind": "theorem",
-  "id": "_private.LerayHopf.Torus.H1Sigma.0.LerayHopf.sum_inject_projComponent",
-  "file": "LerayHopf/Torus/H1Sigma.lean",
-  "endLine": 151,
-  "doc":
-  "The componentwise reassembly recovers a vector field\n(cf. `velocityProjection_n_tendsto`). ",
-  "deps":
-  ["LerayHopf.L2VF",
-   "LerayHopf.L2VF_injectComponent",
-   "LerayHopf.L2VF_projComponent",
-   "LerayHopf.Torus3",
-   "LerayHopf.VelocityValue",
-   "LerayHopf.haarTorus3"]},
  {"startLine": 302,
   "signature":
   "∀ (F : LerayHopf.Torus3NSForms) (a b v z : ↥LerayHopf.L2Sigma), F.b (a - b) v z = F.b a v z - F.b b v z",

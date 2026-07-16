@@ -1,0 +1,10 @@
+name: LerayHopf.galerkin_norm_le_u0_generic
+tier: gloss
+statement_ja: |
+  [[一様エネルギー界|LerayHopf.galerkin_norm_le_u0]]の汎用束版：汎用の Galerkin 解データに対しても、すべての時刻 $t\ge 0$ で状態のノルムが初期値のノルムで押さえられる（$\lVert u_n(t)\rVert\le\lVert u_0\rVert$）。
+gap:
+  level: none
+  note: |
+    既存証明の逐語移植であり、エネルギー界 `energy_bound` と射影のノルム非増大 `𝔊.norm_le` のみを用いる。仮定を汎用束 `Galerkin.SolutionData` で受ける[[同程度 Lipschitz 評価|LerayHopf.perTest_lipschitz_R3]]の部品（lean-pde issue #135 の restate に伴う）。
+chapter: limit-passage
+tags: [private-helper, energy-inequality, galerkin]

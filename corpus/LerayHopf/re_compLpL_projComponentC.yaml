@@ -1,10 +1,12 @@
 name: LerayHopf.re_compLpL_projComponentC
-tier: gloss
+tier: full
 statement_ja: |
-  この補助項目は、関数空間と基本設定を整えるための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  実部による複素埋め込みの巻き戻し：$L^2$ ベクトル場 $w$ の第 $j$ 成分について、[[複素埋め込み成分|LerayHopf.L2VF_projComponentC]]に実部を取る操作を合成すると、[[実成分の取り出し|LerayHopf.L2VF_projComponent]]に一致する。
+proof_ja: |
+  $L^p$ 元の相等をほとんど至る所の一致に帰着する。複素埋め込み成分は実成分に複素化の埋め込みを合成したものとして定義されているから、ほとんどすべての点で「実数値を複素数に埋め込んで実部を取る」往復となり、元の実数値に戻る。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/H1Sigma.lean` の `LerayHopf.re_compLpL_projComponentC`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
+    合成作用素の a.e. 各点表示は `ContinuousLinearMap.coeFn_compLpL`。2026-07 の重複解消で `Torus/DivergenceFree.lean` の成分作用素群の隣へ集約され、public 化された。
 chapter: spaces
-tags: [private-helper, generated]
+tags: [function-spaces, torus]

@@ -1,10 +1,14 @@
 name: LerayHopf.sum_inject_projComponent
-tier: gloss
+tier: full
 statement_ja: |
-  この補助項目は、関数空間と基本設定を整えるための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  成分ごとの再組み立て：$L^2$ ベクトル場 $w$ の各成分を取り出して[[成分の注入|LerayHopf.L2VF_injectComponent]]で戻した 3 成分の和は、元の場 $w$ に一致する。
+
+  $$\sum_{j} \iota_j\bigl(P_j w\bigr) = w.$$
+proof_ja: |
+  $L^p$ 元の相等をほとんど至る所の一致に帰着する。各 $j$ について、注入と[[実成分の取り出し|LerayHopf.L2VF_projComponent]]の合成はほとんどすべての点で第 $j$ 座標値による標準基底ベクトル $e_j$ のスカラー倍に等しい。3 成分の和はほとんどすべての点で標準基底に関する展開 $w(x)=\sum_j w_j(x)\,e_j$ となり、元の値を回復する。
 gap:
-  level: mild
+  level: none
   note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/H1Sigma.lean` の `LerayHopf.sum_inject_projComponent`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
+    各成分の a.e. 各点表示は `injectComponent_projComponent_ae`、基底展開は `EuclideanSpace.basisFun` の `sum_repr` による。2026-07 の重複解消で `Torus/DivergenceFree.lean` の成分作用素群の隣へ集約され、public 化された。
 chapter: spaces
-tags: [private-helper, generated]
+tags: [function-spaces, torus]
