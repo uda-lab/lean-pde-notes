@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   全有界性の移送：擬距離空間で、集合 $S$ が任意の $\varepsilon > 0$ に対し全有界な集合で一様 $\varepsilon$ 近似できるならば、$S$ 自身も全有界である。
 proof_ja: |
-  近似集合の有限 $\varepsilon/2$ ネットを取り、三角不等式で $S$ の $\varepsilon$ ネットになることを確かめる。
+  近似集合の有限 $\varepsilon/2$-網を取り、三角不等式で $S$ の $\varepsilon$-網になることを確かめる。
 gap:
   level: none
   note: |

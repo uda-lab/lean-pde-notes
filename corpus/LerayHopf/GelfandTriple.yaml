@@ -5,12 +5,12 @@ statement_ja: |
 
   $$V \hookrightarrow H \cong H' \hookrightarrow V'$$
 
-  の primal データ：実 Hilbert の正則性空間 $V$（$H^1_\sigma$ の役割）、実 Hilbert のピボット空間 $H$（$L^2_\sigma$ の役割）、束ねられた連続線形埋め込み $\iota \colon V \to H$、その単射性、稠密値域性。
+  の原空間側のデータ：実 Hilbert の正則性空間 $V$（$H^1_\sigma$ の役割）、実 Hilbert のピボット空間 $H$（$L^2_\sigma$ の役割）、束ねられた連続線形埋め込み $\iota \colon V \to H$、その単射性、稠密値域性。
 proof_ja: |
-  二つの Hilbert 空間の構造（型とインスタンス）と、連続線形写像として束ねた埋め込み、および二つの性質をフィールドに持つ構造として定める。
+  二つの実 Hilbert 空間 $V$, $H$、連続線形写像として束ねた埋め込み $\iota \colon V \to H$、およびその単射性と稠密値域性の二条件をあわせ持つデータとして定める。
 gap:
   level: mild
   note: |
-    双対空間 $V'$ と埋め込み $H \hookrightarrow V'$ は**保存しない**：$V'$ は $V$ の連続双対として、$H \hookrightarrow V'$ は $\iota$ の転置と Riesz 同一視の合成として回収できるため、primal 側だけ持てば冗長がない。稠密値域性が「$H \hookrightarrow V'$ が単射」という三つ組の定義的性質に対応する。NS 固有の構造（発散ゼロ・移流）は載せない（No-overclaim）。
+    双対空間 $V'$ と埋め込み $H \hookrightarrow V'$ は**保存しない**：$V'$ は $V$ の連続双対として、$H \hookrightarrow V'$ は $\iota$ の転置と Riesz 同一視の合成として回収できるため、原空間側だけ保持すれば冗長さがない。稠密値域性が「$H \hookrightarrow V'$ が単射」という三つ組の定義的性質に対応する。NS 固有の構造（発散ゼロ・移流）は載せない（過剰な主張はしない）。
 chapter: bochner
 tags: [gelfand-triple, bochner]

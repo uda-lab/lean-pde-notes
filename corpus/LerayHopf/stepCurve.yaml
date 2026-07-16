@@ -1,12 +1,12 @@
 name: LerayHopf.stepCurve
 tier: full
 statement_ja: |
-  ステップ曲線：$[0, T]$ を幅 $T/m$ の $m$ 個のセルに割り、値のリスト $y$ に対し第 $i$ セル上で値 $y_i$ を取る区分定数曲線。
+  ステップ曲線：$[0, T]$ を幅 $T/m$ の $m$ 個の小区間に分け、値の列 $y$ に対し第 $i$ 小区間上で値 $y_i$ を取る区分定数曲線。
 proof_ja: |
-  セル番号を床関数で計算し、最終セルに $t = T$ 以降を吸収させるよう上から刻み、負の時刻は第 $0$ セルに割り当てる。刻み数 $0$ の退化した場合は恒等的に零と定める。
+  各 $t$ の属する小区間を床関数で定め、最終の小区間に $t = T$ 以降を吸収させるよう上から刻み、負の時刻は第 $0$ の小区間に割り当てる。刻み数 $0$ の退化した場合は恒等的に零と定める。
 gap:
   level: none
   note: |
-    $L^2(0,T; X)$ の全有界性判定（Fréchet–Kolmogorov 型）の近似階段。A1–A6 の鎖の起点。
+    $L^2(0,T; X)$ の全有界性判定（Fréchet–Kolmogorov 型）における A1–A6 の近似論法の出発点。
 chapter: bochner
 tags: [step-functions, compactness, bochner]

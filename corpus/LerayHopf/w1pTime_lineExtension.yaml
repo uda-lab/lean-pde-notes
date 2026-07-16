@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   全直線拡張（意図的 sorry）：`W1pTime` 元は、$[0, T]$ 上で元の曲線と a.e. 一致し、全直線で $L^2$ に属し、全直線の弱時間微分（境界に Dirac 跳びを入れない）を持つ拡張曲線を持つ。
 proof_ja: |
-  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**構成方針（両端点での Sobolev 偶反射 × 滑らかな切断）は確定しており、糊の部品 — 切断の Leibniz 積則（[[切断積則|LerayHopf.Bochner.isWeakTimeDerivℝ_smul_cutoff]]）と連続線形輸送 — は証明済み。残る障害は偶反射の弱微分（[[偶反射|LerayHopf.Bochner.weakTimeDerivℝ_even_reflection]]）が依存するトレースの柱と、両端反射の所属・a.e. 一致の簿記である。
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**構成方針（両端点での Sobolev 偶反射 × 滑らかな切断）は確定しており、構成に必要な補題 — 切断の Leibniz 積則（[[切断積則|LerayHopf.Bochner.isWeakTimeDerivℝ_smul_cutoff]]）と連続線形写像との合成による弱微分の保存 — は証明済み。残る障害は偶反射の弱微分（[[偶反射|LerayHopf.Bochner.weakTimeDerivℝ_even_reflection]]）が依存するトレースに関する未証明部分と、両端反射の所属・a.e. 一致の管理である。
 gap:
   level: large
   note: |

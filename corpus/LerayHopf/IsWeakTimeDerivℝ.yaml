@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    区間版 [[弱時間微分|LerayHopf.Bochner.IsWeakTimeDeriv]] より真に強い述語。導入の動機は畳み込みとの整合性：テストを $s$ だけ平行移動しても全直線のコンパクト台テストのままなので、区間版で生じる「シフトしたテストが区間の外へ出る」障害（Fubini 障害）が解消される。
+    区間版 [[弱時間微分|LerayHopf.Bochner.IsWeakTimeDeriv]] より真に強い述語。導入の動機は畳み込みとの整合性：テストを $s$ だけ平行移動しても全直線のコンパクト台テストのままなので、区間版で生じる「シフトしたテストが区間の外へ出る」障害（Fubini の定理を適用する際の障害）が解消される。
 chapter: bochner
 tags: [weak-time-derivative, bochner]

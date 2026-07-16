@@ -1,9 +1,9 @@
 name: LerayHopf.Bochner.isWeakTimeDeriv_primitive
 tier: full
 statement_ja: |
-  原始関数の分布的 FTC（意図的 sorry）：区間可積分な $v$ の原始関数 $w(t) = \int_0^t v$ は、$(0, T)$ 上の弱時間微分 $v$ を持つ。
+  原始関数の分布の意味での微積分学の基本定理（意図的 sorry）：区間可積分な $v$ の原始関数 $w(t) = \int_0^t v$ は、$(0, T)$ 上の弱時間微分 $v$ を持つ。
 proof_ja: |
-  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**内容は Fubini の順序交換
+  **証明は意図的に `sorry`（ALLOW_SORRY）として未証明のまま残されている。**内容は Fubini の順序交換
 
   $$\int_0^T \psi'(t) \int_0^t v(s)\, ds\, dt = \int_0^T v(s) \int_s^T \psi'(t)\, dt\, ds = -\int_0^T \psi(s)\, v(s)\, ds$$
 
@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: large
   note: |
-    R1（$V'$ 値良い代表元）の単一の残余として隔離。トレースや反射を使わない（非循環）ことが明記されている。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+    R1（$V'$ 値良い代表元）の単一の残余として隔離。トレースや反射を使わない（非循環）ことが明記されている。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で完了している）。
 chapter: bochner
 tags: [primitive, bochner]

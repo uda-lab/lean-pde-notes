@@ -1,12 +1,12 @@
 name: LerayHopf.dist_toLp_stepCurve
 tier: full
 statement_ja: |
-  $L^p$ 類の距離と点別差の一致：$L^2$ 曲線とステップ曲線の $L^p$ 類の距離は、点別差の $L^2$ ノルムの実数値に等しい。
+  $L^p$ 類の距離と代表関数の差の一致：$L^2$ 曲線とステップ曲線の $L^p$ 類の距離は、代表関数の差の $L^2$ ノルムの実数値に等しい。
 proof_ja: |
   距離をノルムに開き、類の差が差の類であること、類のノルムが元のノルムであることを順に適用する。
 gap:
   level: none
   note: |
-    $L^p$ 空間（類の空間）での距離評価を、結論が要求する「点別差のノルム」形式へ戻す橋。
+    $L^p$ 空間（類の空間）での距離評価を、結論が要求する「代表関数の差のノルム」形式へ書き換えるための補題。
 chapter: bochner
 tags: [step-functions, compactness, bochner]

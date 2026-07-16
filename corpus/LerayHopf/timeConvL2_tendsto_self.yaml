@@ -1,14 +1,14 @@
 name: LerayHopf.Bochner.timeConvL2_tendsto_self
 tier: full
 statement_ja: |
-  軟化収束：バンプ核の族の半径が $0$ に潰れるとき、任意の $g \in L^2(\mathbb{R}; E)$ で
+  軟化収束：バンプ核の族の半径が $0$ に収束するとき、任意の $g \in L^2(\mathbb{R}; E)$ で
 
   $$\lVert \rho_n \ast_t g - g \rVert \longrightarrow 0.$$
 proof_ja: |
-  欠損を並進モジュラスの核重み付き積分で抑える（[[モジュラス評価|LerayHopf.Bochner.timeConvL2_sub_le_translation_modulus]]）。並進モジュラスは原点で消えて連続なので、任意の $\varepsilon$ に対し原点近傍でモジュラスが $\varepsilon/2$ 未満になる半径 $\delta$ が取れる。核の半径が $\delta$ を下回る $n$ では核の台がその近傍に収まり、核重み付き積分は単位質量により $\varepsilon/2$ 以下、したがって欠損は $\varepsilon$ 未満になる。
+  近似誤差を平行移動差のノルムの核重み付き積分で抑える（[[平行移動差のノルム評価|LerayHopf.Bochner.timeConvL2_sub_le_translation_modulus]]）。平行移動差のノルムは原点で消えて連続なので、任意の $\varepsilon$ に対し原点近傍でこのノルムが $\varepsilon/2$ 未満になる半径 $\delta$ が取れる。核の半径が $\delta$ を下回る $n$ では核の台がその近傍に収まり、核重み付き積分は単位質量により $\varepsilon/2$ 以下、したがって近似誤差は $\varepsilon$ 未満になる。
 gap:
   level: mild
   note: |
-    mathlib は点別の軟化収束や個々の部品は持つが、Banach 値曲線の $L^2$ ノルムでの組み上がった軟化収束定理は持たないため、ここで並進モジュラス経路により自前で組み上げられている（S1 の礎石、sorry なし）。
+    mathlib は各点での軟化収束や個々の部品は持つが、Banach 値曲線の $L^2$ ノルムでの組み上がった軟化収束定理は持たないため、平行移動差のノルムの経路により本章で証明している（S1 の基礎となる結果、sorry なし）。
 chapter: bochner
 tags: [time-mollification, bochner]

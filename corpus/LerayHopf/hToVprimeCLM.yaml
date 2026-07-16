@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   正準埋め込みの連続線形写像版：$H \to V'$ を束ねられた連続線形写像として構成する。
 proof_ja: |
-  実内積は真に双線形なので、内積の連続線形汎関数化は $H$ からその双対への正直な連続線形写像であり、これに $\iota$ での前合成（それ自身連続線形）を合成する。
+  実内積は真に双線形なので、内積の連続線形汎関数化は $H$ からその双対への通常の連続線形写像であり、これに $\iota$ での前合成（それ自身連続線形）を合成する。
 gap:
   level: none
   note: |
-    複素と違い共役線形性の問題が消える実スカラーならではの構成。点別の一致は [[展開規則|LerayHopf.Bochner.GelfandTriple.hToVprimeCLM_apply]]。
+    複素と違い共役線形性の問題が消える実スカラーならではの構成。各点の一致は [[展開規則|LerayHopf.Bochner.GelfandTriple.hToVprimeCLM_apply]]。
 chapter: bochner
 tags: [gelfand-triple, bochner]

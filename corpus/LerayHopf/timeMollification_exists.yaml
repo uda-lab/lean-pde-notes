@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   時間軟化データの存在（意図的 sorry）：任意の `W1pTime GT 2 2 T` 元に対し、[[時間軟化データ|LerayHopf.Bochner.TimeMollification]] が存在する。
 proof_ja: |
-  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**全直線の部品（軟化収束 [[軟化収束|LerayHopf.Bochner.timeConvL2_tendsto_self]]・弱微分交換 [[弱微分交換|LerayHopf.Bochner.timeConvL2_weakDeriv_comm]]・Young 評価）は本章で証明済みだが、**区間 $[0, T]$ への移送**が壁である：時間平行移動は区間を保たず、零拡張は境界の跳びを弱 $V'$ 微分に注入するため、区間境界を壊さない Steklov 型の構成（全直線拡張 [[全直線拡張|LerayHopf.Bochner.w1pTime_lineExtension]] を経由）が要る。
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**全直線の部品（軟化収束 [[軟化収束|LerayHopf.Bochner.timeConvL2_tendsto_self]]・弱微分交換 [[弱微分交換|LerayHopf.Bochner.timeConvL2_weakDeriv_comm]]・Young 評価）は本章で証明済みだが、残る問題は構成を区間 $[0, T]$ 上で境界項を生じない形にすることである：時間平行移動は区間を保たず、零拡張は境界の跳びを弱 $V'$ 微分に生じさせるため、区間境界に余分な項を生じさせない Steklov 型の構成（全直線拡張 [[全直線拡張|LerayHopf.Bochner.w1pTime_lineExtension]] を経由）が要る。
 gap:
   level: large
   note: |
-    S1 スパイクの単一の from-scratch 柱として隔離されている（days〜2 週間級の見積もりが docstring に記録）。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+    S1 に残る、既存の結果からは直接得られない唯一の未証明事項として隔離されている（数日〜2 週間規模の見積もりが docstring に記録）。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
 chapter: bochner
 tags: [gelfand-triple, bochner]

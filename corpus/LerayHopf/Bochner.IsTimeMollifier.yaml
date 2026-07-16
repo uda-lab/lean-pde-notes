@@ -7,10 +7,10 @@ statement_ja: |
 
   を持つこと。
 proof_ja: |
-  四条件をフィールドとして束ねた述語構造である。
+  上の四条件の連言として定義する。
 gap:
   level: none
   note: |
-    mathlib の `ContDiffBump.normed` がちょうどこの四条件を満たす（[[バンプ核の軟化子性|LerayHopf.Bochner.ContDiffBump.isTimeMollifier]]）が、Young 型評価を任意の核に使えるよう抽象に保たれている。単位質量が Young 不等式の定数 $\lVert \rho \rVert_1 = 1$ を与える。
+    Lean 上は四条件をフィールドに持つ `structure` として実装されている。mathlib の `ContDiffBump.normed` がちょうどこの四条件を満たす（[[バンプ核の軟化子性|LerayHopf.Bochner.ContDiffBump.isTimeMollifier]]）が、Young 型評価を任意の核に使えるよう抽象に保たれている。単位質量が Young 不等式の定数 $\lVert \rho \rVert_1 = 1$ を与える。
 chapter: bochner
 tags: [time-mollification, bochner]

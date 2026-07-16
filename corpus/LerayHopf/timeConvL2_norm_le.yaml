@@ -9,7 +9,7 @@ proof_ja: |
 
   $$\Bigl\lVert \int F \Bigr\rVert \le \int \lVert F \rVert$$
 
-  を適用し、被積分関数のノルムを [[核重み付きノルム|LerayHopf.Bochner.norm_timeMollifier_smul_translate]] で $\rho(h)\, \lVert g \rVert$ に書き換え、単位質量で積分を $\lVert g \rVert$ に潰す。
+  を適用し、被積分関数のノルムを [[核重み付きノルム|LerayHopf.Bochner.norm_timeMollifier_smul_translate]] で $\rho(h)\, \lVert g \rVert$ に書き換え、単位質量の条件から積分が $\lVert g \rVert$ に等しいことを得る。
 gap:
   level: none
   note: |

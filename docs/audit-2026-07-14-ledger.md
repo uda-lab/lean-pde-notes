@@ -46,26 +46,26 @@
 | F036 | fourierProjection_n_tendsto | gap.note | 表記/訳語ゆれ | M | projections-galerkin | superseded-by-#52 |  |
 | F037 | mem_velocitySpan_iff | gap.note | JP-14/表記 | M | projections-galerkin | fixed | P2: Translated bridge→橋渡し per G4 and the PROTECTED-terms ruling (橋渡し must be used, not deleted); this also resolves F204 (see below). |
 | F038 | fourierBox_exhausts | statement_ja | 自然さ | A | projections-galerkin | superseded-by-#52 |  |
-| F039 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-13/造語 | B | bochner | open | 一様収束部分列（対角線論法エンジン） |
+| F039 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-13/造語 | B | bochner | fixed | PR #57: statement_ja「対角線論法エンジン」を「対角線論法による構成」に置換し機械比喩を除去 |
 | F040 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-14 | M | bochner | fixed | P1: eventually→ある番号以降で（reopen 後、owner 裁定に従い修正） |
 | F041 | exists_uniform_subseq_of_lipschitz_family | gap.note | 造語 | M | bochner | fixed | P1: 載荷点→技術上の要点（owner 裁定 2026-07-15b）+ 同文の帯域水準→打ち切り次数 |
-| F042 | exists_Icc_of_compact_subset_Ioo | gap.note | JP-13 | M | bochner | open | 同時に収める区間を取る簿記の補題 |
-| F043 | isWeakTimeDeriv_zero_ae_const | statement_ja | JP-13 | M | bochner | open | du Bois-Reymond の要石： |
-| F044 | w1pTime_continuous_in_H | proof_ja | JP-13 | M | bochner | open | 良い代表元理論の柱に当たる |
-| F045 | timeConvL2_weakDeriv_comm | gap.note | JP-13 | M | bochner | open | 時間軟化理論の心臓部 |
-| F046 | w1pTime_lineExtension | proof_ja | JP-13 | M | bochner | open | 糊の部品 — 切断の Leibniz 積則 |
-| F047 | translationModulus_zero | gap.note | 造語 | M | bochner | open | 連続性論法の錨点 |
-| F048 | timeMollification_exists | proof_ja | JP-13/自然さ | M | bochner | open | 区間 $[0, T]$ への移送が壁である |
-| F049 | hToVprimeCLM | proof_ja | JP-13/自然さ | M | bochner | open | その双対への正直な連続線形写像 |
-| F050 | isWeakTimeDerivℝ_smul_cutoff | proof_ja | 自然さ | M | bochner | open | コンパクト台（$\psi$ の台が勝つ） |
-| F051 | isWeakTimeDerivℝ_smul_cutoff | gap.note | 自然さ | M | bochner | open | Bochner 積分がジャンク値になり得る |
-| F052 | GelfandTriple | gap.note | 自然さ | M | bochner | open | primal 側だけ持てば冗長がない |
-| F053 | GelfandTriple | statement_ja | JP-14 | M | bochner | open | の primal データ：実 Hilbert |
-| F054 | GelfandTriple | gap.note | JP-14 | M | bochner | open | は載せない（No-overclaim）。 |
-| F055 | aeStronglyMeasurable_of_spaceTimeL2 | gap.note | JP-14 | M | bochner | open | 仮定に隔離している（no-smuggle：仮定は |
-| F056 | IsOfDissipativeEvolution | statement_ja | JP-13/造語 | M | bochner | open | 忠実性契約：Gelfand 三つ組が |
-| F057 | isWeakTimeDeriv_comp_clm | statement_ja | 造語/自然さ | M | bochner | open | 弱時間微分の連続線形写像による輸送 |
-| F058 | continuous_translationModulus | statement_ja | 表記(訳語ゆれ) | A | bochner | open | 並進モジュラスの連続性 |
+| F042 | exists_Icc_of_compact_subset_Ioo | gap.note | JP-13 | M | bochner | fixed | PR #57: gap.note「同時に収める区間を取る簿記の補題」を「同時に収める区間を取るための補助補題」に置換し比喩を除去 |
+| F043 | isWeakTimeDeriv_zero_ae_const | statement_ja | JP-13 | M | bochner | fixed | PR #57: 「du Bois-Reymond の要石」→「du Bois-Reymond 論法の中心的補題」（F263と同一箇所、BLOCKING側の訳語を採用） |
+| F044 | w1pTime_continuous_in_H | proof_ja | JP-13 | M | bochner | fixed | PR #57: 「理論の柱に当たる」→「理論の基幹定理に当たる」に修正（F292 と同一箇所を統合修正） |
+| F045 | timeConvL2_weakDeriv_comm | gap.note | JP-13 | M | bochner | fixed | PR #57: 「心臓部」→「中心的な結果」（F284と同一文、一括処理） |
+| F046 | w1pTime_lineExtension | proof_ja | JP-13 | M | bochner | fixed | PR #57: proof_ja「糊の部品」を「構成に必要な補題」に置換（同一文の「柱」「簿記」比喩も JP-13 一貫性のため合わせて解消：トレースの柱→トレースに関する未証明部分、簿記→管理） |
+| F047 | translationModulus_zero | gap.note | 造語 | M | bochner | fixed | PR #57: gap.note「連続性論法の錨点」を「連続性論法における出発点」に置換し航海比喩を除去 |
+| F048 | timeMollification_exists | proof_ja | JP-13/自然さ | M | bochner | fixed | PR #57: 「壁である」を「残る問題は…ことである」に書き換え（F285 と同一箇所を統合修正） |
+| F049 | hToVprimeCLM | proof_ja | JP-13/自然さ | M | bochner | fixed | PR #57: 「正直な連続線形写像」→「通常の連続線形写像」（F255と同一箇所、BLOCKING側の訳語を採用） |
+| F050 | isWeakTimeDerivℝ_smul_cutoff | proof_ja | 自然さ | M | bochner | fixed | PR #57: 「$\psi$ の台が勝つ」→「台は $\psi$ の台に含まれる」に修正（F265 と同一箇所を統合修正） |
+| F051 | isWeakTimeDerivℝ_smul_cutoff | gap.note | 自然さ | M | bochner | fixed | PR #57: 「ジャンク値」→「意図した値を表さない場合がある」に修正（F266 と同一箇所を統合修正） |
+| F052 | GelfandTriple | gap.note | 自然さ | M | bochner | fixed | PR #57: primal→原空間側に統一しつつ「冗長がない」→「冗長さがない」に修正 |
+| F053 | GelfandTriple | statement_ja | JP-14 | M | bochner | fixed | PR #57: 「の primal データ：」→「の原空間側のデータ：」に翻訳（F230と同一箇所） |
+| F054 | GelfandTriple | gap.note | JP-14 | M | bochner | fixed | PR #57: 「No-overclaim」→「過剰な主張はしない」に和文化 |
+| F055 | aeStronglyMeasurable_of_spaceTimeL2 | gap.note | JP-14 | M | bochner | fixed | PR #57: gap.note の未訳ラベル「no-smuggle」を「余分な仮定を持ち込まない」に和文化 |
+| F056 | IsOfDissipativeEvolution | statement_ja | JP-13/造語 | M | bochner | fixed | PR #57: 「忠実性契約」→「忠実性条件」に統一（F232 と統合）。同ファイル gap.note 内の「この契約が」も「この条件が」に同期 |
+| F057 | isWeakTimeDeriv_comp_clm | statement_ja | 造語/自然さ | M | bochner | fixed | PR #57: statement_ja「連続線形写像による輸送」を「連続線形写像による押し出し」に置換（最適輸送との混同を回避）。同ファイル群内の関連参照（ofHValuedDeriv.yaml のリンク表示語、w1pTime_lineExtension.yaml の地の文）も一貫して更新 |
+| F058 | continuous_translationModulus | statement_ja | 表記(訳語ゆれ) | A | bochner | fixed | PR #57: 並進/平行移動の訳語ゆれをF243の修正と合わせて「平行移動差のノルム」に統一し解消 |
 | F059 | convBLTgalerkin | proof_ja | JP-13 | B | limit-passage | fixed | P1: 証人比喩を除去（F316 と統合適用） |
 | F060 | convValW | statement_ja | 造語 | B | limit-passage | superseded-by-#52 |  |
 | F061 | convBLTw | statement_ja/proof_ja | 造語 | M | limit-passage | superseded-by-#52 |  |
@@ -228,84 +228,84 @@
 | F218 | velocitySpanToSigma_smul | proof_ja | 表記 | B | projections-galerkin | fixed | P2: Applied verbatim (removes 部分型の外延性). |
 | F219 | velocitySpan_hasOrthogonalProjection | proof_ja | JP-13 | B | projections-galerkin | fixed | P2: Applied verbatim. |
 | F220 | velocitySpan_le_sigma | gap.note | JP-13 | M | projections-galerkin | fixed | P2: Applied verbatim (removes 配当 metaphor). |
-| F221 | Bochner.ContDiffBump.isTimeMollifier | proof_ja | 自然さ | B | bochner | open | フィールドごとに充てるだけである。 |
-| F222 | Bochner.ContDiffBump.isTimeMollifier | gap.note | JP-13 | M | bochner | open | 軟化子の具体的な供給源。半径を潰す列を取れば |
-| F223 | Bochner.IsTimeMollifier | proof_ja | 自然さ | B | bochner | open | 四条件をフィールドとして束ねた述語構造である。 |
-| F224 | Bochner.WeakLimitToolkit.cauchySeq_inner_extend | proof_ja | 造語 | B | bochner | open | 一様球有界 |
+| F221 | Bochner.ContDiffBump.isTimeMollifier | proof_ja | 自然さ | B | bochner | fixed | PR #57: 「フィールドごとに充てるだけ」→「順に適用するだけ」に修正しLean実装語を除去 |
+| F222 | Bochner.ContDiffBump.isTimeMollifier | gap.note | JP-13 | M | bochner | fixed | PR #57: 「供給源」「半径を潰す」→「具体例である」「半径が $0$ に収束する」に修正 |
+| F223 | Bochner.IsTimeMollifier | proof_ja | 自然さ | B | bochner | fixed | PR #57: 「四条件をフィールドとして束ねた述語構造である」→「上の四条件の連言として定義する」 |
+| F224 | Bochner.WeakLimitToolkit.cauchySeq_inner_extend | proof_ja | 造語 | B | bochner | fixed | PR #57: 「一様球有界」→「ノルムが一様に $M$ 以下であるという仮定」に修正（statement_ja の $\lVert x_k \rVert \le M$ に対応） |
 | F225 | Bochner.WeakLimitToolkit.cauchySeq_of_equiLipschitz_of_dense | statement_ja | 造語 | B | bochner | fixed | P1: #52（等→同程度 Lipschitz）+ P1（「連続（性）」付与、owner 裁定）で解消 |
 | F226 | Bochner.WeakLimitToolkit.cauchySeq_of_equiLipschitz_of_dense | proof_ja | 造語 | B | bochner | fixed | P1: #52（等→同程度 Lipschitz）+ P1（「連続（性）」付与、owner 裁定）で解消 |
-| F227 | Bochner.WeakLimitToolkit.exists_mem_of_ae_full | statement_ja | 自然さ | M | bochner | open | a.e. に成り立つ集合 $S$ |
-| F228 | Bochner.WeakLimitToolkit.exists_weak_limit_in_submodule | statement_ja | 自然さ | M | bochner | open | すべてのテスト $z$ に対し対の列が Cauchy |
-| F229 | Bochner.WeakLimitToolkit.exists_weak_limit_in_submodule | proof_ja | 造語 | B | bochner | open | 球有界から $M$ 有界性が従う |
-| F230 | GelfandTriple | statement_ja | JP-14 | B | bochner | open | の primal データ |
-| F231 | GelfandTriple | proof_ja | 自然さ | B | bochner | open | 二つの Hilbert 空間の構造（型とインスタンス） |
-| F232 | IsOfDissipativeEvolution | statement_ja | 造語 | B | bochner | open | 忠実性契約 |
-| F233 | IsOfDissipativeEvolution | proof_ja | 自然さ | B | bochner | open | 型の等しさとインスタンスの異型等式 |
-| F234 | IsWeakTimeDeriv | proof_ja | 造語 | B | bochner | open | （全導関数込みで）消える |
-| F235 | IsWeakTimeDerivℝ | gap.note | 造語 | B | bochner | open | Fubini 障害 |
-| F236 | TimeMollification | statement_ja | 自然さ | B | bochner | open | をフィールドとして束ねる。 |
-| F237 | TimeMollification | proof_ja | 自然さ | B | bochner | open | 六つのフィールド |
-| F238 | W1pTime | statement_ja | 自然さ | B | bochner | open | フィールドは、$V'$ 値の微分曲線 |
-| F239 | W1pTime | proof_ja | 自然さ | B | bochner | open | フィールドに持つ構造として定める。 |
-| F240 | aeStronglyMeasurable_of_spaceTimeL2 | proof_ja | JP-13 | B | bochner | open | 二段の一般論を直列に適用する。 |
-| F241 | aeStronglyMeasurable_of_spaceTimeL2 | gap.note | JP-13 | M | bochner | open | 可測性は別口で供給されるべき欠けた柱 |
-| F242 | continuousOn_primitive_of_integrableOn | statement_ja | 自然さ | M | bochner | open | 上区間可積分な曲線 |
-| F243 | continuous_translationModulus | statement_ja | 造語 | B | bochner | open | 並進モジュラス |
-| F244 | dist_toLp_stepCurve | gap.note | JP-13 | M | bochner | open | 形式へ戻す橋。 |
-| F245 | exists_Icc_of_compact_subset_Ioo | statement_ja | JP-17 | B | bochner | open | 閉区間による分離 |
-| F246 | exists_Icc_of_compact_subset_Ioo | gap.note | JP-13 | M | bochner | open | 簿記の補題。 |
-| F247 | exists_subseq_tendsto_eLpNorm_of_totallyBounded | gap.note | JP-13 | M | bochner | open | A1–A6 の鎖の出口。 |
-| F248 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-13 | B | bochner | open | 対角線論法エンジン |
+| F227 | Bochner.WeakLimitToolkit.exists_mem_of_ae_full | statement_ja | 自然さ | M | bochner | fixed | PR #57: statement_ja「a.e. に成り立つ集合 $S$」を「ほとんど至る所の点を含む集合 $S$」に置換し係り受けを自然化 |
+| F228 | Bochner.WeakLimitToolkit.exists_weak_limit_in_submodule | statement_ja | 自然さ | M | bochner | fixed | PR #57: statement_ja「すべてのテスト $z$ に対し対の列が Cauchy」を「任意の $z$ に対して内積値の列が Cauchy」に置換し内積値であることを明示 |
+| F229 | Bochner.WeakLimitToolkit.exists_weak_limit_in_submodule | proof_ja | 造語 | B | bochner | fixed | PR #57: proof_ja「球有界から $M$ 有界性が従う」を監査者提示の式付き説明に置換し未確立語「球有界」「$M$ 有界性」を解消 |
+| F230 | GelfandTriple | statement_ja | JP-14 | B | bochner | fixed | PR #57: F053と同一箇所。primal→原空間側に翻訳し dual との対比を保持 |
+| F231 | GelfandTriple | proof_ja | 自然さ | B | bochner | fixed | PR #57: proof_ja の「構造（型とインスタンス）」「フィールドに持つ構造」等 Lean 固有語を除去し、実 Hilbert 空間・単射性・稠密値域性を述べる数学文に書き換え（束ねた、は保護語のため維持） |
+| F232 | IsOfDissipativeEvolution | statement_ja | 造語 | B | bochner | fixed | PR #57: 直後の文で条件の中身を明示済みのため、契約→条件への用語修正で対応（F056 と同一） |
+| F233 | IsOfDissipativeEvolution | proof_ja | 自然さ | B | bochner | fixed | PR #57: 「型の等しさとインスタンスの異型等式」→「ピボット空間と Hilbert 空間構造の一致」に修正。Lean 固有の cast/HEq 詳細は既に gap.note 側にあるためそちらは維持 |
+| F234 | IsWeakTimeDeriv | proof_ja | 造語 | B | bochner | fixed | PR #57: 「（全導関数込みで）消える」→「端点の近傍で恒等的に零なので」に書き換え、未確立語「全導関数」を除去 |
+| F235 | IsWeakTimeDerivℝ | gap.note | 造語 | B | bochner | fixed | PR #57: 「Fubini 障害」→「Fubini の定理を適用する際の障害」に修正 |
+| F236 | TimeMollification | statement_ja | 自然さ | B | bochner | fixed | PR #57: 「をフィールドとして束ねる」→「を一つのデータとしてまとめる」 |
+| F237 | TimeMollification | proof_ja | 自然さ | B | bochner | fixed | PR #57: 「六つのフィールド」「構造」表現を除去し、内訳を明示した「まとめたデータとして定める」に書き換え |
+| F238 | W1pTime | statement_ja | 自然さ | B | bochner | fixed | PR #57: statement_ja の「フィールドは、」→「このデータは、」に修正 |
+| F239 | W1pTime | proof_ja | 自然さ | B | bochner | fixed | PR #57: 「フィールドに持つ構造として定める」→「上記の四つのデータと条件を満たす対として定める」に修正 |
+| F240 | aeStronglyMeasurable_of_spaceTimeL2 | proof_ja | JP-13 | B | bochner | fixed | PR #57: proof_ja「二段の一般論を直列に適用する」を「二つの一般定理を順に適用する」に置換し回路比喩を除去 |
+| F241 | aeStronglyMeasurable_of_spaceTimeL2 | gap.note | JP-13 | M | bochner | fixed | PR #57: gap.note「可測性は別口で供給されるべき欠けた柱」を「可測性は別に仮定すべき条件」に置換し建築・口語比喩を除去（F055 と同一文で合わせて修正） |
+| F242 | continuousOn_primitive_of_integrableOn | statement_ja | 自然さ | M | bochner | fixed | PR #57: statement_ja「上区間可積分な」を「上で区間可積分な」に置換し脱落した助詞を補完 |
+| F243 | continuous_translationModulus | statement_ja | 造語 | B | bochner | fixed | PR #57: 「並進モジュラス」（未確立造語）→「平行移動差のノルム」に変更し、proof_ja の「平行移動の連続性」参照と統一 |
+| F244 | dist_toLp_stepCurve | gap.note | JP-13 | M | bochner | fixed | PR #57: 「形式へ戻す橋」→「形式へ書き換えるための補題」（橋渡し以外の一般比喩のため保護語に該当せず） |
+| F245 | exists_Icc_of_compact_subset_Ioo | statement_ja | JP-17 | B | bochner | fixed | PR #57: statement_ja「閉区間による分離」を「閉区間への包含」に置換（記述内容は分離でなく包含のため） |
+| F246 | exists_Icc_of_compact_subset_Ioo | gap.note | JP-13 | M | bochner | fixed | PR #57: F042 と同一文の修正で解消（簿記比喩を除去） |
+| F247 | exists_subseq_tendsto_eLpNorm_of_totallyBounded | gap.note | JP-13 | M | bochner | fixed | PR #57: 「A1–A6 の鎖の出口」→「A1–A6 から収束部分列を得る最終段階」に修正 |
+| F248 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-13 | B | bochner | fixed | PR #57: F039 と同一箇所の修正で解消（エンジン比喩を除去） |
 | F249 | exists_uniform_subseq_of_lipschitz_family | statement_ja | JP-14 | B | bochner | fixed | P1: F040 と統合適用 |
 | F250 | exists_uniform_subseq_of_lipschitz_family | statement_ja | 造語 | B | bochner | fixed | P1: #52（等→同程度 Lipschitz）+ P1（「連続（性）」付与、owner 裁定）で解消 |
-| F251 | exists_uniform_subseq_of_lipschitz_family | proof_ja | 造語 | B | bochner | open | 一様 Cauchy 化 |
+| F251 | exists_uniform_subseq_of_lipschitz_family | proof_ja | 造語 | B | bochner | fixed | PR #57: proof_ja「第二段（一様 Cauchy 化）」を「第二段（部分列が一様 Cauchy であることの証明）」に置換し「〜化」複合語を解消 |
 | F252 | exists_uniform_subseq_of_lipschitz_family | gap.note | 造語 | B | bochner | fixed | P1: F041 と統合適用 |
-| F253 | exists_unitMass_weight | gap.note | JP-13 | M | bochner | open | 要石で「a.e. 定数の値」を汲み出す |
-| F254 | hToVprimeCLM | statement_ja | 自然さ | B | bochner | open | 束ねられた連続線形写像として構成する。 |
-| F255 | hToVprimeCLM | proof_ja | JP-13 | B | bochner | open | 正直な連続線形写像 |
-| F256 | hToVprimeCLM_apply | statement_ja | 自然さ | B | bochner | open | CLM 版と裸の埋め込み |
-| F257 | integrable_timeMollifier_smul_translate | gap.note | JP-14 | M | bochner | open | side condition なしで |
-| F258 | isCompact_stepCurve_toLp | proof_ja | 造語 | B | bochner | open | 値リストから類への組み立て写像 |
-| F259 | isWeakTimeDeriv_primitive | statement_ja | JP-14 | B | bochner | open | 分布的 FTC |
-| F260 | isWeakTimeDeriv_primitive | proof_ja | 自然さ | M | bochner | open | `sorry`（ALLOW_SORRY）で開けてある。 |
-| F261 | isWeakTimeDeriv_primitive | gap.note | JP-14 | M | bochner | open | 再検証で reopen: lane→系列 は #52 処理済みだがソフトウェア的「閉じている」が残存 |
-| F262 | isWeakTimeDeriv_unique | gap.note | JP-14 | M | bochner | open | body コメント |
-| F263 | isWeakTimeDeriv_zero_ae_const | statement_ja | JP-13 | B | bochner | open | du Bois-Reymond の要石 |
-| F264 | isWeakTimeDerivℝ_comp_clm | proof_ja | JP-13 | B | bochner | open | 全直線への移植 |
-| F265 | isWeakTimeDerivℝ_smul_cutoff | proof_ja | JP-13 | B | bochner | open | $\psi$ の台が勝つ |
-| F266 | isWeakTimeDerivℝ_smul_cutoff | gap.note | JP-13 | M | bochner | open | Bochner 積分がジャンク値になり得る |
-| F267 | ofDissipativeEvolution | statement_ja | 造語 | B | bochner | open | 忠実性契約 |
-| F268 | ofDissipativeEvolution | proof_ja | 自然さ | B | bochner | open | フィールドに詰めて |
-| F269 | ofHValuedDeriv | gap.note | JP-14 | M | bochner | open | primal 定義 |
-| F270 | primitive_baseA_props | statement_ja | 自然さ | M | bochner | open | 平均零のスカラー |
-| F271 | stepCurve | statement_ja | JP-13 | B | bochner | open | $m$ 個のセルに割り、値のリスト |
-| F272 | stepCurve | proof_ja | 自然さ | B | bochner | open | セル番号を床関数で計算し |
-| F273 | stepCurve | gap.note | JP-13 | M | bochner | open | 近似階段。A1–A6 の鎖の起点。 |
-| F274 | timeConvL2 | gap.note | JP-13 | M | bochner | open | 再検証で reopen: lane→系列 は #52 処理済みだが「時間軸鏡像」が残存 |
-| F275 | timeConvL2_norm_le | proof_ja | JP-13 | B | bochner | open | 単位質量で積分を $\lVert g \rVert$ に潰す。 |
-| F276 | timeConvL2_sub_eq_integral | statement_ja | 造語 | B | bochner | open | 軟化の欠損の積分表示 |
-| F277 | timeConvL2_sub_eq_integral | proof_ja | JP-13 | B | bochner | open | 一本の積分に合流させ |
-| F278 | timeConvL2_sub_le_translation_modulus | statement_ja | 造語 | B | bochner | open | 並進モジュラスによる欠損評価 |
-| F279 | timeConvL2_sub_le_translation_modulus | gap.note | JP-14 | M | bochner | open | 再検証で reopen: lane→系列 は #52 処理済みだが「直移植」が残存 |
-| F280 | timeConvL2_tendsto_self | statement_ja | JP-13 | B | bochner | open | 半径が $0$ に潰れるとき |
-| F281 | timeConvL2_tendsto_self | proof_ja | 造語 | B | bochner | open | 並進モジュラス |
-| F282 | timeConvL2_tendsto_self | gap.note | JP-13 | M | bochner | open | 自前で組み上げられている（S1 の礎石 |
-| F283 | timeConvL2_weakDeriv_comm | gap.note | JP-14 | M | bochner | open | signature 修正 |
-| F284 | timeConvL2_weakDeriv_comm | gap.note | JP-13 | M | bochner | open | 時間軟化理論の心臓部。 |
-| F285 | timeMollification_exists | proof_ja | JP-13 | B | bochner | open | **区間 $[0, T]$ への移送**が壁である |
-| F286 | timeMollification_exists | gap.note | 造語 | B | bochner | open | S1 スパイクの単一の from-scratch 柱 |
-| F287 | timeMollification_of_w1pTime | statement_ja | 自然さ | B | bochner | open | 時間軟化データの構成子 |
-| F288 | timeMollification_of_w1pTime | gap.note | JP-13 | M | bochner | open | 下流の配線を書けるようにする |
-| F289 | totallyBounded_of_uniform_approx' | proof_ja | JP-16 | M | bochner | open | 有限 $\varepsilon/2$ ネット |
-| F290 | translationModulus_zero | statement_ja | 造語 | B | bochner | open | 並進モジュラス |
-| F291 | translationModulus_zero | gap.note | JP-13 | M | bochner | open | 連続性論法の錨点。 |
-| F292 | w1pTime_continuous_in_H | proof_ja | JP-13 | B | bochner | open | 理論の柱に当たる。 |
-| F293 | w1pTime_continuous_in_H | proof_ja | JP-14 | M | bochner | open | months 級の残余 |
-| F294 | w1pTime_continuous_in_Vprime | proof_ja | JP-13 | B | bochner | open | du Bois-Reymond の要石 |
-| F295 | w1pTime_continuous_in_Vprime | gap.note | JP-14 | M | bochner | open | trace-free）設計 |
-| F296 | w1pTime_lineExtension | proof_ja | JP-13 | B | bochner | open | 糊の部品 |
-| F297 | weakTimeDerivℝ_even_reflection | proof_ja | JP-13 | B | bochner | open | 微積分学の基本定理の柱が要る。 |
-| F298 | weakTimeDerivℝ_even_reflection | gap.note | JP-14 | M | bochner | open | months 級と宣言された残余 |
+| F253 | exists_unitMass_weight | gap.note | JP-13 | M | bochner | fixed | PR #57: gap.note「要石で「a.e. 定数の値」を汲み出す」を「議論で中心的な役割を果たし、a.e. 定数の値を定める」に置換し建築・採取の比喩を除去 |
+| F254 | hToVprimeCLM | statement_ja | 自然さ | B | bochner | rejected | 却下: 束（bundled）系の語は owner 裁定（F071 系）で保護されており、姉妹ファイル（GelfandTriple 等）の「束ねられた連続線形埋め込み」とも整合させるため原文を維持（codex 事前レビュー指摘で復元） |
+| F255 | hToVprimeCLM | proof_ja | JP-13 | B | bochner | fixed | PR #57: F049と同一箇所。「正直な」→「通常の」に統一 |
+| F256 | hToVprimeCLM_apply | statement_ja | 自然さ | B | bochner | fixed | PR #57: 「CLM 版と裸の埋め込み」→「連続線形写像としての埋め込みと点ごとに定めた埋め込み」 |
+| F257 | integrable_timeMollifier_smul_translate | gap.note | JP-14 | M | bochner | fixed | PR #57: 「side condition なしで」→「追加条件なしで」に翻訳 |
+| F258 | isCompact_stepCurve_toLp | proof_ja | 造語 | B | bochner | fixed | PR #57: proof_ja「値リストから類への組み立て写像」を「$K^m$ の元（値の組）にステップ曲線の $L^p$ 類を対応させる写像」に置換し計算機語彙を排除（「値リスト」の他の出現も「値の組」に統一） |
+| F259 | isWeakTimeDeriv_primitive | statement_ja | JP-14 | B | bochner | fixed | PR #57: 「分布的 FTC」→「分布の意味での微積分学の基本定理」 |
+| F260 | isWeakTimeDeriv_primitive | proof_ja | 自然さ | M | bochner | fixed | PR #57: 「`sorry`で開けてある」→「`sorry`として未証明のまま残されている」 |
+| F261 | isWeakTimeDeriv_primitive | gap.note | JP-14 | M | bochner | fixed | PR #57: quote中の lane は現行では既に系統に置換済みだったため「閉じている」→「完了している」のみ適用 |
+| F262 | isWeakTimeDeriv_unique | gap.note | JP-14 | M | bochner | fixed | PR #57: 「body コメント」→「定理本体のコメント」 |
+| F263 | isWeakTimeDeriv_zero_ae_const | statement_ja | JP-13 | B | bochner | fixed | PR #57: F043と同一箇所を一括修正。同ファイル内 gap.note の同種比喩「$V'$ 値良い代表元の要石」も一貫して「中心的な補題」に修正 |
+| F264 | isWeakTimeDerivℝ_comp_clm | proof_ja | JP-13 | B | bochner | fixed | PR #57: 「全直線への移植」→「と同様に、全直線上の積分と $L$ を交換し」に書き換えて工学比喩を除去 |
+| F265 | isWeakTimeDerivℝ_smul_cutoff | proof_ja | JP-13 | B | bochner | fixed | PR #57: F050 と同一箇所。積 $\chi\psi$ の台の包含関係を明示する表現に修正 |
+| F266 | isWeakTimeDerivℝ_smul_cutoff | gap.note | JP-13 | M | bochner | fixed | PR #57: F051 と同一箇所。プログラミング語彙を除去 |
+| F267 | ofDissipativeEvolution | statement_ja | 造語 | B | bochner | fixed | PR #57: statement_ja「忠実性契約」を「散逸発展との整合条件」に置換（ソフトウェア契約の比喩を除去、「橋渡し」は保護語のため維持） |
+| F268 | ofDissipativeEvolution | proof_ja | 自然さ | B | bochner | fixed | PR #57: proof_ja「フィールドに詰めて」を「三つ組を定め」に置換。同ファイルの「契約」表現（proof_ja「契約の各連言」、gap.note「契約付きの依存対」）も F267 の呼称変更に合わせ「条件」「整合条件付き」に統一 |
+| F269 | ofHValuedDeriv | gap.note | JP-14 | M | bochner | fixed | PR #57: gap.note「primal 定義」を「基本となる定義」に置換し未訳英語形容詞を解消 |
+| F270 | primitive_baseA_props | statement_ja | 自然さ | M | bochner | fixed | PR #57: 「平均零のスカラー」→「平均が零であるスカラー値関数」 |
+| F271 | stepCurve | statement_ja | JP-13 | B | bochner | fixed | PR #57: statement_ja「セル」「値のリスト」を「小区間」「値の列」に置換し計算機語彙を排除 |
+| F272 | stepCurve | proof_ja | 自然さ | B | bochner | fixed | PR #57: proof_ja「セル番号を床関数で計算し」を「各 $t$ の属する小区間を床関数で定め」に置換し実装手順的表現を排除（同ファイル内「セル」を一貫して「小区間」に統一） |
+| F273 | stepCurve | gap.note | JP-13 | M | bochner | fixed | PR #57: gap.note「近似階段。A1–A6 の鎖の起点」を「A1–A6 の近似論法の出発点」に置換し比喩を除去 |
+| F274 | timeConvL2 | gap.note | JP-13 | M | bochner | fixed | PR #57: 「lane」は既に「系統」へ修正済みだったため、残る「時間軸鏡像」を「時間変数に対応する類似物」に修正 |
+| F275 | timeConvL2_norm_le | proof_ja | JP-13 | B | bochner | fixed | PR #57: proof_ja「積分を $\lVert g \rVert$ に潰す」を監査者提示の「積分が $\lVert g\rVert$ に等しいことを得る」に置換し口語的動詞を除去 |
+| F276 | timeConvL2_sub_eq_integral | statement_ja | 造語 | B | bochner | fixed | PR #57: 「軟化の欠損の積分表示」→「軟化による近似誤差の積分表示」。gap.note の「欠損」「並進モジュラス」も同種として一貫修正 |
+| F277 | timeConvL2_sub_eq_integral | proof_ja | JP-13 | B | bochner | fixed | PR #57: 「一本の積分に合流させ」→「積分の線形性により一つの積分として書き」 |
+| F278 | timeConvL2_sub_le_translation_modulus | statement_ja | 造語 | B | bochner | fixed | PR #57: 「並進モジュラスによる欠損評価」→「並進差のノルムによる近似誤差の評価」に修正。proof_ja のリンク表示語・gap.note の「欠損」も同期 |
+| F279 | timeConvL2_sub_le_translation_modulus | gap.note | JP-14 | M | bochner | fixed | PR #57: 「lane」は既に「系統」へ修正済みだったため、残る「直移植」を「〜と同様である」に修正（F278 と統合編集） |
+| F280 | timeConvL2_tendsto_self | statement_ja | JP-13 | B | bochner | fixed | PR #57: 「半径が $0$ に潰れる」→「半径が $0$ に収束する」に修正 |
+| F281 | timeConvL2_tendsto_self | proof_ja | 造語 | B | bochner | fixed | PR #57: 「並進モジュラス」→「並進差のノルム」に修正。同ファイル内の全出現とリンク表示語を同期 |
+| F282 | timeConvL2_tendsto_self | gap.note | JP-13 | M | bochner | fixed | PR #57: 「自前で組み上げられている（S1 の礎石」→「本章で証明している（S1 の基礎となる結果」に修正。並進モジュラス表記も同期 |
+| F283 | timeConvL2_weakDeriv_comm | gap.note | JP-14 | M | bochner | fixed | PR #57: 「signature 修正」→「定理の型の修正」 |
+| F284 | timeConvL2_weakDeriv_comm | gap.note | JP-13 | M | bochner | fixed | PR #57: F045と同一箇所を一括で「時間軟化理論の中心的な結果。」に修正 |
+| F285 | timeMollification_exists | proof_ja | JP-13 | B | bochner | fixed | PR #57: 壁の比喩を除去し、後続の「注入」「壊す」も比喩色を弱めて統一（生じさせる／余分な項を生じさせない） |
+| F286 | timeMollification_exists | gap.note | 造語 | B | bochner | fixed | PR #57: 「from-scratch 柱」→「既存の結果からは直接得られない唯一の未証明事項」に修正。同文中の「days」も「数日」に翻訳し一貫させた |
+| F287 | timeMollification_of_w1pTime | statement_ja | 自然さ | B | bochner | fixed | PR #57: statement_ja「時間軟化データの構成子」を「時間軟化データの選択」に置換（Lean constructor の直訳を排除、proof_ja の「選択」と整合） |
+| F288 | timeMollification_of_w1pTime | gap.note | JP-13 | M | bochner | fixed | PR #57: gap.note「下流の配線を書けるようにする」を「後続の定理を記述できるようにする」に置換し配線比喩・未訳語 constructor を除去（F287 の呼称変更に合わせ「構成子」も「選択」に統一） |
+| F289 | totallyBounded_of_uniform_approx' | proof_ja | JP-16 | M | bochner | fixed | PR #57: GLOSSARY 標準表記に合わせ「有限 $\varepsilon/2$ ネット」→「有限 $\varepsilon/2$-網」、同文中の「$\varepsilon$ ネット」も「$\varepsilon$-網」に統一 |
+| F290 | translationModulus_zero | statement_ja | 造語 | B | bochner | fixed | PR #57: statement_ja「並進モジュラス」を「並進差のノルム」に置換（未確立の造語を具体的な量の記述に） |
+| F291 | translationModulus_zero | gap.note | JP-13 | M | bochner | fixed | PR #57: F047 と同一文の修正で解消（錨点比喩を除去） |
+| F292 | w1pTime_continuous_in_H | proof_ja | JP-13 | B | bochner | fixed | PR #57: F044 と同一箇所。建築比喩を除去し「基幹定理」に統一 |
+| F293 | w1pTime_continuous_in_H | proof_ja | JP-14 | M | bochner | fixed | PR #57: 「months 級の残余」→「数か月規模の作業を要する未証明事項」に翻訳 |
+| F294 | w1pTime_continuous_in_Vprime | proof_ja | JP-13 | B | bochner | fixed | PR #57: 「du Bois-Reymond の要石」→「du Bois-Reymond 論法の中心的補題」（F043/F263と同一訳語で統一） |
+| F295 | w1pTime_continuous_in_Vprime | gap.note | JP-14 | M | bochner | fixed | PR #57: 「（trace-free）」は直前の日本語表現と重複する未訳英語のため削除（「トレースを用いない」を追加すると重複になるため） |
+| F296 | w1pTime_lineExtension | proof_ja | JP-13 | B | bochner | fixed | PR #57: F046 と同一箇所の修正で解消。同文の「連続線形輸送」も isWeakTimeDeriv_comp_clm.yaml（F057）の呼称変更に合わせ「連続線形写像による押し出し」に統一 |
+| F297 | weakTimeDerivℝ_even_reflection | proof_ja | JP-13 | B | bochner | fixed | PR #57: 「微積分学の基本定理の柱が要る」→「微積分学の基本定理が必要である」に修正 |
+| F298 | weakTimeDerivℝ_even_reflection | gap.note | JP-14 | M | bochner | fixed | PR #57: 「months 級と宣言された残余」→「数か月規模の作業を要すると見積もられた未証明事項」に翻訳。同文中の「同じ柱」も「同種の残課題」に修正し一貫させた |
 | F299 | TorusConvectionExtension.antisymmetrizer | statement_ja | 造語 | B | limit-passage | open | 反対称化子 |
 | F300 | TorusConvectionExtension.convFormL2_antisymm | statement_ja | 造語 | B | limit-passage | open | 決定移流形式 |
 | F301 | TorusConvectionExtension.convFormL2_antisymm | gap.note | JP-13 | M | limit-passage | open | 決定形式の設計上の配当 |

@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   ノルム近似に沿う Cauchy 性の拡張：$\lVert x_k \rVert \le M$ とし、$z$ が「対の列が Cauchy になるようなベクトル $z'$」でノルム近似できるならば、$k \mapsto \langle x_k, z \rangle$ 自身も Cauchy 列である。
 proof_ja: |
-  $\varepsilon/3$ 論法：$z$ を十分近い $z'$ に取り替える誤差は Cauchy–Schwarz と一様球有界により一様に小さく、$z'$ での対は仮定により Cauchy なので、三角不等式で三つの誤差を束ねる。
+  $\varepsilon/3$ 論法：$z$ を十分近い $z'$ に取り替える誤差は Cauchy–Schwarz と、ノルムが一様に $M$ 以下であるという仮定により一様に小さく、$z'$ での対は仮定により Cauchy なので、三角不等式で三つの誤差を束ねる。
 gap:
   level: none
   note: |

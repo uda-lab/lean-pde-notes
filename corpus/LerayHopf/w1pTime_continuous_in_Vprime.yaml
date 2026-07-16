@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   $V'$ 値の良い代表元（証明済み）：`W1pTime` 元の $V'$ への像の曲線は、$[0, T]$ 上 $V'$ に値を取る連続な代表元を持つ（$(0, T)$ 上 a.e. 一致）。
 proof_ja: |
-  $u' \in L^2(0,T;V')$ は区間可積分なので、その Bochner 原始関数 $w(t) = \int_0^t u'$ は連続（[[原始関数の連続性|LerayHopf.Bochner.continuousOn_primitive_of_integrableOn]]）。原始関数は分布的な意味で微分 $u'$ を持ち（[[原始関数の弱微分|LerayHopf.Bochner.isWeakTimeDeriv_primitive]]）、$u$ の像も定義により微分 $u'$ を持つから、差は弱微分零の曲線になる。du Bois-Reymond の要石（[[弱定数は定数|LerayHopf.Bochner.isWeakTimeDeriv_zero_ae_const]]）により差は a.e. 定数で、連続代表元は $w + (\text{定数})$ と取れる。
+  $u' \in L^2(0,T;V')$ は区間可積分なので、その Bochner 原始関数 $w(t) = \int_0^t u'$ は連続（[[原始関数の連続性|LerayHopf.Bochner.continuousOn_primitive_of_integrableOn]]）。原始関数は分布的な意味で微分 $u'$ を持ち（[[原始関数の弱微分|LerayHopf.Bochner.isWeakTimeDeriv_primitive]]）、$u$ の像も定義により微分 $u'$ を持つから、差は弱微分零の曲線になる。du Bois-Reymond 論法の中心的補題（[[弱定数は定数|LerayHopf.Bochner.isWeakTimeDeriv_zero_ae_const]]）により差は a.e. 定数で、連続代表元は $w + (\text{定数})$ と取れる。
 gap:
   level: mild
   note: |
-    反射も境界トレースも使わない（trace-free）設計が要：$H$ 値版を塞いでいるトレースの柱を避けて $V'$ 値では代表元が取れる。ただし依存する [[原始関数の弱微分|LerayHopf.Bochner.isWeakTimeDeriv_primitive]] は現状 `sorry`（Fubini 型の残余）なので、この定理の完全な無仮定性はそこに条件づけられている。
+    反射も境界トレースも使わない設計が要：$H$ 値版を塞いでいるトレースの柱を避けて $V'$ 値では代表元が取れる。ただし依存する [[原始関数の弱微分|LerayHopf.Bochner.isWeakTimeDeriv_primitive]] は現状 `sorry`（Fubini 型の残余）なので、この定理の完全な無仮定性はそこに条件づけられている。
 chapter: bochner
 tags: [gelfand-triple, bochner]

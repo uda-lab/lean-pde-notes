@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.timeMollification_of_w1pTime
 tier: full
 statement_ja: |
-  時間軟化データの構成子：`W1pTime` 元から時間軟化データを（存在定理の代表元選択で）供給する。
+  時間軟化データの選択：`W1pTime` 元から時間軟化データを（存在定理の代表元選択で）供給する。
 proof_ja: |
   [[存在定理|LerayHopf.Bochner.timeMollification_exists]] の非空性から選択で代表を取るだけである。
 gap:
   level: large
   note: |
-    存在定理が現状 `sorry` なので、この構成子の値も同じ壁に条件づけられている（それを隔離して下流の配線を書けるようにするための constructor）。
+    存在定理が現状 `sorry` なので、この選択の値も同じ壁に条件づけられている（それを隔離して後続の定理を記述できるようにするため）。
 chapter: bochner
 tags: [gelfand-triple, bochner]

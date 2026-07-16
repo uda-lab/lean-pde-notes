@@ -1,7 +1,7 @@
 name: LerayHopf.Bochner.GelfandTriple.hToVprimeCLM_apply
 tier: full
 statement_ja: |
-  CLM 版と裸の埋め込みの一致：両者は各点で同じ汎関数を与える。
+  連続線形写像としての埋め込みと点ごとに定めた埋め込みの一致：両者は各点で同じ汎関数を与える。
 proof_ja: |
   両辺を $V$ の元で評価すると同じ内積 $\langle \iota v, h \rangle$ に展開されるので、汎関数の外延性で一致する。
 gap:

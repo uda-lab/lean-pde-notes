@@ -1,7 +1,7 @@
 name: LerayHopf.Bochner.isWeakTimeDeriv_comp_clm
 tier: full
 statement_ja: |
-  弱時間微分の連続線形写像による輸送：$v$ が $u$ の弱時間微分で $L$ が連続線形写像ならば、両 Bochner 被積分関数の区間可積分性のもとで、$L \circ v$ は $L \circ u$ の弱時間微分である。
+  連続線形写像との合成による弱時間微分の保存：$v$ が $u$ の弱時間微分で $L$ が連続線形写像ならば、両 Bochner 被積分関数の区間可積分性のもとで、$L \circ v$ は $L \circ u$ の弱時間微分である。
 proof_ja: |
   $L$ はスカラー倍と可換で、（可積分性のもとで）区間積分とも可換なので、$X$ での部分積分恒等式に $L$ を通して $Y$ での恒等式を得る。
 gap:

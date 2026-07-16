@@ -7,10 +7,10 @@ statement_ja: |
 
   を全直線弱時間微分に持つ — 原点に Dirac 項は現れない。
 proof_ja: |
-  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**主張自体は真である（弱微分を持つ曲線は連続代表元を持ち、偶反射はトレース $u(0^+) = u(0^-)$ を自動的に合わせるので Dirac が出ない）が、これを閉じるには「全直線の弱微分から連続代表元とトレースを取り出す」Bochner 値の一次元 Sobolev の微積分学の基本定理の柱が要る。設計ノートが想定した初等的な半直線分割の計算は不完全であることが docstring に記録されている：仮定は両半直線を混ぜるのに結論は $[0, \infty)$ 上の $u$ しか見ないため、トレースなしには半直線の情報を取り出せない。
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**主張自体は真である（弱微分を持つ曲線は連続代表元を持ち、偶反射はトレース $u(0^+) = u(0^-)$ を自動的に合わせるので Dirac が出ない）が、これを閉じるには「全直線の弱微分から連続代表元とトレースを取り出す」Bochner 値の一次元 Sobolev 関数に対する微積分学の基本定理が必要である。設計ノートが想定した初等的な半直線分割の計算は不完全であることが docstring に記録されている：仮定は両半直線を混ぜるのに結論は $[0, \infty)$ 上の $u$ しか見ないため、トレースなしには半直線の情報を取り出せない。
 gap:
   level: large
   note: |
-    mathlib にベクトル値の区間 Sobolev FTC／トレース理論が無いことが唯一の障害（months 級と宣言された残余、`w1pTime_continuous_in_H` と同じ柱）。局所可積分性の仮定は半直線分割の Fubini を健全にするために追加された。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+    mathlib にベクトル値の区間 Sobolev FTC／トレース理論が無いことが唯一の障害（数か月規模の作業を要すると見積もられた未証明事項、`w1pTime_continuous_in_H` と同種の残課題）。局所可積分性の仮定は半直線分割の Fubini を健全にするために追加された。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、capstone 定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
 chapter: bochner
 tags: [weak-time-derivative, bochner]

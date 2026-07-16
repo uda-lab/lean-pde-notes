@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.continuous_translationModulus
 tier: full
 statement_ja: |
-  並進モジュラスの連続性：$h \mapsto \lVert \tau_h g - g \rVert$ は連続である。
+  平行移動差のノルムの連続性：$h \mapsto \lVert \tau_h g - g \rVert$ は連続である。
 proof_ja: |
   [[平行移動の連続性|LerayHopf.Bochner.continuous_timeTranslateL2]] と定数の差・ノルムの連続性の合成である。
 gap:
   level: none
   note: |
-    軟化収束の $\varepsilon$-$\delta$ 論法で「原点近傍でモジュラスが小さい」ことを取り出すために使う。
+    軟化収束の $\varepsilon$-$\delta$ 論法で「原点近傍で平行移動差のノルムが小さい」ことを取り出すために使う。
 chapter: bochner
 tags: [time-mollification, bochner]

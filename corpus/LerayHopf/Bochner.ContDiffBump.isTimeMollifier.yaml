@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   正規化バンプ核は時間軟化子である：任意の中心のバンプ関数を全測度で正規化したものは、[[時間軟化子|LerayHopf.Bochner.IsTimeMollifier]] の四条件を満たす。
 proof_ja: |
-  mathlib がバンプ核について個別に用意している四つの事実（正規化核の連続性・非負性・コンパクト台・積分 $1$）をフィールドごとに充てるだけである。
+  mathlib がバンプ核について個別に用意している四つの事実（正規化核の連続性・非負性・コンパクト台・積分 $1$）を順に適用するだけである。
 gap:
   level: none
   note: |
-    軟化子の具体的な供給源。半径を潰す列を取れば近似単位（approximate identity）として機能する。
+    軟化子の具体例である。半径が $0$ に収束する列を取れば近似単位（approximate identity）として機能する。
 chapter: bochner
 tags: [time-mollification, bochner]

@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   $H$ 値微分からの構成：曲線が $H$ 値の弱時間微分（$V'$ 値より真に強い条件）を $L^q$ で持つならば、$1 \le p$、$1 \le q$ のもとで、微分を $H \hookrightarrow V'$ で送った `W1pTime` 元が存在する。
 proof_ja: |
-  すべてを [[CLM 版埋め込み|LerayHopf.Bochner.GelfandTriple.hToVprimeCLM]] で後合成する：$L^q$ 所属は連続線形写像による `MemLp` の保存で、弱微分の恒等式は [[連続線形輸送|LerayHopf.Bochner.isWeakTimeDeriv_comp_clm]] で運ぶ。輸送が要求する二つの区間可積分性は、指数の下限 $1 \le p, q$ により有限測度上で `MemLp` から可積分性が出ること、テスト因子が有界であることから確かめる。
+  すべてを [[CLM 版埋め込み|LerayHopf.Bochner.GelfandTriple.hToVprimeCLM]] で後合成する：$L^q$ 所属は連続線形写像による `MemLp` の保存で、弱微分の恒等式は [[連続線形写像との合成による保存|LerayHopf.Bochner.isWeakTimeDeriv_comp_clm]] で運ぶ。この合成の補題が要求する二つの区間可積分性は、指数の下限 $1 \le p, q$ により有限測度上で `MemLp` から可積分性が出ること、テスト因子が有界であることから確かめる。
 gap:
   level: mild
   note: |
-    指数の下限は証明の強化でなく定義域の正直な制限（$p < 1$ では `MemLp` が可積分性を意味しない）。$H$ 値の強い入力を primal 定義から分離しておく設計（三つ組の規律）の帰結として、この変換が定理になる。
+    指数の下限は証明の強化でなく定義域の正直な制限（$p < 1$ では `MemLp` が可積分性を意味しない）。$H$ 値の強い入力を基本となる定義から分離しておく設計（三つ組の規律）の帰結として、この変換が定理になる。
 chapter: bochner
 tags: [gelfand-triple, bochner]

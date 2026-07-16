@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    Young 評価と並進モジュラスの議論の基礎。
+    Young 評価と平行移動差のノルムの議論の基礎。
 chapter: bochner
 tags: [time-mollification, bochner]

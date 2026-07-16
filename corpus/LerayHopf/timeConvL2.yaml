@@ -11,6 +11,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    点別の畳み込み積分でなく「$L^2$ 元に値を取る積分」として定義するのが設計の要：ノルム評価が Banach 空間でのノルム不等式（積分のノルムはノルムの積分以下）に直結する。ℝ³ 系統の空間版 `FrechetKolmogorov.convL2` の時間軸鏡像。
+    各点ごとの畳み込み積分でなく「$L^2$ 元に値を取る積分」として定義するのが設計の要：ノルム評価が Banach 空間でのノルム不等式（積分のノルムはノルムの積分以下）に直結する。ℝ³ 系統の空間版 `FrechetKolmogorov.convL2` の、時間変数に対応する類似物。
 chapter: bochner
 tags: [time-mollification, bochner]

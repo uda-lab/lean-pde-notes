@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    `CompleteSpace X` の仮定は忠実な定義域の修正：完備性がないと mathlib の Bochner 積分は $0$ に退化し、部分積分恒等式が任意の $v$ で自明に成り立ってしまう（body コメントに明記された設計判断）。
+    `CompleteSpace X` の仮定は忠実な定義域の修正：完備性がないと mathlib の Bochner 積分は $0$ に退化し、部分積分恒等式が任意の $v$ で自明に成り立ってしまう（定理本体のコメントに明記された設計判断）。
 chapter: bochner
 tags: [weak-time-derivative, bochner]

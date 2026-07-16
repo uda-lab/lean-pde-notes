@@ -1,14 +1,14 @@
 name: LerayHopf.Bochner.timeConvL2_sub_le_translation_modulus
 tier: full
 statement_ja: |
-  並進モジュラスによる欠損評価：
+  平行移動差のノルムによる近似誤差の評価：
 
   $$\lVert \rho \ast_t g - g \rVert \le \int_{\mathbb{R}} \rho(h)\, \lVert \tau_h g - g \rVert\, dh.$$
 proof_ja: |
-  [[欠損の積分表示|LerayHopf.Bochner.timeConvL2_sub_eq_integral]] に Bochner 積分のノルム不等式を適用し、核の非負性で絶対値を外す。
+  [[近似誤差の積分表示|LerayHopf.Bochner.timeConvL2_sub_eq_integral]] に Bochner 積分のノルム不等式を適用し、核の非負性で絶対値を外す。
 gap:
   level: none
   note: |
-    ℝ³ 系統の空間版評価の直移植。軟化収束（[[軟化収束|LerayHopf.Bochner.timeConvL2_tendsto_self]]）の中核入力。
+    ℝ³ 上の空間変数に関する評価と同様である。軟化収束（[[軟化収束|LerayHopf.Bochner.timeConvL2_tendsto_self]]）の中核入力。
 chapter: bochner
 tags: [time-mollification, bochner]

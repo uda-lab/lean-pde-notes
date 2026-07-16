@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.exists_Icc_of_compact_subset_Ioo
 tier: full
 statement_ja: |
-  開区間内のコンパクト集合の閉区間による分離：$(0, T)$ に含まれるコンパクト集合は、ある $0 < a \le b < T$ の閉区間 $[a, b]$ に含まれる。
+  開区間内のコンパクト集合の閉区間への包含：$(0, T)$ に含まれるコンパクト集合は、ある $0 < a \le b < T$ の閉区間 $[a, b]$ に含まれる。
 proof_ja: |
   空集合の場合は自明。そうでなければコンパクト性から最小値と最大値が存在し、それらが開区間の内部にあることから区間の端になる。
 gap:
   level: none
   note: |
-    テストの台と重みの台を同時に収める区間を取る簿記の補題。
+    テストの台と重みの台を同時に収める区間を取るための補助補題。
 chapter: bochner
 tags: [primitive, bochner]

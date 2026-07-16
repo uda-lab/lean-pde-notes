@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    du Bois-Reymond の要石で「a.e. 定数の値」を汲み出す基準の重み。
+    du Bois-Reymond の議論で中心的な役割を果たし、a.e. 定数の値を定める基準の重み。
 chapter: bochner
 tags: [primitive, bochner]

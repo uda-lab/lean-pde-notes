@@ -1,13 +1,13 @@
 name: LerayHopf.exists_weak_limit_in_submodule
 tier: full
 statement_ja: |
-  閉部分加群の中の弱極限：$x_k \in K$、$\lVert x_k \rVert \le M$ で、すべてのテスト $z$ に対し対の列が Cauchy ならば、$y \in K$、$\lVert y \rVert \le M$ で、すべての $z$ に対し
+  閉部分加群の中の弱極限：$x_k \in K$、$\lVert x_k \rVert \le M$ で、任意の $z$ に対して内積値の列が Cauchy ならば、$y \in K$、$\lVert y \rVert \le M$ で、すべての $z$ に対し
 
   $$\langle x_k,\ z \rangle \longrightarrow \langle y,\ z \rangle$$
 
   となる $y$ が存在する。
 proof_ja: |
-  完備性により各対の極限値 $\varphi(z)$ が定まり、極限の一意性から $\varphi$ の線形性、Cauchy–Schwarz と球有界から $M$ 有界性が従う。Fréchet–Riesz の表現で $y$ を得る。$K$ への所属は直交射影論法：$y$ の直交成分 $y - P_K y$ とのすべての対が消える（$x_k \in K$）ことから $\varphi$ の値も消え、$y$ 自身との内積計算で直交成分のノルムが零になる。ノルム評価は
+  完備性により各対の極限値 $\varphi(z)$ が定まり、極限の一意性から $\varphi$ の線形性が従う。$\lVert x_k\rVert\le M$ と Cauchy–Schwarz の不等式から、$\varphi$ の作用素ノルムは $M$ 以下である。Fréchet–Riesz の表現で $y$ を得る。$K$ への所属は直交射影論法：$y$ の直交成分 $y - P_K y$ とのすべての対が消える（$x_k \in K$）ことから $\varphi$ の値も消え、$y$ 自身との内積計算で直交成分のノルムが零になる。ノルム評価は
 
   $$\lVert y \rVert^2 = \varphi(y) \le M\, \lVert y \rVert$$
 

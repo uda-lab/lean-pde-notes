@@ -1,9 +1,9 @@
 name: LerayHopf.Bochner.isWeakTimeDerivℝ_comp_clm
 tier: full
 statement_ja: |
-  全直線版の弱微分の連続線形輸送：全直線の弱時間微分は、対応する全域可積分性のもとで連続線形写像を通して保たれる。
+  連続線形写像との合成による弱時間微分の保存（全直線版）：全直線の弱時間微分は、対応する全域可積分性のもとで連続線形写像との合成で保たれる。
 proof_ja: |
-  区間版 [[連続線形輸送|LerayHopf.Bochner.isWeakTimeDeriv_comp_clm]] の全直線への移植：$L$ を全域 Bochner 積分と交換し（可積分性が前提）、スカラー倍との可換性で恒等式を運ぶ。
+  区間版 [[連続線形写像との合成による保存|LerayHopf.Bochner.isWeakTimeDeriv_comp_clm]] と同様に、全直線上の積分と $L$ を交換し（可積分性が前提）、スカラー倍との可換性で恒等式を運ぶ。
 gap:
   level: none
   note: |

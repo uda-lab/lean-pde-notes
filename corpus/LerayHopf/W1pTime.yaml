@@ -1,9 +1,9 @@
 name: LerayHopf.Bochner.W1pTime
 tier: full
 statement_ja: |
-  時間 Sobolev 所属の束：曲線 $u \in L^p(0, T; V)$ と、その $V'$ 値の弱時間微分 $u' \in L^q(0, T; V')$ の対。フィールドは、$V'$ 値の微分曲線・$u$ の Bochner の意味での $L^p$ 所属・$u'$ の $L^q$ 所属・「$u'$ が $u$ の $V'$ への像の弱時間微分である」こと。
+  時間 Sobolev 所属の束：曲線 $u \in L^p(0, T; V)$ と、その $V'$ 値の弱時間微分 $u' \in L^q(0, T; V')$ の対。このデータは、$V'$ 値の微分曲線・$u$ の Bochner の意味での $L^p$ 所属・$u'$ の $L^q$ 所属・「$u'$ が $u$ の $V'$ への像の弱時間微分である」こと、の四項目からなる。
 proof_ja: |
-  四つのデータと性質をフィールドに持つ構造として定める。弱微分は $u$ を $\iota$ と $H \hookrightarrow V'$ で $V'$ 値曲線と見なした上で取る。
+  上記の四つのデータと条件を満たす対として定める。弱微分は $u$ を $\iota$ と $H \hookrightarrow V'$ で $V'$ 値曲線と見なした上で取る。
 gap:
   level: mild
   note: |

@@ -1,7 +1,7 @@
 name: LerayHopf.Bochner.primitive_baseA_props
 tier: full
 statement_ja: |
-  平均零のスカラーの原始関数の台：$[a, b]$ に台を持つ連続な $g$ が $\int_a^b g = 0$ を満たすならば、基点 $a$ の原始関数 $t \mapsto \int_a^t g$ は $[a, b]$ の外で消える。
+  平均が零であるスカラー値関数の原始関数の台：$[a, b]$ に台を持つ連続な $g$ が $\int_a^b g = 0$ を満たすならば、基点 $a$ の原始関数 $t \mapsto \int_a^t g$ は $[a, b]$ の外で消える。
 proof_ja: |
   $t < a$ 側では被積分区間上 $g$ が（端点の零集合を除き）恒等的に零。$t > b$ 側では積分を $[a, b]$ と $[b, t]$ に分け、前者は平均零の仮定で、後者は同様に被積分関数の消滅で零になる。
 gap:

@@ -1,14 +1,14 @@
 name: LerayHopf.Bochner.timeConvL2_sub_eq_integral
 tier: full
 statement_ja: |
-  軟化の欠損の積分表示：
+  軟化による近似誤差の積分表示：
 
   $$\rho \ast_t g - g = \int_{\mathbb{R}} \rho(h)\, (\tau_h g - g)\, dh.$$
 proof_ja: |
-  単位質量により $g = \int \rho(h)\, g\, dh$ と書けるので、二つの Bochner 積分の差を（それぞれの可積分性のもとで）一本の積分に合流させ、被積分関数を分配する。
+  単位質量により $g = \int \rho(h)\, g\, dh$ と書けるので、二つの Bochner 積分の差を（それぞれの可積分性のもとで）積分の線形性により一つの積分として書き、被積分関数を分配する。
 gap:
   level: none
   note: |
-    欠損を並進モジュラスで測る準備の恒等式。
+    近似誤差を平行移動差のノルムで測る準備の恒等式。
 chapter: bochner
 tags: [time-mollification, bochner]

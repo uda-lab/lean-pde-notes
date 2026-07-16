@@ -1,7 +1,7 @@
 name: LerayHopf.Bochner.continuousOn_primitive_of_integrableOn
 tier: full
 statement_ja: |
-  Bochner 原始関数の連続性：$[0, T]$ 上区間可積分な曲線 $v$ の原始関数 $t \mapsto \int_0^t v$ は $[0, T]$ 上連続である。
+  Bochner 原始関数の連続性：$[0, T]$ 上で区間可積分な曲線 $v$ の原始関数 $t \mapsto \int_0^t v$ は $[0, T]$ 上連続である。
 proof_ja: |
   mathlib の区間原始関数の連続性補題に帰着する（$T < 0$ の退化した場合は空集合上の連続性で自明）。
 gap:

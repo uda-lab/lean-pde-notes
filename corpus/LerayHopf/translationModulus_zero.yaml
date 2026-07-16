@@ -1,12 +1,12 @@
 name: LerayHopf.Bochner.translationModulus_zero
 tier: full
 statement_ja: |
-  並進モジュラスは原点で消える：$\lVert \tau_0 g - g \rVert = 0$。
+  平行移動差のノルムは原点で消える：$\lVert \tau_0 g - g \rVert = 0$。
 proof_ja: |
   シフト量零の平行移動が恒等であることを代表関数の水準で確かめ、差のノルムが零になる。
 gap:
   level: none
   note: |
-    軟化収束の連続性論法の錨点。
+    軟化収束の連続性論法における出発点。
 chapter: bochner
 tags: [time-mollification, bochner]

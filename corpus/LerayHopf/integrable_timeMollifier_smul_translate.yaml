@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    時間畳み込みを $L^2$ 値の Bochner 積分として定義するための前提（side condition なしで畳み込みが定義できる理由）。
+    時間畳み込みを $L^2$ 値の Bochner 積分として定義するための前提（追加条件なしで畳み込みが定義できる理由）。
 chapter: bochner
 tags: [time-mollification, bochner]
