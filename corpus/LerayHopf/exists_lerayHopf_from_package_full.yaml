@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    capstone [[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] の最終段。lean-pde issue #112 の汎用化以降、この移し替えは汎用層に一本化されている。
+    総仕上げの定理 [[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] の最終段。lean-pde issue #112 の汎用化以降、この移し替えは汎用層に一本化されている。
 chapter: capstone-torus
 tags: [capstone, torus]

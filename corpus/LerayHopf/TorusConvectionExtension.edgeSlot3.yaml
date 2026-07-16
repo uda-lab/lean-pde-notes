@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.edgeSlot3
 tier: full
 statement_ja: |
-  第三スロット Galerkin 辺：部分加群 $L^2_\sigma \otimes \mathcal{G}$。
+  三重線形形式の第 3 引数を Galerkin テスト空間に制限した部分加群 $L^2_\sigma \otimes \mathcal{G}$。
 proof_ja: |
   同様に汎用構成の特殊化である。
 gap:
   level: none
   note: |
-    「テスト因子が滑らか」な側の辺。
+    「テスト因子が滑らか」な側の部分加群（汎用層 `TensorEdgeGluing` の呼称では「辺」）。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: none
   note: |
-    「トーラスの移流形式は要求どおりに実在する」の一点集約。構造 `Torus3NSForms` が実際に構成できること、ひいては capstone（最終存在定理）が追加仮定を要しないことを支える。
+    「トーラスの移流形式は要求どおりに実在する」の一点集約。構造 `Torus3NSForms` が実際に構成できること、ひいては最終存在定理が追加仮定を要しないことを支える。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

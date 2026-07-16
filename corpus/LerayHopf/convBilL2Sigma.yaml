@@ -7,7 +7,7 @@ statement_ja: |
 
   を発散ゼロ空間上の実双線形写像として束ねる。
 proof_ja: |
-  加法性・斉次性の四つの補題（[[加法性 u|LerayHopf.TorusConvectionExtension.convValW_add_u]] ほか）をフィールドごとに充てる。
+  加法性・斉次性の四つの補題（[[加法性 u|LerayHopf.TorusConvectionExtension.convValW_add_u]] ほか）から加法性と斉次性を得る。
 gap:
   level: none
   note: |

@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.detExtend
 tier: full
 statement_ja: |
-  決定拡張：$u \in L^2_\sigma$ ごとに、テンソル積 $L^2_\sigma \otimes L^2_\sigma$ 上の線形汎関数を与える線形写像。二つの辺の上では対応する連続双線形形式の値を取り、重なりでの一致により貼り合わせが well-defined になる。
+  決定拡張：$u \in L^2_\sigma$ ごとに、テンソル積 $L^2_\sigma \otimes L^2_\sigma$ 上の線形汎関数を与える線形写像。二つのテンソル積部分加群の上では対応する連続双線形形式の値を取り、重なりでの一致により貼り合わせが well-defined になる。
 proof_ja: |
-  汎用のテンソル辺貼り合わせ構成に、テスト張り空間・テストについて線形な連続双線形形式の族（[[線形化|LerayHopf.TorusConvectionExtension.convBLTgalerkinLin]]）・重なりでの一致の証明を渡して得る。
+  汎用の、二つのテンソル積部分空間上の線形汎関数を一致条件のもとで貼り合わせる構成に、テスト張り空間・テストについて線形な連続双線形形式の族（[[線形化|LerayHopf.TorusConvectionExtension.convBLTgalerkinLin]]）・重なりでの一致の証明を渡して得る。
 gap:
   level: large
   note: |
-    「片方の因子が滑らかなら値が決まる」を厳密化する構成の心臓部。重なり $\mathcal{G} \otimes \mathcal{G}$ での一致（`convBLTgalerkin_overlap`、抽出上は private）が貼り合わせの糊。テンソル積の商構成を経由する純代数の議論は汎用層 `TensorEdgeGluing` に隔離されており、トーラス側は入力データの供給だけを行う。
+    「片方の因子が滑らかなら値が決まる」を厳密化する構成の中核となる部分。重なり $\mathcal{G} \otimes \mathcal{G}$ での一致（`convBLTgalerkin_overlap`、抽出上は private）が貼り合わせの整合条件を与える。テンソル積の商構成を経由する純代数の議論は汎用層 `TensorEdgeGluing` に隔離されており、トーラス側は入力データの供給だけを行う。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

@@ -3,11 +3,11 @@ tier: full
 statement_ja: |
   部分積分形の被和項のノルム総和可能性：$u, v$ は**任意の** $L^2$ 場、$w$ は Galerkin テスト関数とする。固定した成分対ごとに、部分積分形の被和項のノルムは格子点対全体で総和可能である。
 proof_ja: |
-  $w$ の帯域水準 $n$ を取ると、係数 $\hat w$ は周波数箱の外で消え、箱の中では乗数が
+  $w$ の打ち切り次数 $n$ を取ると、係数 $\hat w$ は周波数箱の外で消え、箱の中では乗数が
 
   $$\lvert (k+l)_a \rvert = \lvert m_a \rvert \le n$$
 
-  と一様に抑えられる。したがって被和項のノルムは定数 $2\pi n$ 倍の優関数族（$\ell^2 \cdot \ell^2 \cdot \ell^1$ 型）で押さえられ、[[優関数族の総和可能性|LerayHopf.TorusConvectionExtension.dom_summable]] と優級数判定で従う。
+  と一様に抑えられる。したがって被和項のノルムは定数 $2\pi n$ 倍の、上界を与える非負関数（$\ell^2 \cdot \ell^2 \cdot \ell^1$ 型）で押さえられ、[[上界を与える非負関数の総和可能性|LerayHopf.TorusConvectionExtension.dom_summable]] と優級数判定で従う。
 gap:
   level: none
   note: |

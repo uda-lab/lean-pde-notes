@@ -1,7 +1,7 @@
 name: LerayHopf.schwartzC_apply
 tier: full
 statement_ja: |
-  複素化の点別値の展開規則：複素化した関数の値は元の実数値の複素埋め込みに等しい。
+  複素化の各点での値の展開規則：複素化した関数の値は元の実数値の複素埋め込みに等しい。
 proof_ja: |
   定義の書き下しそのものである。
 gap:

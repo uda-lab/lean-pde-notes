@@ -15,6 +15,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    「部分積分で微分をテストへ移しても発散ゼロなら値が変わらない」の Fourier 級数版。energy 章の反対称性と同じ相殺機構（発散和の消滅）が、こちらでは二つの定式化の同値性として現れる。
+    「部分積分で微分をテストへ移しても発散ゼロなら値が変わらない」の Fourier 級数版。energy 章の反対称性と同じ相殺の構造（発散和の消滅）が、こちらでは二つの定式化の同値性として現れる。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

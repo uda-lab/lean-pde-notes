@@ -1,7 +1,7 @@
 name: LerayHopf.fourier_schwartzC_lineDeriv_apply
 tier: full
 statement_ja: |
-  複素化した方向微分の Fourier 記号：実 Schwartz 関数 $f$ と方向 $m$ に対し、$\partial_m f$ の複素化の Fourier 変換は点別に
+  複素化した方向微分の Fourier 記号：実 Schwartz 関数 $f$ と方向 $m$ に対し、$\partial_m f$ の複素化の Fourier 変換は各点で
 
   $$2\pi i\,\langle\xi,m\rangle\,\widehat{f}(\xi).$$
 

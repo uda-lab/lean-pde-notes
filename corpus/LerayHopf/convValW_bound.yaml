@@ -5,10 +5,10 @@ statement_ja: |
 
   $$\lvert \operatorname{val}(u, v, w) \rvert \le C(w)\, \lVert u \rVert\, \lVert v \rVert.$$
 proof_ja: |
-  定数は成分対ごとに「$2\pi n$ × $\hat w$ の箱上の $\ell^1$ 質量 × 二つの成分射影の作用素ノルム」を足し上げた明示的な量に取る。実部の絶対値をノルム総和で抑え、被和項ごとに乗数を $2\pi n$ で置き換えて優関数族に落とし（[[総和の評価|LerayHopf.TorusConvectionExtension.dom_tsum_le]]）、$\ell^2$ 量を成分射影の作用素ノルム経由で $\lVert u \rVert, \lVert v \rVert$ に戻す。
+  定数は成分対ごとに「$2\pi n$ × $\hat w$ の箱上の $\ell^1$ 質量 × 二つの成分射影の作用素ノルム」を足し上げた明示的な量に取る。実部の絶対値をノルム総和で抑え、被和項ごとに乗数を $2\pi n$ で置き換えて上界を与える非負関数の族に落とし（[[総和の評価|LerayHopf.TorusConvectionExtension.dom_tsum_le]]）、$\ell^2$ 量を成分射影の作用素ノルム経由で $\lVert u \rVert, \lVert v \rVert$ に戻す。
 gap:
   level: mild
   note: |
-    この双線形有界性が移流形式の $L^2 \times L^2$ への連続拡張（極限移行の心臓部）を可能にする。定数の最適性は問わない。本 corpus 最長級の評価計算の一つ。
+    この双線形有界性が移流形式の $L^2 \times L^2$ への連続拡張（極限移行の中核）を可能にする。定数の最適性は問わない。本 corpus 最長級の評価計算の一つ。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

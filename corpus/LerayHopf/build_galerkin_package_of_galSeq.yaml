@@ -7,6 +7,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    結論が命題でなく構造（`Type`）なので、存在文の展開は `obtain` でなく `Exists.choose` で行う。良い代表元と Aubin–Lions 極限の a.e. 一致の連言が可測性の移送のために保持されている。かつての公理 `aubin_lions`（A2）と `galerkin_limit_passage`（A3）は、それぞれ証明済み定理に置き換え済み。`import` の循環を避けるため `SolutionInterfaces.lean` から capstone ファイルへ移設された。
+    結論が命題でなく構造（`Type`）なので、存在文の展開は `obtain` でなく `Exists.choose` で行う。良い代表元と Aubin–Lions 極限の a.e. 一致の連言が可測性の移送のために保持されている。かつての公理 `aubin_lions`（A2）と `galerkin_limit_passage`（A3）は、それぞれ証明済み定理に置き換え済み。`import` の循環を避けるため、`SolutionInterfaces.lean` から最終存在定理を置くファイルへ移設された。
 chapter: capstone-torus
 tags: [capstone, aubin-lions, torus]

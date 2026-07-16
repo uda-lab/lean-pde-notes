@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.dom_summable
 tier: full
 statement_ja: |
-  優関数族の総和可能性（$\ell^2 \cdot \ell^2 \cdot \ell^1$ 型）：$U, V$ は非負で二乗総和可能、$W_c$ は非負で周波数箱に台を持つとする。このとき格子点対上の族
+  上界を与える非負関数の総和可能性（$\ell^2 \cdot \ell^2 \cdot \ell^1$ 型）：$U, V$ は非負で二乗総和可能、$W_c$ は非負で周波数箱に台を持つとする。このとき格子点対上の族
 
   $$(k, l) \longmapsto W_c(-(k+l))\, U(k)\, V(l)$$
 

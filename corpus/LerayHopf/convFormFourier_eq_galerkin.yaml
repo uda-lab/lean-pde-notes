@@ -3,10 +3,10 @@ tier: full
 statement_ja: |
   全格子形式と箱形式の一致：$u, v$ が次数 $n$ で帯域制限され、$v, w$ が Galerkin テスト関数ならば、[[全 Fourier 移流形式|LerayHopf.convFormFourier]] は [[Galerkin 移流形式|LerayHopf.galerkinConvection]] の値に一致する。
 proof_ja: |
-  全格子の総和が箱 $\times$ 箱の有限和に潰れることを示す：箱の外の格子点対では $\hat u$ または $\hat v$ の因子が消えるから被和項が零で、総和可能性のもとで `tsum_eq_sum` により有限和に落ちる。
+  全格子の総和が箱 $\times$ 箱の有限和に等しくなることを示す：箱の外の格子点対では $\hat u$ または $\hat v$ の因子が消えるから被和項が零で、総和可能性のもとで `tsum_eq_sum` により有限和に落ちる。
 gap:
   level: none
   note: |
-    無限和の定式化（energy 章）と有限和の定式化（ODE 層）の橋。
+    無限和の定式化（energy 章）と有限和の定式化（ODE 層）の一致を与える補題。
 chapter: limit-passage
 tags: [convection, galerkin, torus]

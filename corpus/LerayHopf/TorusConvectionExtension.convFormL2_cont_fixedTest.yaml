@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.convFormL2_cont_fixedTest
 tier: full
 statement_ja: |
-  固定テストでの結合連続性：Galerkin テスト関数 $w$ に対し、$(u, v) \mapsto b(u, v, w)$ は $L^2_\sigma \times L^2_\sigma$ 上結合連続である。
+  固定テストでの同時連続性：Galerkin テスト関数 $w$ に対し、$(u, v) \mapsto b(u, v, w)$ は $L^2_\sigma \times L^2_\sigma$ 上同時連続である。
 proof_ja: |
-  テスト上の値の同定（[[同定|LerayHopf.TorusConvectionExtension.convFormL2_def_eq_convValW]]）で決定形式を連続双線形形式 [[連続双線形化|LerayHopf.TorusConvectionExtension.convBLTw]] に書き換え、その結合連続性を引き継ぐ。
+  テスト上の値の同定（[[同定|LerayHopf.TorusConvectionExtension.convFormL2_def_eq_convValW]]）で決定形式を連続双線形形式 [[連続双線形化|LerayHopf.TorusConvectionExtension.convBLTw]] に書き換え、その同時連続性を引き継ぐ。
 gap:
   level: none
   note: |
-    極限移行で近似列を二つの引数に同時に流し込める理由。
+    極限移行で二つの引数で近似列の極限を同時に取れる理由。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]

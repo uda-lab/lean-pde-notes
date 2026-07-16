@@ -1,13 +1,13 @@
 name: LerayHopf.galerkin_ode_fires_on_test
 tier: full
 statement_ja: |
-  帯域制限されたテスト場 $w$ に対して、Galerkin の弱方程式が十分高いレベルのすべての近似で発火する。すなわち、あるレベル $n_0$ が存在して、$n\ge n_0$ なるすべての $n$ とすべての前向き時刻 $t\ge 0$ で
+  帯域制限されたテスト場 $w$ に対して、Galerkin の弱方程式が十分高いレベルのすべての近似で成り立つ。すなわち、あるレベル $n_0$ が存在して、$n\ge n_0$ なるすべての $n$ とすべての前向き時刻 $t\ge 0$ で
 
   $$\bigl\langle u_n'(t),w\bigr\rangle + \nu\,\langle u_n(t),w\rangle_{\mathrm{St}} + b\bigl(u_n(t),u_n(t),w\bigr) = 0$$
 
   が成り立つ。
 proof_ja: |
-  テスト場 $w$ が帯域制限されているとは、あるレベル $n_0$ で $P_{n_0} w = w$ となることをいう。射影の入れ子性から、$n\ge n_0$ なるすべての $n$ で $P_n w = w$ が成り立ち、$w$ は第 $n$ Galerkin 部分空間に属する。あとは[[Galerkin 解データ|LerayHopf.GalerkinSolutionData]]の弱方程式フィールドを、部分空間に属するテスト $w$ に対してそのまま発火させればよい。
+  テスト場 $w$ が帯域制限されているとは、あるレベル $n_0$ で $P_{n_0} w = w$ となることをいう。射影の入れ子性から、$n\ge n_0$ なるすべての $n$ で $P_n w = w$ が成り立ち、$w$ は第 $n$ Galerkin 部分空間に属する。あとは[[Galerkin 解データ|LerayHopf.GalerkinSolutionData]]が保持する弱方程式を、部分空間に属するテスト $w$ に対してそのまま適用すればよい。
 gap:
   level: none
   note: |

@@ -1,7 +1,7 @@
 name: LerayHopf.Galerkin.FieldForms.inner_self_vectorField
 tier: full
 statement_ja: |
-  エネルギー恒等式の点別形：任意の $v$ に対して
+  Galerkin ベクトル場のエネルギー恒等式：任意の $v$ に対して
 
   $$\bigl\langle v,\,G(v)\bigr\rangle = -\nu\, s(v,v).$$
 

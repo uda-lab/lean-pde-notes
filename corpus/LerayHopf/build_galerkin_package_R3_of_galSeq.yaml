@@ -9,6 +9,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    かつて Step 1 は `aubin_lions_R3` 公理を適用していたが（issue #15 で再配置）、いまは証明済みの構成子を適用するため、この組み立ては Aubin–Lions 極限移行の下流に位置する。名前・型・生成する構造は旧版とバイト単位で同一なので、capstone は import 越しにこの定義を透過的に見る。時間側は構成子内部で無条件の[[時空抽出|LerayHopf.galerkinSpaceTimeExtraction_R3]]が供給する。
+    かつて Step 1 は `aubin_lions_R3` 公理を適用していたが（issue #15 で再配置）、いまは証明済みの構成子を適用するため、この組み立ては Aubin–Lions 極限移行の下流に位置する。名前・型・生成する構造は旧版とバイト単位で同一なので、この定義は import 先の最終存在定理から透過的に利用される。時間側は構成子内部で無条件の[[時空抽出|LerayHopf.galerkinSpaceTimeExtraction_R3]]が供給する。
 chapter: limit-passage
 tags: [aubin-lions, limit-passage, assembly]

@@ -17,6 +17,6 @@ gap:
   note: |
     自然言語の「発散をテスト関数と対にする」に対し、形式化では偏微分作用素・Schwartz 関数の $L^2$ 埋め込み・内積汎関数を明示的に組み合わせて連続性を保証する必要がある。
 
-    偏微分には `lineDerivOpCLM` を用いる（`pderivCLM` は 2025-11 に非推奨化）。`SchwartzMap.toLp` は Lebesgue 測度が Haar 測度であることから緩増加性が自動的に発火して定義できる。
+    偏微分には `lineDerivOpCLM` を用いる（`pderivCLM` は 2025-11 に非推奨化）。`SchwartzMap.toLp` は Lebesgue 測度が Haar 測度であることから緩増加性が自動的に得られて定義できる。
 chapter: spaces
 tags: [divergence-free, schwartz, weak-divergence]

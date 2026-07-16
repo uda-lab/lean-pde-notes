@@ -1,7 +1,7 @@
 name: LerayHopf.ae_zero_of_hermitianTest
 tier: full
 statement_ja: |
-  Hermite テストに対する du Bois-Reymond 補題：局所可積分な関数がすべての Hermite 対称 Schwartz テストとの積分で消えるなら、その関数は a.e. で零である。弱発散ゼロなどの超関数的条件から点別の結論を引き出す基本補題。
+  Hermite テストに対する du Bois-Reymond 補題：局所可積分な関数がすべての Hermite 対称 Schwartz テストとの積分で消えるなら、その関数は a.e. で零である。弱発散ゼロなどの超関数的条件からほとんど至る所での結論を引き出す基本補題。
 proof_ja: |
   実の滑らかなコンパクト台テスト $g$ を偶部 $g_E$ と奇部 $g_O$ に分解する。$g_E$ の複素化は Hermite 対称であり、奇部は $i$ 倍すると Hermite 対称になるので、いずれも仮定のテストクラスに入る。両者に対する消滅から $2g = g_E + g_O$ に対する消滅が従い、通常の du Bois-Reymond 補題（滑らかなコンパクト台テストで消える局所可積分関数は a.e. 零）に帰着する。
 gap:

@@ -1,7 +1,7 @@
 name: LerayHopf.TorusConvectionExtension.antisymmetrizer
 tier: full
 statement_ja: |
-  反対称化子：テンソル積上の線形写像 $A := (\mathrm{id} - \mathrm{swap})/2$。
+  反対称化作用素：テンソル積上の線形写像 $A := (\mathrm{id} - \mathrm{swap})/2$。
 proof_ja: |
   汎用構成の特殊化である。
 gap:
