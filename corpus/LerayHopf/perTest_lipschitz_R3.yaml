@@ -23,6 +23,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    粘性形式を固定元との内積へ書き換える部分は `stokesTestPairing_R3_eq_sum_inner_negLap` と成分射影の随伴 `L2VF_projComponent_R3.adjoint` を組み合わせる。レベル $n_0$ から $n\ge n_0$ への持ち上げは `𝔊.mono_range`、Schwartz witness の取り出しは `𝔊.range_schwartz` による。導関数評価の平均値定理は `Convex.norm_image_sub_le_of_norm_hasDerivWithin_le`。
+    粘性形式を固定元との内積へ書き換える部分は `stokesTestPairing_R3_eq_sum_inner_negLap` と成分射影の随伴 `L2VF_projComponent_R3.adjoint` を組み合わせる。レベル $n_0$ から $n\ge n_0$ への持ち上げは `𝔊.mono_range`、Schwartz witness の取り出しは `𝔊.range_schwartz` による。導関数評価の平均値定理は `Convex.norm_image_sub_le_of_norm_hasDerivWithin_le`。lean-pde issue #135 の restate により、Galerkin 解の族は汎用束 `Galerkin.SolutionData (r3Domain 𝔊) F.core` で受け取り、一様ノルム評価はその逐語移植 `galerkin_norm_le_u0_generic` による（主張の内容は不変）。
 chapter: limit-passage
 tags: [equi-lipschitz, galerkin-test, mean-value]

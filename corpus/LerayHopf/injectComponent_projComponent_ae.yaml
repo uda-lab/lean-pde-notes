@@ -1,0 +1,10 @@
+name: LerayHopf.injectComponent_projComponent_ae
+tier: gloss
+statement_ja: |
+  再組み立てされた第 $j$ 成分の a.e. 各点表示：第 $j$ 成分を取り出して[[成分の注入|LerayHopf.L2VF_injectComponent]]で戻した場は、第 $j$ 座標値による標準基底ベクトル $e_j$ のスカラー倍とほとんど至る所一致する。
+gap:
+  level: none
+  note: |
+    [[成分ごとの再組み立て|LerayHopf.sum_inject_projComponent]]の部品。合成作用素の a.e. 各点表示 `ContinuousLinearMap.coeFn_compLpL` による。
+chapter: spaces
+tags: [private-helper, function-spaces, torus]
