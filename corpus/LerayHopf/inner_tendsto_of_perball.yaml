@@ -7,7 +7,7 @@ statement_ja: |
 proof_ja: |
   球内・球外の $\varepsilon/3$ 分割で示す。まず $e$ の球外部分のノルム $\lVert e-e|_{B_{k_0}}\rVert$ が $\varepsilon/(3C)$ 未満になる半径 $k_0$ を取る（$C=M+\lVert e\rVert+1$）。
 
-  内積を球部分と球外部分に分ける。球部分は $e$ と $u_n$ の球制限どうしの内積で、球制限の強収束により収束する。球外部分は Cauchy–Schwarz と一様評価から
+  内積を球内部分と球外部分に分ける。球内部分は $e$ と $u_n$ の球制限どうしの内積で、球制限の強収束により収束する。球外部分は Cauchy–Schwarz と一様評価から
 
   $$\lVert e-e|_{B_{k_0}}\rVert\cdot M<\varepsilon/3$$
 
