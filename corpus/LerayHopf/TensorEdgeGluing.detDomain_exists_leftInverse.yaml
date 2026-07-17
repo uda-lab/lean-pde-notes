@@ -4,7 +4,7 @@ statement_ja: |
   決定領域の包含に線形な左逆が存在すること（補空間の存在 = Hamel 基底による選択）。
 gap:
   level: mild
-  note: |
-    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+provenance: |
+  lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
 chapter: limit-passage
 tags: [convection, tensor-gluing, private-helper]

@@ -15,7 +15,9 @@ proof_ja: |
 gap:
   level: large
   note: |
-    形式化レビュー当時は公理 `spatial_compactness_R3`（AX-SC）だったが、issue #2 で証明済み定理へ反転された（新規公理なし、カーネル公理のみ）。証明は sorry-free な Fréchet–Kolmogorov 連鎖の合成 `localCompactness_R3_of_ballCompact (localRellichInput_of_frechetKolmogorov frechetKolmogorov_holds)` である。命題は旧公理とバイト同一で、消費側（`aubin_lions_R3` の空間スロット）は不変。トーラスの大域 Rellich `rellich_L2Sigma` に対応する $\mathbb{R}^3$ の局所版であり、非有界領域ゆえ収束を球ごとに局所化する点が本質的な相違である。
+    証明は sorry-free な Fréchet–Kolmogorov 連鎖の合成 `localCompactness_R3_of_ballCompact (localRellichInput_of_frechetKolmogorov frechetKolmogorov_holds)` である。命題は旧公理とバイト同一で、消費側（`aubin_lions_R3` の空間スロット）は不変。トーラスの大域 Rellich `rellich_L2Sigma` に対応する $\mathbb{R}^3$ の局所版であり、非有界領域ゆえ収束を球ごとに局所化する点が本質的な相違である。
+provenance: |
+  形式化レビュー当時は公理 `spatial_compactness_R3`（AX-SC）だったが、issue #2 で証明済み定理へ反転された（新規公理なし、カーネル公理のみ）。
 chapter: compactness
 tags: [rellich, local-compactness, frechet-kolmogorov, frontier-resolved]
 references:

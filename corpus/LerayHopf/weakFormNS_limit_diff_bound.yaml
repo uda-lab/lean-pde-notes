@@ -4,7 +4,7 @@ statement_ja: |
   弱形式極限移行のステップ（W2 その 2、差の評価）：Schwartz テスト $z$ に対する弱形式汎関数の差を $A\lVert z\rVert + B\sqrt{V_1(z)}$ の形（$V_1$ は $\nu=1$ の粘性散逸）で抑える。テスト拡張（Galerkin テストから全 Schwartz テストへ）の連続性論法の中核評価。
 gap:
   level: mild
-  note: |
-    lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。
+provenance: |
+  lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。
 chapter: limit-passage
 tags: [limit-passage, test-extension, textbook-step, private-helper]

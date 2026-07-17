@@ -11,8 +11,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    強収束は `eLpNorm` 形で述べる。$\mathbb{R}^3$ 側の修正を鏡映しており、以前の Bochner 型 $\int\lVert\cdot\rVert^2\to 0$ は非可積分被積分関数を $0$ に潰す「空虚形」で、真の $L^2$ 時間収束を保証できなかった。`eLpNorm` 形はゴミ $0$ 潰れがなく意図した内容を正確に担う（公理は増やさない）。
-
-    バインダ列はかつての公理 `aubin_lions` と一致し、利用側の書き換えは純粋な名前の差し替えである（課題 #23）。空間コンパクト性の引数は使われず、利用側が `rellich_L2Sigma` を位置引数として与え続ける。`Type` 値なので存在からの取り出しは `Classical.choose` を経る。
+    強収束は `eLpNorm` 形で述べる。$\mathbb{R}^3$ 側の修正を鏡映しており、以前の Bochner 型 $\int\lVert\cdot\rVert^2\to 0$ は非可積分被積分関数を $0$ に潰す「空虚形」で、真の $L^2$ 時間収束を保証できなかった。`eLpNorm` 形はゴミ $0$ 潰れがなく意図した内容を正確に担う（公理は増やさない）。空間コンパクト性の引数は使われず、利用側が `rellich_L2Sigma` を位置引数として与え続ける。`Type` 値なので存在からの取り出しは `Classical.choose` を経る。
+provenance: |
+  バインダ列はかつての公理 `aubin_lions` と一致し、利用側の書き換えは純粋な名前の差し替えである（課題 #23）。
 chapter: compactness
 tags: [aubin-lions, compactness, strong-convergence, torus, de-axiomatized]

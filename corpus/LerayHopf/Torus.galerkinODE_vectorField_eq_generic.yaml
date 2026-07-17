@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    `ext_inner_right` と両側の spec 補題による。issue #112 PR-B の設計則（既存の場を再定義せず、等値ブリッジで汎用層へ接続する）に従い、下流の `galerkinODE_vectorField_contDiff` などはこのブリッジを `rw` してから汎用補題を適用する系になった。
+    `ext_inner_right` と両側の spec 補題による。
+provenance: |
+  issue #112 PR-B の設計則（既存の場を再定義せず、等値ブリッジで汎用層へ接続する）に従い、下流の `galerkinODE_vectorField_contDiff` などはこのブリッジを `rw` してから汎用補題を適用する系になった。
 chapter: ode
 tags: [galerkin, ode, torus, bridge]

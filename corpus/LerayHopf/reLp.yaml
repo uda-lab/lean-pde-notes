@@ -10,7 +10,7 @@ proof_ja: |
   各点での実部の取り出しは連続線形で絶対値を増やさないので、$L^2$ 類の水準の連続線形写像へ持ち上がる。
 gap:
   level: none
-  note: |
-    lean-pde PR #126 で `Analysis/RealComplexLpBridge.lean` へ公開移動（private→public）。
+provenance: |
+  lean-pde PR #126 で `Analysis/RealComplexLpBridge.lean` へ公開移動（private→public）。
 chapter: energy
 tags: [real-complex-bridge, shared-infra]

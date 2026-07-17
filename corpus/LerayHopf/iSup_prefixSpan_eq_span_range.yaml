@@ -6,7 +6,7 @@ proof_ja: |
   各前置 span は全 span に含まれるから上限も含まれる。逆に全 span の生成元は各々ある前置 span に現れるので、生成性から逆向きの包含も従う。
 gap:
   level: none
-  note: |
-    lean-pde PR #124 で private コピー（prime 付き）を削除し public 原本に一本化。
+provenance: |
+  lean-pde PR #124 で private コピー（prime 付き）を削除し public 原本に一本化。
 chapter: projections-galerkin
 tags: [galerkin, basis, r3]

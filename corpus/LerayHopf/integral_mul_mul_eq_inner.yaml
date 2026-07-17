@@ -6,7 +6,7 @@ proof_ja: |
   内積を積分表示し、乗算の各点表示を代入して被積分関数が一致することを確かめる。
 gap:
   level: none
-  note: |
-    lean-pde PR #126 で `Analysis/RealComplexLpBridge.lean` へ公開移動（private→public）。
+provenance: |
+  lean-pde PR #126 で `Analysis/RealComplexLpBridge.lean` へ公開移動（private→public）。
 chapter: energy
 tags: [real-complex-bridge, shared-infra]

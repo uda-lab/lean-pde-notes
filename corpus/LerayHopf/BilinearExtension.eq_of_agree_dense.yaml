@@ -6,7 +6,7 @@ proof_ja: |
   一方の引数を固定して稠密集合上で一致する連続線形汎関数の一意性を適用し、これをもう一方の引数について繰り返す。
 gap:
   level: none
-  note: |
-    lean-pde PR #123（issue #111 PR-4）で両系統の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+provenance: |
+  lean-pde PR #123（issue #111 PR-4）で両系統の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
 chapter: misc
 tags: [bilinear-extension, shared-infra]

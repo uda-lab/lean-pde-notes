@@ -6,7 +6,7 @@ proof_ja: |
   テストとの対で一致する二つの局所可積分関数は a.e. で一致する（du Bois-Reymond）ことに帰着し、$L^2$ 類の等式として読み替える。
 gap:
   level: mild
-  note: |
-    lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。
 chapter: energy
 tags: [fourier, parseval, shared-infra]

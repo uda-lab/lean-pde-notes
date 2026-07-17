@@ -4,7 +4,7 @@ statement_ja: |
   $\Psi_2$ と $\Psi_3$ が台テンソルの重なる所で一致すること（部分定義線形写像の上限を取るための整合性）。
 gap:
   level: mild
-  note: |
-    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+provenance: |
+  lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
 chapter: limit-passage
 tags: [convection, tensor-gluing, private-helper]

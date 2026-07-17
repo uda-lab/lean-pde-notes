@@ -791,6 +791,22 @@ function renderDecl(app, slug) {
     app.appendChild(rp);
   }
 
+  // notes#69: development-process history (issue/PR numbers, review rounds, axiom-to-theorem
+  // flips, module reorganizations) is kept for the historical record but must not lead the
+  // default scholarly view — collapsed behind a <details> toggle, closed by default, below
+  // the mathematical content (statement/proof/gap-note/references).
+  const provenance = node.corpus && node.corpus.provenance;
+  if (provenance) {
+    const pp = el('div', { class: 'note-panel provenance-panel' });
+    const det = el('details', { class: 'use' });
+    det.appendChild(el('summary', {}, [el('span', { class: 'summary-name', text: '開発履歴を表示' })]));
+    const body = el('div', { class: 'prose use-body' });
+    renderProse(body, provenance);
+    det.appendChild(body);
+    pp.appendChild(det);
+    app.appendChild(pp);
+  }
+
   // uses (direct deps) — depth-1 accordion
   renderUses(app, node);
   // used-by (links only)

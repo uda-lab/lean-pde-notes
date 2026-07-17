@@ -10,7 +10,7 @@ proof_ja: |
   実数値性から $\overline{\varphi}=\varphi$ であり、Fourier 変換と共役・反転の交換規則を適用する。
 gap:
   level: none
-  note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

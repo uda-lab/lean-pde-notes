@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    可積分性は $L^2$ 所属のノルム冪の可積分性（`MemLp.integrable_norm_rpow`）から。lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
+    可積分性は $L^2$ 所属のノルム冪の可積分性（`MemLp.integrable_norm_rpow`）から。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
 chapter: limit-passage
 tags: [spatial-compactness, restrict-to-ball, r3]

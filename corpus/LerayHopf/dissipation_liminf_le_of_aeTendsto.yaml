@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    `viscousEnn_lsc`（拡張実数値化した粘性形式の下半連続性）+ Fatou。lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。
+    `viscousEnn_lsc`（拡張実数値化した粘性形式の下半連続性）+ Fatou。
+provenance: |
+  lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。
 chapter: energy
 tags: [energy-inequality, lower-semicontinuity, fatou, textbook-step, private-helper]

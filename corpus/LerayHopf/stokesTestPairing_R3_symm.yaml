@@ -10,7 +10,7 @@ proof_ja: |
   が実部の共役対称性により引数交換で不変であることから、積分も対称になる。
 gap:
   level: none
-  note: |
-    lean-pde PR #133 で import 循環回避のため `R3/GalerkinODE.lean` へ public 移動。
+provenance: |
+  lean-pde PR #133 で import 循環回避のため `R3/GalerkinODE.lean` へ public 移動。
 chapter: ode
 tags: [galerkin, ode, r3]

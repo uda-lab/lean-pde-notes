@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    lean-pde PR #128（issue #114 Tier 3）で名前付き補題として公開。両系統の `b_self_zero_right` はこれと同型の一行証明。
+    両系統の `b_self_zero_right` はこれと同型の一行証明。
+provenance: |
+  lean-pde PR #128（issue #114 Tier 3）で名前付き補題として公開。
 chapter: spaces
 tags: [convection, energy, textbook-step, abstract]

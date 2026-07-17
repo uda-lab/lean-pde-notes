@@ -11,6 +11,10 @@ proof_ja: |
 gap:
   level: large
   note: |
-    これはかつて公理 `galerkin_weakLimit_R3` であり、issue #47 で証明済み定理へ反転された（公理→定理）。強可測な極限の計算は `exists_stronglyMeasurable_limit_of_tendsto_ae`、発散ゼロ性は[[弱極限の発散ゼロ性|LerayHopf.weakLimit_mem_L2Sigma_R3]]（Mazur）による。かつて足場として置かれた弱点列コンパクト性の公理 `L2VF_R3_weakSeqCompact_closedBall` はこの経路では使われず削除された。下流の消費者はすべて同じ名前と型でこの定理を見る。lean-pde issue #135 の restate により、Galerkin 解の族は R3 固有の束ではなく汎用束 `Galerkin.SolutionData (r3Domain 𝔊) F.core` で受け取る（主張の内容は不変）。
+    強可測な極限の計算は `exists_stronglyMeasurable_limit_of_tendsto_ae`、発散ゼロ性は[[弱極限の発散ゼロ性|LerayHopf.weakLimit_mem_L2Sigma_R3]]（Mazur）による。かつて足場として置かれた弱点列コンパクト性の公理 `L2VF_R3_weakSeqCompact_closedBall` はこの経路では使われず削除された。下流の消費者はすべて同じ名前と型でこの定理を見る。
+provenance: |
+  これはかつて公理 `galerkin_weakLimit_R3` であり、issue #47 で証明済み定理へ反転された（公理→定理）。
+
+  lean-pde issue #135 の restate により、Galerkin 解の族は R3 固有の束ではなく汎用束 `Galerkin.SolutionData (r3Domain 𝔊) F.core` で受け取る（主張の内容は不変）。
 chapter: compactness
 tags: [aubin-lions, weak-convergence, divergence-free, frontier-resolved]

@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    Picard–Lindelöf 定理に必要な滑らかさを与える補題。lean-pde issue #112 PR-B で、系統ごとに構成していた連続線形写像の段階的な合成が汎用層 `Galerkin/QuadraticField.lean` へ一本化され、本補題は委譲一行になった。
+    Picard–Lindelöf 定理に必要な滑らかさを与える補題。
+provenance: |
+  lean-pde issue #112 PR-B で、系統ごとに構成していた連続線形写像の段階的な合成が汎用層 `Galerkin/QuadraticField.lean` へ一本化され、本補題は委譲一行になった。
 chapter: ode
 tags: [galerkin, ode, torus]

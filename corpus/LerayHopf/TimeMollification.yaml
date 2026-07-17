@@ -15,6 +15,8 @@ gap:
 
     $$\lVert \varphi \rVert_{V'}\, \lVert v \rVert_V$$
 
-    を極限に渡すのに $L^2(H)$ 収束では足りないため（codex P1 修正の履歴が docstring に記録されている）。
+    を極限に渡すのに $L^2(H)$ 収束では足りないため。
+provenance: |
+  codex P1 修正の履歴が docstring に記録されている。
 chapter: bochner
 tags: [gelfand-triple, bochner]

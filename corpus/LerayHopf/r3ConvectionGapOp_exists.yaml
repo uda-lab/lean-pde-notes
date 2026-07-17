@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    この宣言はかつて公理 `r3ConvectionGapOp_exists`（$\mathbb{R}^3$ の弱 $(u\cdot\nabla)v$ 作用素中核）だったが、issue #56 でテンソル積上の決定域構成により証明済み定理へ反転された。定理なので `#print axioms` には現れず、これによりプロジェクトはカーネルのみ（追加公理ゼロ）に到達している。名称は履歴継承のため変えていない（宣言名の改称禁止規則）。
+    定理なので `#print axioms` には現れず、これによりプロジェクトはカーネルのみ（追加公理ゼロ）に到達している。
+provenance: |
+  この宣言はかつて公理 `r3ConvectionGapOp_exists`（$\mathbb{R}^3$ の弱 $(u\cdot\nabla)v$ 作用素中核）だったが、issue #56 でテンソル積上の決定域構成により証明済み定理へ反転された。名称は履歴継承のため変えていない（宣言名の改称禁止規則）。
 chapter: limit-passage
 tags: [convection-form, convection-gap, frontier-resolved, kernel-only]

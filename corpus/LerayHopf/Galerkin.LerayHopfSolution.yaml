@@ -13,6 +13,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    初期トレースの収束は `nhdsWithin 0 (Set.Ici 0)` に沿う極限で、このフィルターは点 $0$ 自身を含むため $u(0)=u_0$ を厳密に固定する（代表元の取り方に注意が必要になる箇所）。ただしこれは $t\to0^+$ の片側極限であり、区間 $[0,T]$ 全体での弱連続性 $u\in C_w([0,T];L^2_\sigma)$ をフィールドとして主張するものではない。時間可測性は `AEStronglyMeasurable` で持つ（教科書水準の完全な Leray–Hopf 規格の一部として lean-pde PR #102 で導入されたフィールド）が、これは $H^1$ ではなく周囲の $L^2$ 空間へ値を取る強可測性であり、エネルギー類の a.e.-$H^1$ 所属と合わせても文字通りの Bochner 空間所属 $u\in L^2(0,T;H^1_\sigma)$ には格上げされない。弱 NS 方程式（`weak_eq`）は分離変数テスト関数 $\psi(t)w(x)$ に対して述べられ、一般の時空テスト関数との同値性は範囲外：[[弱形式|LerayHopf.WeakFormNS]]。
+    初期トレースの収束は `nhdsWithin 0 (Set.Ici 0)` に沿う極限で、このフィルターは点 $0$ 自身を含むため $u(0)=u_0$ を厳密に固定する（代表元の取り方に注意が必要になる箇所）。ただしこれは $t\to0^+$ の片側極限であり、区間 $[0,T]$ 全体での弱連続性 $u\in C_w([0,T];L^2_\sigma)$ をフィールドとして主張するものではない。時間可測性は `AEStronglyMeasurable` で持つが、これは $H^1$ ではなく周囲の $L^2$ 空間へ値を取る強可測性であり、エネルギー類の a.e.-$H^1$ 所属と合わせても文字通りの Bochner 空間所属 $u\in L^2(0,T;H^1_\sigma)$ には格上げされない。弱 NS 方程式（`weak_eq`）は分離変数テスト関数 $\psi(t)w(x)$ に対して述べられ、一般の時空テスト関数との同値性は範囲外：[[弱形式|LerayHopf.WeakFormNS]]。
+provenance: |
+  教科書水準の完全な Leray–Hopf 規格の一部として lean-pde PR #102 で導入されたフィールド。
 chapter: galerkin-generic
 tags: [galerkin-domain, proof-carrying, leray-hopf]

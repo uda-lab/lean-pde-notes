@@ -232,6 +232,8 @@ def corpus_payload(doc: dict) -> dict:
         payload['proof_ja'] = doc['proof_ja']
     if doc.get('references'):
         payload['references'] = doc['references']
+    if doc.get('provenance'):
+        payload['provenance'] = doc['provenance']
     return payload
 
 

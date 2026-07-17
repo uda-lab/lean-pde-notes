@@ -6,7 +6,7 @@ proof_ja: |
   弱勾配成分の $L^2$ 所属と実部写像の非拡大性から従う。
 gap:
   level: none
-  note: |
-    lean-pde PR #126 で `Analysis/LpInterpolation.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126 で `Analysis/LpInterpolation.lean` へ公開移動。
 chapter: energy
 tags: [interpolation, sobolev, shared-infra]

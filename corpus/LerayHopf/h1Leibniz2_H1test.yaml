@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    lean-pde PR #126 で `Analysis/WeakLeibniz.lean` へ公開移動。右辺極限は `h1Leibniz2_H1test_RHS_limit`、$L^3$ 近似は `reSchwartz_L3_approx` 系による。近似列の多方向同時性（値と全方向の弱微分が同じ列で収束）が形式化の要。
+    右辺極限は `h1Leibniz2_H1test_RHS_limit`、$L^3$ 近似は `reSchwartz_L3_approx` 系による。近似列の多方向同時性（値と全方向の弱微分が同じ列で収束）が形式化の要。
+provenance: |
+  lean-pde PR #126 で `Analysis/WeakLeibniz.lean` へ公開移動。
 chapter: energy
 tags: [leibniz, weak-derivative, shared-infra]

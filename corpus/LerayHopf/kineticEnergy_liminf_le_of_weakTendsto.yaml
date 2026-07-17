@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    `normSq_le_liminf_of_inner_tendsto`（`Bochner/WeakLimitToolkit`）+ `torus_galerkin_norm_le_u0` に帰着。lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。
+    `normSq_le_liminf_of_inner_tendsto`（`Bochner/WeakLimitToolkit`）+ `torus_galerkin_norm_le_u0` に帰着。
+provenance: |
+  lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。
 chapter: energy
 tags: [energy-inequality, lower-semicontinuity, textbook-step, private-helper]

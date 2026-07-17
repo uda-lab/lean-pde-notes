@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    lean-pde PR #124（issue #111 PR-5）で `GalerkinODESolve.lean` から `GalerkinProjection.lean` へ移設（ODE に関する結果へ依存せずに到達できるようにするため）。完全修飾名が変わらないよう名前空間は旧位置の `Torus` のまま維持されている。
+    完全修飾名が変わらないよう名前空間は旧位置の `Torus` のまま維持されている。
+provenance: |
+  lean-pde PR #124（issue #111 PR-5）で `GalerkinODESolve.lean` から `GalerkinProjection.lean` へ移設（ODE に関する結果へ依存せずに到達できるようにするため）。
 chapter: ode
 tags: [parseval, fourier, torus]

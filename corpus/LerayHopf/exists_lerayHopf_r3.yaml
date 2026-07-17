@@ -23,8 +23,8 @@ gap:
   note: |
     自然言語では「Galerkin 近似してコンパクト性で極限を取る」の一行だが、形式化では有限次元 ODE の存在・前進評価・射影の実数値性・局所コンパクト性・非線形項の三線形評価・極限移行へと展開される。
 
-    非有界領域 $\mathbb{R}^3$ では大域 Rellich が破綻するため、コンパクト性を局所化し、Schwartz テスト関数の急減少で裾を一様に抑えて極限移行を成立させる点が有界領域との違いである。
-
-    旧名の `axiomatic` 接尾辞は歴史的なもので、lean-pde PR #117 で retire され現行名 `exists_lerayHopf_r3` になった。証拠となるスキームは具体的な `schemeOfBasis B`（`r3GalerkinScheme_exists` から取ると基底を捨てて per-scheme の ODE 公理を再導入するため用いない）。この $\mathbb{R}^3$ 主定理は現在カーネルのみで閉じている（追加公理ゼロ）。
+    非有界領域 $\mathbb{R}^3$ では大域 Rellich が破綻するため、コンパクト性を局所化し、Schwartz テスト関数の急減少で裾を一様に抑えて極限移行を成立させる点が有界領域との違いである。証拠となるスキームは具体的な `schemeOfBasis B`（`r3GalerkinScheme_exists` から取ると基底を捨てて per-scheme の ODE 公理を再導入するため用いない）。この $\mathbb{R}^3$ 主定理は現在カーネルのみで閉じている（追加公理ゼロ）。
+provenance: |
+  旧名の `axiomatic` 接尾辞は歴史的なもので、lean-pde PR #117 で retire され現行名 `exists_lerayHopf_r3` になった。
 chapter: capstone-r3
 tags: [leray-hopf, capstone]

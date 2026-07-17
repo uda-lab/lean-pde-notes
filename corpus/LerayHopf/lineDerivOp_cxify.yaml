@@ -6,7 +6,7 @@ proof_ja: |
   各点で実方向微分の複素埋め込みとして両辺が一致する。
 gap:
   level: none
-  note: |
-    lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。
 chapter: energy
 tags: [fourier, parseval, shared-infra]

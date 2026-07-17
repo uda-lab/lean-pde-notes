@@ -23,6 +23,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    量化順は Codex レビュー（PR #58, P1）の指摘で修正されたもの。元は $u,v$ が $\exists C_w$ の前にあり、$C_w$ が $u,v$ に依存しうる（ほぼ空虚な）主張だった。現在は $C_w$ を先に量化し一様性を保証する。証明は反対称性で微分を Schwartz スロットへ移し、$\lVert\nabla w\rVert_\infty$ で抑える経路をとる。$L^\infty$ の一階微分ノルムの有限性が Schwartz 性から従う。
+    元は $u,v$ が $\exists C_w$ の前にあり、$C_w$ が $u,v$ に依存しうる（ほぼ空虚な）主張だった。現在は $C_w$ を先に量化し一様性を保証する。証明は反対称性で微分を Schwartz スロットへ移し、$\lVert\nabla w\rVert_\infty$ で抑える経路をとる。$L^\infty$ の一階微分ノルムの有限性が Schwartz 性から従う。
+provenance: |
+  量化順は Codex レビュー（PR #58, P1）の指摘で修正されたもの。
 chapter: limit-passage
 tags: [convection-form, trilinear-bound, schwartz]

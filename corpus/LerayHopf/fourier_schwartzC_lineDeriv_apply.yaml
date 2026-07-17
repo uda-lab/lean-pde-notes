@@ -10,7 +10,7 @@ proof_ja: |
   方向微分の Fourier 変換規則を、複素化と方向微分の交換補題を経由して適用する。
 gap:
   level: none
-  note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

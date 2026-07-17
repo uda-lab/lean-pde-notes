@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    移流ギャップ作用素（issue #56）の構成で使う純粋な線型代数の補助補題。一般の可除環上のベクトル空間と部分空間について述べる。第二スロットについての対称版は[[第二スロットの固定|LerayHopf.R3.TensorIntersection.map_id_proj_fix_of_mem_range]]。
+    移流ギャップ作用素の構成で使う純粋な線型代数の補助補題。一般の可除環上のベクトル空間と部分空間について述べる。第二スロットについての対称版は[[第二スロットの固定|LerayHopf.R3.TensorIntersection.map_id_proj_fix_of_mem_range]]。
+provenance: |
+  issue #56。
 chapter: misc
 tags: [tensor-product, linear-algebra]

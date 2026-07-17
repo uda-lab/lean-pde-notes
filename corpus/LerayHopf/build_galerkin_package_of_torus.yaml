@@ -6,7 +6,7 @@ proof_ja: |
   [[公理なし Galerkin 列|LerayHopf.galSeq_of_torus]] から [[パッケージの組み立て|LerayHopf.build_galerkin_package_of_galSeq]] を適用すれば結論が従う。
 gap:
   level: none
-  note: |
-    issue #24 の成果物：A1（Galerkin ODE 解の公理）にも A3（極限移行の公理）にも依存しない。
+provenance: |
+  issue #24 の成果物：A1（Galerkin ODE 解の公理）にも A3（極限移行の公理）にも依存しない。
 chapter: capstone-torus
 tags: [capstone, torus]

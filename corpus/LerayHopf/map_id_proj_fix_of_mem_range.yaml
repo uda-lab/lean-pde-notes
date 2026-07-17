@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    第一スロットについての[[第一スロットの固定|LerayHopf.R3.TensorIntersection.map_proj_id_fix_of_mem_range]]の対称版で、移流ギャップ作用素（issue #56）の構成で使う。
+    第一スロットについての[[第一スロットの固定|LerayHopf.R3.TensorIntersection.map_proj_id_fix_of_mem_range]]の対称版で、移流ギャップ作用素の構成で使う。
+provenance: |
+  issue #56。
 chapter: misc
 tags: [tensor-product, linear-algebra]

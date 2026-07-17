@@ -9,8 +9,10 @@ statement_ja: |
 gap:
   level: large
   note: |
-    稠密性を束にしないのは、それが函数空間の性質であって移流形式の性質ではないためで、稠密性は[[稠密性補題|LerayHopf.convectionGap_schwartz_dense]]として別に証明される。この組の存在は issue #56 で決定域構成により証明され、公理 `r3ConvectionGapOp_exists` は[[証明済み定理|LerayHopf.r3ConvectionGapOp_exists]]へ反転された。プロジェクトはカーネルのみで、追加公理はない。
+    稠密性を束にしないのは、それが函数空間の性質であって移流形式の性質ではないためで、稠密性は[[稠密性補題|LerayHopf.convectionGap_schwartz_dense]]として別に証明される。プロジェクトはカーネルのみで、追加公理はない。
 
     固定テスト連続性は、有界双線形と連続双線形の同値により $L^2$ 評価と解析的に等価であり、固定テストでの評価はなお仮定（連続性の形で）される。真に定理内容になるのは、三線形代数（加法性・斉次性を三線形性から導く部分）と、別途証明される稠密性である。
+provenance: |
+  この組の存在は issue #56 で決定域構成により証明され、公理 `r3ConvectionGapOp_exists` は[[証明済み定理|LerayHopf.r3ConvectionGapOp_exists]]へ反転された。
 chapter: limit-passage
 tags: [convection-form, convection-gap, operator-core, frontier-resolved]

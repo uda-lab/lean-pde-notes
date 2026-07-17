@@ -10,7 +10,7 @@ proof_ja: |
   に対する $L^p$ 補間を、前二つの所属補題に適用する。
 gap:
   level: none
-  note: |
-    lean-pde PR #126 で `Analysis/LpInterpolation.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126 で `Analysis/LpInterpolation.lean` へ公開移動。
 chapter: energy
 tags: [interpolation, sobolev, shared-infra]

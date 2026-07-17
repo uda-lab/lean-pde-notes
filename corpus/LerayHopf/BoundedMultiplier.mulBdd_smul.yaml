@@ -9,6 +9,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+    旧 `R3/WeightedFourierCommute.lean` には同名の thin wrapper が残る。
+provenance: |
+  lean-pde PR #127（issue #113 PR-4）で一般測度空間版として公開された有界乗算作用素 API。
 chapter: misc
 tags: [multiplier, shared-infra]

@@ -6,7 +6,7 @@ proof_ja: |
   散逸を重み付き Fourier 成分のノルム二乗の和として表し、各成分の時間可測性（曲線の可測性と連続作用素の合成）から可測性を組み立てる。
 gap:
   level: mild
-  note: |
-    lean-pde PR #130（issue #114 Tier 1）で `R3/EnergyWeakLsc.lean` に private→public 化。
+provenance: |
+  lean-pde PR #130（issue #114 Tier 1）で `R3/EnergyWeakLsc.lean` に private→public 化。
 chapter: limit-passage
 tags: [energy, measurability, r3]

@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #126 で `Analysis/FourierParseval.lean` へ公開移動。$2\pi i$ 因子と共役が記号の対称類（Hermite か反 Hermite か）を決めるため、隣接する反 Hermite 逆像補題 `schwartz_antiHermitian_has_testSymbol_preimage` はこの正確な形に依存する。
+    $2\pi i$ 因子と共役が記号の対称類（Hermite か反 Hermite か）を決めるため、隣接する反 Hermite 逆像補題 `schwartz_antiHermitian_has_testSymbol_preimage` はこの正確な形に依存する。
+provenance: |
+  lean-pde PR #126 で `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, weak-divergence, shared-infra]

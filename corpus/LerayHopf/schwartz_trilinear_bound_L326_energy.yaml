@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #129 で private→public 化（`GalerkinTrilinearBound.lean`）。結論は純粋な Hölder 積であり、エネルギー（勾配量）による制御は消費側の `convIntegralSchwartz_bound_energy` が補間・Sobolev 評価を併用して行う。
+    結論は純粋な Hölder 積であり、エネルギー（勾配量）による制御は消費側の `convIntegralSchwartz_bound_energy` が補間・Sobolev 評価を併用して行う。
+provenance: |
+  lean-pde PR #129 で private→public 化（`GalerkinTrilinearBound.lean`）。
 chapter: limit-passage
 tags: [trilinear, holder, r3]

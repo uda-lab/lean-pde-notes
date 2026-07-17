@@ -4,7 +4,7 @@ statement_ja: |
   内側拡張の $u$ についての斉次性。
 gap:
   level: none
-  note: |
-    lean-pde PR #123（issue #111 PR-4）で両系統の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+provenance: |
+  lean-pde PR #123（issue #111 PR-4）で両系統の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
 chapter: misc
 tags: [bilinear-extension, shared-infra]

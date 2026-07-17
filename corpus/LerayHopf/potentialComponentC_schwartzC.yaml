@@ -4,7 +4,7 @@ statement_ja: |
   複素化したポテンシャル成分の $L^2$ 類としての表示：Schwartz 場のポテンシャル成分の複素化は、複素化写像を経由した $L^2$ 類に一致する。curl 稠密性論法で実・複素の橋渡しに使う。
 gap:
   level: none
-  note: |
-    lean-pde PR #124 の private→public 化・共有化（`schwartzC` 一族）に伴う接続部品。
+provenance: |
+  lean-pde PR #124 の private→public 化・共有化（`schwartzC` 一族）に伴う接続部品。
 chapter: limit-passage
 tags: [curl-density, fourier, private-helper]

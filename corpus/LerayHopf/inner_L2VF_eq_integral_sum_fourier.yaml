@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。 成分ごとの複素化・Parseval の持ち回りが形式化の作業量。
+    成分ごとの複素化・Parseval の持ち回りが形式化の作業量。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

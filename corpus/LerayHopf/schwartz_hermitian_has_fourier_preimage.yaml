@@ -6,7 +6,7 @@ proof_ja: |
   Fourier 変換の逆写像で引き戻し、Hermite 対称性が逆像の実数値性に翻訳されることを共役・反転規則で確かめる。得られた関数が実 Schwartz の複素化として実現されることを実部の取り出しで固定する。
 gap:
   level: mild
-  note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

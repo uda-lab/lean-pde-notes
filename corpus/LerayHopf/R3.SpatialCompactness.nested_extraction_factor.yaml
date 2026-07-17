@@ -7,6 +7,10 @@ proof_ja: |
 gap:
   level: none
   note: |
-    NS 固有の内容を含まない純粋な組合せ補題。lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。 旧 ArzelaAscoliTime のコピーは削除され本原本に一本化（PR #124）。
+    NS 固有の内容を含まない純粋な組合せ補題。旧 ArzelaAscoliTime のコピーは削除され本原本に一本化。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
+
+  PR #124。
 chapter: compactness
 tags: [extraction, diagonal, combinatorics]

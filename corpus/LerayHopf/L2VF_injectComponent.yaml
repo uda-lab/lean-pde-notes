@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    各点での随伴という意味で [[成分の取り出し|LerayHopf.L2VF_projComponent]] の随伴。成分ごとの収束からベクトル場の収束を組み立てる再構成補題群で使う。lean-pde issue #113 PR-1 で随伴の隣（`DivergenceFree.lean`）へ移設。
+    各点での随伴という意味で [[成分の取り出し|LerayHopf.L2VF_projComponent]] の随伴。成分ごとの収束からベクトル場の収束を組み立てる再構成補題群で使う。
+provenance: |
+  lean-pde issue #113 PR-1 で随伴の隣（`DivergenceFree.lean`）へ移設。
 chapter: projections-galerkin
 tags: [projections, adjoint, torus]

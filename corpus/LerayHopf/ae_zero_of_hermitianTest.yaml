@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。 偶奇分解と複素化の整合性が形式化の中心。
+    偶奇分解と複素化の整合性が形式化の中心。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

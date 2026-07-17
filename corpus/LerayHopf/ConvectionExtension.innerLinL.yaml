@@ -4,7 +4,7 @@ statement_ja: |
   テスト固定の移流汎関数を $H^1_\sigma$ 上の正真の双線形な線形写像として束ねたもの。汎用の稠密拡張定理（有界双線形写像の一意連続拡張）へ渡す形に整える。
 gap:
   level: none
-  note: |
-    lean-pde PR #123 で `Analysis/BilinearExtension.extendBoundedBilinearOfDense` への入力として整備された接続部品。
+provenance: |
+  lean-pde PR #123 で `Analysis/BilinearExtension.extendBoundedBilinearOfDense` への入力として整備された接続部品。
 chapter: limit-passage
 tags: [convection, bridge, private-helper]

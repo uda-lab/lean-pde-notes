@@ -319,6 +319,57 @@ check('(g-regression) renderDecl shows no 参考文献 panel when corpus.referen
     'a declaration without corpus.references must not render a 参考文献 panel');
 });
 
+check('(i) renderDecl shows a collapsed 開発履歴 panel, closed by default, when corpus.provenance is set', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  state.trail = [];
+  state.data = { nodes: [], chapters: [], bibliography: {} };
+  const decl = {
+    slug: 'provDecl', id: 'provDecl', name: 'LerayHopf.provDecl', shortName: 'provDecl',
+    kind: 'theorem', private: false, signature: 'theorem provDecl : True', doc: '', file: 'X.lean',
+    startLine: 1, endLine: 2, chapter: 'bochner', uses: [], usedBy: [],
+    collision: false, capstone: false, has_source: false,
+    corpus: {
+      tier: 'full', statement_ja: '主張の本文。', proof_ja: '証明の本文。',
+      gap: { level: 'none' }, tags: [], sample: false, proof_status: 'verified',
+      provenance: 'lean-pde issue #999 で公開移動。',
+    },
+  };
+  state.bySlug.set('provDecl', decl);
+  renderDecl(appEl, 'provDecl');
+  const panel = appEl.querySelector('.provenance-panel');
+  assert.ok(panel, 'a declaration with corpus.provenance must render a provenance panel');
+  const det = panel.querySelector('details');
+  assert.ok(det, 'the provenance panel must use a <details> toggle');
+  assert.strictEqual(det.hasAttribute('open'), false,
+    'the provenance <details> must be closed by default (notes#69: history is demoted, not deleted)');
+  assert.ok(panel.textContent.includes('issue #999'),
+    'the provenance text itself must still be present in the DOM (not lost) even though collapsed');
+  assert.ok(det.querySelector('summary').textContent.includes('開発履歴'),
+    'the toggle summary must be labeled as development history');
+});
+
+check('(i-regression) renderDecl shows no provenance panel when corpus.provenance is absent', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  state.trail = [];
+  state.data = { nodes: [], chapters: [], bibliography: {} };
+  const decl = {
+    slug: 'noProvDecl', id: 'noProvDecl', name: 'LerayHopf.noProvDecl', shortName: 'noProvDecl',
+    kind: 'theorem', private: false, signature: 'theorem noProvDecl : True', doc: '', file: 'X.lean',
+    startLine: 1, endLine: 2, chapter: 'bochner', uses: [], usedBy: [],
+    collision: false, capstone: false, has_source: false,
+    corpus: {
+      tier: 'full', statement_ja: '主張の本文。', proof_ja: '証明の本文。',
+      gap: { level: 'none' }, tags: [], sample: false, proof_status: 'verified',
+    },
+  };
+  state.bySlug.set('noProvDecl', decl);
+  renderDecl(appEl, 'noProvDecl');
+  assert.strictEqual(appEl.querySelector('.provenance-panel'), null,
+    'a declaration without corpus.provenance must not render a provenance panel');
+});
+
 check('(h) renderAbout lists bibliography entries, shows citation/license metadata, and highlights the requested id', () => {
   const appEl = document.getElementById('app');
   appEl.innerHTML = '';

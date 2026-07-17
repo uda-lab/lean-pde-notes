@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。`h1Leibniz2` 本体（弱 Leibniz 則）の RHS 側の極限移行を担う。
+    `h1Leibniz2` 本体（弱 Leibniz 則）の RHS 側の極限移行を担う。
+provenance: |
+  lean-pde PR #129（issue #114 Tier 2）で分離されたステップ。
 chapter: energy
 tags: [leibniz, holder, textbook-step, private-helper]

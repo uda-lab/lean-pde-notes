@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。 Fourier 逆対（`FourierInvPair`）と反転・共役規則（`fourier_ofReal_reflect_eq_conj`）の組み合わせ。
+    Fourier 逆対（`FourierInvPair`）と反転・共役規則（`fourier_ofReal_reflect_eq_conj`）の組み合わせ。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

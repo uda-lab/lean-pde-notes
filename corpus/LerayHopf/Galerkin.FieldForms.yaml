@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    連続性を持たせない設計は `LinearMap.toContinuousLinearMap`（有限次元の自動連続性）を下流で使うための判断で、lean-pde issue #112 の重複解消の要。両系統の実現例は `torusFieldForms` / `r3FieldForms`。
+    両系統の実現例は `torusFieldForms` / `r3FieldForms`。
+provenance: |
+  連続性を持たせない設計は `LinearMap.toContinuousLinearMap`（有限次元の自動連続性）を下流で使うための判断で、lean-pde issue #112 の重複解消の要。
 chapter: galerkin-generic
 tags: [quadratic-field, convection, viscous]

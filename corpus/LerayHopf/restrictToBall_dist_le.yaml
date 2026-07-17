@@ -6,7 +6,7 @@ proof_ja: |
   差との整合性により距離は差のノルムであり、制限がノルムを増やさないことに帰着する。
 gap:
   level: none
-  note: |
-    lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
 chapter: limit-passage
 tags: [spatial-compactness, restrict-to-ball, r3]

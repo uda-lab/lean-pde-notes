@@ -6,7 +6,7 @@ proof_ja: |
   被積分関数の斉次性と積分の斉次性から従う。
 gap:
   level: none
-  note: |
-    lean-pde issue #112 PR-B（PR #133）/ #111 PR-5（PR #124）で private→public 化。
+provenance: |
+  lean-pde issue #112 PR-B（PR #133）/ #111 PR-5（PR #124）で private→public 化。
 chapter: ode
 tags: [galerkin, ode, r3]

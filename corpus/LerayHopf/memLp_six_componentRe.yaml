@@ -6,7 +6,7 @@ proof_ja: |
   成分の実部の値と弱勾配がともに $L^2$ に属することへ還元し、Gagliardo–Nirenberg–Sobolev 型の埋め込みで $L^6$ 所属を得る。
 gap:
   level: mild
-  note: |
-    lean-pde PR #126 で `Analysis/LpInterpolation.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126 で `Analysis/LpInterpolation.lean` へ公開移動。
 chapter: energy
 tags: [interpolation, sobolev, shared-infra]

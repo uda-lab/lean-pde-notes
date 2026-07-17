@@ -9,6 +9,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    `SchwartzMap.inner_toL2_toL2_eq` の対角特殊化。共有 Plancherel カーネル第 2 補題（lean-pde PR #121）。
+    `SchwartzMap.inner_toL2_toL2_eq` の対角特殊化。共有 Plancherel カーネル第 2 補題。
+provenance: |
+  lean-pde PR #121。
 chapter: compactness
 tags: [plancherel, schwartz, shared-kernel]

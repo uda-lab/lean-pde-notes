@@ -9,6 +9,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    共有 Plancherel カーネル第 5 補題（lean-pde PR #121）。
+    共有 Plancherel カーネル第 5 補題。
+provenance: |
+  lean-pde PR #121。
 chapter: compactness
 tags: [plancherel, shared-kernel]

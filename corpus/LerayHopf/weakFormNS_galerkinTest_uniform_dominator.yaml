@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。優関数は一様エネルギー評価と移流形式の粗い評価から組み立てる。
+    優関数は一様エネルギー評価と移流形式の粗い評価から組み立てる。
+provenance: |
+  lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。
 chapter: limit-passage
 tags: [limit-passage, dominated-convergence, textbook-step, private-helper]

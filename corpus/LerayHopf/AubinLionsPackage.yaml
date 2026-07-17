@@ -9,6 +9,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    形式化レビュー当時は Aubin–Lions は公理 `aubin_lions` だったが、その後 `torusAubinLionsPackage_of_galSeq` として証明済み定理に置き換えられ、プロジェクトは追加公理ゼロ（kernel-only）に到達している。パッケージは A1→A2→A3 を同一列で束ねる型設計をとり、空間側の半分は外から仮説として供給する。
+    パッケージは A1→A2→A3 を同一列で束ねる型設計をとり、空間側の半分は外から仮説として供給する。
+provenance: |
+  形式化レビュー当時は Aubin–Lions は公理 `aubin_lions` だったが、その後 `torusAubinLionsPackage_of_galSeq` として証明済み定理に置き換えられ、プロジェクトは追加公理ゼロ（kernel-only）に到達している。
 chapter: compactness
 tags: [aubin-lions, time-compactness, frontier-resolved]

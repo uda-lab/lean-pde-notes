@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    issue #56 の主補題。移流ギャップ作用素の構成で、二つのスロットの制約が交わりで両立することを示すために使う。一方のスロットを固定する[[第一スロットの固定|LerayHopf.R3.TensorIntersection.map_proj_id_fix_of_mem_range]]と[[第二スロットの固定|LerayHopf.R3.TensorIntersection.map_id_proj_fix_of_mem_range]]を合わせる。一般の可除環上のベクトル空間と部分空間について述べる。
+    移流ギャップ作用素の構成で、二つのスロットの制約が交わりで両立することを示すために使う。一方のスロットを固定する[[第一スロットの固定|LerayHopf.R3.TensorIntersection.map_proj_id_fix_of_mem_range]]と[[第二スロットの固定|LerayHopf.R3.TensorIntersection.map_id_proj_fix_of_mem_range]]を合わせる。一般の可除環上のベクトル空間と部分空間について述べる。
+provenance: |
+  issue #56 の主補題。
 chapter: misc
 tags: [tensor-product, linear-algebra]

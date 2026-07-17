@@ -6,7 +6,7 @@ proof_ja: |
   零場の代表関数の制限は a.e. 零であり、$L^2$ 類として零に一致する。
 gap:
   level: none
-  note: |
-    lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
 chapter: limit-passage
 tags: [spatial-compactness, restrict-to-ball, r3]

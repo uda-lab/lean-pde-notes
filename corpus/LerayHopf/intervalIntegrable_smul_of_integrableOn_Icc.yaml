@@ -6,7 +6,7 @@ proof_ja: |
   各点でのノルム評価でスカラー倍の可積分性を優関数論法に帰着する。
 gap:
   level: none
-  note: |
-    lean-pde PR #124 で `Bochner/TimeSobolev.lean` に一本化（旧 prime 付きコピーは削除）。
+provenance: |
+  lean-pde PR #124 で `Bochner/TimeSobolev.lean` に一本化（旧 prime 付きコピーは削除）。
 chapter: bochner
 tags: [bochner, integrability]

@@ -8,7 +8,7 @@ proof_ja: |
   球上の二乗積分は全空間の二乗積分で上から抑えられる（被積分関数が非負だから）。
 gap:
   level: none
-  note: |
-    lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
 chapter: compactness
 tags: [spatial-compactness, restrict-to-ball, r3]

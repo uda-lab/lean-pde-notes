@@ -15,6 +15,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    `fourier_lineDerivOp_eq` と `norm_fourier_toL2_eq` による。共有 Plancherel カーネル第 3 補題（lean-pde PR #121）。
+    `fourier_lineDerivOp_eq` と `norm_fourier_toL2_eq` による。共有 Plancherel カーネル第 3 補題。
+provenance: |
+  lean-pde PR #121。
 chapter: compactness
 tags: [plancherel, fourier, shared-kernel]

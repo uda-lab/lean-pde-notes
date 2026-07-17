@@ -4,7 +4,7 @@ statement_ja: |
   決定拡張の $u$ についての加法性。
 gap:
   level: none
-  note: |
-    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+provenance: |
+  lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
 chapter: limit-passage
 tags: [convection, tensor-gluing, private-helper]

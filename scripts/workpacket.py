@@ -170,7 +170,8 @@ def yaml_skeleton(decl: dict, chapter: str, tier: str | None) -> str:
     lines += [
         'gap:',
         '  level: none  # none | mild | large',
-        '  # note: |  # level=large のとき必須',
+        '  # note: |  # level=large のとき必須（数学的な formalization gap の説明に限定；issue/PR/Codex 等は provenance へ）',
+        '# provenance: |  # 任意。issue/PR 番号・Codex・campaign 等の開発プロセス履歴はここに書く（notes#69）',
         f'chapter: {chapter}',
         'tags: []',
     ]

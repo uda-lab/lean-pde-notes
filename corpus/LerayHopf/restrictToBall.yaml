@@ -6,7 +6,7 @@ proof_ja: |
   場の代表関数を球へ制限し、その二乗可積分性（全空間での可積分性の単調性から従う）で球上の $L^2$ 類を定める。
 gap:
   level: none
-  note: |
-    lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
 chapter: compactness
 tags: [spatial-compactness, restrict-to-ball, r3]

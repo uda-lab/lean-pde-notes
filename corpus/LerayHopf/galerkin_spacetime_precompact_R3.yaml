@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    これはかつて公理 `galerkin_spacetime_precompact_R3` であり、issue #46（Aubin–Lions キャンペーン）で証明済み定理へ反転された（公理→定理）。mathlib は Bochner 値の Aubin–Lions／Fréchet–Kolmogorov 定理（$L^2(0,T;X)$）を持たず、具体的な経路（積分標本ずれ幅による階段曲線の全有界性＋Rellich 球コンパクト性）を本形式化で組んだ。健全・局所的で、タイトネスも時間についての各点同程度連続性も大域 $L^2$ 主張も用いない。証明は[[良い標本による時空前コンパクト性|LerayHopf.galerkin_spacetime_precompact_of_goodSampling]]に委譲され、両者の主張はバイト単位で同一である。
+    mathlib は Bochner 値の Aubin–Lions／Fréchet–Kolmogorov 定理（$L^2(0,T;X)$）を持たず、具体的な経路（積分標本ずれ幅による階段曲線の全有界性＋Rellich 球コンパクト性）を本形式化で組んだ。健全・局所的で、タイトネスも時間についての各点同程度連続性も大域 $L^2$ 主張も用いない。証明は[[良い標本による時空前コンパクト性|LerayHopf.galerkin_spacetime_precompact_of_goodSampling]]に委譲され、両者の主張はバイト単位で同一である。
+provenance: |
+  これはかつて公理 `galerkin_spacetime_precompact_R3` であり、issue #46（Aubin–Lions キャンペーン）で証明済み定理へ反転された（公理→定理）。
 chapter: compactness
 tags: [aubin-lions, spacetime-precompact, frontier-resolved]

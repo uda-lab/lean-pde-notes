@@ -11,7 +11,9 @@ proof_ja: |
 gap:
   level: large
   note: |
-    R1（$V'$ 値良い代表元）の単一の残余として隔離。トレースや反射を使わない（非循環）ことが明記されている。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で完了している）。
+    R1（$V'$ 値良い代表元）の単一の残余として隔離。トレースや反射を使わない（非循環）ことが明記されている。この意図的 `sorry` は抽象 Bochner 層の残余であり、総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で完了している）。
+provenance: |
+  Stream D。
 chapter: bochner
 tags: [primitive, bochner]
 proof_status: contains-sorry

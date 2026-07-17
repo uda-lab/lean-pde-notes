@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    局所可積分性の仮定は積分の分割 `integral_add` を健全にする必要最小限の制限（なければ Bochner 積分が意図した値を表さない場合がある）で、下流では `W1pTime` の所属フィールドから供給できる。全直線拡張（WALL B）の証明済み部品。
+    局所可積分性の仮定は積分の分割 `integral_add` を健全にする必要最小限の制限（なければ Bochner 積分が意図した値を表さない場合がある）で、下流では `W1pTime` の所属フィールドから供給できる。全直線拡張の証明済み部品。
+provenance: |
+  WALL B。
 chapter: bochner
 tags: [weak-time-derivative, bochner]

@@ -6,7 +6,7 @@ proof_ja: |
   埋め込みは連続線形なので、Schwartz 空間の後合成写像として直ちに定まる。
 gap:
   level: none
-  note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

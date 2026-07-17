@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: none
   note: |
-    mathlib の `le_liminf_add` による。NS 固有の内容を含まない純粋な実解析補題として lean-pde PR #129 で切り出された（将来 `WeakLimitToolkit` への移設候補 — issue #131 で明示的にスコープ外とされ現位置に残る）。
+    mathlib の `le_liminf_add` による。
+provenance: |
+  NS 固有の内容を含まない純粋な実解析補題として lean-pde PR #129 で切り出された（将来 `WeakLimitToolkit` への移設候補 — issue #131 で明示的にスコープ外とされ現位置に残る）。
 chapter: energy
 tags: [energy-inequality, liminf, textbook-step, private-helper]

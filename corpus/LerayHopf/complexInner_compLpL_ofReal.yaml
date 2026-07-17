@@ -6,7 +6,7 @@ proof_ja: |
   内積を積分表示し、実数値関数の複素共役が自明であることから各点で実の積へ落ちる。
 gap:
   level: none
-  note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

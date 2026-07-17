@@ -11,8 +11,10 @@ proof_ja: |
 gap:
   level: large
   note: |
-    $\mathbb{R}^3$ に固有の困難で、大域 Rellich の破綻ゆえ収束は局所化される。形式化レビュー当時の公理 `aubin_lions_R3` はその後証明済み定理へ置き換えられ（生成子は `aubinLionsPackage_R3_of_timeCompactness`）、プロジェクトは追加公理ゼロに到達した。局所収束は tightness を要さず真であり、Schwartz テストの減衰が裾を一様に抑えることで非線形項の極限移行を成立させる。
+    $\mathbb{R}^3$ に固有の困難で、大域 Rellich の破綻ゆえ収束は局所化される。局所収束は tightness を要さず真であり、Schwartz テストの減衰が裾を一様に抑えることで非線形項の極限移行を成立させる。積分形は `eLpNorm` 形で符号化され、旧来の Bochner 区間積分形が非可積分被積分関数に対し `integral_undef` でゴミの `0` へ潰れる空虚問題を避ける。時間可測性 `u_aestronglyMeasurable` は、これがなければ非可測な曲線が弱形式を空虚に満たしうる（区間積分がゴミの `0` へ潰れる）ため、Leray–Hopf 類の Bochner 可測性の半分として不可欠である。
+provenance: |
+  issue #31、owner 承認。
 
-    積分形は `eLpNorm` 形（issue #31、owner 承認）で符号化され、旧来の Bochner 区間積分形が非可積分被積分関数に対し `integral_undef` でゴミの `0` へ潰れる空虚問題を避ける。時間可測性 `u_aestronglyMeasurable` は、これがなければ非可測な曲線が弱形式を空虚に満たしうる（区間積分がゴミの `0` へ潰れる）ため、Leray–Hopf 類の Bochner 可測性の半分として不可欠である。
+  形式化レビュー当時の公理 `aubin_lions_R3` はその後証明済み定理へ置き換えられた（生成子は `aubinLionsPackage_R3_of_timeCompactness`）。プロジェクトは追加公理ゼロに到達した。
 chapter: compactness
 tags: [aubin-lions, time-compactness, local-compactness, frontier-resolved]

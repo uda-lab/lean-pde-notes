@@ -15,6 +15,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #126 で `Analysis/RealComplexLpBridge.lean` へ公開移動（private→public）。 実 $L^2$ 内積の結合連続性への帰着が設計の要。
+    実 $L^2$ 内積の結合連続性への帰着が設計の要。
+provenance: |
+  lean-pde PR #126 で `Analysis/RealComplexLpBridge.lean` へ公開移動（private→public）。
 chapter: energy
 tags: [real-complex-bridge, shared-infra]

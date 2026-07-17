@@ -4,7 +4,7 @@ statement_ja: |
   スロット 2 持ち上げの単純テンソルでの値の展開規則。
 gap:
   level: none
-  note: |
-    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+provenance: |
+  lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
 chapter: limit-passage
 tags: [convection, tensor-gluing, private-helper]

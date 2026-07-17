@@ -9,6 +9,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    `AubinLionsPackage_R3` が命題（`Prop`）ではなくデータを担う型（`Type`）なので、これは `noncomputable def`（定理ではない）であり、旧公理 `aubin_lions_R3` の形を写す。局所時空抽出は存在命題だが目標は構造体なので、証拠は `Exists.choose`／`.choose_spec`（`Classical.choice` を通す大消去）で取り出す。積分形は `eLpNorm` 形（issue #31、owner 承認）で書かれており、これは $L^2(0,T;L^2(B_R))$ の忠実な符号化で、旧来の Bochner 区間積分形（非可積分被積分関数に対し `integral_undef` でゴミの $0$ へ潰れる）を避ける。$L^2$ 優収束は `tendsto_Lp_of_tendsto_ae`、一様可積分・一様タイト性は有限測度上での定数優関数から。大域 $L^2$ 主張を含まない局所版のみ。
+    `AubinLionsPackage_R3` が命題（`Prop`）ではなくデータを担う型（`Type`）なので、これは `noncomputable def`（定理ではない）であり、旧公理 `aubin_lions_R3` の形を写す。局所時空抽出は存在命題だが目標は構造体なので、証拠は `Exists.choose`／`.choose_spec`（`Classical.choice` を通す大消去）で取り出す。積分形は `eLpNorm` 形で書かれており、これは $L^2(0,T;L^2(B_R))$ の忠実な符号化で、旧来の Bochner 区間積分形（非可積分被積分関数に対し `integral_undef` でゴミの $0$ へ潰れる）を避ける。$L^2$ 優収束は `tendsto_Lp_of_tendsto_ae`、一様可積分・一様タイト性は有限測度上での定数優関数から。大域 $L^2$ 主張を含まない局所版のみ。
+provenance: |
+  issue #31、owner 承認。
 chapter: compactness
 tags: [aubin-lions, dominated-convergence, elpnorm, local-compactness]

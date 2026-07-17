@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    `ext_inner_right` と両側の spec 補題による。issue #112 PR-B の等値ブリッジ設計則（場の再定義はしない）。$\mathbb{T}^3$ 版は `Torus.galerkinODE_vectorField_eq_generic`。
+    `ext_inner_right` と両側の spec 補題による。$\mathbb{T}^3$ 版は `Torus.galerkinODE_vectorField_eq_generic`。
+provenance: |
+  issue #112 PR-B の等値ブリッジ設計則（場の再定義はしない）。
 chapter: ode
 tags: [galerkin, ode, r3, bridge]

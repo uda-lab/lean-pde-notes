@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: none
   note: |
-    `volume.restrict (Set.Icc 0 T)`。lean-pde PR #130 で優収束定理への入力を整えるブリッジ群（本定義 + 5 補題）として導入。
+    `volume.restrict (Set.Icc 0 T)`。
+provenance: |
+  lean-pde PR #130 で優収束定理への入力を整えるブリッジ群（本定義 + 5 補題）として導入。
 chapter: limit-passage
 tags: [measure, bridge, private-helper]

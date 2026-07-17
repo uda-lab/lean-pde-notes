@@ -6,7 +6,7 @@ proof_ja: |
   両辺とも各点で実方向微分の複素埋め込みであり、微分の線形性と埋め込みの連続線形性から各点で一致する。
 gap:
   level: none
-  note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

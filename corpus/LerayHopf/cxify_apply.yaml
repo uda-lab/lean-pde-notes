@@ -6,7 +6,7 @@ proof_ja: |
   定義の書き下しそのものである。
 gap:
   level: none
-  note: |
-    lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。
 chapter: energy
 tags: [fourier, parseval, shared-infra]

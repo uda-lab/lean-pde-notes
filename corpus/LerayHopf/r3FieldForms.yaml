@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde issue #112 PR-B の実現例（`torusFieldForms` の $\mathbb{R}^3$ 対応物）。この実現例により旧来の CLM 段積み構成の重複が汎用層へ一本化された。
+    この実現例により旧来の CLM 段積み構成の重複が汎用層へ一本化された。
+provenance: |
+  lean-pde issue #112 PR-B の実現例（`torusFieldForms` の $\mathbb{R}^3$ 対応物）。
 chapter: ode
 tags: [galerkin, ode, r3, instance]

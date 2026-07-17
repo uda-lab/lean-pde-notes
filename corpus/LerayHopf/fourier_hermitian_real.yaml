@@ -6,7 +6,7 @@ proof_ja: |
   Hermite 対称性を Fourier 変換の共役・反転規則へ通すと、変換後の関数がみずからの共役に一致することが従う。
 gap:
   level: none
-  note: |
-    lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
+provenance: |
+  lean-pde PR #126（issue #113 PR-2）で汎用解析層 `Analysis/FourierParseval.lean` へ公開移動。
 chapter: limit-passage
 tags: [fourier, parseval, shared-infra]

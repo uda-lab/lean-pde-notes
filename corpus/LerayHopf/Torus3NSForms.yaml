@@ -17,6 +17,8 @@ gap:
   note: |
     粘性形式はこの構造のフィールドではなく、具体的な `stokesTestPairing` で与えられる（総和規約により非可算台では $0$ を返すため、任意の場に対して健全）。対角では粘性散逸に一致する。
 
-    Galerkin 固定条件（`b_galerkin`）が非空性を保証する要である。かつての太い公理 `torus3_NSForms_exist` は撤去され、その内容は決定された対流形式から証明される定理[[存在定理|LerayHopf.torus3_NSForms_exists]]へ置き換えられた（課題 #22 / #53）。有界性は滑らかなテスト場の対角上の評価であり、強 $L^2$ 極限移行に適した形をしている。
+    Galerkin 固定条件（`b_galerkin`）が非空性を保証する要である。有界性は滑らかなテスト場の対角上の評価であり、強 $L^2$ 極限移行に適した形をしている。
+provenance: |
+  かつての太い公理 `torus3_NSForms_exist` は撤去され、その内容は決定された対流形式から証明される定理[[存在定理|LerayHopf.torus3_NSForms_exists]]へ置き換えられた（課題 #22 / #53）。
 chapter: limit-passage
 tags: [convection-form, navier-stokes, torus, trilinear]

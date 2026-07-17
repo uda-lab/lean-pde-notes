@@ -39,8 +39,10 @@ proof_ja: |
 gap:
   level: large
   note: |
-    この命題は形式化レビュー当時は最後のプロジェクト公理 `galerkin_limit_passage_R3`（AX-3）だったが、公理除去キャンペーン（PR #95–#99）で証明済み定理へ反転され、これにより $\mathbb{R}^3$ 主定理はカーネルのみ（追加公理ゼロ）で閉じた。反転の鍵は二つの補助命題である。ひとつは $H^1$ グラフ位相でのテスト近似性 `R3TestApproxH1`（仮定 `htest`）で、これは具体的な Schwartz–Galerkin 基底に対して `nonempty_schwartzGalerkinBasis_H1` として証明された。もうひとつは湯川型正則化による curl 近似であり、これらが弱形式の非線形項の極限移行を閉じる。
+    反転の鍵は二つの補助命題である。ひとつは $H^1$ グラフ位相でのテスト近似性 `R3TestApproxH1`（仮定 `htest`）で、これは具体的な Schwartz–Galerkin 基底に対して `nonempty_schwartzGalerkinBasis_H1` として証明された。もうひとつは湯川型正則化による curl 近似であり、これらが弱形式の非線形項の極限移行を閉じる。
 
     自然言語の「弱解」はほとんど至る所の同値類だが、形式化では良い代表元に点ごとの性質を課すため、エネルギー類の条件で総和・Bochner 規約による空虚成立（$H^1$ の外で粘性形式が潰れる）を排除している。全 $t$ のエネルギー不等式は下極限の優加法性補題 `le_liminf_add` を軸に組む。
+provenance: |
+  この命題は形式化レビュー当時は最後のプロジェクト公理 `galerkin_limit_passage_R3`（AX-3）だったが、公理除去キャンペーン（PR #95–#99）で証明済み定理へ反転され、これにより $\mathbb{R}^3$ 主定理はカーネルのみ（追加公理ゼロ）で閉じた。
 chapter: limit-passage
 tags: [leray-hopf, limit-passage, energy-inequality, frontier-resolved]

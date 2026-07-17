@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    共有 Plancherel カーネル第 8 補題（lean-pde PR #121、旧 prime 付きコピーの一本化）。
+    共有 Plancherel カーネル第 8 補題。
+provenance: |
+  lean-pde PR #121、旧 prime 付きコピーの一本化。
 chapter: compactness
 tags: [lp, shared-kernel]

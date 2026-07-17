@@ -4,7 +4,7 @@ statement_ja: |
   射影が決定領域を固定すること（部分空間の元としての水準）：決定領域の元 $x$ に対し、射影の値は所属証明つきの $x$ 自身に等しい。
 gap:
   level: none
-  note: |
-    lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
+provenance: |
+  lean-pde PR #120 の共有 tensor/edge-gluing モジュールの私的部品。
 chapter: limit-passage
 tags: [convection, tensor-gluing, private-helper]

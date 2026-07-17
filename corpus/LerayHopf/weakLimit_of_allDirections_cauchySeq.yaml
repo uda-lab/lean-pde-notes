@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: none
   note: |
-    `Bochner/WeakLimitToolkit` の `exists_weak_limit_in_submodule` の特殊化。lean-pde PR #129 で分離、PR #138（issue #131）でローカル複製が toolkit 原本へ一本化された系譜。
+    `Bochner/WeakLimitToolkit` の `exists_weak_limit_in_submodule` の特殊化。
+provenance: |
+  lean-pde PR #129 で分離、PR #138（issue #131）でローカル複製が toolkit 原本へ一本化された系譜。
 chapter: energy
 tags: [limit-passage, weak-convergence, textbook-step, private-helper]

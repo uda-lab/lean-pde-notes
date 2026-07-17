@@ -17,6 +17,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    mathlib は Bochner 値の Fréchet–Kolmogorov／Aubin–Lions 定理（$L^2(0,T;X)$ でのコンパクト性）を欠くため、抽出は局所版に限られる。この抽出はかつて二つのより薄い公理 `galerkin_spacetime_precompact_R3` と `galerkin_weakLimit_R3` として分離されていたが（issue #44）、その後証明され、本命題は `u_lim_aestronglyMeasurable` を通じてカーネルのみで閉じる。大域 $L^2$ 主張を一切含まないため `aubin_lions_R3` より真に弱い。
+    mathlib は Bochner 値の Fréchet–Kolmogorov／Aubin–Lions 定理（$L^2(0,T;X)$ でのコンパクト性）を欠くため、抽出は局所版に限られる。この抽出はかつて二つのより薄い公理 `galerkin_spacetime_precompact_R3` と `galerkin_weakLimit_R3` として分離されていたが、その後証明され、本命題は `u_lim_aestronglyMeasurable` を通じてカーネルのみで閉じる。大域 $L^2$ 主張を一切含まないため `aubin_lions_R3` より真に弱い。
+provenance: |
+  issue #44。
 chapter: compactness
 tags: [aubin-lions, time-compactness, diagonal-extraction, local-compactness]

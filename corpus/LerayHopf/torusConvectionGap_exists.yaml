@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    決定された形式の理論（`TorusConvectionExtension.torusConvectionGap_holds`）を元の公理名の下で再輸出したもの。定理であって公理ではないため `#print axioms` には現れない（課題 #53）。
+    決定された形式の理論（`TorusConvectionExtension.torusConvectionGap_holds`）を元の公理名の下で再輸出したもの。定理であって公理ではないため `#print axioms` には現れない。
+provenance: |
+  課題 #53。
 chapter: limit-passage
 tags: [convection-form, gap, existence, de-axiomatized, torus]

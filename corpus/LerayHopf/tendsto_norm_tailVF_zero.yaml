@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    可測代表元の取り出しと拡張実数値の冪の扱いが形式化の作業量。lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
+    可測代表元の取り出しと拡張実数値の冪の扱いが形式化の作業量。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
 chapter: compactness
 tags: [spatial-compactness, restrict-to-ball, r3]

@@ -29,6 +29,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    右スロット加法性 `stokesTestPairing_R3_sub_right` と `bForm_R3_sub_3` は $u(t)\in H^1$ でしか使えないため、a.e.-$t$ の $H^1$ 所属を経由して積分の等式に持ち込む。極限曲線の時間可測性 `u_aestronglyMeasurable` と `√V(u·)` の可積分性がなければ、`WeakFormNS` の区間積分は非可測な被積分関数に対してゴミの $0$ へ潰れる。テスト近似の原子は $H^1$ グラフ近似性 `htest`（`R3TestApproxH1`）で、これは PR-4 で本命題に入る。issue #4 PR-4 の主要成果物。
+    右スロット加法性 `stokesTestPairing_R3_sub_right` と `bForm_R3_sub_3` は $u(t)\in H^1$ でしか使えないため、a.e.-$t$ の $H^1$ 所属を経由して積分の等式に持ち込む。極限曲線の時間可測性 `u_aestronglyMeasurable` と `√V(u·)` の可積分性がなければ、`WeakFormNS` の区間積分は非可測な被積分関数に対してゴミの $0$ へ潰れる。テスト近似の原子は $H^1$ グラフ近似性 `htest`（`R3TestApproxH1`）である。
+provenance: |
+  issue #4 PR-4 の主要成果物。
 chapter: limit-passage
 tags: [weak-formulation, limit-passage, h1-test-approx]

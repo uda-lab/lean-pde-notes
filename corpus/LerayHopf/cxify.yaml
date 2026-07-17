@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。 `schwartzC` と同役の複素化（層ごとに語彙が分かれて導入された歴史的経緯）。
+    `schwartzC` と同役の複素化（層ごとに語彙が分かれて導入された歴史的経緯）。
+provenance: |
+  lean-pde PR #126 で `Analysis/SpectralWeakGradient.lean` へ公開移動。
 chapter: energy
 tags: [fourier, parseval, shared-infra]

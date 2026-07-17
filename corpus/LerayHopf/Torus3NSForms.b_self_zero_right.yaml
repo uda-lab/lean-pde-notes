@@ -9,6 +9,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    lean-pde PR #128（issue #114 Tier 3）で名前付き補題として公開された教科書ステップ。抽象版は `DissipativeEvolution.convForm_self_zero_right`。
+    抽象版は `DissipativeEvolution.convForm_self_zero_right`。
+provenance: |
+  lean-pde PR #128（issue #114 Tier 3）で名前付き補題として公開された教科書ステップ。
 chapter: capstone-torus
 tags: [convection, energy, textbook-step]

@@ -11,6 +11,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。 旧 AubinLionsLimitPassage の prime 付きコピーは削除済み。
+    旧 AubinLionsLimitPassage の prime 付きコピーは削除済み。
+provenance: |
+  lean-pde PR #122（issue #111 PR-3）で private→public 化・共有化された。
 chapter: compactness
 tags: [spatial-compactness, restrict-to-ball, r3]

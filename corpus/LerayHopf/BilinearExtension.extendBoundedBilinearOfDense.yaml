@@ -10,7 +10,7 @@ proof_ja: |
   内側のスロットから順に拡張する二段構成を取る。まず各 $u\in D$ を固定して $v\mapsto\beta(u,v)$ を有界線形汎関数の一意連続拡張定理で $E$ 上へ延ばし、次に $u\mapsto(\text{その拡張})$ が再び有界線形であることを確かめて外側のスロットも同じ定理で延ばす。
 gap:
   level: mild
-  note: |
-    lean-pde PR #123（issue #111 PR-4）で両系統の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
+provenance: |
+  lean-pde PR #123（issue #111 PR-4）で両系統の BLT tower（`convBLT*` 一族）を一本化した汎用稠密拡張モジュールの部品。
 chapter: misc
 tags: [bilinear-extension, shared-infra]

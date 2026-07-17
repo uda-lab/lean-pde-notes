@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    かつての公理 `galerkin_ode_solution`（A1）の完全な置き換え（issue #24）。型は同じで公理依存はゼロ。
+    かつての公理 `galerkin_ode_solution`（A1）の完全な置き換え。型は同じで公理依存はゼロ。
+provenance: |
+  issue #24。
 chapter: capstone-torus
 tags: [capstone, galerkin, torus]

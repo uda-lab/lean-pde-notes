@@ -14,7 +14,7 @@ proof_ja: |
   と書き直し、共役指数の関係 $\tfrac{2}{3}=\tfrac{1}{6}+\tfrac{1}{2}$ に対する Hölder の不等式で右辺を $L^6$ ノルムと $L^2$ ノルムの積で抑え、両辺の平方根を取る。
 gap:
   level: mild
-  note: |
-    lean-pde PR #121 で旧 `eLpNorm_three_le_interp_pub`（GalerkinTrilinearBound の公開コピー）を置き換えた共有版（第 7 補題）。
+provenance: |
+  lean-pde PR #121 で旧 `eLpNorm_three_le_interp_pub`（GalerkinTrilinearBound の公開コピー）を置き換えた共有版（第 7 補題）。
 chapter: compactness
 tags: [interpolation, holder, shared-kernel]

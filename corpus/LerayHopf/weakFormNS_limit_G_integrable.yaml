@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。エネルギー類所属（a.e. $H^1$ + 散逸可積分）から各項を制御する。
+    エネルギー類所属（a.e. $H^1$ + 散逸可積分）から各項を制御する。
+provenance: |
+  lean-pde PR #130（issue #114 Tier 1）で分離されたステップ。
 chapter: limit-passage
 tags: [limit-passage, integrability, textbook-step, private-helper]

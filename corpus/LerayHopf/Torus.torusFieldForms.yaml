@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde issue #112 PR-B の実現例。この実現例を通じて、旧来この場所に重複していた CLM 段積み構成（`rieszSymmCLM`/`bInner` 一族）が汎用層 `Galerkin/QuadraticField.lean` へ一本化され削除された。
+    この実現例を通じて、旧来この場所に重複していた CLM 段積み構成（`rieszSymmCLM`/`bInner` 一族）が汎用層 `Galerkin/QuadraticField.lean` へ一本化され削除された。
+provenance: |
+  lean-pde issue #112 PR-B の実現例。
 chapter: ode
 tags: [galerkin, ode, torus, instance]

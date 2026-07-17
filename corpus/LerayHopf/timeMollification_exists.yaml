@@ -7,7 +7,9 @@ proof_ja: |
 gap:
   level: large
   note: |
-    S1 に残る、既存の結果からは直接得られない唯一の未証明事項として隔離されている（数日〜2 週間規模の見積もりが docstring に記録）。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+    S1 に残る、既存の結果からは直接得られない唯一の未証明事項として隔離されている（数日〜2 週間規模の見積もりが docstring に記録）。この意図的 `sorry` は抽象 Bochner 層の残余であり、総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+provenance: |
+  Stream D。
 chapter: bochner
 tags: [gelfand-triple, bochner]
 proof_status: contains-sorry

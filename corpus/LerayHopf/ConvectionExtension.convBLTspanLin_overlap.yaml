@@ -5,6 +5,8 @@ statement_ja: |
 gap:
   level: none
   note: |
-    `convBLTspan_overlap` の restatement。lean-pde PR #123 の接続部品。
+    `convBLTspan_overlap` の restatement。
+provenance: |
+  lean-pde PR #123 の接続部品。
 chapter: limit-passage
 tags: [convection, bridge, private-helper]

@@ -34,7 +34,7 @@
     },
     "gap": {
       "type": "object",
-      "description": "Formalization gap assessment: how much more verbose is the Lean proof vs. the natural-language proof.",
+      "description": "Formalization gap assessment: how much more verbose is the Lean proof vs. the natural-language proof. Orthogonal to `proof_status`: `gap` measures formalization overhead on an already-proved statement, it is not a proof-completion signal — a `large` gap can be `proof_status: verified` and a `none`/`mild` gap can still be `contains-sorry` etc. See `proof_status`'s description for the actual completion axis.",
       "required": ["level"],
       "additionalProperties": false,
       "properties": {
@@ -84,8 +84,13 @@
     },
     "proof_status": {
       "type": "string",
-      "description": "Machine-checked proof completion status, independent of `tier` (annotation depth). Absence means 'verified': no known literal `sorry`, no known false/over-general statement, not a historical scaffold or retired declaration. 'verified' may also be written explicitly. 'contains-sorry' = the proof body has a literal `sorry` (directly or via a sorry-dependent private helper). 'scaffold' = an early, intentionally vacuous/placeholder declaration kept for historical record, not part of the current proof route. 'retired' = superseded or removed from the release surface, kept in the corpus for provenance only. 'invalid-statement' = the statement as typed is known to be false or over-general (quarantined pending a source fix); statement_ja/proof_ja or gap.note must explain why.",
+      "description": "Machine-checked proof completion status, independent of `tier` (annotation depth) AND independent of `gap` (formalization-overhead size, not a completion signal). Absence means 'verified': no known literal `sorry`, no known false/over-general statement, not a historical scaffold or retired declaration. 'verified' may also be written explicitly. 'contains-sorry' = the proof body has a literal `sorry` (directly or via a sorry-dependent private helper). 'scaffold' = an early, intentionally vacuous/placeholder declaration kept for historical record, not part of the current proof route. 'retired' = superseded or removed from the release surface, kept in the corpus for provenance only. 'invalid-statement' = the statement as typed is known to be false or over-general (quarantined pending a source fix); statement_ja/proof_ja or gap.note must explain why. Historical axiom-to-theorem status changes (e.g. 'this was an axiom, proved in issue #NN') belong in `provenance`, not in this field, which reports only the current status.",
       "enum": ["verified", "contains-sorry", "scaffold", "retired", "invalid-statement"]
+    },
+    "provenance": {
+      "type": "string",
+      "description": "Development-process history (issue/PR numbers, review rounds, axiom-to-theorem flips, module reorganizations, AI-assisted-review notes). Kept for the historical record but rendered in a collapsed/hidden panel, separate from the default scholarly view (statement_ja/proof_ja/gap.note), per notes#69: default declaration prose should read as mathematics, not issue-tracker archaeology.",
+      "minLength": 1
     },
     "references": {
       "type": "array",

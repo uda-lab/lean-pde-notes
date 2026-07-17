@@ -10,7 +10,7 @@ proof_ja: |
   任意のベクトル $x$ を基底展開し、$L(x)$ を係数と基底値の和として Cauchy–Schwarz で評価すると、係数の二乗和は $\lVert x\rVert^2$、基底値の二乗和が右辺の被開平数になる。
 gap:
   level: mild
-  note: |
-    lean-pde PR #121（issue #111 PR-2）で SobolevEmbedding 等の private コピー群（`_C2`/`_local` 一族）を一本化した共有 Plancherel カーネル群の第 1 補題。
+provenance: |
+  lean-pde PR #121（issue #111 PR-2）で SobolevEmbedding 等の private コピー群（`_C2`/`_local` 一族）を一本化した共有 Plancherel カーネル群の第 1 補題。
 chapter: compactness
 tags: [plancherel, hilbert-schmidt, shared-kernel]

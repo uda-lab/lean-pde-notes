@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    lean-pde PR #124 で公開された component-witness 形（旧 private コピー群の一本化先）。弱微分の実現は Schwartz 側の部分積分恒等式による。
+    弱微分の実現は Schwartz 側の部分積分恒等式による。
+provenance: |
+  lean-pde PR #124 で公開された component-witness 形（旧 private コピー群の一本化先）。
 chapter: compactness
 tags: [sobolev, schwartz, r3]

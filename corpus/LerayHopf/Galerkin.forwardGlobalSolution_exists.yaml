@@ -15,6 +15,8 @@ proof_ja: |
 gap:
   level: large
   note: |
-    貼り合わせの整合性（添字関数 $N$ を跨ぐ一致）と「近傍での関数一致から微分の一致を引き継ぐ」段（`Filter.EventuallyEq.hasDerivAt_iff`）が形式化の作業量の大半を占める。前向き大域性が本質で、二次の場は後ろ向きには有限時間爆発しうるため、$t\ge 0$ に限った継ぎ足しを行う。旧構成では同じ議論が $\mathbb{T}^3$ と $\mathbb{R}^3$ の両系統に逐語重複していたが、本定理への一本化（lean-pde issue #112）により各系統の前向き大域存在はこの系になった。
+    貼り合わせの整合性（添字関数 $N$ を跨ぐ一致）と「近傍での関数一致から微分の一致を引き継ぐ」段（`Filter.EventuallyEq.hasDerivAt_iff`）が形式化の作業量の大半を占める。前向き大域性が本質で、二次の場は後ろ向きには有限時間爆発しうるため、$t\ge 0$ に限った継ぎ足しを行う。旧構成では同じ議論が $\mathbb{T}^3$ と $\mathbb{R}^3$ の両系統に逐語重複していたが、本定理への一本化により各系統の前向き大域存在はこの系になった。
+provenance: |
+  lean-pde issue #112。
 chapter: galerkin-generic
 tags: [dissipative-ode, picard-lindelof, forward-global]

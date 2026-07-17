@@ -132,6 +132,11 @@ def validate_schema_manual(doc: dict, fpath: Path) -> list[str]:
             f'{fpath}: proof_status "{proof_status}" must be one of {sorted(VALID_PROOF_STATUSES)}'
         )
 
+    provenance = doc.get('provenance')
+    if provenance is not None:
+        if not isinstance(provenance, str) or len(provenance.strip()) == 0:
+            errs.append(f'{fpath}: provenance must be a non-empty string')
+
     references = doc.get('references')
     if references is not None:
         if not isinstance(references, list) or not references:

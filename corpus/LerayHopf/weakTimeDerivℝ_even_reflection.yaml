@@ -11,7 +11,9 @@ proof_ja: |
 gap:
   level: large
   note: |
-    mathlib にベクトル値の区間 Sobolev FTC／トレース理論が無いことが唯一の障害（数か月規模の作業を要すると見積もられた未証明事項、`w1pTime_continuous_in_H` と同種の残課題）。局所可積分性の仮定は半直線分割の Fubini を健全にするために追加された。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+    mathlib にベクトル値の区間 Sobolev FTC／トレース理論が無いことが唯一の障害（数か月規模の作業を要すると見積もられた未証明事項、`w1pTime_continuous_in_H` と同種の残課題）。局所可積分性の仮定は半直線分割の Fubini を健全にするために追加された。この意図的 `sorry` は抽象 Bochner 層の残余であり、総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+provenance: |
+  Stream D。
 chapter: bochner
 tags: [weak-time-derivative, bochner]
 proof_status: contains-sorry

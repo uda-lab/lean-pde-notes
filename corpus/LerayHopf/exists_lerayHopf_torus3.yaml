@@ -17,8 +17,10 @@ proof_ja: |
 gap:
   level: large
   note: |
-    旧名の `axiomatic` 接尾辞は歴史的なもので、lean-pde PR #117 で retire され現行名 `exists_lerayHopf_torus3` になった。近似列は証明済みの `Torus.galerkinSolutionData_torus` から供給され、かつて公理だった `galerkin_ode_solution` の役割を果たす。この $\mathbb{T}^3$ 主定理は現在カーネルのみで閉じている（追加公理ゼロ）。
+    近似列は証明済みの `Torus.galerkinSolutionData_torus` から供給され、かつて公理だった `galerkin_ode_solution` の役割を果たす。この $\mathbb{T}^3$ 主定理は現在カーネルのみで閉じている（追加公理ゼロ）。
 
     空間コンパクト性を証明済みの `rellich_L2Sigma` でまかなえる点が有界領域 $\mathbb{T}^3$ の強みであり、コンパクト性の局所化を要する非有界な $\mathbb{R}^3$ との違いがここに現れる。
+provenance: |
+  旧名の `axiomatic` 接尾辞は歴史的なもので、lean-pde PR #117 で retire され現行名 `exists_lerayHopf_torus3` になった。
 chapter: capstone-torus
 tags: [leray-hopf, capstone, torus]
