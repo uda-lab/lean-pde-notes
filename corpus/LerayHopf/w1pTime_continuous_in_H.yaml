@@ -1,16 +1,16 @@
 name: LerayHopf.Bochner.w1pTime_continuous_in_H
 tier: full
 statement_ja: |
-  Lions–Magenes の良い代表元（意図的 sorry）：`W1pTime` 元（$u \in L^p(0,T;V)$、$u' \in L^q(0,T;V')$）は、ピボット空間 $H$ に値を取る連続な代表元を持つ — $[0, T]$ 上連続で、$u$ の $H$ への像と a.e. 一致する曲線が存在する。
+  Lions–Magenes の良い代表元（$p=q=2$ の Gelfand 三対の場合、意図的 sorry）：$u \in L^2(0,T;V)$ かつ弱時間微分が $u' \in L^2(0,T;V')$ を満たすならば、ピボット空間 $H$ に値を取る連続な代表元を持つ — $[0,T]$ 上連続で、$u$ の $H$ への像とほとんど至る所一致する曲線が存在する。
 proof_ja: |
   **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**これは Lions–Magenes の埋め込み
 
-  $$\bigl\{\, u \in L^p(0,T;V) \;:\; u' \in L^q(0,T;V') \,\bigr\} \hookrightarrow C([0,T];H)$$
+  $$\bigl\{\, u \in L^2(0,T;V) \;:\; u' \in L^2(0,T;V') \,\bigr\} \hookrightarrow C([0,T];H)$$
 
-  （微分は $V'$ 値の弱時間微分 — `W1pTime` の仮定そのもの）で、mathlib に欠けているベクトル値の時間 Sobolev／良い代表元理論の基幹定理に当たる。数か月規模の作業を要する未証明事項と見積もられ、主張は本来の強さ（連続、弱連続に弱めない）のまま保たれている。
+  （微分は $V'$ 値の弱時間微分）で、mathlib に欠けているベクトル値の時間 Sobolev／良い代表元理論の基幹定理に当たる。標準的な証明経路はエネルギー対 $t \mapsto \langle u'(t), u(t)\rangle_{V',V}$ の可積分性に Cauchy–Schwarz（$L^2(V') \times L^2(V)$）を用いるため、指数対 $p=q=2$ に本質的に依存する。
 gap:
   level: large
   note: |
-    Stream D の最深部の単一定理。$V'$ 値版は [[V' 値の良い代表元|LerayHopf.Bochner.w1pTime_continuous_in_Vprime]] として**証明済み**（原始関数 + du Bois-Reymond 経路）で、$H$ 値版だけが残る。この意図的 `sorry` は抽象 Bochner 層（Stream D）の残余であり、総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない（両系統は具体構成で閉じている）。
+    **検疫済み・訂正履歴（lean-pde issue #158）**: 本定理はかつて一般指数 `1 ≤ p, 1 ≤ q` で主張されており、その一般形は**偽**である — `p = q = 1` に対し重み付き $\ell^2$ 上の三角形スパイク列による明示的反例が存在する（$u$ と $u'$ が各々 $L^1$ でも双対対 $\langle u', u\rangle$ の可積分性は従わない）。2026-07-17 に唯一の証明計画が存在する $p=q=2$ へ制限され（lean-pde PR #162）、宣言は release surface 外の `Bochner/TimeSobolevExperimental.lean`（`import LerayHopf.Experimental` 経由でのみ到達可能、root import は sorry-free）へ隔離された。本注釈の旧版が「主張は本来の強さのまま保たれている」と誤った自信を再掲していた経緯は issue #158 の postmortem に記録されている。$V'$ 値版は [[V' 値の良い代表元|LerayHopf.Bochner.w1pTime_continuous_in_Vprime]] として**証明済み**。総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない。
 chapter: bochner
-tags: [gelfand-triple, bochner]
+tags: [gelfand-triple, bochner, contains-sorry, quarantined-history]
