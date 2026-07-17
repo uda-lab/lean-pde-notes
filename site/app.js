@@ -1330,7 +1330,12 @@ function renderSearch(app, q) {
     const docHit = n.doc && n.doc.toLowerCase().includes(ql);
     if (nameHit || stmtHit || proofHit || tagHit || docHit) hits.push(n);
   }
-  setMetaContent('name', 'description', `"${q}" の検索結果 ${hits.length} 件。`);
+  // notes#73 (codex pre-review): setPageMeta() above ran before hits were counted, so it
+  // left og:description at DEFAULT_DESCRIPTION for any non-empty query — update both the
+  // plain meta description and og:description together now that the count is known.
+  const resultDesc = `"${q}" の検索結果 ${hits.length} 件。`;
+  setMetaContent('name', 'description', resultDesc);
+  setMetaContent('property', 'og:description', resultDesc);
   app.appendChild(el('p', { class: 'filemeta', text: `"${q}" — ${hits.length} 件` }));
 
   const groups = new Map();

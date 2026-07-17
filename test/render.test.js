@@ -15,6 +15,10 @@ const dom = new JSDOM(
 global.window = dom.window;
 global.document = dom.window.document;
 global.location = dom.window.location; // route() (notes#72 test (n)) reads bare `location`
+// notes#73 (codex pre-review): jsdom doesn't implement window.scrollTo — route() calls
+// it unconditionally on every navigation, which otherwise logs a noisy (non-fatal)
+// "Not implemented" error on every route()-driven check in this file.
+dom.window.scrollTo = () => {};
 
 const app = require('../site/app.js');
 const {
@@ -650,6 +654,11 @@ check('(r) search matches tags/proof_ja/doc in addition to name/statement_ja, an
   assert.ok(appEl.textContent.includes('1 件'), 'a tag-only match must still be counted as a hit');
   const desc = document.querySelector('meta[name="description"]').getAttribute('content');
   assert.ok(desc.includes('1 件'), 'search meta description must report the hit count');
+  // notes#73 (codex pre-review): setPageMeta() runs before hits are counted and left
+  // og:description at the site default for any non-empty query — renderSearch must
+  // update it again once the hit count is known, not just the plain meta description.
+  const ogDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
+  assert.ok(ogDesc.includes('1 件'), 'og:description must also report the hit count, not the stale site default');
 });
 
 Promise.all(pending).then(() => {

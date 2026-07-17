@@ -129,8 +129,8 @@ purely a corpus + rebuild operation — **no site code changes required**.
 - `#/coverage` — per-chapter × per-tier coverage table
 - `#/proof-status` — every declaration whose `proof_status` is not the default `verified`
   (sorry / scaffold / retired / invalid-statement), generated straight from `nodes.json`
-- `#/search/<query>` — name (prefix) + statement_ja/proof_ja/tags/doc (substring) search,
-  grouped by kind
+- `#/search/<query>` — full name (substring) + short name (prefix) +
+  statement_ja/proof_ja/tags/doc (substring) search, grouped by kind
 
 `slug` is the display name when unique, else the declaration `id` (private-helper name
 collisions; run `scripts/build_site_data.py` — it prints `Collision groups: N (M decls)`
