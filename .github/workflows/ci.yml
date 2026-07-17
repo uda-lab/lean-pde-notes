@@ -1,0 +1,122 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:  # allow manual triggers for inspection
+
+# notes#72: no workflow previously declared `permissions`, so both jobs ran with the
+# default (broader) GITHUB_TOKEN scope. Nothing here needs to write to the repo, open
+# PRs, or touch other API surfaces — read-only contents access is enough to checkout
+# and upload a workflow artifact.
+permissions:
+  contents: read
+
+env:
+  # notes#72: previously build-site-artifact.yml used Node 24 and harness.yml used
+  # Node 20 — pick one version and share it via env so the two never drift apart again.
+  NODE_VERSION: "24"
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  validate:
+    name: Validate corpus + coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate fallback name universe (if lean-pde not available)
+        # In CI, lean-pde is not available, so names-fallback.json is committed.
+        # This step is a no-op if the file is already present and lean-pde is absent.
+        run: |
+          if [ ! -f extracted/names-fallback.json ]; then
+            echo "WARNING: extracted/names-fallback.json missing — skipping name universe checks"
+          else
+            echo "Using committed extracted/names-fallback.json"
+          fi
+
+      - name: Validate corpus
+        run: python3 scripts/validate.py
+
+      - name: Glossary lint
+        run: python3 scripts/glossary_lint.py
+
+      - name: Prose lint (D1/D2/D5)
+        run: python3 scripts/prose_lint.py
+
+      - name: Coverage report
+        run: python3 scripts/coverage.py
+
+      - name: Build site data (structure check only)
+        # Verifies the join runs, but writes to a temp path: CI has no lean-pde checkout,
+        # so it cannot embed source. Writing to site/data/nodes.json here would clobber the
+        # committed source-embedded artifact (built with --lean-root). Pure Python, seconds.
+        run: python3 scripts/build_site_data.py --no-coverage --out /tmp/nodes.check.json
+
+  render-tests:
+    name: Site render harness (jsdom)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Render harness (D1/D4/D5 acceptance criteria)
+        run: npm test
+
+  build-artifact:
+    name: Build and validate site data
+    # notes#72: previously this job re-ran `python3 scripts/validate.py` and `npm test`
+    # itself (duplicating the validate/render-tests jobs above) before building. It only
+    # needs those checks to have passed, not to re-run them — `needs:` gates on that
+    # without re-executing them. It also no longer sets up Node at all: build_site_data.py
+    # and site_data_size_report.py are pure Python; npm/node_modules were only ever
+    # needed here for the now-removed duplicate `npm test` step.
+    needs: [validate, render-tests]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check for lean-pde checkout
+        id: check-lean-pde
+        run: |
+          # Phase A: lean-pde is private, so we build without source for now.
+          # Phase B will add lean-pde checkout at extracted/PIN.
+          echo "lean_available=false" >> "$GITHUB_OUTPUT"
+          echo "::notice::Building without lean-pde source (Phase A: pre-publication mode)"
+
+      - name: Build site data
+        run: |
+          # Build without --lean-root for Phase A
+          # This generates nodes.json and sources.json without embedded source bodies
+          python3 scripts/build_site_data.py
+
+      - name: Generate size report
+        run: |
+          python3 scripts/site_data_size_report.py --json site/data/size-report.json | tee size-report.md
+          cat size-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: site-data
+          path: |
+            site/
+            !site/data/.gitkeep
+          retention-days: 30
+
+      # Phase B will add Pages deployment here when ready for public launch
+      # For now, only workflow artifacts are generated for inspection
