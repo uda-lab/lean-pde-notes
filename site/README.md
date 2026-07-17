@@ -78,7 +78,8 @@ uncommitted and is available only as workflow artifacts for pre-publication insp
 empty `sources.json`). Before enabling Phase B public deployment, a source-enabled build
 (`--lean-root` with leray-hopf at `extracted/PIN`) must be inspected locally to verify:
 - No private paths, agent notes, or internal-only content in generated JSON
-- Source extraction correctness for all 1,412 declarations
+- Source extraction correctness for every declaration (current count: see `extracted/decls.json`,
+  e.g. `jq length extracted/decls.json` or `scripts/coverage.py`)
 - Size report within budget when source bodies are included
 
 **Phase B** (after public-readiness gate and source-enabled inspection):
@@ -123,12 +124,17 @@ purely a corpus + rebuild operation — **no site code changes required**.
 - `#/` — home (2 capstone cards, coverage summary, chapter list)
 - `#/chapter/<id>` — chapter page (defs group / theorems group; private helpers folded per file)
 - `#/decl/<slug>` — declaration node page (Lean ⇄ Japanese, uses accordion, used-by, DAG links)
-- `#/dag` — proof tree, progressive disclosure from the 2 capstone roots
+- `#/dag` — declaration dependency graph (type/value-constant edges, not a proof tree),
+  progressive disclosure from the 2 capstone roots
 - `#/coverage` — per-chapter × per-tier coverage table
+- `#/proof-status` — every declaration whose `proof_status` is not the default `verified`
+  (sorry / scaffold / retired / invalid-statement), generated straight from `nodes.json`
 - `#/search/<query>` — name (prefix) + statement_ja (substring) search, grouped by kind
 
-`slug` is the display name when unique, else the declaration `id` (the 8 private-helper
-name collisions; corpus join for those is deferred to notes#7).
+`slug` is the display name when unique, else the declaration `id` (private-helper name
+collisions; run `scripts/build_site_data.py` — it prints `Collision groups: N (M decls)`
+and lists them in the `collisions` field of the generated `site/data/nodes.json` — for
+the current collision count; corpus join for those keys off name+file, per notes#7).
 
 ## Graceful degradation
 

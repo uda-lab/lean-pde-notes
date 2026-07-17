@@ -53,6 +53,9 @@ jobs:
       - name: Coverage report
         run: python3 scripts/coverage.py
 
+      - name: Doc staleness guard
+        run: python3 scripts/check_docs.py
+
       - name: Build site data (structure check only)
         # Verifies the join runs, but writes to a temp path: CI has no leray-hopf checkout,
         # so it cannot embed source. Writing to site/data/nodes.json here would clobber the

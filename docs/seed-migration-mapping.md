@@ -1,5 +1,14 @@
 # S3 シード移植 — 旧名→現行名 対応表（formalization-review-ja → コーパス）
 
+> **⚠ 履歴記録（PIN `013c4a0` 時点）** — この対応表は移植作業当時の一時点のスナップショットで
+> あり、現行の指示・現行の宣言名を保証するものではない。以後の repin（`docs/migration-2026-07-refactor.md`
+> 等を参照）で宣言名が再度変わっている場合がある。例えば下表「現行名」列の
+> `exists_lerayHopf_torus3_axiomatic` / `exists_lerayHopf_r3_axiomatic` は本記録作成後の
+> repin で `_axiomatic` 接尾辞が retire され、現在は `LerayHopf.exists_lerayHopf_torus3` /
+> `LerayHopf.exists_lerayHopf_r3` である。**宣言名の正典は常に `extracted/decls.json`
+> （現在の PIN は `extracted/PIN` を参照）** であり、本表は「なぜこの corpus entry が
+> 存在するか」という来歴の記録として読むこと。
+
 `uda-lab/lean-pde` の対訳プロトタイプ `docs/formalization-review-ja.md` を新スキーマの
 コーパス YAML へ移植した際の、宣言名の再アンカー記録。対応先は PIN `013c4a0` 時点の
 `extracted/decls.json`（正典の名前 universe）で検証済み。

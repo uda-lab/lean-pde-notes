@@ -20,7 +20,7 @@ const app = require('../site/app.js');
 const {
   state, splitParagraphs, joinSoftLines, firstParagraph, sentencePreview,
   renderProse, renderProseInline, renderDecl, renderAbout, loadSourceFor,
-  proofStatusBadge, proofStatusBanner,
+  proofStatusBadge, proofStatusBanner, renderDag, renderUsedBy,
   esc, dagItem, progressBar, renderCoverage, route, makeRef,
   bindHoverCards, setupSkipLink,
 } = app;
@@ -158,7 +158,7 @@ check('(d) gap Note renders after the proof band and before uses', () => {
     && c.querySelector('h3') && h(c.querySelector('h3').textContent);
   const proofIdx = kids.findIndex(isSection((t) => t === '証明'));
   const gapIdx = kids.findIndex((c) => c.id === 'gap-note');
-  const usesIdx = kids.findIndex(isSection((t) => t.startsWith('依存補題')));
+  const usesIdx = kids.findIndex(isSection((t) => t.startsWith('直接依存宣言')));
   assert.ok(proofIdx >= 0, 'proof section present');
   assert.ok(gapIdx >= 0, 'gap-note panel present');
   assert.ok(usesIdx >= 0, 'uses section present');
@@ -563,6 +563,27 @@ check('(p-regression) a real mouse click (MouseEvent.detail >= 1) on a resolved 
   const notCancelled = ref.dispatchEvent(ev);
   assert.strictEqual(notCancelled, false, 'a real mouse click must still be intercepted to show the pinned preview');
   assert.strictEqual(document.getElementById('hovercard').hidden, false, 'the preview card must be shown');
+});
+
+/* ==== notes#71: graph terminology + no hard-coded declaration counts in UI prose ==== */
+check('(q) DAG page uses accurate graph terminology (宣言依存グラフ, not 証明ツリー) and a dynamic node count', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  state.data = { capstones: [], decl_count: 1339, chapters: [] };
+  renderDag(appEl);
+  const text = appEl.textContent;
+  assert.ok(text.includes('宣言依存グラフ'), 'DAG page must use the accurate graph label');
+  assert.ok(!text.includes('証明ツリー'), 'DAG page must not call this a proof tree');
+  assert.ok(text.includes('1,339'), 'the "does not render everything" note must reflect the live decl_count, not a hard-coded literal');
+});
+
+check('(q) empty usedBy state does not conflate "no incoming edges" with "leaf" (no outgoing edges)', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  const node = { usedBy: [], uses: ['something'] }; // has outgoing edges -> not a leaf, but still no usedBy
+  renderUsedBy(appEl, node);
+  const text = appEl.textContent;
+  assert.ok(!text.includes('葉'), 'a node with outgoing edges must not be described as a leaf just because it has no usedBy');
 });
 
 Promise.all(pending).then(() => {

@@ -11,9 +11,11 @@ warm build, one record per LerayHopf-module declaration. Fields:
 
 - `id` — real internal name, **unique**, and the key `deps` edges point at. For a public
   declaration `id == name`.
-- `name` — display user-name. It can collide across modules for `private` helpers (8
-  groups / 16 decls in the current extraction), so `name` is **not** a key; use `id`
-  (plus `file`, per notes#7) to disambiguate.
+- `name` — display user-name. It can collide across modules for `private` helpers (a
+  small number of groups in the current extraction — run `scripts/build_site_data.py`,
+  which prints `Collision groups: N (M decls)`, or see the `collisions` field of the
+  generated `site/data/nodes.json`, for the exact current count), so `name` is **not**
+  a key; use `id` (plus `file`, per notes#7) to disambiguate.
 - `private`, `kind` (theorem|def|structure|instance|abbrev|inductive|other), `signature`,
   `doc`, `file`, `startLine`, `endLine`.
 - `deps` — project-internal edges (constants used in type+value), each normalized to an

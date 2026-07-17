@@ -525,7 +525,7 @@ function renderHome(app) {
   app.appendChild(el('p', {
     class: 'prose',
     text: 'uda-lab/leray-hopf の全宣言に Lean コードと日本語の数学解説を並置する純静的ビューア。'
-      + 'capstone から証明ツリーを辿り、依存補題をその場で展開できる。',
+      + 'capstone から宣言依存グラフを辿り、直接依存宣言をその場で展開できる。',
   }));
 
   // capstone cards
@@ -838,7 +838,7 @@ function jpPane(label, text, emptyMsg) {
 }
 
 function renderUses(app, node) {
-  const sec = el('div', { class: 'section' }, [el('h3', { text: `依存補題 uses (${node.uses.length})` })]);
+  const sec = el('div', { class: 'section' }, [el('h3', { text: `直接依存宣言 uses (${node.uses.length})` })]);
   if (!node.uses.length) sec.appendChild(el('p', { class: 'filemeta', text: '直接依存なし。' }));
   for (const slug of node.uses) {
     const dep = state.bySlug.get(slug);
@@ -870,7 +870,10 @@ function renderUses(app, node) {
 
 function renderUsedBy(app, node) {
   const sec = el('div', { class: 'section' }, [el('h3', { text: `被依存 used-by (${node.usedBy.length})` })]);
-  if (!node.usedBy.length) { sec.appendChild(el('p', { class: 'filemeta', text: 'このノードを直接使う宣言はありません（capstone か葉）。' })); app.appendChild(sec); return; }
+  // "no usedBy" means no other extracted declaration references this one — it says nothing
+  // about this node's own `uses` (which may be nonempty), so "葉/leaf" (no outgoing edges)
+  // is the wrong term here; only describe the incoming-edge fact.
+  if (!node.usedBy.length) { sec.appendChild(el('p', { class: 'filemeta', text: 'このノードを直接使う宣言はありません（capstone であるか、抽出対象の中では他のどこからも参照されていません）。' })); app.appendChild(sec); return; }
   const ul = el('ul', { class: 'usedby-list' });
   for (const slug of node.usedBy.slice(0, 400)) {
     const dep = state.bySlug.get(slug);
@@ -954,11 +957,12 @@ function declRow(n) {
 /* ---------------- DAG page ---------------- */
 
 function renderDag(app) {
-  app.appendChild(el('h1', { text: '証明ツリー (DAG)' }));
+  app.appendChild(el('h1', { text: '宣言依存グラフ (DAG)' }));
+  const total = (state.data && state.data.decl_count) || 0;
   app.appendChild(el('p', {
     class: 'prose',
-    text: '2 つの capstone を根に、依存補題 (uses) をクリックで段階的に展開する。'
-      + '1,412 ノード全体は描画しない（段階的開示のみ）。',
+    text: '2 つの capstone を根に、直接依存宣言 (uses) をクリックで段階的に展開する。'
+      + `全 ${total.toLocaleString('ja-JP')} 宣言を一度には描画しない（段階的開示のみ）。`,
   }));
   const container = el('div', { class: 'dag' });
   const rootUl = el('ul');
@@ -1405,6 +1409,7 @@ if (typeof module !== 'undefined' && module.exports) {
     makeRef, refSlugForRefToken, renderParagraph, renderProse, renderProseInline,
     firstParagraph, sentencePreview, renderDecl, renderAbout, loadSources, loadSourceFor,
     proofStatusBadge, proofStatusBanner, renderProofStatus, PROOF_STATUS_META,
+    renderDag, renderUsedBy, renderUses,
     esc, dagItem, progressBar, renderCoverage, route,
     bindHoverCards, setupSkipLink,
   };
