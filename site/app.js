@@ -113,6 +113,31 @@ function proofStatusBanner(status) {
 function declHref(slug) { return '#/decl/' + encodeURIComponent(slug); }
 function chapterHref(id) { return '#/chapter/' + encodeURIComponent(id); }
 
+// notes#68: exact-PIN GitHub blob permalink for a Lean source location, so "where does
+// this come from" resolves to the literal pinned commit, not a moving `main` branch.
+// Returns null when the source repository or PIN isn't known (e.g. fallback universe).
+function sourceBlobHref(file, startLine, endLine) {
+  const repo = state.data.citation && state.data.citation.source_repository;
+  const pin = state.data.pin;
+  if (!repo || !pin || !file) return null;
+  if (!(Number.isInteger(startLine) && startLine > 0)) return null;
+  const hasEnd = Number.isInteger(endLine) && endLine >= startLine && endLine !== startLine;
+  const frag = hasEnd ? `#L${startLine}-L${endLine}` : `#L${startLine}`;
+  return `${repo}/blob/${pin}/${file}${frag}`;
+}
+
+// Renders `file:startLine[–endLine]` as a link to the exact-PIN GitHub blob when
+// possible, falling back to plain text (same visual style either way).
+function fileLineNode(cls, file, startLine, endLine, prefix) {
+  const rangeText = (endLine && endLine !== startLine) ? `${startLine}–${endLine}` : `${startLine}`;
+  const text = `${prefix || ''}${file}:${rangeText}`;
+  const href = sourceBlobHref(file, startLine, endLine);
+  if (href) {
+    return el('a', { class: cls, href, target: '_blank', rel: 'noopener', text });
+  }
+  return el('span', { class: cls, text });
+}
+
 /* ---------------- prose rendering (D1 paragraphs + D5 inline tokenizer) ----------------
  *
  * Prose fields (statement_ja / proof_ja / gap.note) are authored one physical line per
@@ -444,6 +469,7 @@ function route() {
     else if (head === 'dag') renderDag(app);
     else if (head === 'coverage') renderCoverage(app);
     else if (head === 'proof-status') renderProofStatus(app);
+    else if (head === 'about') renderAbout(app, parts[1] ? decodeURIComponent(parts[1]) : null);
     else if (head === 'search') renderSearch(app, decodeURIComponent(parts.slice(1).join('/')));
     else app.appendChild(el('p', { text: 'ページが見つかりません。' }));
   } catch (e) {
@@ -579,7 +605,7 @@ function renderDecl(app, slug) {
     gapEl.classList.add('gap-link');
     gapEl.setAttribute('role', 'link');
     gapEl.setAttribute('tabindex', '0');
-    const jump = () => { const t = document.getElementById('gap-note'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+    const jump = () => { const t = document.getElementById('gap-note'); if (t && typeof t.scrollIntoView === 'function') t.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
     gapEl.addEventListener('click', jump);
     gapEl.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); jump(); } });
   }
@@ -595,7 +621,10 @@ function renderDecl(app, slug) {
   const chMeta = state.chapterMeta.get(node.chapter);
   meta.appendChild(el('a', { class: 'badge', href: chapterHref(node.chapter), text: (chMeta && chMeta.label_ja) || node.chapter }));
   app.appendChild(meta);
-  app.appendChild(el('p', { class: 'mono filemeta', text: `${node.name}  ·  ${node.file}:${node.startLine}` }));
+  app.appendChild(el('p', { class: 'mono filemeta' }, [
+    node.name + '  ·  ',
+    fileLineNode('filemeta', node.file, node.startLine, node.startLine),
+  ]));
   // notes#65: prominent banner right under the header — a sorry-carrying / scaffold /
   // retired / quarantined declaration must not read like an ordinary proved theorem.
   const banner = proofStatusBanner(proofStatus);
@@ -618,9 +647,11 @@ function renderDecl(app, slug) {
     const det = el('details', { class: 'use' });
     const inner = el('div', { class: 'use-body' });
     if (node.has_source) {
+      const srcLink = fileLineNode('filemeta', node.file, node.startLine, node.endLine);
+      if (srcLink.tagName === 'A') srcLink.addEventListener('click', ev => ev.stopPropagation());
       det.appendChild(el('summary', {}, [
         el('span', { class: 'summary-name', text: 'ソースを表示' }),
-        el('span', { class: 'filemeta', text: `${node.file}:${node.startLine}–${node.endLine}` }),
+        srcLink,
       ]));
       const wrap = el('div', { class: 'codewrap' });
       const placeholder = el('p', { class: 'filemeta', text: 'ソース本文を取得しています。' });
@@ -687,6 +718,27 @@ function renderDecl(app, slug) {
     app.appendChild(np);
   }
 
+  // notes#68: bibliographic citations backing this declaration's statement/proof/naming
+  // choices, resolved from state.data.bibliography (built from docs/bibliography.md).
+  const refs = node.corpus && node.corpus.references;
+  if (refs && refs.length) {
+    const rp = el('div', { class: 'note-panel refs-panel' }, [
+      el('h4', { text: '参考文献' }),
+    ]);
+    const list = el('ul', { class: 'refs-list' });
+    for (const ref of refs) {
+      const citation = (state.data.bibliography || {})[ref.id];
+      const li = el('li', {}, [
+        el('a', { href: '#/about/' + encodeURIComponent(ref.id), class: 'mono', text: ref.id }),
+        ref.locator ? el('span', { class: 'filemeta', text: ' ' + ref.locator }) : null,
+        el('span', { class: 'ref-citation', text: citation ? '  ' + citation : '  (未解決の citation id)' }),
+      ]);
+      list.appendChild(li);
+    }
+    rp.appendChild(list);
+    app.appendChild(rp);
+  }
+
   // uses (direct deps) — depth-1 accordion
   renderUses(app, node);
   // used-by (links only)
@@ -700,7 +752,7 @@ function leanPane(label, code, node) {
   const pre = el('pre', { class: 'lean', html: highlightLean(code) });
   wrap.appendChild(pre);
   pane.appendChild(wrap);
-  if (node) pane.appendChild(el('div', { class: 'filemeta', text: `${node.file}:${node.startLine}` }));
+  if (node) pane.appendChild(el('div', { class: 'filemeta-block' }, [fileLineNode('filemeta', node.file, node.startLine, node.startLine)]));
   return pane;
 }
 
@@ -985,6 +1037,99 @@ function renderProofStatus(app) {
   }
 }
 
+/* ---------------- about / citation / bibliography (notes#68) ---------------- */
+
+function renderAbout(app, highlightId) {
+  const citation = state.data.citation || {};
+  const pin = state.data.pin;
+  const bib = state.data.bibliography || {};
+
+  app.appendChild(el('h1', { text: 'このサイトについて' }));
+
+  const scope = el('div', { class: 'section' }, [
+    el('h3', { text: 'author・scope' }),
+    el('p', { class: 'prose' }, [
+      (citation.authors && citation.authors.length ? citation.authors.join(', ') : '(author 未設定)')
+        + ' による、',
+      el('a', { href: 'https://github.com/uda-lab/lean-pde', text: 'uda-lab/lean-pde' }),
+      ' （Leray–Hopf 弱解存在の Lean 4 + mathlib 形式化）の全宣言対訳解説サイト。'
+        + 'corpus/**/*.yaml のprose と Lean 宣言メタデータを結合した純静的ビューア。',
+    ]),
+  ]);
+  app.appendChild(scope);
+
+  const disclaimer = el('div', { class: 'section' }, [
+    el('h3', { text: '注意（disclaimer）' }),
+    el('p', { class: 'caveat' }, [
+      el('strong', { text: '注意：' }),
+      el('span', {
+        text: 'このサイトが示す「注釈網羅率」「proof_status: verified」は、宣言に'
+          + ' statement_ja 等が記入され Lean 側に既知の sorry・虚偽/過度に一般化された主張・'
+          + '撤去済み宣言としてのマークがないことを意味するのみであり、対訳注釈そのものが'
+          + '数学的に正しいことを証明・認証するものではない（semantic proof certification'
+          + ' ではない）。証明の真の正しさの根拠は Lean 側の型検査そのものであり、この'
+          + 'サイトの日本語注釈は理解のための補助である。',
+      }),
+    ]),
+    el('p', {}, [el('a', { href: '#/proof-status', text: '証明状態の内訳を見る →' })]),
+  ]);
+  app.appendChild(disclaimer);
+
+  const citeSec = el('div', { class: 'section' }, [el('h3', { text: 'citation・license' })]);
+  const citeList = el('ul', { class: 'about-list' });
+  if (citation.repository_code) {
+    citeList.appendChild(el('li', {}, [
+      'このリポジトリ: ',
+      el('a', { href: citation.repository_code, text: citation.repository_code }),
+      ' — ',
+      el('a', { href: citation.repository_code + '/blob/main/CITATION.cff', text: 'CITATION.cff' }),
+    ]));
+  }
+  if (citation.source_repository) {
+    const commitHref = pin ? `${citation.source_repository}/tree/${pin}` : citation.source_repository;
+    citeList.appendChild(el('li', {}, [
+      '形式化ソース: ',
+      el('a', { href: citation.source_repository, text: citation.source_repository }),
+      pin ? el('span', {}, [' — pinned commit ', el('a', { class: 'mono', href: commitHref, text: pin })]) : null,
+    ]));
+  }
+  if (citation.license) {
+    citeList.appendChild(el('li', { text: 'license: ' + [].concat(citation.license).join(', ')
+      + '（ファイル別の適用範囲は LICENSE.md を参照。vendored KaTeX は MIT）' }));
+    if (citation.license_url) {
+      citeList.appendChild(el('li', {}, [el('a', { href: citation.license_url, text: 'LICENSE.md' })]));
+    }
+  }
+  if (state.data.built_at) {
+    citeList.appendChild(el('li', { text: `このサイトデータのビルド日時: ${state.data.built_at}` }));
+  }
+  citeSec.appendChild(citeList);
+  app.appendChild(citeSec);
+
+  const bibSec = el('div', { class: 'section' }, [
+    el('h3', { text: '参考文献 (bibliography)' }),
+    el('p', { class: 'filemeta', text: 'corpus の宣言注釈が略記で引く一次・標準文献。個々の宣言からのリンクは各宣言ページの「参考文献」欄を参照。' }),
+  ]);
+  const bibList = el('ul', { class: 'refs-list' });
+  for (const cid of Object.keys(bib).sort()) {
+    const li = el('li', { id: 'ref-' + cid }, [
+      el('span', { class: 'mono', text: cid }),
+      el('span', { class: 'ref-citation', text: '  ' + bib[cid] }),
+    ]);
+    if (cid === highlightId) li.classList.add('ref-highlight');
+    bibList.appendChild(li);
+  }
+  bibSec.appendChild(bibList);
+  app.appendChild(bibSec);
+
+  if (highlightId) {
+    setTimeout(() => {
+      const t = document.getElementById('ref-' + highlightId);
+      if (t && typeof t.scrollIntoView === 'function') t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
+  }
+}
+
 /* ---------------- search ---------------- */
 
 function renderSearch(app, q) {
@@ -1117,7 +1262,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     state, splitParagraphs, joinSoftLines, joinGlue, segmentMath, tokenizeInline,
     makeRef, refSlugForRefToken, renderParagraph, renderProse, renderProseInline,
-    firstParagraph, sentencePreview, renderDecl, loadSources, loadSourceFor,
+    firstParagraph, sentencePreview, renderDecl, renderAbout, loadSources, loadSourceFor,
     proofStatusBadge, proofStatusBanner, renderProofStatus, PROOF_STATUS_META,
   };
 }

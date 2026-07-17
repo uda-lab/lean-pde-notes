@@ -22,3 +22,6 @@ gap:
     構成は Temam III.3 の古典的な道筋（同程度 Lipschitz 連続性＋稠密時刻での Cauchy 性＋部分空間内 Riesz 表現）に沿い、Lions–Magenes 型の時間 Sobolev 空間や弱時間微分を一切用いない。トーラスの `exists_weak_representative` の $\mathbb{R}^3$ 版であり、唯一の相違は、トーラスの $L^2$ 強部分列の代わりに球ごとの強収束 `inner_tendsto_of_perball` を用いて概至る所の弱収束を得る点である。Galerkin レベルの持ち上げは `𝔊.mono_range`、$u_0$ での稠密性は `𝔊.tendsto_id` による。
 chapter: limit-passage
 tags: [good-representative, weak-continuity, temam, riesz]
+references:
+  - id: temam2001
+    locator: "III.3"

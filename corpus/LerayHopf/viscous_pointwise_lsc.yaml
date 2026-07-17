@@ -30,3 +30,8 @@ gap:
     Temam III.3／Lemarié-Rieusset §6。
 chapter: limit-passage
 tags: [limit-passage, viscous-form, lower-semicontinuity, plancherel]
+references:
+  - id: temam2001
+    locator: "III.3"
+  - id: lemarie-rieusset2002
+    locator: "§6"

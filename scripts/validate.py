@@ -23,6 +23,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+from bibliography import ID_PATTERN, parse_bibliography  # noqa: E402
+
 try:
     import yaml
     HAS_YAML = True
@@ -129,6 +132,42 @@ def validate_schema_manual(doc: dict, fpath: Path) -> list[str]:
             f'{fpath}: proof_status "{proof_status}" must be one of {sorted(VALID_PROOF_STATUSES)}'
         )
 
+    references = doc.get('references')
+    if references is not None:
+        if not isinstance(references, list) or not references:
+            errs.append(f'{fpath}: references must be a non-empty array')
+        else:
+            for ref in references:
+                if not isinstance(ref, dict) or not isinstance(ref.get('id'), str):
+                    errs.append(f'{fpath}: each references[] entry must be an object with a string "id"')
+                elif not ID_PATTERN.match(ref['id']):
+                    errs.append(f'{fpath}: references[].id "{ref["id"]}" must match ^[a-z][a-z0-9-]*$')
+
+    return errs
+
+
+def check_references(doc: dict, fpath: Path, bib_ids: set[str]) -> list[str]:
+    """Cross-check `references[].id` against docs/bibliography.md entries.
+
+    Runs regardless of jsonschema availability: the JSON Schema only checks the
+    `references[].id` shape (lowercase-hyphen pattern), not that the id actually
+    resolves to a known bibliography entry — that requires reading bibliography.md.
+    """
+    errs: list[str] = []
+    refs = doc.get('references')
+    if not refs:
+        return errs
+    if not isinstance(refs, list):
+        return errs  # schema check (or validate_schema_manual, if extended) covers shape
+    for ref in refs:
+        if not isinstance(ref, dict):
+            continue
+        rid = ref.get('id')
+        if rid and rid not in bib_ids:
+            errs.append(
+                f'{fpath}: references[].id "{rid}" not found in docs/bibliography.md '
+                f'(known ids: {", ".join(sorted(bib_ids)) or "(none parsed)"})'
+            )
     return errs
 
 
@@ -145,11 +184,26 @@ def main() -> None:
     if schema is None:
         warnings.append(f'WARNING: Schema file not found at {SCHEMA_PATH} — structural checks skipped')
 
+    bibliography = parse_bibliography()
+    bib_ids = set(bibliography.keys())
+    if not bib_ids:
+        # Do NOT skip check_references below: an empty bib_ids set still lets every
+        # corpus references[].id fail to resolve (correctly, via check_references'
+        # "not in bib_ids" test) rather than silently passing CI while the bibliography
+        # itself is broken or missing — a docs/bibliography.md deletion or heading-format
+        # regression must not go unnoticed just because it happens to make the id-lookup
+        # trivially permissive.
+        warnings.append(
+            'WARNING: docs/bibliography.md parsed 0 citation ids — any corpus '
+            'references[] entry will now fail its id-resolution check'
+        )
+
     universe, keyed_universe, collisions, universe_source = load_name_universe()
     print(f'Name universe: {len(universe)} names from {universe_source}')
 
     # Check PIN when decls.json is present
     decls_path = EXTRACTED_DIR / 'decls.json'
+    pin = None
     if decls_path.exists():
         pin_path = EXTRACTED_DIR / 'PIN'
         if not pin_path.exists():
@@ -158,6 +212,30 @@ def main() -> None:
             pin = pin_path.read_text(encoding='utf-8').strip()
             if not re.fullmatch(r'[0-9a-fA-F]{40}', pin):
                 errors.append(f'ERROR: extracted/PIN is not a 40-char hex SHA: "{pin}"')
+
+    # notes#68: CITATION.cff's references[0].commit is a manually-maintained pin of the
+    # companion lean-pde repo (see the inline comment in CITATION.cff). A repin PR that
+    # updates extracted/PIN but forgets CITATION.cff silently drifts the citation out of
+    # sync with the actual source — this happened once already (caught during notes#68
+    # development, days after notes#66 landed the field). Hard-fail so it can't recur.
+    citation_path = REPO_ROOT / 'CITATION.cff'
+    if pin and citation_path.exists():
+        with open(citation_path, encoding='utf-8') as f:
+            cff = yaml.safe_load(f)
+        refs = cff.get('references') if isinstance(cff, dict) else None
+        source = refs[0] if isinstance(refs, list) and refs and isinstance(refs[0], dict) else None
+        cff_commit = source.get('commit') if source else None
+        if cff_commit and cff_commit != pin:
+            errors.append(
+                f'ERROR: CITATION.cff references[0].commit ("{cff_commit}") does not match '
+                f'extracted/PIN ("{pin}") — update CITATION.cff to match the current repin'
+            )
+        elif not cff_commit:
+            warnings.append(
+                'WARNING: CITATION.cff has no references[0].commit to cross-check against '
+                'extracted/PIN (unexpected shape, or the field was removed) — the pin-drift '
+                'check notes#68 added could not run'
+            )
 
     corpus_names: set[str] = set()
     corpus_keys: set[tuple[str, str]] = set()
@@ -189,6 +267,8 @@ def main() -> None:
         else:
             errs = validate_schema_manual(doc, fpath)
             errors.extend(errs)
+
+        errors.extend(check_references(doc, fpath, bib_ids))
 
         # notes#65 safety net: proof_status defaults to 'verified' when absent, so a corpus
         # entry whose own prose admits an intentionally-open `sorry` but never sets

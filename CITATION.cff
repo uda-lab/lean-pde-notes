@@ -40,4 +40,4 @@ references:
     license: "Apache-2.0"
     # Exact lean-pde commit this corpus/site is pinned to; keep in sync with
     # extracted/PIN whenever a repin PR updates it.
-    commit: "0afd65fb971277b290911d099e112e0ac40ab1f0"
+    commit: "d5f91f7e88c337b85623d7af6f7cb01cd136f97c"

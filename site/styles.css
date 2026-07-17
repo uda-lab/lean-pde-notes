@@ -213,6 +213,11 @@ pre.lean {
   tab-size: 2;
 }
 .filemeta { font-family: var(--font-mono); font-size: 0.76rem; color: var(--muted); margin-top: 0.4rem; }
+/* notes#68: file:line locations may now render as <a> (clickable exact-PIN GitHub blob
+   link) instead of plain text; <a> is inline by default so vertical margin on .filemeta
+   itself is a no-op there — .filemeta-block is a block wrapper that carries the margin. */
+.filemeta-block { margin-top: 0.4rem; }
+.filemeta-block .filemeta { margin-top: 0; }
 pre.lean.source { max-height: 32rem; overflow: auto; }
 details.use > summary .filemeta { margin: 0; }
 
@@ -241,6 +246,20 @@ details.use > summary .filemeta { margin: 0; }
 
 .section { margin-top: 1.6rem; }
 .section > h3 { font-size: 1rem; border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
+
+/* notes#68: per-declaration bibliography citations and the /about bibliography list. */
+.refs-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  margin: 1rem 0;
+}
+.refs-panel h4 { margin: 0 0 0.4rem; font-size: 0.85rem; color: var(--muted); }
+.refs-list, .about-list { list-style: none; margin: 0; padding: 0; }
+.refs-list li, .about-list li { padding: 0.25rem 0; font-size: 0.88rem; }
+.ref-citation { color: var(--muted); }
+.ref-highlight { background: var(--accent-soft); border-radius: 4px; }
 
 /* uses accordion (depth-1 only; children are links) */
 details.use { border: 1px solid var(--line); border-radius: 8px; margin: 0.4rem 0; background: var(--panel); }

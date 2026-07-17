@@ -18,7 +18,7 @@ global.document = dom.window.document;
 const app = require('../site/app.js');
 const {
   state, splitParagraphs, joinSoftLines, firstParagraph, sentencePreview,
-  renderProse, renderProseInline, renderDecl, loadSourceFor,
+  renderProse, renderProseInline, renderDecl, renderAbout, loadSourceFor,
   proofStatusBadge, proofStatusBanner,
 } = app;
 
@@ -262,6 +262,96 @@ check('(f-regression) renderDecl shows no proof-status banner for an ordinary ve
     'a verified declaration must not show any proof-status banner');
   assert.strictEqual(appEl.querySelector('.meta-row .badge.proof-status'), null,
     'a verified declaration must not show a proof-status badge');
+});
+
+check('(g) renderDecl shows a 参考文献 panel with resolved citation text when corpus.references is set', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  state.trail = [];
+  state.data = {
+    nodes: [], chapters: [],
+    bibliography: { temam2001: 'Temam, R. (2001). Navier-Stokes Equations...' },
+  };
+  const decl = {
+    slug: 'refDecl', id: 'refDecl', name: 'LerayHopf.refDecl', shortName: 'refDecl',
+    kind: 'theorem', private: false, signature: 'theorem refDecl : True', doc: '', file: 'X.lean',
+    startLine: 1, endLine: 2, chapter: 'bochner', uses: [], usedBy: [],
+    collision: false, capstone: false, has_source: false,
+    corpus: {
+      tier: 'full', statement_ja: '主張の本文。', proof_ja: '証明の本文。',
+      gap: { level: 'none' }, tags: [], sample: false, proof_status: 'verified',
+      references: [{ id: 'temam2001', locator: 'III.3' }],
+    },
+  };
+  state.bySlug.set('refDecl', decl);
+  renderDecl(appEl, 'refDecl');
+  const panel = appEl.querySelector('.refs-panel');
+  assert.ok(panel, 'a declaration with corpus.references must render a 参考文献 panel');
+  assert.ok(panel.textContent.includes('III.3'), 'the locator must be shown');
+  assert.ok(panel.textContent.includes('Temam, R. (2001)'),
+    'the resolved bibliography citation text must be shown, not just the bare id');
+  const link = panel.querySelector('a');
+  assert.ok(link && link.getAttribute('href') === '#/about/temam2001',
+    'the citation id must link to its /about entry');
+});
+
+check('(g-regression) renderDecl shows no 参考文献 panel when corpus.references is absent', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  state.trail = [];
+  state.data = { nodes: [], chapters: [], bibliography: {} };
+  const decl = {
+    slug: 'noRefDecl', id: 'noRefDecl', name: 'LerayHopf.noRefDecl', shortName: 'noRefDecl',
+    kind: 'theorem', private: false, signature: 'theorem noRefDecl : True', doc: '', file: 'X.lean',
+    startLine: 1, endLine: 2, chapter: 'bochner', uses: [], usedBy: [],
+    collision: false, capstone: false, has_source: false,
+    corpus: {
+      tier: 'full', statement_ja: '主張の本文。', proof_ja: '証明の本文。',
+      gap: { level: 'none' }, tags: [], sample: false, proof_status: 'verified',
+    },
+  };
+  state.bySlug.set('noRefDecl', decl);
+  renderDecl(appEl, 'noRefDecl');
+  assert.strictEqual(appEl.querySelector('.refs-panel'), null,
+    'a declaration without corpus.references must not render a 参考文献 panel');
+});
+
+check('(h) renderAbout lists bibliography entries, shows citation/license metadata, and highlights the requested id', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  state.data = {
+    nodes: [], chapters: [],
+    pin: 'abc123deadbeef',
+    built_at: '2026-07-17T00:00:00Z',
+    citation: {
+      authors: ['Tomoki Uda'],
+      repository_code: 'https://github.com/uda-lab/lean-pde-notes',
+      source_repository: 'https://github.com/uda-lab/lean-pde',
+      source_commit: 'abc123deadbeef',
+      license: ['Apache-2.0', 'CC-BY-4.0'],
+      license_url: 'https://github.com/uda-lab/lean-pde-notes/blob/main/LICENSE.md',
+    },
+    bibliography: {
+      temam2001: 'Temam, R. (2001). Navier-Stokes Equations...',
+      rrs2016: 'Robinson, J.C., Rodrigo, J.L., Sadowski, W. (2016). The Three-Dimensional...',
+    },
+  };
+  renderAbout(appEl, 'rrs2016');
+  assert.ok(appEl.textContent.includes('semantic proof certification')
+    || appEl.textContent.includes('数学的に正しいことを証明・認証するものではない'),
+    'the /about page must state the non-certification disclaimer');
+  assert.ok(appEl.textContent.includes('Tomoki Uda'), 'author must be shown');
+  assert.ok(appEl.textContent.includes('Apache-2.0') && appEl.textContent.includes('CC-BY-4.0'),
+    'the split license must be shown');
+  assert.ok(appEl.textContent.includes('abc123deadbeef'), 'the exact source pin must be shown');
+  const pinLink = Array.from(appEl.querySelectorAll('a')).find(a => a.textContent === 'abc123deadbeef');
+  assert.ok(pinLink && pinLink.getAttribute('href').includes('abc123deadbeef'),
+    'the pin must be a clickable link to the exact-commit source tree');
+  assert.ok(appEl.querySelector('#ref-temam2001') && appEl.querySelector('#ref-rrs2016'),
+    'every bibliography entry must be listed');
+  const highlighted = appEl.querySelector('.ref-highlight');
+  assert.ok(highlighted && highlighted.id === 'ref-rrs2016',
+    'the id passed to renderAbout must be highlighted');
 });
 
 Promise.all(pending).then(() => {

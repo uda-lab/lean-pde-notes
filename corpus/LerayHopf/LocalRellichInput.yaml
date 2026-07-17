@@ -14,3 +14,7 @@ gap:
     現在の mathlib には Rellich・コンパクト埋め込み・Fréchet–Kolmogorov のいずれも無いため、これは証明可能でない孤立フロンティアとして仮定する。ただし本形式化では[[Fréchet–Kolmogorov 判定条件からの局所 Rellich|LerayHopf.localRellichInput_of_frechetKolmogorov]]により、この入力を証明済みの Fréchet–Kolmogorov 鎖から供給する。密輸なしの原則により、この仮定は球ごとかつ単一の $L^2(B_R)$ 内の集合の前コンパクト性のみを述べ、部分列・極限・球間の整合性・発散ゼロ性のいずれも与えない。それらはすべて下流で公理を用いずに導かれる。
 chapter: compactness
 tags: [spatial-compactness, rellich, frontier]
+references:
+  - id: leray1934
+  - id: lemarie-rieusset2002
+    locator: "§6"

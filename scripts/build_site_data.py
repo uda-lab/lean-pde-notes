@@ -47,6 +47,7 @@ import json
 import subprocess
 import sys
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
@@ -54,10 +55,14 @@ try:
 except ImportError:
     sys.exit('ERROR: PyYAML required. pip install pyyaml')
 
+sys.path.insert(0, str(Path(__file__).parent))
+from bibliography import parse_bibliography  # noqa: E402
+
 REPO_ROOT = Path(__file__).parent.parent
 EXTRACTED_DIR = REPO_ROOT / 'extracted'
 CORPUS_DIR = REPO_ROOT / 'corpus'
 SITE_DATA_DIR = REPO_ROOT / 'site' / 'data'
+CITATION_PATH = REPO_ROOT / 'CITATION.cff'
 CHAPTERS_PATH = REPO_ROOT / 'docs' / 'schemas' / 'chapters.yaml'
 
 # ---------------------------------------------------------------------------
@@ -225,6 +230,8 @@ def corpus_payload(doc: dict) -> dict:
     }
     if doc.get('proof_ja'):
         payload['proof_ja'] = doc['proof_ja']
+    if doc.get('references'):
+        payload['references'] = doc['references']
     return payload
 
 
@@ -233,6 +240,44 @@ def read_pin() -> str:
     if pin_path.exists():
         return pin_path.read_text(encoding='utf-8').strip()
     return ''
+
+
+def read_citation_meta(pin: str, warnings: list) -> dict:
+    """Project CITATION.cff into the site-facing "release metadata" shape (notes#68):
+    author, citation/license targets, and the source repository this corpus/site is
+    pinned to. CITATION.cff is the single source of truth; this avoids hand-duplicating
+    author/license/source-repo strings into the site build.
+
+    Cross-checks CITATION.cff's `references[0].commit` against `extracted/PIN` and
+    appends a build warning on mismatch — the exact class of bug (a manually-maintained
+    pin silently drifting from the real source) that notes#66 caught by hand once.
+    """
+    if not CITATION_PATH.exists():
+        return {}
+    with open(CITATION_PATH, encoding='utf-8') as f:
+        cff = yaml.safe_load(f)
+    if not isinstance(cff, dict):
+        return {}
+    authors = [
+        ' '.join(filter(None, [a.get('given-names'), a.get('family-names')]))
+        for a in (cff.get('authors') or []) if isinstance(a, dict)
+    ]
+    refs = cff.get('references')
+    source = refs[0] if isinstance(refs, list) and refs and isinstance(refs[0], dict) else {}
+    source_commit = source.get('commit', '')
+    if pin and source_commit and pin != source_commit:
+        warnings.append(
+            f'WARNING: CITATION.cff references[0].commit ({source_commit}) does not '
+            f'match extracted/PIN ({pin}) — the next repin PR must update CITATION.cff too'
+        )
+    return {
+        'authors': authors,
+        'repository_code': cff.get('repository-code', ''),
+        'license': cff.get('license'),
+        'license_url': cff.get('license-url', ''),
+        'source_repository': source.get('repository-code', ''),
+        'source_commit': source_commit,
+    }
 
 
 class SourceReader:
@@ -394,8 +439,13 @@ def main() -> None:
         else out_path.with_name('sources.json')
     )
 
+    pin = read_pin()
+    bibliography = {cid: info['citation'] for cid, info in parse_bibliography().items()}
     payload = {
-        'pin': read_pin(),
+        'pin': pin,
+        'built_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'citation': read_citation_meta(pin, warnings),
+        'bibliography': bibliography,
         'universe_source': universe_source,
         'has_full_metadata': has_decls,
         'has_source': reader.hits > 0,
@@ -422,7 +472,7 @@ def main() -> None:
         json.dump(payload, f, ensure_ascii=False, indent=2, sort_keys=True)
         f.write('\n')
     sources_payload = {
-        'pin': read_pin(),
+        'pin': pin,
         'source_count': len(sources_by_slug),
         'sources': {slug: sources_by_slug[slug] for slug in sorted(sources_by_slug)},
     }

@@ -86,6 +86,28 @@
       "type": "string",
       "description": "Machine-checked proof completion status, independent of `tier` (annotation depth). Absence means 'verified': no known literal `sorry`, no known false/over-general statement, not a historical scaffold or retired declaration. 'verified' may also be written explicitly. 'contains-sorry' = the proof body has a literal `sorry` (directly or via a sorry-dependent private helper). 'scaffold' = an early, intentionally vacuous/placeholder declaration kept for historical record, not part of the current proof route. 'retired' = superseded or removed from the release surface, kept in the corpus for provenance only. 'invalid-statement' = the statement as typed is known to be false or over-general (quarantined pending a source fix); statement_ja/proof_ja or gap.note must explain why.",
       "enum": ["verified", "contains-sorry", "scaffold", "retired", "invalid-statement"]
+    },
+    "references": {
+      "type": "array",
+      "description": "Bibliographic citations backing this declaration's statement, proof, or naming/definition choices. Each `id` must match a `### `id`` heading in docs/bibliography.md (scripts/validate.py cross-checks this).",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Citation key matching a docs/bibliography.md entry (e.g. 'temam2001').",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "locator": {
+            "type": "string",
+            "description": "Optional pinpoint within the work: chapter/section/theorem/page (e.g. 'III.3', '§3.2', 'Thm 2, p. 302').",
+            "minLength": 1
+          }
+        }
+      }
     }
   }
 }

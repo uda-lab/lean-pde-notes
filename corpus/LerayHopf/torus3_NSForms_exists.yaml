@@ -12,3 +12,8 @@ gap:
     かつての太い公理 `torus3_NSForms_exist` は撤去され、内容は定理化された。決定された対流形式の理論からギャップを埋めるため、証明であって公理ではない。$\mathbb{R}^3$ 側の対応物（`R3NSForms_of_gap`）を鏡映した構成である。理論的背景は Temam II.§1, RRS §3.2。
 chapter: limit-passage
 tags: [convection-form, existence, torus, de-axiomatized]
+references:
+  - id: temam2001
+    locator: "II.§1"
+  - id: rrs2016
+    locator: "§3.2"
