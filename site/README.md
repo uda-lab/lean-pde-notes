@@ -31,7 +31,11 @@ The site viewer code is licensed as a software component under Apache-2.0. Mathe
 explanations, annotations, and prose content rendered by the viewer are licensed under
 CC-BY-4.0 unless otherwise noted. Generated `site/data/*.json` files are derived artifacts,
 not source-reviewed material; downstream users should observe the licenses of the Lean
-source and annotation/prose inputs from which they were generated.
+source and annotation/prose inputs from which they were generated. Vendored third-party
+assets under `site/vendor/` (currently KaTeX, MIT) carry their own upstream license — see
+`site/vendor/VENDORED.md` and `site/vendor/katex/LICENSE` — and are not covered by the
+Apache-2.0/CC-BY-4.0 split above. See the root `LICENSE.md` for the full, authoritative
+per-path scope.
 
 ## Build & preview
 

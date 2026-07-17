@@ -1,3 +1,7 @@
+# TODO(#62): uda-lab/lean-pde-notes -> uda-lab/leray-hopf-notes and
+# uda-lab/lean-pde -> uda-lab/leray-hopf rename is pending. Update every URL below
+# (repository-code, url, license-url, references[0].repository-code/url) once the
+# rename lands; do not pre-empt it with a not-yet-existing URL.
 cff-version: 1.2.0
 message: "If you use this annotated viewer or corpus, please cite it as below."
 title: "lean-pde-notes"
@@ -14,4 +18,26 @@ keywords:
   - "mathematical exposition"
   - "Navier-Stokes equations"
   - "Leray-Hopf weak solutions"
-license: "Apache-2.0 AND CC-BY-4.0"
+# File-based split license, see LICENSE.md for the authoritative per-path scope:
+# Apache-2.0 covers the viewer code, scripts, tests and tooling; CC-BY-4.0 covers
+# the annotation/prose corpus (corpus/**/*.yaml prose fields). CFF 1.2 does not
+# support SPDX compound expressions (e.g. "Apache-2.0 AND CC-BY-4.0") as a single
+# `license` value; listing both SPDX identifiers here is the schema-valid way to
+# say "more than one license applies, see license-url for the file-based split".
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+license-url: "https://github.com/uda-lab/lean-pde-notes/blob/main/LICENSE.md"
+references:
+  - type: software
+    title: "lean-pde"
+    abstract: "Lean 4 + mathlib formalization of Leray-Hopf weak existence for the Navier-Stokes equations; this repository's corpus annotates its declarations."
+    authors:
+      - family-names: "Uda"
+        given-names: "Tomoki"
+    repository-code: "https://github.com/uda-lab/lean-pde"
+    url: "https://github.com/uda-lab/lean-pde"
+    license: "Apache-2.0"
+    # Exact lean-pde commit this corpus/site is pinned to; keep in sync with
+    # extracted/PIN whenever a repin PR updates it.
+    commit: "0afd65fb971277b290911d099e112e0ac40ab1f0"

@@ -61,6 +61,13 @@ a:hover { text-decoration: underline; }
   border-top: 1px solid var(--line);
   margin-top: 3rem;
 }
+.footer-attribution {
+  display: block;
+  margin-top: 0.35rem;
+}
+.footer-attribution a {
+  color: inherit;
+}
 
 main#app { padding: 1.25rem 1rem 2rem; max-width: 72rem; margin: 0 auto; }
 .loading { color: var(--muted); }
