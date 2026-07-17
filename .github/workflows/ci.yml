@@ -57,10 +57,15 @@ jobs:
         run: python3 scripts/check_docs.py
 
       - name: Build site data (structure check only)
-        # Verifies the join runs, but writes to a temp path: CI has no leray-hopf checkout,
-        # so it cannot embed source. Writing to site/data/nodes.json here would clobber the
-        # committed source-embedded artifact (built with --lean-root). Pure Python, seconds.
+        # Verifies the join runs, but writes to a temp path rather than site/data/nodes.json:
+        # this job runs on its own checkout with no leray-hopf checkout, so it cannot embed
+        # source, and site/data/*.json is a generated-only, gitignored directory (notes#29) —
+        # there's nothing to preserve there, just no reason to leave build byproducts behind
+        # in a job that's only checking the join runs. Pure Python, seconds.
         run: python3 scripts/build_site_data.py --no-coverage --out /tmp/nodes.check.json
+
+      - name: Site data size report CLI regression tests
+        run: python3 test/site_data_size_report.test.py
 
   render-tests:
     name: Site render harness (jsdom)

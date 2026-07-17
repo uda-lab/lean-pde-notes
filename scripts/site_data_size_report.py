@@ -7,38 +7,64 @@ a machine-readable JSON report.
 
 Usage:
     python3 scripts/site_data_size_report.py [--json output.json]
+        [--fail-raw-mib MIB] [--fail-gzip-mib MIB]
 """
 
 import json
 import gzip
+import math
 import sys
 from pathlib import Path
 from typing import Dict, Optional
 import argparse
+
+# Module-level so tests (and any future caller) can monkeypatch these instead of
+# reaching into a hardcoded relative path / literal buried inside main().
+SITE_DATA_DIR = Path("site/data")
+
+# Warning thresholds (visibility only — these never fail the script; see
+# --fail-raw-mib/--fail-gzip-mib below for the opt-in hard ceiling).
+WARN_RAW_BYTES = 10 * 1024 * 1024
+WARN_GZIP_BYTES = 3 * 1024 * 1024
 
 
 def get_file_sizes(path: Path) -> Dict[str, int]:
     """Return raw and gzip sizes for a file."""
     if not path.exists():
         return {"raw": 0, "gzip": 0}
-    
+
     raw_size = path.stat().st_size
-    
+
     # Compute gzip size
     with open(path, "rb") as f:
         data = f.read()
     gzip_size = len(gzip.compress(data, compresslevel=6))
-    
+
     return {"raw": raw_size, "gzip": gzip_size}
 
 
 def format_bytes(size: int) -> str:
-    """Format bytes as human-readable string."""
-    for unit in ["B", "KB", "MB", "GB"]:
+    """Format bytes as a human-readable binary (1024-based) string, e.g. '3.2 MiB'."""
+    for unit in ["B", "KiB", "MiB", "GiB"]:
         if size < 1024:
             return f"{size:.1f} {unit}"
         size /= 1024
-    return f"{size:.1f} TB"
+    return f"{size:.1f} TiB"
+
+
+def positive_finite_mib(value: str) -> float:
+    """argparse type= for --fail-raw-mib/--fail-gzip-mib: reject non-numeric, non-finite
+    (NaN/inf — NaN in particular would silently disable the ceiling, since every
+    comparison against NaN is false), and non-positive (<=0 would always "breach")."""
+    try:
+        parsed = float(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(f"{value!r} is not a valid number") from exc
+    if not math.isfinite(parsed):
+        raise argparse.ArgumentTypeError(f"{value!r} must be finite, got {parsed}")
+    if parsed <= 0:
+        raise argparse.ArgumentTypeError(f"{value!r} must be strictly positive")
+    return parsed
 
 
 def estimate_bucket_sizes(nodes_path: Path, sources_path: Path) -> Dict[str, Dict[str, int]]:
@@ -126,23 +152,23 @@ def main():
     parser = argparse.ArgumentParser(description="Generate size report for site data")
     parser.add_argument("--json", metavar="PATH", help="Write machine-readable JSON report")
     parser.add_argument(
-        "--fail-raw-mib", type=float, default=None, metavar="MIB",
+        "--fail-raw-mib", type=positive_finite_mib, default=None, metavar="MIB",
         help="Exit non-zero if combined raw size exceeds this many MiB (hard ceiling; "
-             "unset means never fail, matching the warn-only default)",
+             "unset means never fail, matching the warn-only default). Must be a finite, "
+             "strictly positive number.",
     )
     parser.add_argument(
-        "--fail-gzip-mib", type=float, default=None, metavar="MIB",
+        "--fail-gzip-mib", type=positive_finite_mib, default=None, metavar="MIB",
         help="Exit non-zero if combined gzip size exceeds this many MiB (hard ceiling; "
-             "unset means never fail, matching the warn-only default)",
+             "unset means never fail, matching the warn-only default). Must be a finite, "
+             "strictly positive number.",
     )
     args = parser.parse_args()
-    
-    site_data_dir = Path("site/data")
-    
+
     # Paths to generated files
-    nodes_path = site_data_dir / "nodes.json"
-    sources_path = site_data_dir / "sources.json"
-    coverage_path = site_data_dir / "coverage.json"
+    nodes_path = SITE_DATA_DIR / "nodes.json"
+    sources_path = SITE_DATA_DIR / "sources.json"
+    coverage_path = SITE_DATA_DIR / "coverage.json"
     
     # Compute sizes
     nodes_sizes = get_file_sizes(nodes_path)
@@ -243,11 +269,10 @@ def main():
     
     # Threshold checks
     print("## Budget Status\n")
-    
-    # Warning thresholds (10 MiB raw, 3 MiB gzip)
-    raw_warning = 10 * 1024 * 1024
-    gzip_warning = 3 * 1024 * 1024
-    
+
+    raw_warning = WARN_RAW_BYTES
+    gzip_warning = WARN_GZIP_BYTES
+
     warnings = []
     if total_raw > raw_warning:
         warnings.append(f"⚠️  Raw size {format_bytes(total_raw)} exceeds {format_bytes(raw_warning)} warning threshold")
