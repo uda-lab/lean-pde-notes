@@ -469,7 +469,11 @@ function renderHome(app) {
     const node = state.bySlug.get(slug);
     if (!node) continue;
     const card = el('div', { class: 'card' }, [
-      el('div', { class: 'meta-row' }, [kindBadge(node.kind), gapBadge(node.corpus ? node.corpus.gap.level : 'none')]),
+      el('div', { class: 'meta-row' }, [
+        node.corpus ? proofStatusBadge(node.corpus.proof_status) : null,
+        kindBadge(node.kind),
+        gapBadge(node.corpus ? node.corpus.gap.level : 'none'),
+      ]),
       el('h3', { text: node.chapter === 'capstone-torus' ? '𝕋³ 主定理' : 'ℝ³ 主定理' }),
       el('a', { class: 'mono', href: declHref(slug), text: node.name }),
     ]);

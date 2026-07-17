@@ -190,6 +190,26 @@ def main() -> None:
             errs = validate_schema_manual(doc, fpath)
             errors.extend(errs)
 
+        # notes#65 safety net: proof_status defaults to 'verified' when absent, so a corpus
+        # entry whose own prose admits an intentionally-open `sorry` but never sets
+        # proof_status would silently render as an ordinary proved theorem. Catch that drift
+        # here. Matched narrowly against the "意図的...sorry" / "ALLOW_SORRY" phrasing this
+        # corpus already uses for a genuine open sorry on the declaration itself — a bare
+        # "sorry" substring match is too broad: many proved entries say "sorry なし" (no
+        # sorry) about themselves, or mention that a *dependency* still has one.
+        proof_status = doc.get('proof_status') or 'verified'
+        if proof_status == 'verified':
+            prose = ' '.join(str(doc.get(f, '') or '') for f in ('statement_ja', 'proof_ja'))
+            gap_note = str((doc.get('gap') or {}).get('note', '') or '')
+            haystack = prose + ' ' + gap_note
+            if 'ALLOW_SORRY' in haystack or re.search(r'意図的.{0,20}sorry|sorry.{0,20}意図的', haystack):
+                warnings.append(
+                    f'WARNING: {fpath}: prose reads as an intentionally-open sorry '
+                    f'("意図的"/ALLOW_SORRY) but proof_status is absent/verified — set '
+                    f'proof_status: contains-sorry (or another non-verified status) if this '
+                    f'declaration itself has an open sorry'
+                )
+
         # Collect name for universe check
         name = doc.get('name')
         if name:

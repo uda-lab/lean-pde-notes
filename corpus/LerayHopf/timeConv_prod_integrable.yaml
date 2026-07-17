@@ -5,7 +5,7 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/Bochner/TimeMollifierInterval.lean` の `LerayHopf.Bochner.timeConv_prod_integrable`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
+    Wave 4 の private gloss として追加。抽出元は `LerayHopf/Bochner/TimeMollifierInterval.lean` の `LerayHopf.Bochner.timeConv_prod_integrable`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。**証明本文に未証明の `sorry` が残っている**（private helper であることを理由に一般的な gloss へ隠さない — 現状は [[全直線拡張|LerayHopf.Bochner.w1pTime_lineExtension]] と同じ Stream D の残余として扱う）。
 chapter: bochner
 tags: [private-helper, generated]
 proof_status: contains-sorry
