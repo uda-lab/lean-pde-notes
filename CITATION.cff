@@ -1,17 +1,13 @@
-# TODO(#62): uda-lab/lean-pde-notes -> uda-lab/leray-hopf-notes and
-# uda-lab/lean-pde -> uda-lab/leray-hopf rename is pending. Update every URL below
-# (repository-code, url, license-url, references[0].repository-code/url) once the
-# rename lands; do not pre-empt it with a not-yet-existing URL.
 cff-version: 1.2.0
 message: "If you use this annotated viewer or corpus, please cite it as below."
-title: "lean-pde-notes"
+title: "leray-hopf-notes"
 type: dataset
 authors:
   - family-names: "Uda"
     given-names: "Tomoki"
-repository-code: "https://github.com/uda-lab/lean-pde-notes"
-url: "https://github.com/uda-lab/lean-pde-notes"
-abstract: "A pure-static interactive viewer and annotation corpus for the lean-pde Lean 4 formalization of Leray-Hopf weak existence."
+repository-code: "https://github.com/uda-lab/leray-hopf-notes"
+url: "https://github.com/uda-lab/leray-hopf-notes"
+abstract: "A pure-static interactive viewer and annotation corpus for the leray-hopf Lean 4 formalization of Leray-Hopf weak existence."
 keywords:
   - "Lean"
   - "formalized mathematics"
@@ -27,17 +23,17 @@ keywords:
 license:
   - Apache-2.0
   - CC-BY-4.0
-license-url: "https://github.com/uda-lab/lean-pde-notes/blob/main/LICENSE.md"
+license-url: "https://github.com/uda-lab/leray-hopf-notes/blob/main/LICENSE.md"
 references:
   - type: software
-    title: "lean-pde"
+    title: "leray-hopf"
     abstract: "Lean 4 + mathlib formalization of Leray-Hopf weak existence for the Navier-Stokes equations; this repository's corpus annotates its declarations."
     authors:
       - family-names: "Uda"
         given-names: "Tomoki"
-    repository-code: "https://github.com/uda-lab/lean-pde"
-    url: "https://github.com/uda-lab/lean-pde"
+    repository-code: "https://github.com/uda-lab/leray-hopf"
+    url: "https://github.com/uda-lab/leray-hopf"
     license: "Apache-2.0"
-    # Exact lean-pde commit this corpus/site is pinned to; keep in sync with
+    # Exact leray-hopf commit this corpus/site is pinned to; keep in sync with
     # extracted/PIN whenever a repin PR updates it.
     commit: "d5f91f7e88c337b85623d7af6f7cb01cd136f97c"

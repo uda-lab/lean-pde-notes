@@ -14,9 +14,9 @@ Unless otherwise noted, this repository uses split licensing:
 - Generated site data under `site/data/` is not source material. `site/data/nodes.json`
   is a join of Lean declaration metadata and the annotation corpus (see the two
   bullets above for the license of each input). `site/data/sources.json` embeds
-  verbatim Lean source text from the companion [`lean-pde`](https://github.com/uda-lab/lean-pde)
+  verbatim Lean source text from the companion [`leray-hopf`](https://github.com/uda-lab/leray-hopf)
   repository (Apache-2.0); it is not this repository's own software, and
-  downstream users should observe `lean-pde`'s license for that content, not this
+  downstream users should observe `leray-hopf`'s license for that content, not this
   repository's Apache-2.0 grant.
 
 - Vendored third-party assets under `site/vendor/` are licensed by their upstream
@@ -33,7 +33,7 @@ The canonical license identifiers are:
   `site/vendor/katex/LICENSE`
 
 See [`CITATION.cff`](CITATION.cff) for how to cite this repository and the
-companion `lean-pde` formalization it annotates.
+companion `leray-hopf` formalization it annotates.
 
 This licensing notice does not attempt to license mathematical facts or theorems
 themselves.

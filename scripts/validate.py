@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-validate.py — corpus integrity checker for lean-pde-notes.
+validate.py — corpus integrity checker for leray-hopf-notes.
 
 Checks:
   1. Every corpus/**/*.yaml parses as valid YAML.
@@ -214,7 +214,7 @@ def main() -> None:
                 errors.append(f'ERROR: extracted/PIN is not a 40-char hex SHA: "{pin}"')
 
     # notes#68: CITATION.cff's references[0].commit is a manually-maintained pin of the
-    # companion lean-pde repo (see the inline comment in CITATION.cff). A repin PR that
+    # companion leray-hopf repo (see the inline comment in CITATION.cff). A repin PR that
     # updates extracted/PIN but forgets CITATION.cff silently drifts the citation out of
     # sync with the actual source — this happened once already (caught during notes#68
     # development, days after notes#66 landed the field). Hard-fail so it can't recur.

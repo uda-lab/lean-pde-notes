@@ -1,12 +1,12 @@
 # extracted/
 
-Machine-generated declaration metadata from the lean-pde formalization.
+Machine-generated declaration metadata from the leray-hopf formalization.
 
 ## Files
 
 ### `decls.json`
 
-Full declaration metadata produced by `lake exe extract_notes` (lean-pde) against a
+Full declaration metadata produced by `lake exe extract_notes` (leray-hopf) against a
 warm build, one record per LerayHopf-module declaration. Fields:
 
 - `id` — real internal name, **unique**, and the key `deps` edges point at. For a public
@@ -30,23 +30,23 @@ No signatures, docs, or deps — those require `decls.json`.
 
 ### `PIN`
 
-40-character git SHA of the lean-pde commit that was used for extraction.
+40-character git SHA of the leray-hopf commit that was used for extraction.
 Required by `scripts/validate.py` when `decls.json` is present.
 
 ## Regenerating decls.json (authoritative universe)
 
 ```bash
-# in a warm lean-pde checkout at the PIN commit:
+# in a warm leray-hopf checkout at the PIN commit:
 flock /tmp/lean-build.lock lake exe extract_notes -- --out extracted/decls.json
 ```
 
 The extractor filters to LerayHopf-module declarations only. Then update `PIN` to the
-lean-pde commit SHA and re-run `scripts/validate.py` / `scripts/coverage.py`.
+leray-hopf commit SHA and re-run `scripts/validate.py` / `scripts/coverage.py`.
 
 ## Regenerating names-fallback.json (dormant while decls.json is present)
 
 ```bash
-python3 scripts/count_decls.py /workspaces/lean-pde
+python3 scripts/count_decls.py /workspaces/leray-hopf
 ```
 
 Note: `count_decls.py` scans only the `LerayHopf/` subtree, matching the

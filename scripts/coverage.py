@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-coverage.py — per-chapter and per-tier coverage table for lean-pde-notes.
+coverage.py — per-chapter and per-tier coverage table for leray-hopf-notes.
 
 Reads the name universe (extracted/decls.json or names-fallback.json) and all
 corpus/**/*.yaml files, then computes annotated/total counts per chapter.

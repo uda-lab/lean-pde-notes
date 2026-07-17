@@ -1,6 +1,6 @@
-# GLOSSARY — lean-pde-notes 用語集
+# GLOSSARY — leray-hopf-notes 用語集
 
-Leray–Hopf 形式化（`uda-lab/lean-pde`）の注釈コーパスで使う英日訳語対応表。
+Leray–Hopf 形式化（`uda-lab/leray-hopf`）の注釈コーパスで使う英日訳語対応表。
 翻訳作業者はこの表を参照し、確立訳語を使うこと。新語が必要な場合は本表に追記して PR に含めること。
 
 `forbidden` 列：よくある誤訳・禁止訳（`glossary_lint.py` が警告する）。

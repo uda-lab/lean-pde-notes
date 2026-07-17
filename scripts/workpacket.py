@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
 """
-workpacket.py — work-packet generator for lean-pde-notes translation workers.
+workpacket.py — work-packet generator for leray-hopf-notes translation workers.
 
 Given a chapter or module filter, emits a self-contained markdown packet to stdout:
   - List of un-annotated declarations matching the filter
   - For each: metadata (file/line/kind/signature/doc/deps when decls.json available)
-  - Lean source snippet (read from lean-pde checkout using file+lines)
+  - Lean source snippet (read from leray-hopf checkout using file+lines)
   - Ready-to-fill YAML skeleton
 
-Workers read ONLY this packet — they never need to walk lean-pde themselves.
+Workers read ONLY this packet — they never need to walk leray-hopf themselves.
 
 Usage:
-    python3 scripts/workpacket.py --chapter capstone-r3 [--lean-root /path/to/lean-pde]
+    python3 scripts/workpacket.py --chapter capstone-r3 [--lean-root /path/to/leray-hopf]
     python3 scripts/workpacket.py --module LerayHopf.R3.GalerkinODECapstone [--lean-root ...]
     python3 scripts/workpacket.py --chapter spaces --limit 20
     python3 scripts/workpacket.py --chapter compactness --tier full  # only theorem-like decls
 
 Options:
-    --lean-root PATH     lean-pde checkout path (default: /workspaces/lean-pde)
+    --lean-root PATH     leray-hopf checkout path (default: /workspaces/leray-hopf)
     --limit N            emit at most N declarations (default: unlimited)
     --tier full|gloss    pre-select tier for skeleton (default: auto based on kind)
     --include-annotated  include already-annotated declarations (default: skip)
@@ -40,7 +40,7 @@ except ImportError:
 REPO_ROOT = Path(__file__).parent.parent
 CORPUS_DIR = REPO_ROOT / 'corpus'
 EXTRACTED_DIR = REPO_ROOT / 'extracted'
-DEFAULT_LEAN_ROOT = Path('/workspaces/lean-pde')
+DEFAULT_LEAN_ROOT = Path('/workspaces/leray-hopf')
 
 # Chapter → module path heuristics (used when decls.json not available)
 CHAPTER_MODULE_PATTERNS: dict[str, list[str]] = {
@@ -187,7 +187,7 @@ def main() -> None:
     group.add_argument('--all', action='store_true',
                        help='Emit all un-annotated declarations')
     parser.add_argument('--lean-root', default=str(DEFAULT_LEAN_ROOT),
-                        help='Path to lean-pde checkout')
+                        help='Path to leray-hopf checkout')
     parser.add_argument('--limit', type=int, default=None,
                         help='Maximum number of declarations to emit')
     parser.add_argument('--tier', choices=['full', 'gloss'], default=None,

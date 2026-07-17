@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-glossary_lint.py — corpus translation linter for lean-pde-notes.
+glossary_lint.py — corpus translation linter for leray-hopf-notes.
 
 Parses docs/GLOSSARY.md (Markdown table with columns:
   English term | 日本語訳 | Lean 識別子例 | 備考 | forbidden)

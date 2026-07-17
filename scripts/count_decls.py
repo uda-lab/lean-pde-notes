@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-count_decls.py — fallback name-universe generator for lean-pde-notes.
+count_decls.py — fallback name-universe generator for leray-hopf-notes.
 
-Walks the LerayHopf/ subtree of a lean-pde checkout, strips Lean block comments
+Walks the LerayHopf/ subtree of a leray-hopf checkout, strips Lean block comments
 /- ... -/ (nested) and -- line comments, and extracts declarations matching the
 attribute-aware pattern:
   ^\\s*(?:@\\[[^\\]]*\\]\\s*)*(?:private\\s+|protected\\s+|noncomputable\\s+|partial\\s+|unsafe\\s+)*
@@ -14,8 +14,8 @@ Outputs extracted/names-fallback.json relative to THIS script's parent directory
   [{"name": ..., "kind": ..., "file": ..., "line": ...}, ...]
 
 Usage:
-    python3 scripts/count_decls.py /path/to/lean-pde
-    python3 scripts/count_decls.py /path/to/lean-pde --out /custom/path/names.json
+    python3 scripts/count_decls.py /path/to/leray-hopf
+    python3 scripts/count_decls.py /path/to/leray-hopf --out /custom/path/names.json
 """
 
 import argparse
@@ -234,7 +234,7 @@ def extract_decls(lean_root: Path) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('lean_root', help='Path to the lean-pde checkout')
+    parser.add_argument('lean_root', help='Path to the leray-hopf checkout')
     parser.add_argument(
         '--out',
         default=None,

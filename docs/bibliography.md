@@ -1,4 +1,4 @@
-# Bibliography — lean-pde-notes 引用文献
+# Bibliography — leray-hopf-notes 引用文献
 
 corpus の `statement_ja` / `proof_ja` / `gap.note` が略記で引く一次・標準文献の正典。
 各エントリは machine-parseable な `### \`citation-id\`` 見出しを持つ（`scripts/bibliography.py`

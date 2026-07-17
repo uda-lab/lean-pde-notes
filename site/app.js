@@ -1,4 +1,4 @@
-/* lean-pde-notes — vanilla static viewer.
+/* leray-hopf-notes — vanilla static viewer.
  * No framework, no bundler, no runtime deps except vendored KaTeX (global `katex`
  * and `renderMathInElement`). Data: data/nodes.json and lazy data/sources.json
  * (built by scripts/build_site_data.py), plus data/coverage.json (scripts/coverage.py).
@@ -452,7 +452,7 @@ async function loadData() {
 
   const meta = document.getElementById('footer-meta');
   meta.textContent = `${nodesRes.decl_count} 宣言 / ${nodesRes.annotated_count} 注釈済み`
-    + (nodesRes.pin ? ` · lean-pde @ ${nodesRes.pin.slice(0, 10)}` : '')
+    + (nodesRes.pin ? ` · leray-hopf @ ${nodesRes.pin.slice(0, 10)}` : '')
     + (nodesRes.has_full_metadata ? '' : ' · (fallback universe: シグネチャ・依存辺なし)');
 }
 
@@ -524,7 +524,7 @@ function renderHome(app) {
   app.appendChild(el('h1', { text: 'Leray–Hopf 形式化 対訳ノート' }));
   app.appendChild(el('p', {
     class: 'prose',
-    text: 'uda-lab/lean-pde の全宣言に Lean コードと日本語の数学解説を並置する純静的ビューア。'
+    text: 'uda-lab/leray-hopf の全宣言に Lean コードと日本語の数学解説を並置する純静的ビューア。'
       + 'capstone から証明ツリーを辿り、依存補題をその場で展開できる。',
   }));
 
@@ -1065,7 +1065,7 @@ function renderCoverage(app) {
 /* ---------------- proof-status page (notes#65) ----------------
  * Enumerates every declaration whose corpus.proof_status is not the default 'verified',
  * grouped by status. Sourced directly from nodes.json (built deterministically by
- * scripts/build_site_data.py from the corpus at the pinned lean-pde SHA), so this list is
+ * scripts/build_site_data.py from the corpus at the pinned leray-hopf SHA), so this list is
  * mechanically derived from — and always matches — the site data, not hand-curated prose. */
 
 const PROOF_STATUS_ORDER = ['contains-sorry', 'invalid-statement', 'scaffold', 'retired'];
@@ -1080,7 +1080,7 @@ function renderProofStatus(app) {
     class: 'prose',
     text: '`tier`（注釈の詳しさ）とは独立に、各宣言の証明としての完成度を示す。'
       + '一覧にない宣言はすべて既定値 verified（既知の sorry・虚偽/過度な一般化・歴史的足場・廃止のいずれにも該当しない）である。'
-      + (state.data && state.data.pin ? ` 集計対象: lean-pde @ ${state.data.pin.slice(0, 10)}。` : ''),
+      + (state.data && state.data.pin ? ` 集計対象: leray-hopf @ ${state.data.pin.slice(0, 10)}。` : ''),
   }));
 
   const legend = el('div', { class: 'section' }, [el('h3', { text: '凡例' })]);
@@ -1127,7 +1127,7 @@ function renderAbout(app, highlightId) {
     el('p', { class: 'prose' }, [
       (citation.authors && citation.authors.length ? citation.authors.join(', ') : '(author 未設定)')
         + ' による、',
-      el('a', { href: 'https://github.com/uda-lab/lean-pde', text: 'uda-lab/lean-pde' }),
+      el('a', { href: 'https://github.com/uda-lab/leray-hopf', text: 'uda-lab/leray-hopf' }),
       ' （Leray–Hopf 弱解存在の Lean 4 + mathlib 形式化）の全宣言対訳解説サイト。'
         + 'corpus/**/*.yaml のprose と Lean 宣言メタデータを結合した純静的ビューア。',
     ]),

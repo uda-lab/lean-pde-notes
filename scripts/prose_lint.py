@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-prose_lint.py — prose typography / register linter for lean-pde-notes (notes#12).
+prose_lint.py — prose typography / register linter for leray-hopf-notes (notes#12).
 
 Complements glossary_lint.py (vocabulary) with the D1–D5 typography rules:
 

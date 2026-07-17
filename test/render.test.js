@@ -328,11 +328,11 @@ check('(h) renderAbout lists bibliography entries, shows citation/license metada
     built_at: '2026-07-17T00:00:00Z',
     citation: {
       authors: ['Tomoki Uda'],
-      repository_code: 'https://github.com/uda-lab/lean-pde-notes',
-      source_repository: 'https://github.com/uda-lab/lean-pde',
+      repository_code: 'https://github.com/uda-lab/leray-hopf-notes',
+      source_repository: 'https://github.com/uda-lab/leray-hopf',
       source_commit: 'abc123deadbeef',
       license: ['Apache-2.0', 'CC-BY-4.0'],
-      license_url: 'https://github.com/uda-lab/lean-pde-notes/blob/main/LICENSE.md',
+      license_url: 'https://github.com/uda-lab/leray-hopf-notes/blob/main/LICENSE.md',
     },
     bibliography: {
       temam2001: 'Temam, R. (2001). Navier-Stokes Equations...',

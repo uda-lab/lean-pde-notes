@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/uda-lab/lean-pde-notes/docs/schemas/corpus.schema.json",
+  "$id": "https://github.com/uda-lab/leray-hopf-notes/docs/schemas/corpus.schema.json",
   "title": "Corpus annotation entry",
-  "description": "Per-declaration annotation YAML for lean-pde-notes. One file per declaration at corpus/<module-path>/<decl-name>.yaml.",
+  "description": "Per-declaration annotation YAML for leray-hopf-notes. One file per declaration at corpus/<module-path>/<decl-name>.yaml.",
   "type": "object",
   "required": ["name", "tier", "statement_ja", "gap", "chapter"],
   "additionalProperties": false,

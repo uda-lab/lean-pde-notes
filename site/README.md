@@ -46,11 +46,11 @@ You must run `build_site_data.py` before serving the site.
 
 ```bash
 # from repo root — build site data first
-# Option 1: with verbatim Lean source (requires lean-pde checkout at extracted/PIN)
-python3 scripts/build_site_data.py --lean-root /path/to/lean-pde
+# Option 1: with verbatim Lean source (requires leray-hopf checkout at extracted/PIN)
+python3 scripts/build_site_data.py --lean-root /path/to/leray-hopf
 # -> site/data/nodes.json (with has_source:true) + site/data/sources.json (populated)
 
-# Option 2: without lean-pde checkout (source-less build)
+# Option 2: without leray-hopf checkout (source-less build)
 python3 scripts/build_site_data.py
 # -> site/data/nodes.json (with has_source:false) + site/data/sources.json (empty stub)
 
@@ -67,7 +67,7 @@ gated on the first two passing, via `needs:`, rather than re-running their check
 1. `validate` — corpus/glossary/prose lint, coverage report, and a structure-only
    `scripts/build_site_data.py` run
 2. `render-tests` — `npm test` (jsdom render harness)
-3. `build-artifact` — builds site data **without `--lean-root`** (lean-pde is private
+3. `build-artifact` — builds site data **without `--lean-root`** (leray-hopf is private
    during Phase A), generates a size report with `scripts/site_data_size_report.py`,
    and uploads the entire `site/` directory as a workflow artifact
 
@@ -76,20 +76,20 @@ uncommitted and is available only as workflow artifacts for pre-publication insp
 
 **Current limitation:** Phase A CI produces only source-less artifacts (`has_source:false`,
 empty `sources.json`). Before enabling Phase B public deployment, a source-enabled build
-(`--lean-root` with lean-pde at `extracted/PIN`) must be inspected locally to verify:
+(`--lean-root` with leray-hopf at `extracted/PIN`) must be inspected locally to verify:
 - No private paths, agent notes, or internal-only content in generated JSON
 - Source extraction correctness for all 1,412 declarations
 - Size report within budget when source bodies are included
 
 **Phase B** (after public-readiness gate and source-enabled inspection):
-- Add lean-pde checkout at `extracted/PIN` in the workflow
+- Add leray-hopf checkout at `extracted/PIN` in the workflow
 - Pass `--lean-root` to `build_site_data.py` for source-enabled builds
 - Enable Pages deployment step
 
 ### Source-enabled builds
 
 To include verbatim Lean source in the site, `build_site_data.py` requires
-`--lean-root <path>` pointing to a checkout of `uda-lab/lean-pde` at the commit
+`--lean-root <path>` pointing to a checkout of `uda-lab/leray-hopf` at the commit
 specified in `extracted/PIN`. The script extracts source text from the Lean files
 and populates `sources.json` for lazy loading.
 

@@ -7,7 +7,7 @@ Inputs
   extracted/decls.json          (preferred) full metadata: id, name, kind, private,
                                 signature, doc, file, startLine, endLine, deps[id-refs]
   extracted/names-fallback.json (fallback)  name, kind, file, line   — skeleton only
-  extracted/PIN                 40-char lean-pde SHA (recorded into the output)
+  extracted/PIN                 40-char leray-hopf SHA (recorded into the output)
   corpus/**/*.yaml              per-declaration annotations (joined by display name;
                                 colliding names require file metadata)
   docs/schemas/chapters.yaml    chapter taxonomy (ids + Japanese labels)
@@ -27,7 +27,7 @@ Join model
     name -> file -> stable declaration id.
 
 Source embedding
-  With --lean-root <path> (a checkout of lean-pde at the PIN commit), each record's
+  With --lean-root <path> (a checkout of leray-hopf at the PIN commit), each record's
   verbatim declaration text (startLine..endLine, exactly as scripts/workpacket.py reads
   it) is written to sources.json keyed by node slug, while nodes.json carries only
   `has_source: true`. Without --lean-root, sources.json is empty and nodes carry
@@ -37,7 +37,7 @@ Determinism: nodes are sorted by slug, edge lists are sorted, and json.dump uses
 sort_keys=True so the committed output diffs cleanly.
 
 Usage:
-    python3 scripts/build_site_data.py --lean-root /workspaces/lean-pde
+    python3 scripts/build_site_data.py --lean-root /workspaces/leray-hopf
     python3 scripts/build_site_data.py --no-coverage   # skip coverage.py refresh
     python3 scripts/build_site_data.py --out /tmp/x.json --no-coverage  # also writes /tmp/sources.json
 """
@@ -281,7 +281,7 @@ def read_citation_meta(pin: str, warnings: list) -> dict:
 
 
 class SourceReader:
-    """Read verbatim declaration text from a lean-pde checkout (workpacket.py style:
+    """Read verbatim declaration text from a leray-hopf checkout (workpacket.py style:
     1-based startLine..endLine inclusive). Caches each file's lines. No-op when the
     lean-root is not provided or a file/range is missing."""
 
@@ -317,7 +317,7 @@ def main() -> None:
     parser.add_argument('--no-coverage', action='store_true',
                         help='Do not shell out to coverage.py')
     parser.add_argument('--lean-root', default=None,
-                        help='Path to a lean-pde checkout at the PIN commit; embed verbatim source')
+                        help='Path to a leray-hopf checkout at the PIN commit; embed verbatim source')
     parser.add_argument('--out', default=None,
                         help='Output path for nodes.json (default site/data/nodes.json)')
     parser.add_argument('--sources-out', default=None,

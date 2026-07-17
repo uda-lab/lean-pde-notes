@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# pre-commit hook for lean-pde-notes
+# pre-commit hook for leray-hopf-notes
 #
 # Runs lightweight corpus checks (no Lean build required).
 # Activate with: git config core.hooksPath scripts/hooks
@@ -16,15 +16,15 @@ cd "$REPO_ROOT"
 
 PYTHON="${PYTHON:-python3}"
 
-echo "==> lean-pde-notes pre-commit: validate corpus..."
+echo "==> leray-hopf-notes pre-commit: validate corpus..."
 "$PYTHON" scripts/validate.py
 echo ""
 
-echo "==> lean-pde-notes pre-commit: glossary lint..."
+echo "==> leray-hopf-notes pre-commit: glossary lint..."
 "$PYTHON" scripts/glossary_lint.py
 echo ""
 
-echo "==> lean-pde-notes pre-commit: prose lint (D1/D2/D5)..."
+echo "==> leray-hopf-notes pre-commit: prose lint (D1/D2/D5)..."
 "$PYTHON" scripts/prose_lint.py
 echo ""
 

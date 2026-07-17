@@ -2,7 +2,7 @@
 """
 decl_diff.py — classify declaration changes between two extracted decls.json snapshots.
 
-Compares an OLD and a NEW extraction of the lean-pde declaration universe and
+Compares an OLD and a NEW extraction of the leray-hopf declaration universe and
 buckets every declaration into:
 
   added               present only in NEW

@@ -1,8 +1,8 @@
 {
-  "name": "lean-pde-notes",
+  "name": "leray-hopf-notes",
   "version": "0.0.0",
   "private": true,
-  "description": "Static viewer harness for lean-pde-notes (jsdom render tests only; the site itself ships no npm runtime deps).",
+  "description": "Static viewer harness for leray-hopf-notes (jsdom render tests only; the site itself ships no npm runtime deps).",
   "scripts": {
     "test": "node test/render.test.js"
   },
