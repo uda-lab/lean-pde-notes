@@ -187,7 +187,16 @@ def main() -> None:
     bibliography = parse_bibliography()
     bib_ids = set(bibliography.keys())
     if not bib_ids:
-        warnings.append('WARNING: docs/bibliography.md parsed 0 citation ids — references[] checks skipped')
+        # Do NOT skip check_references below: an empty bib_ids set still lets every
+        # corpus references[].id fail to resolve (correctly, via check_references'
+        # "not in bib_ids" test) rather than silently passing CI while the bibliography
+        # itself is broken or missing — a docs/bibliography.md deletion or heading-format
+        # regression must not go unnoticed just because it happens to make the id-lookup
+        # trivially permissive.
+        warnings.append(
+            'WARNING: docs/bibliography.md parsed 0 citation ids — any corpus '
+            'references[] entry will now fail its id-resolution check'
+        )
 
     universe, keyed_universe, collisions, universe_source = load_name_universe()
     print(f'Name universe: {len(universe)} names from {universe_source}')
@@ -259,8 +268,7 @@ def main() -> None:
             errs = validate_schema_manual(doc, fpath)
             errors.extend(errs)
 
-        if bib_ids:
-            errors.extend(check_references(doc, fpath, bib_ids))
+        errors.extend(check_references(doc, fpath, bib_ids))
 
         # notes#65 safety net: proof_status defaults to 'verified' when absent, so a corpus
         # entry whose own prose admits an intentionally-open `sorry` but never sets
