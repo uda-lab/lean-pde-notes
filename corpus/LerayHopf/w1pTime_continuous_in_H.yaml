@@ -3,7 +3,7 @@ tier: full
 statement_ja: |
   Lions–Magenes の良い代表元（$p=q=2$ の Gelfand 三対の場合、意図的 sorry）：$u \in L^2(0,T;V)$ かつ弱時間微分が $u' \in L^2(0,T;V')$ を満たすならば、ピボット空間 $H$ に値を取る連続な代表元を持つ — $[0,T]$ 上連続で、$u$ の $H$ への像とほとんど至る所一致する曲線が存在する。
 proof_ja: |
-  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**これは Lions–Magenes の埋め込み
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**これは Lions–Magenes の埋め込み（古典的な出典は Temam, Chapter III, §3）
 
   $$\bigl\{\, u \in L^2(0,T;V) \;:\; u' \in L^2(0,T;V') \,\bigr\} \hookrightarrow C([0,T];H)$$
 
@@ -15,3 +15,6 @@ gap:
 chapter: bochner
 tags: [gelfand-triple, bochner, contains-sorry, quarantined-history]
 proof_status: contains-sorry
+references:
+  - id: temam2001
+    locator: "III.3"
