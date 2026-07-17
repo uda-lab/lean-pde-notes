@@ -15,6 +15,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    二乗可積分性は `memLp_two_iff_integrable_sq_norm` により二乗ノルムの可積分性へ言い換え、被積分関数の一致は概至る所の書き換えで処理する。平方根乗数を複素係数として作用させるため、`norm_smul` と実部の絶対値二乗の展開が挟まる。
+    二乗可積分性は `memLp_two_iff_integrable_sq_norm` により二乗ノルムの可積分性へ言い換え、被積分関数の一致はほとんど至る所の書き換えで処理する。平方根乗数を複素係数として作用させるため、`norm_smul` と実部の絶対値二乗の展開が挟まる。
 chapter: compactness
 tags: [viscous-form, fourier-multiplier, sobolev]

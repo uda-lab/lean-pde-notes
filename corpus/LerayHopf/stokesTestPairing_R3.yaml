@@ -1,7 +1,7 @@
 name: LerayHopf.stokesTestPairing_R3
 tier: full
 statement_ja: |
-  $L^2(\mathbb{R}^3;\mathbb{R}^3)$ 上の**粘性テストペアリング**。粘性双線形形式 $\nu\int\nabla u:\nabla w$ を表す Fourier 積分で
+  $L^2(\mathbb{R}^3;\mathbb{R}^3)$ 上の**粘性テストペアリング**。非スケールの粘性双線形形式 $\int\nabla u:\nabla w$（$\nu$ を含まない；$\nu$ は消費側が外側から掛ける）を表す Fourier 積分で
 
   $$\sum_j\int (2\pi)^2\lvert\xi\rvert^2\,\operatorname{Re}\bigl[\widehat{u_j}(\xi)\,\overline{\widehat{w_j}(\xi)}\bigr]\,d\xi$$
 
@@ -11,6 +11,6 @@ gap:
   note: |
     $\int\nabla u:\nabla u$ は $H^1$ の外では $+\infty$ なので、$L^2_\sigma$ 全体の上の実数値双線形形式としては存在せず、「対角＝総粘性形式」を公理化すると偽になる（健全性監査 $\mathbb{T}^3$ v4）。
 
-    そこで粘性形式を脱公理化し、Fourier 乗数としてこのペアリングで具体的に定義する。散逸は別途 [[粘性散逸形式|LerayHopf.viscousFormSq_R3]] とエネルギー類で扱う。点ごとの値 $\widehat{u_j}(\xi)$ には $L^p$ の概至る所の代表元の係数を用いる。
+    そこで粘性形式を脱公理化し、Fourier 乗数としてこのペアリングで具体的に定義する。散逸は別途 [[粘性散逸形式|LerayHopf.viscousFormSq_R3]] とエネルギー類で扱う。点ごとの値 $\widehat{u_j}(\xi)$ には $L^p$ のほとんど至る所の代表元の係数を用いる。
 chapter: energy
 tags: [viscous-form, stokes, fourier-transform]

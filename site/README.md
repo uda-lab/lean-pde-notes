@@ -20,7 +20,7 @@ site/
     coverage.json        built by scripts/coverage.py
     
 **Note:** `site/data/*.json` files are generated artifacts, not source-reviewed files.
-They are produced locally via `build_site_data.py` and in CI via `.github/workflows/build-site-artifact.yml`.
+They are produced locally via `build_site_data.py` and in CI via `.github/workflows/ci.yml`.
 During Phase A (pre-publication), generated JSON is uploaded as workflow artifacts for inspection
 but not deployed to Pages. Phase B will enable public Pages deployment after the public-readiness gate.
 ```
@@ -61,14 +61,15 @@ cd site && python3 -m http.server 8000
 
 ### CI build workflow (Phase A)
 
-`.github/workflows/build-site-artifact.yml` runs on every push and PR:
+`.github/workflows/ci.yml` runs on every push and PR, as three jobs (the last one
+gated on the first two passing, via `needs:`, rather than re-running their checks):
 
-1. Installs Python and Node dependencies
-2. Runs `npm test` (jsdom render harness)
-3. Validates corpus with `scripts/validate.py`
-4. Builds site data **without `--lean-root`** (leray-hopf is private during Phase A)
-5. Generates a size report with `scripts/site_data_size_report.py`
-6. Uploads the entire `site/` directory as a workflow artifact
+1. `validate` — corpus/glossary/prose lint, coverage report, and a structure-only
+   `scripts/build_site_data.py` run
+2. `render-tests` — `npm test` (jsdom render harness)
+3. `build-artifact` — builds site data **without `--lean-root`** (leray-hopf is private
+   during Phase A), generates a size report with `scripts/site_data_size_report.py`,
+   and uploads the entire `site/` directory as a workflow artifact
 
 The workflow does **not** deploy to Pages during Phase A. Generated JSON remains
 uncommitted and is available only as workflow artifacts for pre-publication inspection.

@@ -9,14 +9,14 @@ statement_ja: |
 proof_ja: |
   唯一データから到達できる中核は Galerkin 側の一様エネルギー評価 $\lVert u_n(t)\rVert\le\lVert u_0\rVert$（すべての $n$ とすべての $t\ge0$）である。
 
-  各球半径での概至る所の時刻での強収束から、極限 $u(t)$ は $u_n(t)$ の弱極限であり、ノルムは弱収束の下で下半連続なので、概至る所の $t$ で
+  各球半径でのほとんど至る所の時刻での強収束から、極限 $u(t)$ は $u_n(t)$ の弱極限であり、ノルムは弱収束の下で下半連続なので、ほとんど至る所の $t$ で
 
   $$\lVert u(t)\rVert\le\liminf_n\lVert u_n(t)\rVert\le\lVert u_0\rVert$$
 
-  が成り立つ。二乗して半分にすると主張を得る。時間窓が退化する場合（$T<0$）は区間が空なので概至る所の主張は空虚に成り立つ。
+  が成り立つ。二乗して半分にすると主張を得る。時間窓が退化する場合（$T<0$）は区間が空なのでほとんど至る所の主張は空虚に成り立つ。
 gap:
   level: mild
   note: |
-    このパッケージは良い代表元（点ごと・全時刻）の内容を密輸しない。強時間可測性は点ごとの代表元ではないため、ここで導けるのは概至る所の評価だけであり、全 $t$ への格上げは良い代表元の層（弱時間連続性・トレース）を要する。極限の弱可測性 `u_aestronglyMeasurable` は、$t\mapsto\lVert u(t)\rVert$ の可測性を通じて `TendstoInMeasure.exists_seq_tendsto_ae` に必要となる。
+    このパッケージは良い代表元（点ごと・全時刻）の内容を密輸しない。強時間可測性は点ごとの代表元ではないため、ここで導けるのはほとんど至る所の評価だけであり、全 $t$ への格上げは良い代表元の層（弱時間連続性・トレース）を要する。極限の弱可測性 `u_aestronglyMeasurable` は、$t\mapsto\lVert u(t)\rVert$ の可測性を通じて `TendstoInMeasure.exists_seq_tendsto_ae` に必要となる。
 chapter: energy
 tags: [kinetic-energy, lower-semicontinuity, uniform-bound]

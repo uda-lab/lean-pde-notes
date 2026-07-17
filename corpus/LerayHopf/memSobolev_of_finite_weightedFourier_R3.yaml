@@ -17,6 +17,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    荷重 $(1+\lVert\xi\rVert^2)^{1/2}$ と `wPosC` の突き合わせ、および Fourier 変換の緩増加超関数レベルでの一致 `Lp.fourier_toTemperedDistribution_eq` を経由する。ここでは代表元どうしのペアリング一致で済み、du-Bois-Reymond の概至る所ステップは不要である。
+    荷重 $(1+\lVert\xi\rVert^2)^{1/2}$ と `wPosC` の突き合わせ、および Fourier 変換の緩増加超関数レベルでの一致 `Lp.fourier_toTemperedDistribution_eq` を経由する。ここでは代表元どうしのペアリング一致で済み、du-Bois-Reymond のほとんど至る所ステップは不要である。
 chapter: spaces
 tags: [sobolev-embedding, fourier, viscous-form]

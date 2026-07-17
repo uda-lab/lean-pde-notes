@@ -11,6 +11,6 @@ statement_ja: |
 gap:
   level: none
   note: |
-    このパッケージは、Aubin–Lions パッケージから極限移行への鎖を経て組み立てられる。エネルギー類フィールドが、極限曲線が Leray–Hopf エネルギー類に属すること、すなわちほとんどすべての $t$ での $H^1$ 所属と粘性散逸の可積分性を運び、エネルギー不等式の非空虚性を保証する。時間可測性は Aubin–Lions 極限から良い代表元の概至る所の同一視を通じて受け継ぐ。
+    このパッケージは、Aubin–Lions パッケージから極限移行への鎖を経て組み立てられる。エネルギー類フィールドが、極限曲線が Leray–Hopf エネルギー類に属すること、すなわちほとんどすべての $t$ での $H^1$ 所属と粘性散逸の可積分性を運び、エネルギー不等式の非空虚性を保証する。時間可測性は Aubin–Lions 極限から良い代表元のほとんど至る所の同一視を通じて受け継ぐ。
 chapter: compactness
 tags: [galerkin-approximation, compactness, energy-inequality]

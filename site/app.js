@@ -30,8 +30,24 @@ const LEAN_KEYWORDS = new Set([
 
 /* ---------------- utilities ---------------- */
 
+// notes#72: also escape quotes, not just &<>. highlightLean() interpolates
+// esc(slug) directly into a quoted HTML attribute (`data-slug="' + esc(slug) + '"'`),
+// not just element text content — escaping only &<> there is brittle attribute
+// interpolation, even though the current Lean identifier grammar (extracted/decls.json
+// names) cannot produce a `"` or `'` today, so it isn't currently exploitable.
 function esc(s) {
-  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// notes#72: prefers-reduced-motion-aware scrollIntoView wrapper, used by every
+// scroll-link in the app (gap-note jump, /about bibliography highlight) so users who
+// have asked the OS for reduced motion never get a forced smooth-scroll animation.
+function scrollIntoViewSafe(el) {
+  if (!el || typeof el.scrollIntoView !== 'function') return;
+  const reduceMotion = typeof window.matchMedia === 'function'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
 }
 
 function el(tag, attrs, children) {
@@ -255,10 +271,22 @@ function makeRef(inner, maths) {
   const display = restorePlaceholders((pipe >= 0 ? inner.slice(0, pipe) : inner).trim(), maths);
   const target = (pipe >= 0 ? inner.slice(pipe + 1) : inner).trim();
   const slug = refSlugForRefToken(target);
+  if (slug) {
+    // notes#72: a real <a href> — not a <span> — so it's natively keyboard-focusable
+    // (Tab) and reads as a link to screen readers. bindHoverCards() still intercepts
+    // the click to show the preview card instead of navigating immediately; Enter on
+    // a focused link fires the same click event, so keyboard and mouse behave alike.
+    const a = document.createElement('a');
+    a.textContent = display;
+    a.href = declHref(slug);
+    a.className = 'ref';
+    a.setAttribute('data-slug', slug);
+    return a;
+  }
   const span = document.createElement('span');
   span.textContent = display;
-  if (slug) { span.className = 'ref'; span.setAttribute('data-slug', slug); }
-  else { span.className = 'ref ref-missing'; span.title = '未解決の参照: ' + target; }
+  span.className = 'ref ref-missing';
+  span.title = '未解決の参照: ' + target;
   return span;
 }
 
@@ -477,6 +505,17 @@ function route() {
     console.error(e);
   }
   window.scrollTo(0, 0);
+  // notes#72: <main id="app"> no longer carries a blanket aria-live="polite" (a full
+  // page-content swap on every navigation over-announces the entire new DOM to screen
+  // readers). Instead, move focus to the new page's own <h1> — the standard SPA a11y
+  // pattern — so assistive tech announces just the heading, the same concise signal a
+  // sighted user gets from the page visually changing. tabindex="-1" makes an element
+  // a valid focus() target without adding it to the normal Tab order.
+  const heading = app.querySelector('h1');
+  if (heading) {
+    heading.setAttribute('tabindex', '-1');
+    heading.focus({ preventScroll: true });
+  }
 }
 
 /* ---------------- home ---------------- */
@@ -516,7 +555,7 @@ function renderHome(app) {
   if (state.coverage) {
     const c = state.coverage;
     const wrap = el('div', { class: 'section' }, [el('h3', { text: 'カバレッジ' })]);
-    wrap.appendChild(progressBar(c.pct_annotated));
+    wrap.appendChild(progressBar(c.pct_annotated, `構造的注釈網羅率 ${c.pct_annotated}%`));
     wrap.appendChild(el('p', {
       class: 'filemeta',
       text: `${c.annotated} / ${c.total_decls} 注釈済み (${c.pct_annotated}%) · full ${c.full} · gloss ${c.gloss}`,
@@ -549,9 +588,22 @@ function renderHome(app) {
   app.appendChild(sec);
 }
 
-function progressBar(pct) {
-  const bar = el('div', { class: 'progress' });
-  bar.appendChild(el('span', { style: `width:${Math.max(0, Math.min(100, pct))}%` }));
+function progressBar(pct, label) {
+  const clamped = Math.max(0, Math.min(100, pct));
+  // notes#72: role="progressbar" + aria-value* so screen readers announce the actual
+  // percentage, not just an unlabeled colored bar. The fill width is set as a JS
+  // CSSOM property (el.style.width = …), not via an HTML style="" attribute — the
+  // el() helper's `style:` key would setAttribute('style', …), which a CSP
+  // `style-src 'self'` (no 'unsafe-inline') would block; property assignment is not
+  // restricted by CSP.
+  const bar = el('div', {
+    class: 'progress', role: 'progressbar',
+    'aria-valuenow': String(clamped), 'aria-valuemin': '0', 'aria-valuemax': '100',
+    'aria-label': label || `${clamped}%`,
+  });
+  const fill = el('span');
+  fill.style.width = clamped + '%';
+  bar.appendChild(fill);
   return bar;
 }
 
@@ -605,7 +657,7 @@ function renderDecl(app, slug) {
     gapEl.classList.add('gap-link');
     gapEl.setAttribute('role', 'link');
     gapEl.setAttribute('tabindex', '0');
-    const jump = () => { const t = document.getElementById('gap-note'); if (t && typeof t.scrollIntoView === 'function') t.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+    const jump = () => scrollIntoViewSafe(document.getElementById('gap-note'));
     gapEl.addEventListener('click', jump);
     gapEl.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); jump(); } });
   }
@@ -905,7 +957,17 @@ function renderDag(app) {
 function dagItem(node, ancestors) {
   const li = el('li');
   const hasChildren = node.uses.length > 0;
-  const twist = el('span', { class: 'twist' + (hasChildren ? '' : ' leaf'), text: hasChildren ? '▸' : '·' });
+  // notes#72: the expand/collapse control must be a real keyboard-operable control
+  // (Tab to focus, Enter/Space to activate — native <button> behavior) with
+  // aria-expanded reflecting state, not a clickable <span>. The leaf marker has no
+  // interaction, so it stays a decorative <span aria-hidden>.
+  const twist = hasChildren
+    ? el('button', {
+        type: 'button', class: 'twist', text: '▸',
+        'aria-expanded': 'false',
+        'aria-label': `${node.shortName} の依存を展開`,
+      })
+    : el('span', { class: 'twist leaf', text: '·', 'aria-hidden': 'true' });
   const row = el('div', { class: 'node-row' }, [
     twist,
     kindBadge(node.kind),
@@ -919,14 +981,20 @@ function dagItem(node, ancestors) {
   if (hasChildren) {
     let childUl = null;
     twist.addEventListener('click', () => {
-      if (childUl) { const open = childUl.style.display !== 'none'; childUl.style.display = open ? 'none' : ''; twist.textContent = open ? '▸' : '▾'; return; }
+      if (childUl) {
+        const open = childUl.style.display !== 'none';
+        childUl.style.display = open ? 'none' : '';
+        twist.textContent = open ? '▸' : '▾';
+        twist.setAttribute('aria-expanded', open ? 'false' : 'true');
+        return;
+      }
       childUl = el('ul');
       for (const slug of node.uses) {
         const child = state.bySlug.get(slug);
         if (!child) continue;
         if (ancestors.has(slug)) { // avoid cycle re-expansion in this branch
           childUl.appendChild(el('li', {}, [el('div', { class: 'node-row' }, [
-            el('span', { class: 'twist leaf', text: '↻' }),
+            el('span', { class: 'twist leaf', text: '↻', 'aria-hidden': 'true' }),
             el('a', { class: 'dag-name', href: declHref(slug), text: child.shortName }),
           ])]));
           continue;
@@ -936,6 +1004,7 @@ function dagItem(node, ancestors) {
       }
       li.appendChild(childUl);
       twist.textContent = '▾';
+      twist.setAttribute('aria-expanded', 'true');
     });
   }
   return li;
@@ -947,7 +1016,7 @@ function renderCoverage(app) {
   app.appendChild(el('h1', { text: 'カバレッジ' }));
   const c = state.coverage;
   if (!c) { app.appendChild(el('p', { text: 'coverage.json を読み込めませんでした。' })); return; }
-  app.appendChild(progressBar(c.pct_annotated));
+  app.appendChild(progressBar(c.pct_annotated, `構造的注釈網羅率 ${c.pct_annotated}%`));
   app.appendChild(el('p', { class: 'filemeta', text: `全体: ${c.annotated} / ${c.total_decls} (${c.pct_annotated}%) · full ${c.full} · gloss ${c.gloss}` }));
   app.appendChild(el('p', { class: 'caveat' }, [
     el('strong', { text: '注意：' }),
@@ -964,18 +1033,24 @@ function renderCoverage(app) {
     ]));
   }
 
+  // notes#72: <caption>/<thead>/<tbody> + scope so the table structure is announced
+  // correctly by screen readers, not just visually implied by row order.
   const table = el('table', { class: 'coverage' });
-  table.appendChild(el('tr', {}, [
-    el('th', { text: '章' }), el('th', { class: 'num', text: '総数' }),
-    el('th', { class: 'num', text: '注釈済' }), el('th', { class: 'num', text: 'full' }),
-    el('th', { class: 'num', text: 'gloss' }), el('th', { class: 'num', text: '%' }),
+  table.appendChild(el('caption', { text: '章別の構造的注釈網羅率' }));
+  const thead = el('thead');
+  thead.appendChild(el('tr', {}, [
+    el('th', { scope: 'col', text: '章' }), el('th', { scope: 'col', class: 'num', text: '総数' }),
+    el('th', { scope: 'col', class: 'num', text: '注釈済' }), el('th', { scope: 'col', class: 'num', text: 'full' }),
+    el('th', { scope: 'col', class: 'num', text: 'gloss' }), el('th', { scope: 'col', class: 'num', text: '%' }),
   ]));
+  table.appendChild(thead);
+  const tbody = el('tbody');
   for (const ch of (state.data.chapters || [])) {
     const stat = (c.chapters && c.chapters[ch.id]) || { annotated: 0, full: 0, gloss: 0 };
     const total = state.chapterTotals.get(ch.id) || 0;
     const pct = total ? Math.round(1000 * stat.annotated / total) / 10 : 0;
-    table.appendChild(el('tr', {}, [
-      el('td', {}, [el('a', { href: chapterHref(ch.id), text: ch.label_ja || ch.id })]),
+    tbody.appendChild(el('tr', {}, [
+      el('th', { scope: 'row' }, [el('a', { href: chapterHref(ch.id), text: ch.label_ja || ch.id })]),
       el('td', { class: 'num', text: String(total) }),
       el('td', { class: 'num', text: String(stat.annotated) }),
       el('td', { class: 'num', text: String(stat.full) }),
@@ -983,6 +1058,7 @@ function renderCoverage(app) {
       el('td', { class: 'num', text: pct + '%' }),
     ]));
   }
+  table.appendChild(tbody);
   app.appendChild(table);
 }
 
@@ -1123,10 +1199,7 @@ function renderAbout(app, highlightId) {
   app.appendChild(bibSec);
 
   if (highlightId) {
-    setTimeout(() => {
-      const t = document.getElementById('ref-' + highlightId);
-      if (t && typeof t.scrollIntoView === 'function') t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 0);
+    setTimeout(() => scrollIntoViewSafe(document.getElementById('ref-' + highlightId)), 0);
   }
 }
 
@@ -1162,6 +1235,7 @@ function renderSearch(app, q) {
 
 let hoverTimer = null;
 let hoverBound = false;
+let activeRefEl = null;   // notes#72: last ref that opened the card, for Escape-to-return-focus
 
 /* Bind hover/tap on `.ref` spans once, on the document, via event delegation. Refs now
  * appear both in Lean code (highlightLean) and in Japanese prose ([[…]] tokens, D5), on
@@ -1181,8 +1255,41 @@ function bindHoverCards() {
   document.addEventListener('click', ev => {
     const t = ev.target.closest && ev.target.closest('.ref[data-slug]');
     if (!t) return;
+    // notes#72: a real mouse/touch click (MouseEvent.detail >= 1) shows the pinned
+    // preview instead of jumping, as before. But Enter on a focused <a> also fires a
+    // synthetic click with detail === 0 — and the pinned card's own "open" link isn't
+    // reliably the next Tab stop (the card lives at the end of <body>, not next to the
+    // ref, in DOM/tab order), so intercepting that click too left keyboard users with
+    // no way to actually follow the reference (caught in codex review). Let
+    // keyboard-triggered activation navigate normally instead.
+    if (ev.detail === 0) return;
     ev.preventDefault();          // touch / tap: show the card instead of jumping
     showHoverCard(t, true);
+  });
+  // notes#72: keyboard equivalent of hover — focusin shows the same preview Tab-ing
+  // through prose that mouseover shows while pointing at it; Enter then navigates
+  // directly (see the click handler's ev.detail check above), matching plain <a>
+  // behavior rather than requiring an extra step to reach the card's own link.
+  document.addEventListener('focusin', ev => {
+    const t = ev.target.closest && ev.target.closest('.ref[data-slug]');
+    if (t) showHoverCard(t, true);
+  });
+  document.addEventListener('focusout', ev => {
+    const t = ev.target.closest && ev.target.closest('.ref[data-slug]');
+    if (!t) return;
+    const next = ev.relatedTarget;
+    const card = document.getElementById('hovercard');
+    if (next && card && card.contains(next)) return; // focus moved into the card itself
+    hoverTimer = setTimeout(hideHoverCard, 180);
+  });
+  // Escape dismisses the card and returns focus to whatever ref opened it, so keyboard
+  // users are never left with a visible popover and no way to close it without a mouse.
+  document.addEventListener('keydown', ev => {
+    if (ev.key !== 'Escape') return;
+    const card = document.getElementById('hovercard');
+    if (!card || card.hidden) return;
+    hideHoverCard();
+    if (activeRefEl) activeRefEl.focus();
   });
 }
 
@@ -1191,6 +1298,7 @@ function showHoverCard(refEl, pin) {
   const slug = refEl.getAttribute('data-slug');
   const node = state.bySlug.get(slug);
   if (!node) return;
+  activeRefEl = refEl;
   const card = document.getElementById('hovercard');
   card.innerHTML = '';
   card.appendChild(el('div', { class: 'meta-row' }, [
@@ -1234,8 +1342,25 @@ function setupSearch() {
   });
 }
 
+// notes#72: the skip link's `href="#app"` must NOT be left to native fragment
+// navigation — every hash change fires the `hashchange` listener below, and route()
+// treats any hash that isn't one of its known routes (all of which start with `#/`) as
+// "page not found". #app matches nothing, so without this handler, activating the skip
+// link would replace the current page with a not-found view instead of just moving
+// focus past the header. preventDefault() keeps location.hash untouched entirely.
+function setupSkipLink() {
+  const link = document.querySelector('.skip-link');
+  const app = document.getElementById('app');
+  if (!link || !app) return;
+  link.addEventListener('click', ev => {
+    ev.preventDefault();
+    app.focus();
+  });
+}
+
 async function boot() {
   setupSearch();
+  setupSkipLink();
   bindHoverCards();
   try {
     await loadData();
@@ -1264,5 +1389,7 @@ if (typeof module !== 'undefined' && module.exports) {
     makeRef, refSlugForRefToken, renderParagraph, renderProse, renderProseInline,
     firstParagraph, sentencePreview, renderDecl, renderAbout, loadSources, loadSourceFor,
     proofStatusBadge, proofStatusBanner, renderProofStatus, PROOF_STATUS_META,
+    esc, dagItem, progressBar, renderCoverage, route,
+    bindHoverCards, setupSkipLink,
   };
 }

@@ -1,0 +1,6 @@
+# notes#72: pin exact versions so `pip install -r requirements.txt` is reproducible in
+# CI and locally, instead of `pip install pyyaml jsonschema` silently picking up
+# whatever is newest at install time. Bump deliberately (check the CHANGELOG for the
+# package being bumped) rather than letting CI drift.
+pyyaml==6.0.3
+jsonschema==4.26.0

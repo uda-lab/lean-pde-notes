@@ -5,7 +5,7 @@ statement_ja: |
 
   この $v$ は次を満たす。ほとんどすべての $t\in[0,T]$ で $v(t)$ は Aubin–Lions 極限に一致する。すべての $t\in[0,T]$ と任意の方向 $z$ に対して Galerkin 列 $u_n(t)$ の内積 $\langle u_n(t),z\rangle$ が $\langle v(t),z\rangle$ へ収束する。すべての $t$ で $\lVert v(t)\rVert\le\lVert u_0\rVert$ が成り立つ。端点で $v(0)=u_0$ となる。そして各 Galerkin テスト $w$ に対し時間曲線 $t\mapsto\langle v(t),w\rangle$ は $[0,T]$ 上 Lipschitz 連続である。
 proof_ja: |
-  概至る所良い時刻の集合 $S$ を、すべての自然数半径の球 $B_k$ 上での強収束 $u_n(t)\to u_\infty(t)$（$u_\infty$ は Aubin–Lions 極限）と、極限のノルムが初期値のノルムで抑えられる評価とが成り立つ時刻全体として定める。前者は Aubin–Lions パッケージの球ごとの概至る所収束、後者は運動エネルギーの下半連続評価から従い、$S$ は概至る所全体である。
+  ほとんど至る所で良い時刻の集合 $S$ を、すべての自然数半径の球 $B_k$ 上での強収束 $u_n(t)\to u_\infty(t)$（$u_\infty$ は Aubin–Lions 極限）と、極限のノルムが初期値のノルムで抑えられる評価とが成り立つ時刻全体として定める。前者は Aubin–Lions パッケージの球ごとのほとんど至る所収束、後者は運動エネルギーの下半連続評価から従い、$S$ は全測度集合である。
 
   $S$ の点 $s$（$0\le s$）では、球ごとの収束と一様評価から[[球ごと収束による内積収束|LerayHopf.inner_tendsto_of_perball]]によって全列が $u_\infty(s)$ へ弱収束する。
 
@@ -15,11 +15,11 @@ proof_ja: |
 
   こうして各 $t$ で内積列が収束するので、閉部分空間 $L^2_\sigma$ 内での Riesz 表現により極限 $y(t)\in L^2_\sigma$ が $\lVert y(t)\rVert\le\lVert u_0\rVert$ とともに定まる。$v(t)$ を $[0,T]$ 上では $y(t)$、外では Aubin–Lions 極限と定義する。
 
-  弱収束の一意性から $v(t)$ は $S$ 上で Aubin–Lions 極限に一致し（概至る所の一致）、端点では $u_n(0)=P_{\varphi(n)}u_0\to u_0$ より $v(0)=u_0$ となる。時間 Lipschitz 連続性は、近似曲線の Lipschitz 評価が弱収束の極限で保存されることから従う。
+  弱収束の一意性から $v(t)$ は $S$ 上で Aubin–Lions 極限に一致し（ほとんど至る所の一致）、端点では $u_n(0)=P_{\varphi(n)}u_0\to u_0$ より $v(0)=u_0$ となる。時間 Lipschitz 連続性は、近似曲線の Lipschitz 評価が弱収束の極限で保存されることから従う。
 gap:
   level: large
   note: |
-    構成は Temam III.3 の古典的な道筋（同程度 Lipschitz 連続性＋稠密時刻での Cauchy 性＋部分空間内 Riesz 表現）に沿い、Lions–Magenes 型の時間 Sobolev 空間や弱時間微分を一切用いない。トーラスの `exists_weak_representative` の $\mathbb{R}^3$ 版であり、唯一の相違は、トーラスの $L^2$ 強部分列の代わりに球ごとの強収束 `inner_tendsto_of_perball` を用いて概至る所の弱収束を得る点である。Galerkin レベルの持ち上げは `𝔊.mono_range`、$u_0$ での稠密性は `𝔊.tendsto_id` による。
+    構成は Temam III.3 の古典的な道筋（同程度 Lipschitz 連続性＋稠密時刻での Cauchy 性＋部分空間内 Riesz 表現）に沿い、Lions–Magenes 型の時間 Sobolev 空間や弱時間微分を一切用いない。トーラスの `exists_weak_representative` の $\mathbb{R}^3$ 版であり、唯一の相違は、トーラスの $L^2$ 強部分列の代わりに球ごとの強収束 `inner_tendsto_of_perball` を用いてほとんど至る所の弱収束を得る点である。Galerkin レベルの持ち上げは `𝔊.mono_range`、$u_0$ での稠密性は `𝔊.tendsto_id` による。
 chapter: limit-passage
 tags: [good-representative, weak-continuity, temam, riesz]
 references:

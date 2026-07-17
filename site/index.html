@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>leray-hopf-notes — 証明掘り下げノート</title>
+  <!-- notes#72: the site is fully self-contained (no CDN, no external fetch/img/font),
+       so a strict CSP with no 'unsafe-inline'/'unsafe-eval' is safe. GitHub Pages has no
+       server-side header config, so this is a <meta> CSP — note that `frame-ancestors`,
+       `sandbox`, and `report-uri`/`report-to` are silently ignored when delivered via
+       <meta> (CSP spec) and are therefore omitted rather than included as false comfort. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
   <link rel="stylesheet" href="vendor/katex/katex.min.css">
   <link rel="stylesheet" href="styles.css">
   <!-- KaTeX is vendored (site/vendor/katex); no CDN, no bundler, no framework. -->
@@ -12,9 +18,15 @@
   <script defer src="app.js"></script>
 </head>
 <body>
+  <!-- setupSkipLink() in app.js intercepts this click: the app's hashchange handler
+       treats every hash as a route, and #app matches none of them, so without JS
+       interception this would render "ページが見つかりません" instead of just moving
+       focus past the header. href="#app" is kept as-is for the (JS-unavailable) case
+       where app.js itself failed to load — native fragment navigation still works then. -->
+  <a class="skip-link" href="#app">本文へスキップ</a>
   <header class="site-header">
     <a class="brand" href="#/">leray-hopf-notes</a>
-    <nav class="top-nav">
+    <nav class="top-nav" aria-label="メインナビゲーション">
       <a href="#/">ホーム</a>
       <a href="#/dag">証明ツリー</a>
       <a href="#/coverage">カバレッジ</a>
@@ -27,7 +39,10 @@
     </form>
   </header>
 
-  <main id="app" aria-live="polite">
+  <!-- notes#72: no blanket aria-live on the whole region — route() moves focus to each
+       page's own <h1> instead (see app.js), which is the more targeted SPA a11y pattern.
+       tabindex="-1" makes #app itself a valid skip-link focus target. -->
+  <main id="app" tabindex="-1">
     <p class="loading">読み込み中…</p>
   </main>
 

@@ -13,6 +13,6 @@ proof_ja: |
 gap:
   level: mild
   note: |
-    成分ごとの複素化という設計のため、射影の成分交換が注入と射影の直交性・実部往復の明示計算に展開される。$L^p$ 上の概至る所の等式を点ごとに落とす `filter_upwards` が随所で効く。
+    成分ごとの複素化という設計のため、射影の成分交換が注入と射影の直交性・実部往復の明示計算に展開される。$L^p$ 上のほとんど至る所の等式を点ごとに落とす `filter_upwards` が随所で効く。
 chapter: projections-galerkin
 tags: [galerkin, fourier-truncation, real-valuedness]

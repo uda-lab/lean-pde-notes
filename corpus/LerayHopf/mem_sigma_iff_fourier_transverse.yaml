@@ -1,7 +1,7 @@
 name: LerayHopf.mem_sigma_iff_fourier_transverse
 tier: full
 statement_ja: |
-  場 $u$ が弱い意味で発散ゼロであること（すなわち発散ゼロ部分空間に属すること）は、その Fourier 変換がほとんどすべての周波数で横型、すなわち次が概至る所成り立つことと同値である。
+  場 $u$ が弱い意味で発散ゼロであること（すなわち発散ゼロ部分空間に属すること）は、その Fourier 変換がほとんどすべての周波数で横型、すなわち次がほとんど至る所成り立つことと同値である。
 
   $$\sum_j\xi_j\,\widehat{u}_j(\xi)=0$$
 
@@ -11,7 +11,7 @@ proof_ja: |
 
   $$\sum_j\xi_j\,\widehat{u}_j(\xi)$$
 
-  正方向は、横型ならすべての対がゼロになることによる。逆方向は、Schwartz 関数の Fourier 変換全体に対して対がゼロになる関数は概至る所ゼロという変分法の基本補題（Fourier 側の du-Bois-Reymond 型還元）による。試験記号が反 Hermite 対称な Schwartz 記号全体を張ることを使い、実 Schwartz テストの偶奇還元で締める。
+  正方向は、横型ならすべての対がゼロになることによる。逆方向は、Schwartz 関数の Fourier 変換全体に対して対がゼロになる関数はほとんど至る所ゼロという変分法の基本補題（Fourier 側の du-Bois-Reymond 型還元）による。試験記号が反 Hermite 対称な Schwartz 記号全体を張ることを使い、実 Schwartz テストの偶奇還元で締める。
 gap:
   level: large
   note: |

@@ -5,7 +5,7 @@ statement_ja: |
 
   $$m\cdot(g+h)=m\cdot g+m\cdot h$$
 proof_ja: |
-  点ごとの掛け算が和に分配することから、両辺は概至る所一致し、$L^2$ 元として等しい。
+  点ごとの掛け算が和に分配することから、両辺はほとんど至る所一致し、$L^2$ 元として等しい。
 gap:
   level: none
 chapter: compactness

@@ -7,7 +7,7 @@ statement_ja: |
 
   ここで $w_j^{\flat}$ は第 $j$ [[荷重付き Fourier 成分|LerayHopf.weightedFourierComponent]]である。
 proof_ja: |
-  $L^2$ ノルム二乗は被積分関数の二乗ノルムの積分に等しい。荷重付き成分は概至る所 $\sqrt{W}(\xi)\widehat{w_j}(\xi)$ で表されるので、その点ごとの二乗ノルムは次のようになる。
+  $L^2$ ノルム二乗は被積分関数の二乗ノルムの積分に等しい。荷重付き成分はほとんど至る所 $\sqrt{W}(\xi)\widehat{w_j}(\xi)$ で表されるので、その点ごとの二乗ノルムは次のようになる。
 
   $$(2\pi)^2\lVert\xi\rVert^2\,\bigl\lVert\widehat{w_j}(\xi)\bigr\rVert^2$$
 

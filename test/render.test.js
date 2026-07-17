@@ -14,12 +14,15 @@ const dom = new JSDOM(
   { url: 'http://localhost/' });
 global.window = dom.window;
 global.document = dom.window.document;
+global.location = dom.window.location; // route() (notes#72 test (n)) reads bare `location`
 
 const app = require('../site/app.js');
 const {
   state, splitParagraphs, joinSoftLines, firstParagraph, sentencePreview,
   renderProse, renderProseInline, renderDecl, renderAbout, loadSourceFor,
   proofStatusBadge, proofStatusBanner,
+  esc, dagItem, progressBar, renderCoverage, route, makeRef,
+  bindHoverCards, setupSkipLink,
 } = app;
 
 let passed = 0;
@@ -352,6 +355,163 @@ check('(h) renderAbout lists bibliography entries, shows citation/license metada
   const highlighted = appEl.querySelector('.ref-highlight');
   assert.ok(highlighted && highlighted.id === 'ref-rrs2016',
     'the id passed to renderAbout must be highlighted');
+});
+
+/* ==== notes#72: accessibility — DAG toggle is a real, keyboard-operable control ==== */
+check('(i) dagItem renders the expand toggle as a real <button> with aria-expanded, toggling on click', () => {
+  addNode({
+    slug: 'X.dagChild', id: 'X.dagChild', name: 'X.dagChild', shortName: 'dagChild', kind: 'def',
+    signature: 'def dagChild', file: 'X.lean', startLine: 1, endLine: 1,
+    chapter: 'spaces', uses: [], usedBy: [], private: false, corpus: null,
+  });
+  const parent = {
+    slug: 'X.dagParent', name: 'X.dagParent', shortName: 'dagParent', kind: 'theorem',
+    uses: ['X.dagChild'], usedBy: [], private: false, corpus: null,
+  };
+  const li = dagItem(parent, new Set(['X.dagParent']));
+  const twist = li.querySelector('.twist');
+  assert.strictEqual(twist.tagName, 'BUTTON', 'the expand toggle must be a real <button>, not a clickable <span>');
+  assert.strictEqual(twist.getAttribute('aria-expanded'), 'false', 'starts collapsed');
+  twist.dispatchEvent(new window.Event('click', { bubbles: true }));
+  assert.strictEqual(twist.getAttribute('aria-expanded'), 'true', 'aria-expanded must flip to true on expand');
+  assert.ok(li.querySelector('ul'), 'expanding must render the children <ul>');
+});
+
+check('(i-regression) a leaf dagItem (no uses) renders a decorative, non-interactive <span>', () => {
+  const leaf = {
+    slug: 'X.dagLeaf', name: 'X.dagLeaf', shortName: 'dagLeaf', kind: 'def',
+    uses: [], usedBy: [], private: false, corpus: null,
+  };
+  const li = dagItem(leaf, new Set(['X.dagLeaf']));
+  const twist = li.querySelector('.twist');
+  assert.strictEqual(twist.tagName, 'SPAN', 'a leaf has no expand action — it must stay a non-interactive <span>');
+  assert.strictEqual(twist.getAttribute('aria-hidden'), 'true');
+});
+
+/* ==== notes#72: [[…]] refs are real <a> links, reachable by Tab ==== */
+check('(j) makeRef renders a resolved reference as a real <a href>, not a plain <span>', () => {
+  const ref = makeRef('lerayProjection|LerayHopf.lerayProjection', []);
+  assert.strictEqual(ref.tagName, 'A', 'a resolved ref must be a real <a> so keyboard Tab reaches it');
+  assert.ok(ref.getAttribute('href'), 'the <a> must carry an href');
+  assert.strictEqual(ref.className, 'ref');
+});
+
+check('(j-regression) an unresolved reference stays a non-interactive <span>', () => {
+  const ref = makeRef('nonexistent thing', []);
+  assert.strictEqual(ref.tagName, 'SPAN', 'an unresolved ref has no navigation target');
+  assert.ok(ref.className.includes('ref-missing'));
+});
+
+/* ==== notes#72: progress bar carries ARIA progressbar semantics ==== */
+check('(k) progressBar renders role=progressbar with aria-value* and sets fill width as a JS style property', () => {
+  const bar = progressBar(42, 'テストラベル 42%');
+  assert.strictEqual(bar.getAttribute('role'), 'progressbar');
+  assert.strictEqual(bar.getAttribute('aria-valuenow'), '42');
+  assert.strictEqual(bar.getAttribute('aria-valuemin'), '0');
+  assert.strictEqual(bar.getAttribute('aria-valuemax'), '100');
+  assert.strictEqual(bar.getAttribute('aria-label'), 'テストラベル 42%');
+  const fill = bar.querySelector('span');
+  // Width is set via the .style CSSOM property (not el()'s style: attrs path, which
+  // uses setAttribute('style', …)) so a CSP `style-src 'self'` with no 'unsafe-inline'
+  // does not block it — see the comment on progressBar() for the CSP distinction.
+  assert.strictEqual(fill.style.width, '42%');
+});
+
+check('(k-regression) progressBar clamps out-of-range percentages into [0, 100]', () => {
+  assert.strictEqual(progressBar(150).getAttribute('aria-valuenow'), '100');
+  assert.strictEqual(progressBar(-5).getAttribute('aria-valuenow'), '0');
+});
+
+/* ==== notes#72: coverage table has caption/thead/tbody/scope ==== */
+check('(l) renderCoverage emits a table with caption, thead, tbody, and scoped headers', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  state.coverage = {
+    pct_annotated: 80, annotated: 8, total_decls: 10, full: 5, gloss: 3,
+    chapters: { spaces: { annotated: 8, full: 5, gloss: 3 } },
+  };
+  state.data = { chapters: [{ id: 'spaces', label_ja: '空間' }] };
+  state.chapterTotals.set('spaces', 10);
+  renderCoverage(appEl);
+  const table = appEl.querySelector('table.coverage');
+  assert.ok(table, 'a table.coverage must be rendered');
+  assert.ok(table.querySelector('caption'), 'the table must have a <caption>');
+  assert.ok(table.querySelector('thead'), 'the header row must be inside <thead>');
+  assert.ok(table.querySelector('tbody'), 'the data rows must be inside <tbody>');
+  const colHeaders = table.querySelectorAll('thead th');
+  assert.ok(colHeaders.length > 0 && Array.from(colHeaders).every(th => th.getAttribute('scope') === 'col'),
+    'every column header must carry scope="col"');
+  const rowHeader = table.querySelector('tbody th');
+  assert.ok(rowHeader && rowHeader.getAttribute('scope') === 'row',
+    'the chapter-name cell must be a <th scope="row">, not a <td>');
+});
+
+/* ==== notes#72: esc() also escapes quotes (attribute-interpolation safety) ==== */
+check('(m) esc() escapes quotes as well as &<>, since highlightLean() interpolates it into a quoted attribute', () => {
+  assert.strictEqual(esc('a"b\'c&d<e>f'), 'a&quot;b&#39;c&amp;d&lt;e&gt;f');
+});
+
+/* ==== notes#72: route() moves focus to the new page's own <h1> instead of a blanket
+ * aria-live region, so screen readers announce just the new page heading. ==== */
+check('(n) route() moves focus to the rendered page\'s <h1> with tabindex="-1"', () => {
+  state.data = { chapters: [], capstones: [] };
+  window.location.hash = '#/dag';
+  route();
+  const h1 = document.getElementById('app').querySelector('h1');
+  assert.ok(h1, 'the DAG page must render an <h1>');
+  assert.strictEqual(h1.getAttribute('tabindex'), '-1', 'the heading must be a valid focus() target');
+  assert.strictEqual(document.activeElement, h1, 'focus must move to the new page heading after routing');
+});
+
+/* ==== notes#72 (codex review): the skip link must not be swallowed by the hash router.
+ * route() treats every hash as a route (see test (n)'s fixture); href="#app" matches no
+ * route, so without interception it renders "ページが見つかりません" instead of just
+ * moving focus past the header. ==== */
+check('(o) setupSkipLink prevents the skip link\'s href="#app" from being treated as a route change', () => {
+  // The real site/index.html gives #app tabindex="-1" so it's a valid focus() target;
+  // replicate that here since the minimal jsdom fixture doesn't otherwise carry it.
+  document.getElementById('app').setAttribute('tabindex', '-1');
+  const skipLink = document.createElement('a');
+  skipLink.className = 'skip-link';
+  skipLink.href = '#app';
+  document.body.insertBefore(skipLink, document.body.firstChild);
+  setupSkipLink();
+  const ev = new window.MouseEvent('click', { bubbles: true, cancelable: true });
+  const notCancelled = skipLink.dispatchEvent(ev);
+  assert.strictEqual(notCancelled, false,
+    'the click must be preventDefault()ed so location.hash never actually becomes "#app"');
+  assert.strictEqual(document.activeElement, document.getElementById('app'),
+    'focus must move directly to #app, bypassing hash navigation entirely');
+  skipLink.remove();
+});
+
+/* ==== notes#72 (codex review): keyboard activation of a resolved ref must navigate,
+ * not just show the pinned preview card — the card's own "open" link isn't reliably
+ * reachable by a further Tab press (it lives at the end of <body>, not next to the ref
+ * in DOM/tab order), so intercepting keyboard Enter the same as a mouse click left
+ * keyboard users with no way to actually follow the reference. ==== */
+check('(p) a keyboard-triggered activation (MouseEvent.detail === 0) on a resolved ref navigates instead of pinning the preview', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  const ref = makeRef('lerayProjection|LerayHopf.lerayProjection', []);
+  appEl.appendChild(ref);
+  bindHoverCards();
+  const ev = new window.MouseEvent('click', { bubbles: true, cancelable: true, detail: 0 });
+  const notCancelled = ref.dispatchEvent(ev);
+  assert.strictEqual(notCancelled, true,
+    'a keyboard-triggered activation (Enter on a focused link fires a click with detail 0) must not be prevented');
+});
+
+check('(p-regression) a real mouse click (MouseEvent.detail >= 1) on a resolved ref still pins the preview card', () => {
+  const appEl = document.getElementById('app');
+  appEl.innerHTML = '';
+  const ref = makeRef('lerayProjection|LerayHopf.lerayProjection', []);
+  appEl.appendChild(ref);
+  bindHoverCards();
+  const ev = new window.MouseEvent('click', { bubbles: true, cancelable: true, detail: 1 });
+  const notCancelled = ref.dispatchEvent(ev);
+  assert.strictEqual(notCancelled, false, 'a real mouse click must still be intercepted to show the pinned preview');
+  assert.strictEqual(document.getElementById('hovercard').hidden, false, 'the preview card must be shown');
 });
 
 Promise.all(pending).then(() => {

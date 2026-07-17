@@ -13,7 +13,7 @@ proof_ja: |
 
   を考える。各 Galerkin テストの上では[[Galerkin テスト極限の消滅|LerayHopf.weakFormNS_galerkinTest_limit]]により $\Phi$ が消える。
 
-  $\Phi$ は三つのスロットで右線形なので、任意の Galerkin テスト $v$ に対して $\Phi(w)=\Phi(v)+\Phi(w-v)=\Phi(w-v)$ となる。ただし右線形の分解は $u(t)\in H^1$ となる概至る所の $t$ で成り立つ。
+  $\Phi$ は三つのスロットで右線形なので、任意の Galerkin テスト $v$ に対して $\Phi(w)=\Phi(v)+\Phi(w-v)=\Phi(w-v)$ となる。ただし右線形の分解は $u(t)\in H^1$ となるほとんど至る所の $t$ で成り立つ。
 
   差の評価として、任意の発散ゼロ Schwartz テスト $z$ に対し
 
