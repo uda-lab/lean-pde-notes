@@ -8,7 +8,9 @@ a collision count of "8 groups / 16 decls" lingered long after cleanup left only
 numbers are *generated facts* (from extracted/decls.json), not editorial content, so hand-
 maintained prose in "living" docs (docs that describe the *current* pipeline/state) should
 never embed them as a literal digit — it should point at the generator instead
-(`extracted/decls.json`, `scripts/coverage.py`, `scripts/validate.py`, ...).
+(`extracted/decls.json`, `scripts/coverage.py`, `scripts/build_site_data.py` — the latter
+prints "Collision groups: N (M decls)" and is the actual source of the collision count;
+`scripts/validate.py` uses collisions internally but does not print a summary count).
 
 This script does NOT try to recompute "the right number" and diff it against prose (too
 fragile — reformats, footnotes, and legitimate small numbers like "2 capstones" would false-
@@ -41,11 +43,13 @@ EXEMPT_DOCS = {
     REPO_ROOT / 'docs' / 'seed-migration-mapping.md',
 }
 
-# A number (optionally comma-grouped) immediately followed — within a few words — by a
-# declaration/collision-count noun, in either language. Deliberately narrow: this must not
-# fire on unrelated numbers (line numbers, PIN hex, schema draft version, "2 capstones", …).
+# A number (optionally comma-grouped) followed — within up to 2 intervening words, e.g.
+# "1,339 total declarations" — by a declaration/collision-count noun, in either language.
+# Deliberately narrow: this must not fire on unrelated numbers (line numbers, PIN hex, schema
+# draft version, "2 capstones", …) — the comma-grouping requirement on the main alternative
+# means small plain integers never match it at all.
 COUNT_PATTERN = re.compile(
-    r'\d{1,3}(?:[,.]\d{3})+\s*(?:件|宣言|declarations?|decls?|records?|groups?|entries)'
+    r'\d{1,3}(?:[,.]\d{3})+(?:\s+\S+){0,2}\s*(?:件|宣言|declarations?|decls?|records?|groups?|entries)'
     r'|\d+\s*(?:groups?|組)\s*/\s*\d+\s*(?:decls?|records?|宣言)',
     re.IGNORECASE,
 )
@@ -63,7 +67,7 @@ def main() -> None:
                 findings.append(
                     f'{path.relative_to(REPO_ROOT)}:{lineno}: hard-coded count-shaped '
                     f'literal "{m.group(0)}" — point at a generator instead '
-                    f'(extracted/decls.json, scripts/coverage.py, scripts/validate.py), '
+                    f'(extracted/decls.json, scripts/coverage.py, scripts/build_site_data.py), '
                     f'do not embed the digit in prose (notes#71)'
                 )
 

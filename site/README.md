@@ -131,8 +131,9 @@ purely a corpus + rebuild operation — **no site code changes required**.
 - `#/search/<query>` — name (prefix) + statement_ja (substring) search, grouped by kind
 
 `slug` is the display name when unique, else the declaration `id` (private-helper name
-collisions; see `extracted/decls.json` or `scripts/validate.py` output for the current
-collision count — corpus join for those keys off name+file, per notes#7).
+collisions; run `scripts/build_site_data.py` — it prints `Collision groups: N (M decls)`
+and lists them in the `collisions` field of the generated `site/data/nodes.json` — for
+the current collision count; corpus join for those keys off name+file, per notes#7).
 
 ## Graceful degradation
 
