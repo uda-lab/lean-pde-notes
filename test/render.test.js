@@ -69,6 +69,22 @@ addNode({
     proof_status: 'verified', tier: 'full',
   },
 });
+// notes#73 (owner review): "Galerkin" appears only in statement_ja here (not in
+// name/shortName/tags/doc/proof_ja) — isolates the statement_ja case-insensitivity fix.
+addNode({
+  slug: 'LerayHopf.finiteDimApprox', id: 'LerayHopf.finiteDimApprox',
+  name: 'LerayHopf.finiteDimApprox', shortName: 'finiteDimApprox', kind: 'def',
+  signature: 'def finiteDimApprox', file: 'Approx.lean', startLine: 1, endLine: 1,
+  chapter: 'projections-galerkin', uses: [], usedBy: [], private: false,
+  doc: 'Finite-dimensional approximation space.',
+  corpus: {
+    statement_ja: 'Galerkin 近似空間を構成する有限次元部分空間。',
+    proof_ja: '有限次元射影で定義する。',
+    tags: ['approximation'],
+    gap: { level: 'none' },
+    proof_status: 'verified', tier: 'full',
+  },
+});
 
 /* ==== 受け入れ基準 1: home capstone card — untruncated first paragraph ==== */
 check('(a) capstone first paragraph is untruncated (no すなわち cut-off)', () => {
@@ -659,6 +675,45 @@ check('(r) search matches tags/proof_ja/doc in addition to name/statement_ja, an
   // update it again once the hit count is known, not just the plain meta description.
   const ogDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
   assert.ok(ogDesc.includes('1 件'), 'og:description must also report the hit count, not the stale site default');
+});
+
+/* ==== notes#73 (owner review, PR #89): a malformed encoded hash must not leave the
+ * previous route's page metadata in place on the error page. ==== */
+check('(s) route() resets page metadata to an error state when decodeURIComponent throws on a malformed hash', () => {
+  window.location.hash = '#/decl/' + encodeURIComponent('LerayHopf.weakSolutionExists');
+  route();
+  assert.strictEqual(document.title, 'LerayHopf.weakSolutionExists — leray-hopf-notes');
+
+  window.location.hash = '#/search/%'; // decodeURIComponent('%') throws URIError
+  route();
+  assert.strictEqual(document.title, 'レンダリングエラー — leray-hopf-notes',
+    'the error page must carry its own title, not the previous decl page\'s title');
+  const desc = document.querySelector('meta[name="description"]').getAttribute('content');
+  assert.ok(!desc.includes('弱解'), 'the error page description must not be the previous decl page\'s description');
+  const canonical = document.querySelector('link[rel="canonical"]');
+  assert.strictEqual(canonical.getAttribute('href'), location.href,
+    'canonical must still track the (malformed) current URL, not a stale one');
+  assert.ok(document.getElementById('app').textContent.includes('レンダリングエラー'),
+    'the visible error message must still render');
+});
+
+/* ==== notes#73 (owner review, PR #89): statement_ja/proof_ja must match case-insensitively,
+ * like every other searched field — English terms in the Japanese prose (e.g. "Galerkin")
+ * must be findable by a lowercase query regardless of which field they live in. ==== */
+check('(s) search matches statement_ja case-insensitively (isolated from name/tags/doc/proof_ja)', () => {
+  state.data = { chapters: [], capstones: [], nodes: [state.bySlug.get('LerayHopf.finiteDimApprox')] };
+  window.location.hash = '#/search/' + encodeURIComponent('galerkin');
+  route();
+  assert.ok(document.getElementById('app').textContent.includes('1 件'),
+    'a lowercase query must match "Galerkin" inside statement_ja');
+});
+
+check('(s) search matches proof_ja case-insensitively (isolated from name/tags/doc/statement_ja)', () => {
+  state.data = { chapters: [], capstones: [], nodes: [state.bySlug.get('LerayHopf.weakSolutionExists')] };
+  window.location.hash = '#/search/' + encodeURIComponent('GALERKIN');
+  route();
+  assert.ok(document.getElementById('app').textContent.includes('1 件'),
+    'an uppercase query must match "Galerkin" inside proof_ja');
 });
 
 Promise.all(pending).then(() => {

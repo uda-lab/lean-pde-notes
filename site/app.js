@@ -569,6 +569,12 @@ function route() {
       app.appendChild(el('p', { text: 'ページが見つかりません。' }));
     }
   } catch (e) {
+    // notes#73 (owner review): a thrown decodeURIComponent (malformed %-encoding in the
+    // hash, e.g. "#/search/%") or any other renderer exception used to leave the
+    // *previous* route's title/description/canonical/OG tags in place — bookmarking or
+    // sharing this error page then misrepresented it as the prior page. Reset metadata
+    // to a route-agnostic error state before rendering the error itself.
+    setPageMeta('レンダリングエラー', 'このページの読み込み中にエラーが発生しました。');
     app.appendChild(el('pre', { class: 'lean', text: 'レンダリングエラー: ' + (e && e.message) }));
     console.error(e);
   }
@@ -1321,11 +1327,13 @@ function renderSearch(app, q) {
   const hits = [];
   // notes#73: previously name + statement_ja only ("Possible work" in #73 called out
   // proof/tags as under-covered) — widened to also match corpus.tags and proof_ja, plus
-  // the raw Lean docstring, without changing the existing name/statement match rules.
+  // the raw Lean docstring. notes#73 (owner review): statement_ja/proof_ja must also
+  // compare case-insensitively like every other field here — English terms embedded in
+  // the Japanese prose (e.g. "Galerkin") were only matching an exact-case query otherwise.
   for (const n of state.data.nodes) {
     const nameHit = n.name.toLowerCase().includes(ql) || n.shortName.toLowerCase().startsWith(ql);
-    const stmtHit = n.corpus && n.corpus.statement_ja && n.corpus.statement_ja.includes(q);
-    const proofHit = n.corpus && n.corpus.proof_ja && n.corpus.proof_ja.includes(q);
+    const stmtHit = n.corpus && n.corpus.statement_ja && n.corpus.statement_ja.toLowerCase().includes(ql);
+    const proofHit = n.corpus && n.corpus.proof_ja && n.corpus.proof_ja.toLowerCase().includes(ql);
     const tagHit = n.corpus && Array.isArray(n.corpus.tags) && n.corpus.tags.some(t => t.toLowerCase().includes(ql));
     const docHit = n.doc && n.doc.toLowerCase().includes(ql);
     if (nameHit || stmtHit || proofHit || tagHit || docHit) hits.push(n);
