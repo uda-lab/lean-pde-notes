@@ -8,6 +8,10 @@
 > `LerayHopf.exists_lerayHopf_r3` である。**宣言名の正典は常に `extracted/decls.json`
 > （現在の PIN は `extracted/PIN` を参照）** であり、本表は「なぜこの corpus entry が
 > 存在するか」という来歴の記録として読むこと。
+>
+> この文書は移植当時に閉じた記録であり以後追記されないため、`docs/archive/`（archive
+> 規約は `docs/archive/README.md` 参照）に置く。現在進行中の repin ledger は
+> `docs/migration-2026-07-refactor.md` を参照。
 
 `uda-lab/lean-pde` の対訳プロトタイプ `docs/formalization-review-ja.md` を新スキーマの
 コーパス YAML へ移植した際の、宣言名の再アンカー記録。対応先は PIN `013c4a0` 時点の

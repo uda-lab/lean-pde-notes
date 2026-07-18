@@ -40,7 +40,7 @@ LIVING_DOCS = [
 # migration deltas) and are exempt.
 EXEMPT_DOCS = {
     REPO_ROOT / 'docs' / 'migration-2026-07-refactor.md',
-    REPO_ROOT / 'docs' / 'seed-migration-mapping.md',
+    REPO_ROOT / 'docs' / 'archive' / 'seed-migration-mapping.md',
 }
 
 # A number — comma-grouped ("1,339") or a bare 2+ digit integer ("1339") — followed within
