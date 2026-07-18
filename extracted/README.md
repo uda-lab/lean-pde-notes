@@ -38,12 +38,16 @@ Required by `scripts/validate.py` when `decls.json` is present.
 ## Regenerating decls.json (authoritative universe)
 
 ```bash
-# in a warm leray-hopf checkout at the PIN commit:
-flock /tmp/lean-build.lock lake exe extract_notes -- --out extracted/decls.json
+# in a leray-hopf checkout at the target commit, writing directly into this notes repo
+# (a relative --out resolves against the leray-hopf checkout, not this repo)
+NOTES_REPO=/path/to/leray-hopf-notes  # absolute path to this repo
+flock /tmp/lean-build.lock lake exe extract_notes -- --out "$NOTES_REPO/extracted/decls.json"
 ```
 
 The extractor filters to LerayHopf-module declarations only. Then update `PIN` to the
-leray-hopf commit SHA and re-run `scripts/validate.py` / `scripts/coverage.py`.
+leray-hopf commit SHA. `CITATION.cff`'s `references[0].commit` must be updated to the same
+SHA too — `scripts/validate.py` hard-fails on a mismatch (notes#68 guard). Then re-run
+`scripts/validate.py` / `scripts/coverage.py`.
 
 ## Regenerating names-fallback.json (dormant while decls.json is present)
 
