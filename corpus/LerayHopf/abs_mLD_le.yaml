@@ -1,7 +1,7 @@
 name: LerayHopf.abs_mLD_le
 tier: gloss
 statement_ja: |
-  $\sigma_m$ の絶対値が $2\pi\lVert m\rVert$ 以下であること（Cauchy–Schwarz 不等式と、次の評価から。これは $|w_-|\le1$ だけでは足りない、より強い評価である）：
+  $\sigma_m$ の絶対値が $2\pi\lVert m\rVert$ 以下であること。証明は Cauchy–Schwarz 不等式と、$|w_-|\le1$ だけでは足りない次の強い評価を使う：
 
   $$\lVert\xi\rVert\, w_-(\xi)\le1$$
 gap:

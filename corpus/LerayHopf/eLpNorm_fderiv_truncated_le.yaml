@@ -1,9 +1,11 @@
 name: LerayHopf.eLpNorm_fderiv_truncated_le
 tier: gloss
 statement_ja: |
-  打ち切りの $L^2$ 勾配評価（各点評価の $L^2$ 版）。[[Sobolev 埋め込み定理|LerayHopf.gns_L6_of_memH1_R3]] の動径打ち切りにおける誤差評価：
+  $R>0$、$K\ge0$ とし、$K$ をバンプ関数 $\chi$ の勾配ノルムの一様上界とする。このとき打ち切りの $L^2$ 勾配は次で評価される（各点評価の $L^2$ 版）：
 
   $$\lVert D(\chi_R\varphi)\rVert_{L^2}\le\lVert D\varphi\rVert_{L^2}+(K/R)\lVert\varphi\rVert_{L^2}$$
+
+  [[Sobolev 埋め込み定理|LerayHopf.gns_L6_of_memH1_R3]] の動径打ち切りにおける誤差評価に使う。
 gap:
   level: mild
 provenance: |

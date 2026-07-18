@@ -1,7 +1,7 @@
 name: LerayHopf.schwartz_h1_gradConv_aux
 tier: gloss
 statement_ja: |
-  値の収束から得られる Schwartz 近似列が、すべての方向 $m$ に対する勾配の収束も同時に与えること。[[Schwartz 勾配収束|LerayHopf.schwartz_h1_gradConv]] の証明に用いる。
+  $f$ が Sobolev 空間 $H^1$ に属するなら、$L^2$ で $f$ に収束する Schwartz 近似列が存在し、さらにすべての方向 $m$ について、その方向微分の列が $f$ の $m$ 方向弱微分（に対応する $L^2$ 元）へ $L^2$ 収束すること。[[Schwartz 勾配収束|LerayHopf.schwartz_h1_gradConv]] の証明に用いる。
 gap:
   level: mild
 provenance: |

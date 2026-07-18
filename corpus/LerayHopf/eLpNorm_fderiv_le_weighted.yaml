@@ -1,7 +1,7 @@
 name: LerayHopf.eLpNorm_fderiv_le_weighted
 tier: gloss
 statement_ja: |
-  勾配の重み付き Fourier 評価。Plancherel 型の評価と $\lVert\xi\rVert^2\le1+\lVert\xi\rVert^2$ の組み合わせで、[[Sobolev 埋め込み定理|LerayHopf.gns_L6_of_memH1_R3]] の中核となる評価：
+  Schwartz 関数 $\varphi$ に対する勾配の重み付き Fourier 評価。Plancherel 型の評価と $\lVert\xi\rVert^2\le1+\lVert\xi\rVert^2$ の組み合わせで、[[Sobolev 埋め込み定理|LerayHopf.gns_L6_of_memH1_R3]] の中核となる評価：
 
   $$\lVert D\varphi\rVert_{L^2}\le 2\pi\sqrt{\int(1+\lVert\xi\rVert^2)\lVert\widehat\varphi(\xi)\rVert^2}$$
 gap:

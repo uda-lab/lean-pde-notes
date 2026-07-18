@@ -1,7 +1,7 @@
 name: LerayHopf.norm_fderiv_truncated_le
 tier: gloss
 statement_ja: |
-  打ち切りの各点勾配評価。Leibniz 則とカットオフの勾配評価を組み合わせる：
+  $R>0$ とし、$K$ をバンプ関数 $\chi$ の勾配ノルムの一様上界とする。このとき Leibniz 則により、打ち切りの各点勾配は次で評価される：
 
   $$\lVert D(\chi_R\varphi)_x\rVert\le\lVert D\varphi_x\rVert+(K/R)\lVert\varphi_x\rVert$$
 gap:

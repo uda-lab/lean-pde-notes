@@ -1,7 +1,7 @@
 name: LerayHopf.fourier_ae_eq_wInv_smul
 tier: gloss
 statement_ja: |
-  $f$ が Sobolev 空間に属し、重み $w_+^{\mathbb C}$ による乗数作用を Fourier 変換 $\widehat f$ に施した像が $f'$ に一致するなら、$\widehat f=w_-\cdot f'$ がほとんど至る所成り立つこと。重み付き Fourier 変換による Sobolev ノルムの特徴づけの中核で、[[Sobolev 埋め込み定理|LerayHopf.gns_L6_of_memH1_R3]] と [[重み付き Fourier からの Sobolev 所属|LerayHopf.memSobolev_of_finite_weightedFourier_R3]] で使う。
+  $f,f'\in L^2_{\mathbb C}$ とし、重み $w_+^{\mathbb C}$ による乗数作用を $\widehat f$ の緩増加超関数としての像に施したものが $f'$ の像に一致すると仮定する。このとき $\widehat f=w_-\cdot f'$ がほとんど至る所成り立つこと。重み付き Fourier 変換による Sobolev ノルムの特徴づけで使う評価で、[[Sobolev 埋め込み定理|LerayHopf.gns_L6_of_memH1_R3]] と [[重み付き Fourier からの Sobolev 所属|LerayHopf.memSobolev_of_finite_weightedFourier_R3]] で使う。
 gap:
   level: mild
 provenance: |

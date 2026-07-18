@@ -1,7 +1,7 @@
 name: LerayHopf.norm_fderiv_cutoff_le
 tier: gloss
 statement_ja: |
-  動径打ち切りの $O(1/R)$ 勾配評価。$R\to\infty$ で誤差が消えることを支える：
+  $R>0$ とし、$K$ をバンプ関数 $\chi$ の勾配ノルムの一様上界（すべての $y$ で $\lVert D\chi(y)\rVert\le K$）とする。このとき動径カットオフの勾配は次の $O(1/R)$ 評価をみたす：
 
   $$\lVert D\chi_R(x)\rVert\le K/R$$
 gap:
