@@ -7,10 +7,12 @@ statement_ja: |
 
   を満たすものの束。
 proof_ja: |
-  これは各系統の移流形式データからの射影であって置き換えではない：$b$ が実際に $\int(u\cdot\nabla)v\cdot w$ という具体的な移流形式であることを固定する標準形への同定（Galerkin 対流との一致）は、系統側のデータに留まる。非自明性（$b\neq 0$）自体は本リポジトリでは独立に形式化されていない（issue #153 のスコープ注記）。抽象層はエネルギー法則と弱形式の組み立てに必要な代数的性質と有界性だけを要求する。
+  これは各系統の移流形式データからの射影であって置き換えではない：$b$ が実際に $\int(u\cdot\nabla)v\cdot w$ という具体的な移流形式であることを固定する標準形への同定（Galerkin 対流との一致）は、系統側のデータに留まる。非自明性（$b\neq 0$）自体は、本リポジトリでは独立な目撃者定理として形式化されていない。抽象層はエネルギー法則と弱形式の組み立てに必要な代数的性質と有界性だけを要求する。
 gap:
   level: mild
   note: |
     系統側の標準形への固定（`b_galerkin`）は `Torus3NSForms` / `R3NSForms` に残り、本データはその抽象化にすぎない。射影（系統から本データを作る対応）は `Torus3NSForms.core` / `R3NSForms.core`、値の一致は `core_b` 補題が固定する。
+provenance: |
+  非自明性に関する形式化範囲は source issue #153 の監査で明確化された。
 chapter: galerkin-generic
 tags: [galerkin-domain, convection]

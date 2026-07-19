@@ -11,12 +11,14 @@ proof_ja: |
 
   $$\lvert b(u,v,w)\rvert \le C\,\lVert u\rVert\,\lVert v\rVert$$
 
-  を得る。標準形へのピンは拡張性と既証の一致（Schwartz クラス上での[[真の移流積分|LerayHopf.convIntegralSchwartz]]との一致）から従う — ただし非自明性（$b\neq 0$）自体を独立に証明した目撃者定理は本リポジトリに存在しない（issue #153 のスコープ注記）。
+  を得る。標準形へのピンは拡張性と既証の一致（Schwartz クラス上での[[真の移流積分|LerayHopf.convIntegralSchwartz]]との一致）から従う — ただし非自明性（$b\neq 0$）自体を独立に証明した目撃者定理は、現行 Lean API に含まれない。
 gap:
   level: mild
   note: |
     これはギャップから NS 形式内容を真に導出する主張であって、単なる改名ではない。量的内容（有界性）と拡張内容は導出され、代数的内容（三線形性・反対称性）のみが、いまだ mathlib にない弱 $(u\cdot\nabla)v$ 作用素の明示的な残余として仮定される。第三スロットの任意 $w$ に関する代数は真の連続性からは導けない（変化するスロットが非有界だから）ため、明示フィールドとして運ばれる。
 
     かつて総体形式の存在は太い公理 `r3_NSForms_exist` として仮定されていたが、この導出により有界性・ピン・密度・代数の大半が定理内容へ移った。極限への評価渡しは `le_of_tendsto_of_tendsto` を用いる。
+provenance: |
+  非自明性に関する形式化範囲は source issue #153 の監査で明確化された。
 chapter: limit-passage
 tags: [convection-form, navier-stokes, density]

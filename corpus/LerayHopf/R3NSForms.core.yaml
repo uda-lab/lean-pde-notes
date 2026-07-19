@@ -3,10 +3,12 @@ tier: full
 statement_ja: |
   $\mathbb{R}^3$ 移流形式データから、その領域中立な核 [[移流形式核|LerayHopf.Galerkin.NSFormCore]] への射影。三重線形形式 $b$ とその代数的性質（反対称性・線形性・テスト有界性）をそのまま渡す。
 proof_ja: |
-  各条項の単純な読み替えであり、新しい証明内容はない。$b$ の具体的な移流積分への同定（標準形へのピン留め）は $\mathbb{R}^3$ 側のデータに留まる — 非自明性（$b\neq 0$）自体は本リポジトリでは独立に形式化されていない（issue #153）。
+  各条項の単純な読み替えであり、新しい証明内容はない。$b$ の具体的な移流積分への同定（標準形へのピン留め）は $\mathbb{R}^3$ 側のデータに留まる — 非自明性（$b\neq 0$）自体は、本リポジトリでは独立な目撃者定理として形式化されていない。
 gap:
   level: none
   note: |
     値の一致は `R3NSForms.core_b`（`rfl`）が固定する。
+provenance: |
+  非自明性に関する形式化範囲は source issue #153 の監査で明確化された。
 chapter: capstone-r3
 tags: [galerkin-domain, r3, convection]

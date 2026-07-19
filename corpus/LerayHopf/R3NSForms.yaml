@@ -17,8 +17,10 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    このピンは $b$ を真の移流積分（標準形）に同定するのみである。非自明性（$b\neq 0$、すなわちこの同定が自明な $b=0$ を実際に排除すること）は本リポジトリでは独立に形式化されていない — 具体的な目撃者定理は証明されていない（issue #153 のスコープ注記）。これは形式的保証の範囲の論点であり数学的健全性の問題ではない：真の移流積分が恒等的に零でないこと自体は疑いようがない。有界性は $b(u,v,w)=-\int(u\cdot\nabla)w\cdot v$ から、$w$ が Schwartz なら $\lVert\nabla w\rVert_\infty<\infty$ で従い、非線形極限移行の強 $L^2$ 収束に適した形をとる。反対称性の規約は後ろ二つのスロットで歪対称である。
+    このピンは $b$ を真の移流積分（標準形）に同定するのみである。非自明性（$b\neq 0$、すなわちこの同定が自明な $b=0$ を実際に排除すること）は、本リポジトリでは独立な目撃者定理として形式化されていない。したがって、現行 Lean API が直接保証するのは標準形への同定までである。有界性は $b(u,v,w)=-\int(u\cdot\nabla)w\cdot v$ から、$w$ が Schwartz なら $\lVert\nabla w\rVert_\infty<\infty$ で従い、非線形極限移行の強 $L^2$ 収束に適した形をとる。反対称性の規約は後ろ二つのスロットで歪対称である。
 
     存在（`Nonempty`）はかつて公理として仮定されていたが、現在は証明済み定理 [[NS 形式の存在|LerayHopf.r3_NSForms_exists]] である。構造体は移流ギャップ操作核と証明済み密度から [[ギャップからの NS 形式|LerayHopf.R3NSForms_of_gap]] を経て組み立てられる。
+provenance: |
+  非自明性に関する形式化範囲は source issue #153 の監査で明確化された。
 chapter: spaces
 tags: [convection-form, navier-stokes, weak-formulation]

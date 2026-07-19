@@ -5,11 +5,13 @@ statement_ja: |
 proof_ja: |
   証明済みの[[トーラス対流ギャップ|LerayHopf.torusConvectionGap_exists]]から出発し、単離されたギャップデータを実際の[[形式束|LerayHopf.Torus3NSForms]]へ変換する[[ギャップからの構成|LerayHopf.Torus3NSForms_of_gap]]を適用する。ギャップは総体的な対流形式・三重線形構造・反対称性・テスト対角上の有界性・連続性・Galerkin テストの稠密性を持ち、そこから形式束の全フィールドが導かれる。
 
-  Galerkin 固定条件を通じて $b$ は標準形へ同定される（非自明性 $b\neq 0$ は本リポジトリでは独立に形式化されておらず、具体的な目撃者定理は証明されていない — issue #153 のスコープ注記）。得られる総体的三重線形拡張は本物の Fourier/Galerkin テスト形式に釘付けされ、固定テストにおいて二つの解スロットで連続だが、純粋な $L^2$ 三つ組すべてに対する標準的連続作用素として喧伝されるものではない。
+  Galerkin 固定条件を通じて $b$ は標準形へ同定される。非自明性 $b\neq 0$ は、本リポジトリでは独立な目撃者定理として形式化されていない。得られる総体的三重線形拡張は本物の Fourier/Galerkin テスト形式に釘付けされ、固定テストにおいて二つの解スロットで連続だが、純粋な $L^2$ 三つ組すべてに対する標準的連続作用素として喧伝されるものではない。
 gap:
   level: large
   note: |
     かつての太い公理 `torus3_NSForms_exist` は撤去され、内容は定理化された。決定された対流形式の理論からギャップを埋めるため、証明であって公理ではない。$\mathbb{R}^3$ 側の対応物（`R3NSForms_of_gap`）を鏡映した構成である。理論的背景は Temam II.§1, RRS §3.2。
+provenance: |
+  非自明性に関する形式化範囲は source issue #153 の監査で明確化された。
 chapter: limit-passage
 tags: [convection-form, existence, torus, de-axiomatized]
 references:
