@@ -143,3 +143,26 @@ corpus エントリ数 1,349 → 1,339（全宣言 coverage 維持）。
 `LerayHopf.Experimental` 経由でのみ到達可能となった。notes の抽出 universe は
 owner 裁定（2026-07-17）により root + Experimental の両方をカバーする
 （lean-pde#166 で extractor を拡張、本 repin から適用）。
+
+## 追記 3: release candidate freeze repin（PIN d5f91f7 → 7c15710a、leray-hopf-notes#32 Phase B）
+
+owner 裁定（issue #32、2026-07-19T15:49:25Z）による source release candidate 凍結
+（`uda-lab/leray-hopf@7c15710a7b9068a2aa105fc7c11b432e7685b7b5`）への追随。leray-hopf
+#151/#152/#154/#155/#156/#157/#158/#173/#177/#178/#180（PR #170–#183 の範囲、docstring/private
+境界の triage・maxHeartbeats 注釈・Temam/Sobolev 記法修正・rename sync・release-cone guard 強化）
+を含む 23 commits。
+
+`lake exe extract_notes` 再実行（フレッシュビルド、実際にコンパイルされたのは 9 モジュールの
+み・残り 3187 ジョブはキャッシュ再利用）: 抽出宣言数 1,339 → 1,339（増減なし）。
+`decl_diff.py` による分類:
+
+| 区分 | 件数 | 内容 | corpus 側対応 |
+|---|---|---|---|
+| 追加/削除/移動 | 0 | — | — |
+| public→private 可視性変更（issue #155 の docstring/private 境界 triage） | 24 | すべて `LerayHopf/Torus/ConvectionExtension.lean` 内（`convBLTw` 系・`l2coeff` 系など） | 本 repin では機械的差分のみ反映（PIN/CITATION.cff 更新）。2 層ポリシー（public=full）に従うと該当 24 件は tier: full → gloss への格下げ対象だが、gloss 文面の手書き作業は本 PR のスコープ外 — 別 issue でフォローアップ |
+| signature text 変更（同上 triage の副作用、doc-only） | 13 | 上記 24 件のサブセット | 同上（tier 格下げと合わせてフォローアップ） |
+
+display-name 衝突は 2 組 4 宣言のまま不変。`validate.py` / `coverage.py` はともに green
+（1339/1339 coverage、tier 不整合は非致命 — `validate.py` は `tier ∈ {full, gloss}` のみ検査
+し public/private との整合は検査対象外）。`extracted/names-fallback.json` は引き続き休眠・
+非更新。

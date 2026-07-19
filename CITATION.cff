@@ -30,4 +30,4 @@ references:
     license: "Apache-2.0"
     # Exact leray-hopf commit this corpus/site is pinned to; keep in sync with
     # extracted/PIN whenever a repin PR updates it.
-    commit: "d5f91f7e88c337b85623d7af6f7cb01cd136f97c"
+    commit: "7c15710a7b9068a2aa105fc7c11b432e7685b7b5"
