@@ -3,11 +3,13 @@ tier: full
 statement_ja: |
   Lions–Magenes の良い代表元（$p=q=2$ の Gelfand 三対の場合、意図的 sorry）：$u \in L^2(0,T;V)$ かつ弱時間微分が $u' \in L^2(0,T;V')$ を満たすならば、ピボット空間 $H$ に値を取る連続な代表元を持つ — $[0,T]$ 上連続で、$u$ の $H$ への像とほとんど至る所一致する曲線が存在する。
 proof_ja: |
-  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**これは Lions–Magenes の埋め込み（Temam, Chapter III, Lemma 1.2 および §1.4）
+  **証明は意図的に `sorry`（ALLOW_SORRY）で開けてある。**これは Lions–Magenes の埋め込み（Temam, Chapter III, Lemma 1.2, p. 205）
 
   $$\bigl\{\, u \in L^2(0,T;V) \;:\; u' \in L^2(0,T;V') \,\bigr\} \hookrightarrow C([0,T];H)$$
 
   （微分は $V'$ 値の弱時間微分）で、mathlib に欠けているベクトル値の時間 Sobolev／良い代表元理論の基幹定理に当たる。標準的な証明経路はエネルギー対 $t \mapsto \langle u'(t), u(t)\rangle_{V',V}$ の可積分性に Cauchy–Schwarz（$L^2(V') \times L^2(V)$）を用いるため、指数対 $p=q=2$ に本質的に依存する。
+
+  **注意（Lemma III.1.2 と本宣言の関係）**: Lemma III.1.2 の主張は本宣言より真に強く、連続な $H$ 値代表元に加え分布的なエネルギー恒等式 (1.68) も与える。本宣言を Lemma III.1.2 と同一視してはならない — 本宣言が掲げるのは連続代表元部分のみであり、エネルギー恒等式 (1.68) は形式化されておらず、初期値に関する明示的な評価も本宣言の主張には現れない。
 gap:
   level: large
   note: |
@@ -16,5 +18,5 @@ chapter: bochner
 tags: [gelfand-triple, bochner, contains-sorry, quarantined-history]
 proof_status: contains-sorry
 references:
-  - id: temam2001
-    locator: "III.1.2; III.§1.4"
+  - id: temam1973
+    locator: "Chapter III, Lemma 1.2, p. 205"

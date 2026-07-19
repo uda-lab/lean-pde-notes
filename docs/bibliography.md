@@ -40,6 +40,14 @@ the 1984 edition. AMS Chelsea Publishing, Providence, RI. ISBN 0-8218-2737-5.
 corpus の「Temam III.3」「Temam II.§1」等は本書の章番号を指す（AMS Chelsea 2001 版の
 章構成は 1984 版と同一）。
 
+### `temam1973`
+
+Temam, R. (1973). *On the Theory and Numerical Analysis of the Navier–Stokes Equations*.
+Publications Mathématiques d'Orsay, No. 64. Université Paris XI.
+
+`w1pTime_continuous_in_H` は本書 Chapter III, Lemma 1.2, p. 205 を引く。`temam2001` とは
+別の書誌項目であり、locator を共有しない。
+
 ### `lemarie-rieusset2002`
 
 Lemarié-Rieusset, P.G. (2002). *Recent Developments in the Navier-Stokes Problem*.
