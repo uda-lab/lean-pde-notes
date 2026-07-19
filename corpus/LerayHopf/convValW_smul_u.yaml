@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.convValW_smul_u
-tier: full
+tier: gloss
 statement_ja: |
   部分積分形の第一引数の実斉次性（仮定なし）。
-proof_ja: |
-  係数のスカラー倍を括り出し、実スカラーと総和・実部の交換（無条件に成立）で従う。
 gap:
   level: none
-  note: |
-    スカラー倍は加法と違い総和可能性なしで総和と交換するため、テスト側の仮定が要らない。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [convection, determined-form, torus]
+tags: [private-helper, convection, determined-form, torus]

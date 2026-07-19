@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.sec_summable
-tier: full
+tier: gloss
 statement_ja: |
   断面の総和可能性：非負列 $U, V$ の二乗和が総和可能なら、各 $m$ で断面 $k \mapsto U(k)\, V(-k - m)$ は総和可能である。
-proof_ja: |
-  シフト側の二乗総和可能性を全単射で確保し、$\ell^2 \times \ell^2 \to \ell^1$ の Hölder 型の総和可能性補題に渡す。
 gap:
   level: none
-  note: |
-    二重和を断面に切ってから足し上げる（Fubini 型）方針の断面側の入力。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]

@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.summable_sq_shift
-tier: full
+tier: gloss
 statement_ja: |
   シフトした係数の二乗総和可能性：係数の二乗和が総和可能なら、格子の反転シフト $k \mapsto -k - m$ を通しても総和可能である。
-proof_ja: |
-  反転シフトは格子の全単射なので、総和可能性は再添字化で保たれる。
 gap:
   level: none
-  note: |
-    畳み込み型の和の Cauchy–Schwarz（[[シフト付き CS|LerayHopf.TorusConvectionExtension.cs_per_m]]）の準備。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]

@@ -10,5 +10,11 @@ gap:
   level: mild
   note: |
     この双線形有界性が移流形式の $L^2 \times L^2$ への連続拡張（極限移行の中核）を可能にする。定数の最適性は問わない。本 corpus 最長級の評価計算の一つ。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN 7c15710a）で
+  public → private に変更。2 層ポリシー（public=full）の原則では gloss 格下げ対象だが、
+  public 定理 `convFormL2_bound_galerkinTest` の証明に直接使われる部分積分形アプローチの
+  双線形有界性評価（本 corpus 最長級）であるため、昇格条項（数学的に重いもの）により
+  tier: full を維持（issue #107）。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

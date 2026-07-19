@@ -1,14 +1,14 @@
 name: LerayHopf.TorusConvectionExtension.l2coeff
-tier: full
+tier: gloss
 statement_ja: |
   係数の $\ell^2$ 量：スカラー $L^2$ 関数 $f$ に対し、Fourier 係数のノルム二乗和の平方根
-
+  
   $$\Bigl( \sum_{k} \lVert \hat f(k) \rVert^2 \Bigr)^{1/2}.$$
-proof_ja: |
-  係数の二乗総和の $1/2$ 乗として定める。
 gap:
   level: none
-  note: |
-    Parseval により実は $\lVert f \rVert$ に等しいが、評価の中では「係数側の量」として持ち回り、[[ノルムによる上界|LerayHopf.TorusConvectionExtension.l2coeff_le]] で必要な時だけノルムへ渡す設計。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]

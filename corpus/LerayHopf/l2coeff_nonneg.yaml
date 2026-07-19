@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.l2coeff_nonneg
-tier: full
+tier: gloss
 statement_ja: |
   $\ell^2$ 量の非負性。
-proof_ja: |
-  非負数の総和の平方根として非負である。
 gap:
   level: none
-  note: |
-    評価の側条件用。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]

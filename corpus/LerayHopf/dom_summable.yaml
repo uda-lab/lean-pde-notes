@@ -1,16 +1,16 @@
 name: LerayHopf.TorusConvectionExtension.dom_summable
-tier: full
+tier: gloss
 statement_ja: |
   上界を与える非負関数の総和可能性（$\ell^2 \cdot \ell^2 \cdot \ell^1$ 型）：$U, V$ は非負で二乗総和可能、$W_c$ は非負で周波数箱に台を持つとする。このとき格子点対上の族
 
   $$(k, l) \longmapsto W_c(-(k+l))\, U(k)\, V(l)$$
 
-  （第三因子の引数を反対角に取った形）は総和可能である。
-proof_ja: |
-  格子点対の全単射 $(k, l) \mapsto (m, k)$（$m = -(k+l)$）で反対角を独立変数に変える。変換後は「$m$ ごとの断面（[[断面の総和可能性|LerayHopf.TorusConvectionExtension.sec_summable]]で総和可能）に $W_c(m)$ を掛けて $m$ で足す」形になり、$W_c$ の有限台により $m$ 側の和は有限和なので、非負族の直積判定で総和可能性が従う。
+  は総和可能である。
 gap:
   level: none
-  note: |
-    移流形式の総和可能性論法の骨格。エネルギー章の $H^1$ 重み経路と違い、こちらは第三因子の有限台だけで閉じる（中央因子の $H^1$ を要求しない）ことが部分積分形の存在意義につながる。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]

@@ -12,5 +12,10 @@ gap:
   level: none
   note: |
     固定テストの移流対が $(u, v)$ について同時連続 — 極限移行で近似列を同時に動かせる理由。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN 7c15710a）で
+  public → private に変更。public 定理 `convFormL2_cont_fixedTest` の doc comment・証明で
+  直接名指しされる連続双線形拡張の構成対象であるため、昇格条項（数学的に重いもの）により
+  tier: full を維持（issue #107）。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

@@ -1,16 +1,16 @@
 name: LerayHopf.TorusConvectionExtension.cs_per_m
-tier: full
+tier: gloss
 statement_ja: |
   シフト付き Cauchy–Schwarz：係数二乗和が総和可能な $f_U, f_V$ と任意の $m$ に対し、和
 
   $$\sum_{k} \lVert \hat f_U(k) \rVert\, \lVert \hat f_V(-k - m) \rVert$$
 
-  は $f_U$ と $f_V$ の [[ℓ² 量|LerayHopf.TorusConvectionExtension.l2coeff]] の積以下である。
-proof_ja: |
-  シフト側の二乗総和可能性を[[シフト補題|LerayHopf.TorusConvectionExtension.summable_sq_shift]]で確保し、総和の Hölder（指数 $2, 2$）を適用する。右辺のシフト側の $\ell^2$ 量は[[シフト不変性|LerayHopf.TorusConvectionExtension.tsum_sq_shift]]で元の量に戻る。
+  は $f_U$ と $f_V$ の[[ℓ² 量|LerayHopf.TorusConvectionExtension.l2coeff]]の積以下である。
 gap:
   level: none
-  note: |
-    畳み込みの対角評価の一行分。指数の実数冪への橋渡し（`rpow`）が形式化の細部。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]
