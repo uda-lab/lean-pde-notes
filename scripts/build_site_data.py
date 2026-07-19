@@ -57,6 +57,7 @@ except ImportError:
 
 sys.path.insert(0, str(Path(__file__).parent))
 from bibliography import parse_bibliography  # noqa: E402
+from glossary import parse_glossary  # noqa: E402
 
 REPO_ROOT = Path(__file__).parent.parent
 EXTRACTED_DIR = REPO_ROOT / 'extracted'
@@ -64,6 +65,7 @@ CORPUS_DIR = REPO_ROOT / 'corpus'
 SITE_DATA_DIR = REPO_ROOT / 'site' / 'data'
 CITATION_PATH = REPO_ROOT / 'CITATION.cff'
 CHAPTERS_PATH = REPO_ROOT / 'docs' / 'schemas' / 'chapters.yaml'
+GLOSSARY_PATH = REPO_ROOT / 'docs' / 'GLOSSARY.md'
 
 # ---------------------------------------------------------------------------
 # Chapter heuristic (fallback only — a corpus `chapter:` field always wins).
@@ -443,11 +445,15 @@ def main() -> None:
 
     pin = read_pin()
     bibliography = {cid: info['citation'] for cid, info in parse_bibliography().items()}
+    # notes#73 slice 2: embed the GLOSSARY.md table (already parsed for glossary_lint.py)
+    # so search can match glossary terms without shipping docs/GLOSSARY.md itself.
+    glossary = sorted(parse_glossary(GLOSSARY_PATH), key=lambda e: e['english'])
     payload = {
         'pin': pin,
         'built_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'citation': read_citation_meta(pin, warnings),
         'bibliography': bibliography,
+        'glossary': glossary,
         'universe_source': universe_source,
         'has_full_metadata': has_decls,
         'has_source': reader.hits > 0,

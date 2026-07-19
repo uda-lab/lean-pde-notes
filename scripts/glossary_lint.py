@@ -2,7 +2,7 @@
 """
 glossary_lint.py — corpus translation linter for leray-hopf-notes.
 
-Parses docs/GLOSSARY.md (Markdown table with columns:
+Uses scripts/glossary.py to parse docs/GLOSSARY.md (Markdown table with columns:
   English term | 日本語訳 | Lean 識別子例 | 備考 | forbidden)
 
 For each corpus/**/*.yaml:
@@ -19,7 +19,6 @@ Usage:
 """
 
 import argparse
-import re
 import sys
 from pathlib import Path
 
@@ -29,73 +28,12 @@ try:
 except ImportError:
     sys.exit('ERROR: PyYAML required. pip install pyyaml')
 
+sys.path.insert(0, str(Path(__file__).parent))
+from glossary import parse_glossary  # noqa: E402
+
 REPO_ROOT = Path(__file__).parent.parent
 GLOSSARY_PATH = REPO_ROOT / 'docs' / 'GLOSSARY.md'
 CORPUS_DIR = REPO_ROOT / 'corpus'
-
-
-def parse_glossary(glossary_path: Path) -> list[dict]:
-    """
-    Parse the GLOSSARY.md table. Returns a list of dicts:
-      {english, japanese, forbidden: list[str]}
-    """
-    if not glossary_path.exists():
-        print(f'WARNING: GLOSSARY not found at {glossary_path}', file=sys.stderr)
-        return []
-
-    entries = []
-    in_table = False
-    header_seen = False
-    separator_seen = False
-
-    for line in glossary_path.read_text(encoding='utf-8').splitlines():
-        line = line.strip()
-        if not line.startswith('|'):
-            in_table = False
-            header_seen = False
-            separator_seen = False
-            continue
-
-        # Detect table header
-        if 'English term' in line and '日本語訳' in line:
-            in_table = True
-            header_seen = True
-            separator_seen = False
-            continue
-
-        if in_table and not separator_seen:
-            # separator row: |---|---|...
-            if re.match(r'^\|[-| :]+\|$', line):
-                separator_seen = True
-                continue
-            continue
-
-        if in_table and header_seen and separator_seen:
-            # Data row
-            cells = [c.strip() for c in line.strip('|').split('|')]
-            if len(cells) < 2:
-                continue
-            english = cells[0].strip()
-            japanese = cells[1].strip()
-            forbidden_raw = cells[4].strip() if len(cells) > 4 else ''
-
-            # Parse forbidden: comma-separated, strip quotes and ⚠要確認
-            forbidden = []
-            for f in forbidden_raw.split('、'):
-                f = f.strip()
-                f = re.sub(r'⚠[^\s]*', '', f).strip()
-                f = f.strip('「」""')
-                if f:
-                    forbidden.append(f)
-
-            if english:
-                entries.append({
-                    'english': english,
-                    'japanese': japanese,
-                    'forbidden': forbidden,
-                })
-
-    return entries
 
 
 def load_corpus(corpus_root: Path) -> list[tuple[Path, dict]]:

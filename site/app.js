@@ -1319,7 +1319,8 @@ function renderSearch(app, q) {
   const input = document.getElementById('search-input');
   if (input && input.value !== q) input.value = q;
   q = (q || '').trim();
-  setPageMeta(q ? `検索: ${q}` : '検索', q ? null : '宣言名・statement・proof・tags を対象に検索する。');
+  setPageMeta(q ? `検索: ${q}` : '検索',
+    q ? null : '宣言名・statement・proof・tags・用語集・参考文献を対象に検索する。');
   app.appendChild(el('h1', { text: '検索' }));
   if (!q) { app.appendChild(el('p', { class: 'filemeta', text: '検索語を入力してください。' })); return; }
 
@@ -1338,13 +1339,27 @@ function renderSearch(app, q) {
     const docHit = n.doc && n.doc.toLowerCase().includes(ql);
     if (nameHit || stmtHit || proofHit || tagHit || docHit) hits.push(n);
   }
+
+  // notes#73 slice 2: match docs/GLOSSARY.md terms (english/japanese/note) and
+  // docs/bibliography.md citations, both already loaded into state.data for other
+  // purposes (glossary_lint.py's source table; per-declaration/about-page citations)
+  // but previously unsearchable.
+  const glossaryHits = (state.data.glossary || []).filter(g =>
+    g.english.toLowerCase().includes(ql)
+    || (g.japanese && g.japanese.toLowerCase().includes(ql))
+    || (g.note && g.note.toLowerCase().includes(ql)));
+  const bib = state.data.bibliography || {};
+  const citationHits = Object.keys(bib).filter(cid =>
+    cid.toLowerCase().includes(ql) || bib[cid].toLowerCase().includes(ql)).sort();
+
+  const totalHits = hits.length + glossaryHits.length + citationHits.length;
   // notes#73 (codex pre-review): setPageMeta() above ran before hits were counted, so it
   // left og:description at DEFAULT_DESCRIPTION for any non-empty query — update both the
   // plain meta description and og:description together now that the count is known.
-  const resultDesc = `"${q}" の検索結果 ${hits.length} 件。`;
+  const resultDesc = `"${q}" の検索結果 ${totalHits} 件。`;
   setMetaContent('name', 'description', resultDesc);
   setMetaContent('property', 'og:description', resultDesc);
-  app.appendChild(el('p', { class: 'filemeta', text: `"${q}" — ${hits.length} 件` }));
+  app.appendChild(el('p', { class: 'filemeta', text: `"${q}" — ${totalHits} 件` }));
 
   const groups = new Map();
   for (const n of hits) { if (!groups.has(n.kind)) groups.set(n.kind, []); groups.get(n.kind).push(n); }
@@ -1352,6 +1367,36 @@ function renderSearch(app, q) {
     const arr = groups.get(kind).sort(byName).slice(0, 200);
     const sec = el('div', { class: 'section' }, [el('h3', {}, [kindBadge(kind), el('span', { text: ` (${groups.get(kind).length})` })])]);
     for (const n of arr) sec.appendChild(declRow(n));
+    app.appendChild(sec);
+  }
+
+  if (glossaryHits.length) {
+    const sec = el('div', { class: 'section' }, [
+      el('h3', {}, [el('span', { text: '用語集' }), el('span', { text: ` (${glossaryHits.length})` })]),
+    ]);
+    const ul = el('ul', { class: 'refs-list' });
+    for (const g of glossaryHits) {
+      ul.appendChild(el('li', {}, [
+        el('span', { class: 'mono', text: g.english }),
+        el('span', { class: 'ref-citation', text: '  ' + g.japanese + (g.note ? '　' + g.note : '') }),
+      ]));
+    }
+    sec.appendChild(ul);
+    app.appendChild(sec);
+  }
+
+  if (citationHits.length) {
+    const sec = el('div', { class: 'section' }, [
+      el('h3', {}, [el('span', { text: '参考文献' }), el('span', { text: ` (${citationHits.length})` })]),
+    ]);
+    const ul = el('ul', { class: 'refs-list' });
+    for (const cid of citationHits) {
+      ul.appendChild(el('li', {}, [
+        el('a', { href: '#/about/' + encodeURIComponent(cid), class: 'mono', text: cid }),
+        el('span', { class: 'ref-citation', text: '  ' + bib[cid] }),
+      ]));
+    }
+    sec.appendChild(ul);
     app.appendChild(sec);
   }
 }

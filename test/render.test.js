@@ -751,6 +751,73 @@ check('(s) search matches the raw Lean docstring (doc) case-insensitively, isola
     'a mixed-case query must match "Compactness" inside the raw doc string, via docHit alone');
 });
 
+/* ==== notes#73 slice 2: search widened to docs/GLOSSARY.md terms and
+ * docs/bibliography.md citations (previously loaded for other purposes but not
+ * searchable). notes#73 (owner review, PR #93): the first pass here used a single
+ * fixture/query per group ('mollifier' for the glossary check, 'temam' for the
+ * citation check), so an accidentally-deleted japanese/note branch, or an
+ * accidentally-deleted citation-text branch, would not have failed the test — the
+ * surviving branch(es) would still produce the hit. Every field below now uses a
+ * token that appears in exactly one field of the fixture, so each check can only
+ * pass via the branch it names. ==== */
+const GLOSSARY_ISOLATION_FIXTURE = [{
+  english: 'xenglishonlyterm',
+  japanese: '日本語のみの訳語',
+  note: '備考欄限定テキスト',
+  forbidden: [],
+}];
+
+check('(t) search matches a glossary term via english only, isolated from japanese/note', () => {
+  state.data = { chapters: [], capstones: [], nodes: [], glossary: GLOSSARY_ISOLATION_FIXTURE };
+  window.location.hash = '#/search/' + encodeURIComponent('xenglishonlyterm');
+  route();
+  const text = document.getElementById('app').textContent;
+  assert.ok(text.includes('1 件'), 'the english field alone must produce a hit');
+  assert.ok(text.includes('用語集'), 'a glossary hit must render under a 用語集 section');
+});
+
+check('(t) search matches a glossary term via japanese only, isolated from english/note', () => {
+  state.data = { chapters: [], capstones: [], nodes: [], glossary: GLOSSARY_ISOLATION_FIXTURE };
+  window.location.hash = '#/search/' + encodeURIComponent('日本語のみの訳語');
+  route();
+  const text = document.getElementById('app').textContent;
+  assert.ok(text.includes('1 件'), 'the japanese field alone must produce a hit');
+  assert.ok(text.includes('用語集'), 'a glossary hit must render under a 用語集 section');
+});
+
+check('(t) search matches a glossary term via note only, isolated from english/japanese', () => {
+  state.data = { chapters: [], capstones: [], nodes: [], glossary: GLOSSARY_ISOLATION_FIXTURE };
+  window.location.hash = '#/search/' + encodeURIComponent('備考欄限定テキスト');
+  route();
+  const text = document.getElementById('app').textContent;
+  assert.ok(text.includes('1 件'), 'the note field alone must produce a hit');
+  assert.ok(text.includes('用語集'), 'a glossary hit must render under a 用語集 section');
+});
+
+const CITATION_ISOLATION_FIXTURE = {
+  zzzuniqueid: 'Some citation text about Chelsea Publishing House.',
+};
+
+check('(t) search matches a bibliography citation by id only, isolated from citation text, linking to its /about entry', () => {
+  state.data = { chapters: [], capstones: [], nodes: [], bibliography: CITATION_ISOLATION_FIXTURE };
+  window.location.hash = '#/search/' + encodeURIComponent('zzzuniqueid');
+  route();
+  const appEl = document.getElementById('app');
+  assert.ok(appEl.textContent.includes('1 件'), 'the id field alone must produce a hit');
+  assert.ok(appEl.textContent.includes('参考文献'), 'a citation hit must render under a 参考文献 section');
+  const link = appEl.querySelector('a[href="#/about/zzzuniqueid"]');
+  assert.ok(link, 'the citation hit must link to its /about entry, like the per-declaration 参考文献 panel does');
+});
+
+check('(t) search matches a bibliography citation by citation text only, isolated from the id', () => {
+  state.data = { chapters: [], capstones: [], nodes: [], bibliography: CITATION_ISOLATION_FIXTURE };
+  window.location.hash = '#/search/' + encodeURIComponent('chelsea');
+  route();
+  const appEl = document.getElementById('app');
+  assert.ok(appEl.textContent.includes('1 件'), 'the citation-text field alone must produce a hit');
+  assert.ok(appEl.textContent.includes('参考文献'), 'a citation hit must render under a 参考文献 section');
+});
+
 Promise.all(pending).then(() => {
   console.log(`\nAll ${passed} render checks passed.`);
 }).catch((err) => {
