@@ -7,6 +7,8 @@ proof_ja: |
 gap:
   level: none
   note: |
-    形式束の `b_galerkin` フィールド：抽象的に構成した $b$ が有限次元の Galerkin ODE の具体的な移流と同じ値を取ることの保証。この一致は $b$ を標準形へ同定するのみであり、非自明性（$b\neq 0$、すなわち「$b=0$ のような自明な実現」の排除）は本リポジトリでは独立に形式化されていない — 具体的な目撃者定理は証明されていない（issue #153 のスコープ注記）。
+    形式束の `b_galerkin` フィールド：抽象的に構成した $b$ が有限次元の Galerkin ODE の具体的な移流と同じ値を取ることの保証。この一致は $b$ を標準形へ同定するのみであり、非自明性（$b\neq 0$、すなわち「$b=0$ のような自明な実現」の排除）は本リポジトリでは独立に形式化されていない — 具体的な目撃者定理は現行 Lean API に含まれない。
+provenance: |
+  非自明性に関する形式化範囲は source issue #153 の監査で明確化された。
 chapter: limit-passage
 tags: [determined-form, tensor, torus]
