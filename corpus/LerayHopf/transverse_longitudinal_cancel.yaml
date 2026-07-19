@@ -1,10 +1,10 @@
 name: LerayHopf.transverse_longitudinal_cancel
 tier: gloss
 statement_ja: |
-  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  $\xi\neq0$ において、横型ベクトル $\widehat u$（$\sum_j\xi_j\widehat u_j=0$）と縦型ベクトル $\widehat w$（$\widehat w\times\xi=0$）の Hermite 内積がゼロになることを述べる。横型な向きと縦型な向きは直交するという、$\mathbb C^3$ 上の線形代数の事実である。
+
+  $$\sum_j\overline{\widehat u_j}\,\widehat w_j=0$$
 gap:
-  level: mild
-  note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/CurlDensity.lean` の `LerayHopf.transverse_longitudinal_cancel`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
-chapter: limit-passage
-tags: [private-helper, generated]
+  level: none
+chapter: spaces
+tags: [transverse, linear-algebra, private-helper]

@@ -1,10 +1,8 @@
 name: LerayHopf.hasTemperateGrowth_coordC
 tier: gloss
 statement_ja: |
-  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  周波数の第 $m$ 座標成分を複素数値へ埋め込んだ写像 $\xi\mapsto\xi_m$ が緩増加性をもつことを述べる。座標への射影が連続線形写像として緩増加性をもつことに、実数から複素数への標準的な埋め込みを合成して得る。
 gap:
-  level: mild
-  note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/CurlDensityH1.lean` の `LerayHopf.hasTemperateGrowth_coordC`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
-chapter: limit-passage
-tags: [private-helper, generated]
+  level: none
+chapter: projections-galerkin
+tags: [temperate-growth, fourier, private-helper]

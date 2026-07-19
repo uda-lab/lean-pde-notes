@@ -1,10 +1,8 @@
 name: LerayHopf.fourier_sub_L2C
 tier: gloss
 statement_ja: |
-  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  複素 $L^2$ クラス上の Fourier 変換が差について加法的であること、すなわち $\mathcal F(A-B)=\mathcal FA-\mathcal FB$ が成り立つことを述べる。
 gap:
-  level: mild
-  note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/CurlDensityH1.lean` の `LerayHopf.fourier_sub_L2C`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
-chapter: limit-passage
-tags: [private-helper, generated]
+  level: none
+chapter: projections-galerkin
+tags: [fourier, linear-algebra, private-helper]

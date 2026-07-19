@@ -1,10 +1,10 @@
 name: LerayHopf.crossHatOf
 tier: gloss
 statement_ja: |
-  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な定義である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  複素 Schwartz 場の族 $\widehat w$ の三成分に対し、外積の第 $k$ 成分を Schwartz 場として構成したもの。添字は $3$ を法とする巡回で読む。
+
+  $$(\xi\times\widehat w)_k=\xi_{k+1}\,\widehat w_{k+2}-\xi_{k+2}\,\widehat w_{k+1}$$
 gap:
-  level: mild
-  note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/CurlDensityH1.lean` の `LerayHopf.crossHatOf`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
-chapter: limit-passage
-tags: [private-helper, generated]
+  level: none
+chapter: projections-galerkin
+tags: [curl, fourier-multiplier, private-helper]

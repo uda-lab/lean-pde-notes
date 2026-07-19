@@ -1,10 +1,14 @@
 name: LerayHopf.tendsto_yukawa_integral
 tier: gloss
 statement_ja: |
-  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  非負可積分な重み $\varphi$ に対し、正則化スケールの正実数列 $(a_n)_n$ が $0$ に収束するとき、湯川型の重み付き積分
+
+  $$\int\Bigl(\frac{a_n^2}{a_n^2+\lVert\xi\rVert^2}\Bigr)^{2}\varphi(\xi)\,d\xi$$
+
+  が $0$ に収束することを述べる。優収束定理による。
 gap:
   level: mild
   note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/CurlDensityH1.lean` の `LerayHopf.tendsto_yukawa_integral`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
-chapter: limit-passage
-tags: [private-helper, generated]
+    連続変数 $a\to0^+$ の極限ではなく、正の実数列 $(a_n)$ に沿った離散極限として定式化されている（`Filter.Tendsto … Filter.atTop`）。呼び出し側では具体的な列 $a_n=1/(n+1)$ を用いる。
+chapter: projections-galerkin
+tags: [dominated-convergence, yukawa-regularization, private-helper]

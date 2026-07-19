@@ -1,10 +1,12 @@
 name: LerayHopf.potOf
 tier: gloss
 statement_ja: |
-  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な定義である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  正則化された実ベクトルポテンシャルの第 $k$ 成分を、[[正則化ポテンシャル記号|LerayHopf.symbolHatOf]]の Fourier 逆変換の実部として構成したもの。
+
+  $$\psi_k=\operatorname{Re}\bigl(\mathcal F^{-1}\widehat\psi_k\bigr)$$
 gap:
   level: mild
   note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/CurlDensityH1.lean` の `LerayHopf.potOf`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
-chapter: limit-passage
-tags: [private-helper, generated]
+    実部をとる操作自体は Hermite 対称性を要求しないため定義できるが、この $\psi_k$ の複素化が元の記号 `symbolHatOf` に一致するには `hHerm`（`wh` の Hermite 対称性）が必要になる。その事実は別宣言 `cxify_potOf` が担う。
+chapter: projections-galerkin
+tags: [curl, yukawa-regularization, potential, private-helper]
