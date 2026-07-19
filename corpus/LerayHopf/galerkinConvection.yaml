@@ -7,12 +7,14 @@ statement_ja: |
 
   と定める。ここで和は箱 $\lVert k\rVert_\infty\le n$, $\lVert l\rVert_\infty\le n$ を走る。
 proof_ja: |
-  $\mathbb{T}^3$ 上の移流三線形形式 $(u\cdot\nabla)v\cdot w$ の正しい有限和近似で、有限和ゆえ well-defined であり、Galerkin 部分空間の上で真の移流形式に一致する（非零であること自体は本リポジトリでは独立に形式化されていない — issue #153）。因子 $2\pi i\, l_a$ はモードの偏微分の係数から生じる。
+  $\mathbb{T}^3$ 上の移流三線形形式 $(u\cdot\nabla)v\cdot w$ の正しい有限和近似で、有限和ゆえ well-defined であり、Galerkin 部分空間の上で真の移流形式に一致する。非零であること自体は、本リポジトリでは独立な目撃者定理として形式化されていない。因子 $2\pi i\, l_a$ はモードの偏微分の係数から生じる。
 
   移流形式を対角だけに拘束して多線形性を課さないと、病的な設定で「すべての形式束に対する」Galerkin 常微分方程式が $w=0$ で偽になりうる。そこで標準形への具体的なピン留めでこれを避けるが、非退化性（$b\neq 0$）自体の目撃者定理は証明されていない。
 gap:
   level: mild
   note: |
-    自然言語の「移流形式は当然 $\int(u\cdot\nabla)v\cdot w$」を、Fourier 構造定数の有限和として具体化する。抽象公理では反対称性と三線形性だけだと $b=0$ で満たされて過大主張になるため、この具体化で標準形へ同定する。ただし非退化性（$b\neq 0$、すなわち $b=0$ の自明解の排除）自体を独立に証明した目撃者定理は本リポジトリに存在しない（issue #153 のスコープ注記）。
+    自然言語の「移流形式は当然 $\int(u\cdot\nabla)v\cdot w$」を、Fourier 構造定数の有限和として具体化する。抽象公理では反対称性と三線形性だけだと $b=0$ で満たされて過大主張になるため、この具体化で標準形へ同定する。ただし非退化性（$b\neq 0$、すなわち $b=0$ の自明解の排除）自体を独立に証明した目撃者定理は、現行 Lean API に含まれない。
+provenance: |
+  非自明性に関する形式化範囲は source issue #153 の監査で明確化された。
 chapter: limit-passage
 tags: [convection-form, galerkin, fourier-coefficient, non-degeneracy]
