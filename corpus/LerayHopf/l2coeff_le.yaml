@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.l2coeff_le
-tier: full
+tier: gloss
 statement_ja: |
-  $\ell^2$ 量のノルム上界：$\ell^2$ 量は $\lVert f \rVert$ 以下である。
-proof_ja: |
-  Parseval のノルム公式で二乗和を $\lVert f \rVert^2$ に書き換え、冪の計算で平方根を外す（実際には等号）。
+  $\ell^2$ 量のノルム上界：$\ell^2$ 量は $\lVert f \rVert$ 以下である（Parseval により実際には等号）。
 gap:
   level: none
-  note: |
-    実数冪 `rpow` と自然数冪の橋渡しだけの補題。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]

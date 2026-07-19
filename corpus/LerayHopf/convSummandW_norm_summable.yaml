@@ -12,5 +12,10 @@ gap:
   level: none
   note: |
     乗数がテスト側の周波数に付くことで「箱の中では有界」となり、$H^1$ 重みが不要になる — 部分積分形の要諦がこの証明に凝縮されている。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN 7c15710a）で
+  public → private に変更。部分積分形アプローチが中央因子の $H^1$ を要求しない理由（本
+  アプローチの要諦）を証明する評価であるため、昇格条項（数学的に重いもの）により
+  tier: full を維持（issue #107）。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

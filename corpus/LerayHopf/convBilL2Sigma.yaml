@@ -1,16 +1,16 @@
 name: LerayHopf.TorusConvectionExtension.convBilL2Sigma
-tier: full
+tier: gloss
 statement_ja: |
   部分積分形の双線形写像化：Galerkin テスト関数 $w$ を固定し、対応
 
   $$(u, v) \longmapsto \operatorname{val}(u, v, w)$$
 
-  を発散ゼロ空間上の実双線形写像として束ねる。
-proof_ja: |
-  加法性・斉次性の四つの補題（[[加法性 u|LerayHopf.TorusConvectionExtension.convValW_add_u]] ほか）から加法性と斉次性を得る。
+  を発散ゼロ空間上の実双線形写像として束ねる（連続化前の段階、[[連続双線形化|LerayHopf.TorusConvectionExtension.convBLTw]]の前段）。
 gap:
   level: none
-  note: |
-    連続化（[[連続双線形化|LerayHopf.TorusConvectionExtension.convBLTw]]）の前段。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [convection, determined-form, torus]
+tags: [private-helper, convection, determined-form, torus]

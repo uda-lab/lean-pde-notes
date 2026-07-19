@@ -1,16 +1,16 @@
 name: LerayHopf.TorusConvectionExtension.convSummandW
-tier: full
+tier: gloss
 statement_ja: |
   微分をテスト側へ移した移流被和項：成分対 $(i, a)$ と格子点対 $(k, l)$ に対する複素数
-
-  $$\hat u_a(k) \cdot 2\pi i\, (k + l)_a \cdot \hat v_i(l) \cdot \hat w_i(-(k+l)).$$
-
-  エネルギー章の被和項（乗数 $l_a$、微分が中央因子 $v$ に当たる）と比べ、乗数が $(k+l)_a = -m_a$（$m$ は $w$ の周波数）に変わっており、部分積分で微分をテスト因子 $w$ へ移した形に対応する。
-proof_ja: |
-  三つの Fourier 係数と移した乗数の積として直接定義する。
+  
+  $$\hat u_a(k) \cdot 2\pi i\, (k + l)_a \cdot \hat v_i(l) \cdot \hat w_i(-(k+l))$$
+  
+  として直接定義する（部分積分で微分をテスト因子 $w$ へ移した形）。
 gap:
   level: mild
-  note: |
-    部分積分の利点は総和可能性の仮定の軽さに現れる：この形は **$v$ の $H^1$ を要求せず**、$w$ の帯域制限だけで総和可能になる（[[ノルム総和可能性|LerayHopf.TorusConvectionExtension.convSummandW_norm_summable]]）。これが $(u, v)$ について $L^2 \times L^2$ 全体への連続拡張を可能にする。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [convection, determined-form, torus]
+tags: [private-helper, convection, determined-form, torus]

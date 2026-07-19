@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.convSummandW_summable
-tier: full
+tier: gloss
 statement_ja: |
-  部分積分形の被和項（複素数値）の総和可能性：同じ仮定のもとで絶対収束する。
-proof_ja: |
-  [[ノルム総和可能性|LerayHopf.TorusConvectionExtension.convSummandW_norm_summable]] からの帰結である。
+  部分積分形の被和項（複素数値）の総和可能性：[[ノルム総和可能性|LerayHopf.TorusConvectionExtension.convSummandW_norm_summable]]と同じ仮定のもとで絶対収束する。
 gap:
   level: none
-  note: |
-    `Summable.of_norm` の一行適用。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [convection, determined-form, torus]
+tags: [private-helper, convection, determined-form, torus]

@@ -8,5 +8,10 @@ gap:
   level: none
   note: |
     `@[simp]` 補題。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN 7c15710a）で
+  public → private に変更。public 定理 `convFormL2_cont_fixedTest` の証明で直接使われる
+  `convBLTw` の値展開規則であり、同型の sibling `convBLTgalerkin_apply`（public、tier: full）
+  と同じ扱いを保つため tier: full を維持（issue #107）。
 chapter: limit-passage
 tags: [convection, determined-form, torus]

@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.tsum_sq_shift
-tier: full
+tier: gloss
 statement_ja: |
   シフトした係数の二乗総和の不変性：反転シフトを通しても二乗総和の値は変わらない。
-proof_ja: |
-  全単射による総和の再添字化そのものである。
 gap:
   level: none
-  note: |
-    同上の準備。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [summability, convection, torus]
+tags: [private-helper, summability, convection, torus]

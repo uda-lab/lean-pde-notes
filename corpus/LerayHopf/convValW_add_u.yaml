@@ -1,12 +1,12 @@
 name: LerayHopf.TorusConvectionExtension.convValW_add_u
-tier: full
+tier: gloss
 statement_ja: |
   部分積分形の第一引数の加法性（$w$ は Galerkin テスト関数）。
-proof_ja: |
-  被和項の係数の加法性で項別に分配し、両方の族の総和可能性のもとで総和を分ける。
 gap:
   level: none
-  note: |
-    総和の分割（`Summable.tsum_add`）に $w$ の帯域制限由来の総和可能性が要る。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN
+  7c15710a）で public → private に変更（notes#106 で repin 反映）。2 層ポリシー
+  （public=full）に従い tier: full → gloss へ格下げ（issue #107）。
 chapter: limit-passage
-tags: [convection, determined-form, torus]
+tags: [private-helper, convection, determined-form, torus]

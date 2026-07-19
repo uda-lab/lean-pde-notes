@@ -10,5 +10,9 @@ gap:
   level: none
   note: |
     [[部分積分形の有界性|LerayHopf.TorusConvectionExtension.convValW_bound]] の定量的中核。
+provenance: |
+  leray-hopf issue #155 の docstring/private 境界 triage（PR #175/#181、PIN 7c15710a）で
+  public → private に変更。`convValW_bound`（同じく tier: full を維持）の定量的中核をなす
+  評価であり、昇格条項（数学的に重いもの）により tier: full を維持（issue #107）。
 chapter: limit-passage
 tags: [summability, convection, torus]
