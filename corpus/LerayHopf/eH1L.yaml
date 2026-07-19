@@ -1,7 +1,7 @@
 name: LerayHopf.R3.ConvectionExtension.eH1L
 tier: gloss
 statement_ja: |
-  [[再型付けした $H^1_\sigma$|LerayHopf.R3.ConvectionExtension.H1Sigma']]から発散ゼロ場の空間への稠密な包含を、連続線形写像として固定したもの。
+  [[再型付けした $H^1_\sigma$|LerayHopf.R3.ConvectionExtension.H1Sigma']]から発散ゼロ場の空間への包含を、連続線形写像として固定したもの。像の稠密性は別の[[稠密性定理|LerayHopf.R3.ConvectionExtension.denseRange_eH1L]]で述べる。
 gap:
   level: none
 chapter: limit-passage
