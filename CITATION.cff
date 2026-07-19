@@ -14,16 +14,10 @@ keywords:
   - "mathematical exposition"
   - "Navier-Stokes equations"
   - "Leray-Hopf weak solutions"
-# File-based split license, see LICENSE.md for the authoritative per-path scope:
-# Apache-2.0 covers the viewer code, scripts, tests and tooling; CC-BY-4.0 covers
-# the annotation/prose corpus (corpus/**/*.yaml prose fields). CFF 1.2 does not
-# support SPDX compound expressions (e.g. "Apache-2.0 AND CC-BY-4.0") as a single
-# `license` value; listing both SPDX identifiers here is the schema-valid way to
-# say "more than one license applies, see license-url for the file-based split".
-license:
-  - Apache-2.0
-  - CC-BY-4.0
-license-url: "https://github.com/uda-lab/leray-hopf-notes/blob/main/LICENSE.md"
+# This repository uses file-based split licensing; LICENSE.md is authoritative.
+# CFF 1.2 interprets multiple `license` values as alternatives (OR), so it cannot
+# faithfully encode the path-scoped Apache-2.0 / CC-BY-4.0 split. The root
+# `license` and `license-url` fields are therefore deliberately omitted.
 references:
   - type: software
     title: "leray-hopf"
