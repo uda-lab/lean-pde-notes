@@ -1,13 +1,13 @@
 name: LerayHopf.antisymmIntegral
 tier: gloss
 statement_ja: |
-  固定した Schwartz 発散ゼロテスト場 $w$（成分表示 $\psi_w$）に対して、微分をテスト側に載せた反対称形式を、有限個の $L^2$ 内積の和として定める。
+  各成分ごとに一つずつ固定した三つ組の Schwartz 関数 $\psi_w$ に対して、微分を $\psi_w$ 側に載せた反対称形式を、有限個の $L^2$ 内積の和として定める。
 
-  $$\Psi_w(f,g)=-\sum_{i,a}\bigl\langle f_a,\ (\partial_a\psi_{w,i})\cdot g_i\bigr\rangle_{L^2}.$$
+  $$\Psi_{\psi_w}(f,g)=-\sum_{i,a}\bigl\langle f_a,\ (\partial_a\psi_{w,i})\cdot g_i\bigr\rangle_{L^2}.$$
 gap:
   level: mild
   note: |
-    この段階では真の Lebesgue 積分ではなく、[[点ごとの有界乗算|LerayHopf.mulBddR]]を介した $L^2$ 内積の有限和として書かれている。両者が実際に等しいことは公開定理 `fb_eq_antisymmIntegral_schwartz` 側で示される。
+    この段階では真の Lebesgue 積分ではなく、[[点ごとの有界乗算|LerayHopf.mulBddR]]を介した $L^2$ 内積の有限和として書かれている。両者が実際に等しいことは公開定理 `fb_eq_antisymmIntegral_schwartz` 側で示される。定義そのものには発散ゼロ条件は課されていない（`ψw : Fin 3 → SchwartzMap` は任意の Schwartz 成分族でよい）。発散ゼロテスト場としての解釈は、呼び出し側の `fb_eq_antisymmIntegral_schwartz` で発散ゼロ条件が別途供給されたときに初めて生じる。
 provenance: |
   Wave 4 の private gloss 機械生成テンプレートから、issue #74 第5波（`ConvectionForm.lean` クラスタ）で手書き化。抽出元: `LerayHopf/R3/ConvectionForm.lean` の `LerayHopf.antisymmIntegral`。
 chapter: limit-passage
