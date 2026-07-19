@@ -1,7 +1,7 @@
 name: LerayHopf.R3.ConvectionExtension.convBLTspan_bound_spec
 tier: gloss
 statement_ja: |
-  [[Schwartz スパン上の有界性|LerayHopf.R3.ConvectionExtension.convFormH1_bound_span]]の定数と評価式を、存在の証明から選び出して束ねたもの。
+  [[Schwartz スパン上の有界性|LerayHopf.R3.ConvectionExtension.convFormH1_bound_span]]の非負定数と、その定数による評価式を、存在の証明から選び出して束ねたもの。
 gap:
   level: none
 chapter: limit-passage
