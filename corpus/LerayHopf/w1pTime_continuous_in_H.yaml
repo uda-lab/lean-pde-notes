@@ -11,7 +11,7 @@ proof_ja: |
 gap:
   level: large
   note: |
-    **検疫済み・訂正履歴（lean-pde issue #158）**: 本定理はかつて一般指数 `1 ≤ p, 1 ≤ q` で主張されており、その一般形は**偽**である — `p = q = 1` に対し重み付き $\ell^2$ 上の三角形スパイク列による明示的反例が存在する（$u$ と $u'$ が各々 $L^1$ でも双対対 $\langle u', u\rangle$ の可積分性は従わない）。2026-07-17 に唯一の証明計画が存在する $p=q=2$ へ制限され（lean-pde PR #162）、宣言は release surface 外の `Bochner/TimeSobolevExperimental.lean`（`import LerayHopf.Experimental` 経由でのみ到達可能、root import は sorry-free）へ隔離された。本注釈の旧版が「主張は本来の強さのまま保たれている」と誤った自信を再掲していた経緯は issue #158 の postmortem に記録されている。$V'$ 値版は [[V' 値の良い代表元|LerayHopf.Bochner.w1pTime_continuous_in_Vprime]] として**証明済み**。総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない。
+    **検疫済み・訂正履歴（leray-hopf issue #158）**: 本定理はかつて一般指数 `1 ≤ p, 1 ≤ q` で主張されており、その一般形は**偽**である — `p = q = 1` に対し重み付き $\ell^2$ 上の三角形スパイク列による明示的反例が存在する（$u$ と $u'$ が各々 $L^1$ でも双対対 $\langle u', u\rangle$ の可積分性は従わない）。2026-07-17 に唯一の証明計画が存在する $p=q=2$ へ制限され（leray-hopf PR #162）、宣言は release surface 外の `Bochner/TimeSobolevExperimental.lean`（`import LerayHopf.Experimental` 経由でのみ到達可能、root import は sorry-free）へ隔離された。本注釈の旧版が「主張は本来の強さのまま保たれている」と誤った自信を再掲していた経緯は issue #158 の postmortem に記録されている。$V'$ 値版は [[V' 値の良い代表元|LerayHopf.Bochner.w1pTime_continuous_in_Vprime]] として**証明済み**。総仕上げの定理群（[[トーラス存在定理|LerayHopf.exists_lerayHopf_torus3]] 等）の kernel-only 性はこの層に依存しない。
 chapter: bochner
 tags: [gelfand-triple, bochner, contains-sorry, quarantined-history]
 proof_status: contains-sorry
