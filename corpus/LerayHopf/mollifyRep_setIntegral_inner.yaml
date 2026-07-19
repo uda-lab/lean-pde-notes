@@ -1,7 +1,7 @@
 name: LerayHopf.mollifyRep_setIntegral_inner
 tier: gloss
 statement_ja: |
-  定数ベクトル $c$ と、[[軟化子による畳み込み代表元|LerayHopf.mollifyRep]]の有限測度集合 $s$ 上の積分との内積は、積分の順序を入れ替えた $$\int_s\left(\int\eta(h)\langle c,g(x+h)\rangle\,dh\right)dx$$ に等しい。
+  定数ベクトル $c$ と、[[軟化子による畳み込み代表元|LerayHopf.mollifyRep]]の有限測度の可測集合 $s$ 上の積分との内積は、積分の順序を入れ替えた $$\int_s\left(\int\eta(h)\langle c,g(x+h)\rangle\,dh\right)dx$$ に等しい。
 gap:
   level: none
 provenance: |

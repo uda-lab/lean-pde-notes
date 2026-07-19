@@ -1,7 +1,7 @@
 name: LerayHopf.convL2_setIntegral_inner
 tier: gloss
 statement_ja: |
-  定数ベクトル $c$ と、[[核重み付き平行移動の Bochner 積分|LerayHopf.convL2]]の有限測度集合 $s$ 上の積分との内積は、$$\int\eta(h)\left(\int_s\langle c,g(x+h)\rangle\,dx\right)dh$$ に等しい。
+  定数ベクトル $c$ と、[[核重み付き平行移動の Bochner 積分|LerayHopf.convL2]]の有限測度の可測集合 $s$ 上の積分との内積は、$$\int\eta(h)\left(\int_s\langle c,g(x+h)\rangle\,dx\right)dh$$ に等しい。
 gap:
   level: none
 provenance: |
