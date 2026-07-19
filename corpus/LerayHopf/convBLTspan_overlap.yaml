@@ -1,10 +1,10 @@
 name: LerayHopf.R3.ConvectionExtension.convBLTspan_overlap
 tier: gloss
 statement_ja: |
-  この補助項目は、全空間上の Galerkin 構成、Fourier 解析、コンパクト性、または極限移行を扱うための局所的な命題である。親となる公開定理の証明では、抽出された型が示す中間段階を切り出して再利用する役割を持つ。
+  任意の発散ゼロ場 $u$ と、Schwartz スパンの元 $s,s'$ に対し、[[スパン双線形拡張|LerayHopf.R3.ConvectionExtension.convBLTspan]]は二つのスパン引数を入れ替えて評価すると符号が反転する。$H^1_\sigma$ 上で成り立つ[[移流形式の反対称性|LerayHopf.convFormH1_antisymm]]を、連続性により稠密な部分空間から発散ゼロ場の空間全体へ拡張したもの。二つの縁の値が重なりの上で一致することを保証する要である。
 gap:
   level: mild
   note: |
-    Wave 4 の private gloss として追加。抽出元は `LerayHopf/R3/ConvectionExtension.lean` の `LerayHopf.R3.ConvectionExtension.convBLTspan_overlap`。必要に応じて、親となる公開定理の証明を精読する段階で full へ格上げする。
+    形式化では、両辺が $u$ について連続であることを示し、稠密な $H^1_\sigma$ の像の上で反対称性から一致することを確かめ、連続関数の稠密集合上の一致定理で全体へ延ばす。
 chapter: limit-passage
-tags: [private-helper, generated]
+tags: [convection, bridge, determined-form, overlap, private-helper]
