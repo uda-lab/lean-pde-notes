@@ -1,7 +1,7 @@
 name: LerayHopf.R3.ConvectionExtension.norm_eq_vfOf
 tier: gloss
 statement_ja: |
-  [[再型付けした $H^1_\sigma$|LerayHopf.R3.ConvectionExtension.H1Sigma']]上のノルムは、[[取り出したベクトル場|LerayHopf.R3.ConvectionExtension.vfOf]]のノルムに一致する。
+  [[再型付けした $H^1_\sigma$|LerayHopf.R3.ConvectionExtension.H1Sigma']]上のノルムは、[[取り出したベクトル場|LerayHopf.R3.ConvectionExtension.vfOf]]のノルム（$L^2$ ノルム）に一致する。H1Sigma' は H¹ 元の空間として定義されるが、型として保持するノルムは L2Sigma_R3 から継承した L² ノルムであり、独立な H¹ ノルムではない。
 gap:
   level: none
 chapter: limit-passage

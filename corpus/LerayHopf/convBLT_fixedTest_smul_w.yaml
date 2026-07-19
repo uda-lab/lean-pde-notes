@@ -1,7 +1,7 @@
 name: LerayHopf.R3.ConvectionExtension.convBLT_fixedTest_smul_w
 tier: gloss
 statement_ja: |
-  [[固定テスト双線形形式|LerayHopf.R3.ConvectionExtension.convBLT_fixedTest]]は、固定するテスト場についてスカラー倍と可換である。同じ稠密一致の議論と、移流形式の第三スロットの斉次性による。
+  [[固定テスト双線形形式|LerayHopf.R3.ConvectionExtension.convBLT_fixedTest]]は、固定するテスト場についてスカラー倍と可換である。稠密な $H^1_\sigma$ 上での値の一致と、移流形式の第三スロットの斉次性から従う。
 gap:
   level: mild
 chapter: limit-passage

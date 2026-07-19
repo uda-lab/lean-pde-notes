@@ -1,7 +1,7 @@
 name: LerayHopf.R3.ConvectionExtension.convBLTspan_eH1_span
 tier: gloss
 statement_ja: |
-  [[スパン双線形拡張|LerayHopf.R3.ConvectionExtension.convBLTspan]]を、$H^1_\sigma$（再型付け）の元と Schwartz スパンの別の元の組で評価すると、真の[[エネルギー類の移流形式|LerayHopf.convFormH1]]の値に一致する。
+  [[スパン双線形拡張|LerayHopf.R3.ConvectionExtension.convBLTspan]]を、$H^1_\sigma$（再型付け）の元と Schwartz スパンの元 $s'$ の組で評価すると（$s'$ は元の $s$ と独立に取れる）、真の[[エネルギー類の移流形式|LerayHopf.convFormH1]]の値に一致する。
 gap:
   level: none
 chapter: limit-passage
