@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this annotated viewer or corpus, please cite it as below."
+message: "If you use this annotated viewer or corpus, please cite it as below. See LICENSE.md for this repository's split Apache-2.0 / CC BY 4.0 license terms."
 title: "leray-hopf-notes"
 type: dataset
 authors:
