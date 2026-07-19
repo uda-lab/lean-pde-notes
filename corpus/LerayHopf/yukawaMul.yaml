@@ -1,7 +1,7 @@
 name: LerayHopf.yukawaMul
 tier: gloss
 statement_ja: |
-  正則化スケール $a$ に対する湯川型の乗数 $\xi\mapsto(a^2+\lVert\xi\rVert^2)^{-1}$ を定める。原点における特異性 $\lVert\xi\rVert^{-2}$ を、分母に $a^2$ を加えることで取り除いた滑らかな乗数である。
+  正則化スケール $a$ に対する湯川型の乗数 $\xi\mapsto(a^2+\lVert\xi\rVert^2)^{-1}$ を定める。$a\neq0$ のときは、原点における特異性 $\lVert\xi\rVert^{-2}$ を分母に $a^2$ を加えることで取り除いた滑らかな乗数になる。
 gap:
   level: none
 chapter: projections-galerkin

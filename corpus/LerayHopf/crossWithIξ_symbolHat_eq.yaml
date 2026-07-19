@@ -3,7 +3,7 @@ tier: gloss
 statement_ja: |
   $\widehat w$ が横断的であるとき、渦度の外積記号を[[正則化ポテンシャル記号|LerayHopf.symbolHatOf]]に作用させた値が次の式に等しいことを述べる。正則化された渦度が真の目標値 $\widehat w_j$ にどれだけ近いかを表す、この構成の中心的な等式である。
 
-  $$(\xi\times\widehat\psi)_j(\xi)=\frac{\lVert\xi\rVert^2}{a^2+\lVert\xi\rVert^2}\,\widehat w_j(\xi)$$
+  $$2\pi i\,\bigl(\xi\times\widehat\psi(\xi)\bigr)_j=\frac{\lVert\xi\rVert^2}{a^2+\lVert\xi\rVert^2}\,\widehat w_j(\xi)$$
 gap:
   level: none
 chapter: projections-galerkin
