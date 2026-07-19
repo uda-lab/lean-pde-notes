@@ -9,6 +9,6 @@ gap:
   note: |
     弱微分の実現は Schwartz 側の部分積分恒等式による。
 provenance: |
-  lean-pde PR #124 で公開された component-witness 形（旧 private コピー群の一本化先）。
+  lean-pde PR #124 で公開された、成分ごとの Schwartz 表示を明示的に渡す形（旧 private コピー群の一本化先）。
 chapter: compactness
 tags: [sobolev, schwartz, r3]

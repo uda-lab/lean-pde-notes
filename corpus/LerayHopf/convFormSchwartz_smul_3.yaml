@@ -7,7 +7,7 @@ statement_ja: |
 proof_ja: |
   スカラー倍 $c\,w$ の成分表示として、$w$ の成分表示の $c$ 倍をとる。成分射影と $L^2$ 類への写像の斉次性からこれが正しい表示になる。
 
-  二つの汎関数を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で移流積分に書き換え、移流積分の第三引数についての斉次性を適用して閉じる。
+  二つの汎関数を[[Schwartz 表示一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で移流積分に書き換え、移流積分の第三引数についての斉次性を適用して閉じる。
 gap:
   level: none
 chapter: limit-passage

@@ -7,7 +7,7 @@ statement_ja: |
 
   が成り立つ。これは作用素レベルの三線形評価である。
 proof_ja: |
-  値を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で選んだ表示に対する移流積分に書き換え、$u$ の[[発散ゼロ条件の成分表示|LerayHopf.schwartzDivFree_of_L2Sigma]]のもとで、移流積分の発散ゼロ上限評価を適用する。
+  値を[[Schwartz 表示一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で選んだ表示に対する移流積分に書き換え、$u$ の[[発散ゼロ条件の成分表示|LerayHopf.schwartzDivFree_of_L2Sigma]]のもとで、移流積分の発散ゼロ上限評価を適用する。
 
   この評価は、各成分の $L^2$ ノルムの和で $u,v$ を抑える形をしている。各成分射影の作用素ノルムでベクトル場の全体ノルムに戻し、定数は $w$ の成分表示の一階微分の上限ノルムから決まる。三成分ぶんの因子 $3$ が二乗で入る。
 gap:

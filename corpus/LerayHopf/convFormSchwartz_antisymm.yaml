@@ -5,7 +5,7 @@ statement_ja: |
 
   $$b(u,v,w)=-\,b(u,w,v).$$
 proof_ja: |
-  両辺を[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で選んだ Schwartz 表示に対する移流積分に書き換える。
+  両辺を[[Schwartz 表示一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で選んだ Schwartz 表示に対する移流積分に書き換える。
 
   移流積分の発散ゼロ下での反対称性を適用する。その仮説である Schwartz レベルの弱発散ゼロ条件は、$u\in L^2_\sigma(\mathbb{R}^3)$ から[[発散ゼロ条件の成分表示|LerayHopf.schwartzDivFree_of_L2Sigma]]によって供給される。
 gap:

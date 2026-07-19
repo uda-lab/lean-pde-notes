@@ -7,6 +7,6 @@ statement_ja: |
 gap:
   level: mild
   note: |
-    形式化では場ごとに「ある」Schwartz 表示を選択函数で取り出し、その表示に対する移流積分を値とする。選択の非依存性は[[well-definedness|LerayHopf.convFormSchwartz_witness_wd]]で保証され、利用側は[[witness 一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で任意の明示的表示に置き換えられる。
+    形式化では場ごとに「ある」Schwartz 表示を選択函数で取り出し、その表示に対する移流積分を値とする。選択の非依存性は[[well-definedness|LerayHopf.convFormSchwartz_witness_wd]]で保証され、利用側は[[Schwartz 表示一致計算則|LerayHopf.convFormSchwartz_eq_witness]]で任意の明示的表示に置き換えられる。
 chapter: limit-passage
 tags: [convection-form, schwartz, div-free]
