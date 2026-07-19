@@ -1,7 +1,7 @@
 name: LerayHopf.R3.ConvectionExtension.innerLin_bound
 tier: gloss
 statement_ja: |
-  発散ゼロ場の空間のレベルで与えられた移流形式の有界性の仮定を、[[内側の線形汎関数|LerayHopf.R3.ConvectionExtension.innerLin]]の H1Sigma'（L² ノルムを継承する再型付け）上での有界性へ移送する補題。拡張定理へ渡す入力の形を整える。
+  発散ゼロ場の空間のレベルで与えられた移流形式の有界性の仮定を、[[内側の線形汎関数|LerayHopf.R3.ConvectionExtension.innerLin]]の $H^1_\sigma$（再型付け、$L^2_\sigma$ から継承した $L^2$ ノルムを保持）上での有界性へ移送する補題。拡張定理へ渡す入力の形を整える。
 gap:
   level: mild
 chapter: limit-passage

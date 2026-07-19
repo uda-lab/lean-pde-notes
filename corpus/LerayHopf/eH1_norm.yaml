@@ -1,7 +1,7 @@
 name: LerayHopf.R3.ConvectionExtension.eH1_norm
 tier: gloss
 statement_ja: |
-  [[包含写像|LerayHopf.R3.ConvectionExtension.eH1]]はノルムを保つ（H1Sigma' が継承するのは通常の H¹ ノルムではなく、L2Sigma_R3 から継承した L² ノルムであり、この主張は部分加群の包含として自明に成り立つ）。
+  [[包含写像|LerayHopf.R3.ConvectionExtension.eH1]]はノルムを保つ（再型付けした $H^1_\sigma$ が保持するのは $L^2_\sigma$ から継承した $L^2$ ノルムであり、独立な $H^1$ ノルムではない。この主張は部分加群の包含として自明に成り立つ）。
 gap:
   level: none
 chapter: limit-passage
