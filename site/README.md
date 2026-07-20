@@ -21,8 +21,9 @@ site/
     
 **Note:** `site/data/*.json` files are generated artifacts, not source-reviewed files.
 They are produced locally via `build_site_data.py` and in CI via `.github/workflows/ci.yml`.
-During Phase A (pre-publication), generated JSON is uploaded as workflow artifacts for inspection
-but not deployed to Pages. Phase B will enable public Pages deployment after the public-readiness gate.
+CI builds a source-enabled payload (leray-hopf checked out at `extracted/PIN`) on every
+pull request and every push to `main`, and deploys it to GitHub Pages on push to `main`
+(notes#32 Phase B).
 ```
 
 ## License scope
@@ -59,33 +60,52 @@ cd site && python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
-### CI build workflow (Phase A)
+### CI build workflow (Phase B: public deployment)
 
-`.github/workflows/ci.yml` runs on every push and PR, as three jobs (the last one
-gated on the first two passing, via `needs:`, rather than re-running their checks):
+`.github/workflows/ci.yml` runs on every pull request and every push to `main` (the only
+branch `push:` is scoped to), as four jobs (`build-artifact` is
+gated on the first two passing, via `needs:`, rather than re-running their checks;
+`deploy-pages` is gated on `build-artifact`):
 
-1. `validate` — corpus/glossary/prose lint, coverage report, and a structure-only
-   `scripts/build_site_data.py` run
+1. `validate` — corpus/glossary/prose lint, coverage report, a structure-only
+   `scripts/build_site_data.py` run, and the `scripts/verify_source_provenance.py`
+   regression tests
 2. `render-tests` — `npm test` (jsdom render harness)
-3. `build-artifact` — builds site data **without `--lean-root`** (leray-hopf is private
-   during Phase A), generates a size report with `scripts/site_data_size_report.py`,
-   and uploads the entire `site/` directory as a workflow artifact
+3. `build-artifact` — reads `extracted/PIN`, checks out `uda-lab/leray-hopf` at that
+   exact commit (public repo, unauthenticated), builds site data **with**
+   `--lean-root` (source-enabled), runs `scripts/verify_source_provenance.py` as a
+   fail-closed gate (see below), generates a size report, and uploads the entire
+   `site/` directory as a workflow artifact (every push and PR — for inspection) plus
+   a `github-pages` deployment artifact (push to `main` or `workflow_dispatch` on
+   `main` only)
+4. `deploy-pages` — `needs: [build-artifact]`, gated to `main`; deploys the
+   `github-pages` artifact via `actions/deploy-pages`
 
-The workflow does **not** deploy to Pages during Phase A. Generated JSON remains
-uncommitted and is available only as workflow artifacts for pre-publication inspection.
+PR runs build and validate the source-enabled payload but never deploy it — only a
+push (or manual `workflow_dispatch`) on `main` reaches `deploy-pages`.
 
-**Current limitation:** Phase A CI produces only source-less artifacts (`has_source:false`,
-empty `sources.json`). Before enabling Phase B public deployment, a source-enabled build
-(`--lean-root` with leray-hopf at `extracted/PIN`) must be inspected locally to verify:
-- No private paths, agent notes, or internal-only content in generated JSON
-- Source extraction correctness for every declaration (current count: see `extracted/decls.json`,
-  e.g. `jq length extracted/decls.json` or `scripts/coverage.py`)
-- Size report within budget when source bodies are included
+**Fail-closed provenance gate (notes#32).** `scripts/verify_source_provenance.py`
+independently re-derives, rather than trusts, the following before any deployment can
+proceed:
+- the leray-hopf checkout's `git rev-parse HEAD` equals `extracted/PIN`, verified via
+  `git` plumbing against the checkout itself, not the `ref:` string used to request it
+- the checkout is clean (`git status --porcelain` empty) and HEAD is detached (not
+  tracking a movable branch)
+- `nodes.json`'s `source_count` equals `decl_count` (every declaration got embedded
+  source; zero extraction misses)
+- `nodes.json`'s `pin` field equals `sources.json`'s `pin` field
 
-**Phase B** (after public-readiness gate and source-enabled inspection):
-- Add leray-hopf checkout at `extracted/PIN` in the workflow
-- Pass `--lean-root` to `build_site_data.py` for source-enabled builds
-- Enable Pages deployment step
+Any violation exits non-zero and fails the `build-artifact` job, which blocks
+`deploy-pages` via `needs:`. Run it locally as
+`python3 scripts/verify_source_provenance.py --lean-root <path>`; see the script's
+module docstring for the full rationale and `test/verify_source_provenance.test.py`
+for the regression coverage.
+
+**GitHub Pages must be enabled by an admin.** Repository visibility and Pages source
+configuration ("Settings → Pages → Source: GitHub Actions") are owner/admin actions
+outside this workflow's scope (notes#32 non-goals). Until Pages is enabled this way,
+the `deploy-pages` job fails at the `actions/deploy-pages` step; `build-artifact` and
+the rest of CI are unaffected.
 
 ### Source-enabled builds
 

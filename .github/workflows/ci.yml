@@ -70,6 +70,9 @@ jobs:
       - name: Site data size report CLI regression tests
         run: python3 test/site_data_size_report.test.py
 
+      - name: Source provenance gate regression tests (notes#32)
+        run: python3 test/verify_source_provenance.test.py
+
   render-tests:
     name: Site render harness (jsdom)
     runs-on: ubuntu-latest
@@ -101,19 +104,45 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Check for leray-hopf checkout
-        id: check-leray-hopf
+      - name: Read extracted/PIN
+        # Phase B: leray-hopf is public now, so the source-enabled build checks out the
+        # exact commit notes#32 requires — never a branch, and never a value handed in
+        # by any other step. Reading PIN fresh from the just-checked-out notes tree here
+        # (rather than trusting an input/env var) is itself part of not "merely trusting"
+        # the eventual --lean-root: the checkout step below is pinned to this value, and
+        # scripts/verify_source_provenance.py re-derives the same file independently.
+        id: read-pin
         run: |
-          # Phase A: leray-hopf is private, so we build without source for now.
-          # Phase B will add leray-hopf checkout at extracted/PIN.
-          echo "lean_available=false" >> "$GITHUB_OUTPUT"
-          echo "::notice::Building without leray-hopf source (Phase A: pre-publication mode)"
+          pin="$(cat extracted/PIN)"
+          if ! [[ "$pin" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::extracted/PIN is not a 40-character lowercase-hex commit SHA: '$pin'"
+            exit 1
+          fi
+          echo "pin=$pin" >> "$GITHUB_OUTPUT"
 
-      - name: Build site data
+      - name: Checkout leray-hopf at PIN
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          repository: uda-lab/leray-hopf
+          ref: ${{ steps.read-pin.outputs.pin }}
+          # Public repo; leave token blank so checkout falls back to an unauthenticated
+          # clone instead of trying (and failing) to use this workflow's repo-scoped token.
+          token: ''
+          path: leray-hopf
+
+      - name: Build site data (source-enabled)
         run: |
-          # Build without --lean-root for Phase A
-          # This generates nodes.json and sources.json without embedded source bodies
-          python3 scripts/build_site_data.py
+          # Phase B: source-enabled build, embedding verbatim declaration text from the
+          # leray-hopf checkout above.
+          python3 scripts/build_site_data.py --lean-root leray-hopf
+
+      - name: Verify source provenance (notes#32 fail-closed gate)
+        # Independently re-checks the leray-hopf checkout against extracted/PIN via git
+        # plumbing (not the ref string used to request the checkout), confirms the
+        # checkout is clean and detached, and cross-checks the build outputs — hard-fails
+        # the job (and therefore blocks deployment) if any of the notes#32 audit-mandated
+        # provenance checks do not hold. See scripts/verify_source_provenance.py.
+        run: python3 scripts/verify_source_provenance.py --lean-root leray-hopf
 
       - name: Generate size report
         # notes#29: hard failure ceiling (20 MiB raw / 6 MiB gzip) is a backstop against a
@@ -134,7 +163,9 @@ jobs:
 
       - name: Upload site artifact
         # Upload even if the size report failed (but not if the job was cancelled), so a
-        # hard-ceiling breach is inspectable.
+        # hard-ceiling breach is inspectable. Runs on every PR and push (not just main),
+        # so PR-time source-enabled builds stay inspectable even though only a push to
+        # main goes on to actually deploy.
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -144,5 +175,38 @@ jobs:
             !site/data/.gitkeep
           retention-days: 30
 
-      # Phase B will add Pages deployment here when ready for public launch
-      # For now, only workflow artifacts are generated for inspection
+      - name: Upload GitHub Pages artifact
+        # Deployment itself (deploy-pages job below) is gated to push-to-main; this
+        # upload step is gated the same way so PR runs don't spend storage on an
+        # artifact that will never be deployed.
+        if: ${{ !cancelled() && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site/
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    # notes#32: source-enabled build + fail-closed provenance checks (build-artifact job)
+    # must pass before anything is deployed. Deployment itself only ever runs on main
+    # (an automatic push, or a manual workflow_dispatch re-run of main) — never for
+    # pull_request or a workflow_dispatch on another ref — so a PR-time source-enabled
+    # build is validated, not published.
+    #
+    # This step requires GitHub Pages to be enabled in repository Settings with source
+    # "GitHub Actions" — that is an owner/admin action outside this workflow's scope
+    # (notes#32 non-goals: "Do not make repository visibility changes implicitly from
+    # this issue"). Until that is done, this job fails at the deploy-pages action with a
+    # "Pages site failed" / "not configured" error; the rest of CI is unaffected.
+    needs: [build-artifact]
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
